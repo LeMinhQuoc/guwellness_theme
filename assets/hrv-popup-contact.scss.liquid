@@ -1,0 +1,253 @@
+/* - Modal popup contact form */
+.modal-popupContact {
+	color: #333;
+	background: rgba(3, 17, 27, 0.7);
+	-webkit-transition: opacity 0.35s linear;
+	-o-transition: opacity 0.35s linear;
+	transition: opacity 0.35s linear;
+}
+.modal-popupContact .close-popup-contact {
+	background-color: rgba(0, 0, 0, 0.3);
+	height: 30px;
+	width: 30px;
+	line-height: 30px;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	z-index: 2;
+	border-radius: 50%;
+	opacity: 1;
+	text-align: center;
+	outline: none;
+}
+.modal-popupContact .close-popup-contact svg {
+	display: block;
+	margin: auto;
+	height: 30px;
+	width: 14px;
+	text-align: center;
+	fill: #f3f3f3
+}
+.modal-popupContact .close-popup-contact:hover {
+	background-color: rgba(0, 0, 0, 0.6);
+}
+.modal-popupContact.fade .modal-dialog {
+	-webkit-transform: translate(0, 0);
+	-ms-transform: translate(0, 0);
+	-o-transform: translate(0, 0);
+	transform: translate(0, 0);
+}
+.modal-popupContact.fade .modal-dialog-centered {
+	opacity: 0;
+	-webkit-transform: scale(0.8);
+	-moz-transform: scale(0.8);
+	-ms-transform: scale(0.8);
+	transform: scale(0.8);
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	-ms-transition: all 0.2s;
+	transition: all 0.2s;
+}
+.modal-popupContact.fade.show .modal-dialog-centered {
+	opacity: 1;
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);
+}
+.modal-popupContact.popupBanner .modal-content {
+	background-color: transparent;
+	width: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+.modal-popupContact.popupForm .modal-content {
+	position: relative;
+	overflow: hidden;
+	padding: 0;
+	display: unset;
+	width: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-color: #e6e6e6;
+}
+.modal-popupContact.popupForm .modal-content.lazyloaded {
+	background-image: url('{{'popup_contact_bkg.jpg'|asset_url}}');
+}
+.modal-popupContact.popupForm .modal-content:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	background: #f3f3f3;
+	opacity: 0.75;
+	width: 58%;
+}
+.modal-popupContact.popupForm .modal-content .modal-wrapper-contact {
+	position: relative;
+	padding: 50px 25px;
+	float: right;
+	width: 58%;
+}
+.modal-popupContact.popupPromotion {
+	.modal-content {
+		overflow: hidden;
+	}
+	.modal-body {
+		padding: 0;
+	}
+	.popup-discount {
+		padding: 30px 40px;
+	}
+	.desc-popup-discount {
+		font-size: 16px;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+	.title-popup-discount {
+		font-size: 26px;
+		margin-bottom: 10px;
+		text-align: center;
+	}
+	.code-popup-discount {
+		display: flex;
+		justify-content: center;
+	}
+	.code-popup-discount input {
+		width: 50%;
+		height: 45px;
+		text-align: center;
+		text-transform: uppercase;
+		letter-spacing: 5px;
+		font-size: 20px;
+		font-weight: 600;
+		padding: 10px 0;
+		line-height: 1.6;
+		background-color: #f3f3f3;
+		color: #000;
+		border-style: dashed;
+		border-color: #c5c5c5;
+		border-width: 2px;
+		border-radius: 5px;
+		&:focus {
+			outline: none;
+		}
+	}
+	.code-popup-discount button {
+		height: 45px;
+		min-width: 155px;
+		padding: 10px 32px;
+		margin-left: 20px;
+		border: 0;
+		border-radius: 4px;
+		background-color: #ff0000;
+		color: #fff;
+	}
+	.code-popup-discount button:focus {
+		outline: none;
+	}
+	.code-popup-discount button.disabled {
+		pointer-events: none;
+		opacity: 0.95;
+	}
+}
+
+.title-popup-contact {
+	font-size: 24px;
+	margin: 0 0 10px;
+	font-weight: 500;
+}
+.message-popup-contact {
+	margin-bottom: 25px;
+}
+.title-adv-popup-contact {
+	font-size: 14px;
+	margin-bottom: 5px;
+}
+.list-adv-popup-contact li {
+	list-style-type: disc;
+	margin-left: 25px;
+	font-size: 14px;
+}
+.popup-form-customer .input-group {
+	width: 100%;
+	display: block;
+	margin-bottom: 0;
+}
+.popup-form-customer .input-group input {
+	width: 100%;
+	margin-bottom: 15px;
+	font-size: 14px;
+	height: 45px;
+	padding: 10px 20px;
+	line-height: 25px;
+	background: #fff;
+	border: 1px solid #e7e7e7;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+}
+.popup-form-customer button.input-group-addon {
+	width: 100%;
+	margin-bottom: 15px;
+	border-radius: 4px;
+	height: 45px;
+	padding: 10px 20px;
+	line-height: 25px;
+}
+.popup-form-customer .input-group .input-group-addon {
+	font-weight: 700;
+	color: #fff;
+	cursor: pointer;
+	border-color: var(--shop-color-main);
+}
+.popup-form-customer .input-group .input-group-addon:hover,
+.popup-form-customer .input-group .input-group-addon:focus {
+	background-color: #fff;
+	border-color: var(--shop-color-main);
+	color: var(--shop-color-main);
+}
+.popup-form-customer .succes-popup {
+	font-size: 13px;
+	min-height: 25px;
+	visibility: hidden;
+	margin: 0;
+	text-align: center;
+}
+.popup-form-customer .succes-popup.error {
+	visibility: visible;
+	color: red;
+}
+.popup-form-customer .succes-popup.success {
+	visibility: visible;
+	color: #27a208;
+}
+@media (min-width: 768px) {
+	.modal-popupContact .modal-dialog-centered {
+		max-width: 650px;
+	}
+}
+@media (max-width: 767px) {
+	.modal-popupContact.popupForm .modal-content:before,
+	.modal-popupContact.popupForm .modal-content .modal-wrapper-contact {
+		width: 100%;
+	}
+	.modal-popupContact.popupPromotion {
+		.popup-discount {
+			padding: 20px 15px;
+		}
+		.code-popup-discount {
+			flex-wrap: wrap;
+		}
+		.code-popup-discount input {
+			width: 100%;
+		}
+		.code-popup-discount button {
+			width: 100%;
+			margin: 15px 0 0;
+		}
+	}
+}
+
+

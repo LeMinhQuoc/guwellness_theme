@@ -1,0 +1,86 @@
+{%- assign cart_total_value = cart.total_price | divided_by: 100 -%}
+{%- assign reward_last_value = 0 -%}
+{%- assign reward_next_value = 0 -%}
+{%- assign reward_next_title = '' -%}
+{%- for reward_index in (1..4) -%}
+	{%- capture reward_enable_key -%}cart_page_reward_step_{{ reward_index }}_enable{%- endcapture -%}
+	{%- capture reward_title_key -%}cart_page_reward_step_{{ reward_index }}_title{%- endcapture -%}
+	{%- capture reward_value_key -%}cart_page_reward_step_{{ reward_index }}_value{%- endcapture -%}
+	{%- assign reward_step_enable = settings[reward_enable_key] -%}
+	{%- assign reward_step_title = settings[reward_title_key] -%}
+	{%- assign reward_step_value = settings[reward_value_key] | times: 1 -%}
+	{%- assign reward_step_visible = false -%}
+	{%- if reward_index == 1 or reward_step_enable -%}
+		{%- assign reward_step_visible = true -%}
+	{%- endif -%}
+	{%- if reward_step_visible -%}
+		{%- if reward_step_value > reward_last_value -%}
+			{%- assign reward_last_value = reward_step_value -%}
+		{%- endif -%}
+		{%- if reward_next_value == 0 and reward_step_value > cart_total_value -%}
+			{%- assign reward_next_value = reward_step_value -%}
+			{%- assign reward_next_title = reward_step_title -%}
+		{%- endif -%}
+	{%- endif -%}
+{%- endfor -%}
+
+{%- assign reward_progress = 0 -%}
+{%- if reward_last_value > 0 -%}
+	{%- assign reward_progress = cart_total_value | times: 100 | divided_by: reward_last_value -%}
+	{%- if reward_progress > 100 -%}
+		{%- assign reward_progress = 100 -%}
+	{%- endif -%}
+{%- endif -%}
+
+<div class="cart-page-reward-slot">
+	{%- if settings.cart_page_reward_show and reward_last_value > 0 -%}
+	{%- assign reward_remaining_money = '' -%}
+	{%- if reward_next_value > 0 -%}
+		{%- capture reward_remaining_money -%}{{ reward_next_value | minus: cart_total_value | times: 100 | money }}{%- endcapture -%}
+		{%- assign reward_message = settings.cart_page_reward_pending_text | replace: '[amount]', reward_remaining_money | replace: '[reward]', reward_next_title -%}
+	{%- else -%}
+		{%- assign reward_message = settings.cart_page_reward_success_text -%}
+	{%- endif -%}
+	{%- assign reward_button_text = settings.cart_page_reward_button_text | replace: '[amount]', reward_remaining_money | replace: '[reward]', reward_next_title -%}
+	{%- assign reward_button_mobile_text = settings.cart_page_reward_button_text | replace: '[reward]', '' | replace: '[amount]', reward_remaining_money | strip -%}
+	<div class="cart-page-reward" data-progress="{{ reward_progress }}">
+		<div class="cart-page-reward-header">
+			<p class="cart-page-reward-message">{{ reward_message | newline_to_br }}</p>
+			<a class="cart-page-reward-link" href="{{ settings.cart_page_reward_button_link }}">
+				<span class="cart-page-reward-button-desktop">{{ reward_button_text }}</span>
+				<span class="cart-page-reward-button-mobile">{{ reward_button_mobile_text }}</span>
+			</a>
+		</div>
+		<div class="cart-page-reward-body">
+			<div class="cart-page-reward-track" aria-hidden="true">
+				<span class="cart-page-reward-progress"></span>
+			</div>
+			<div class="cart-page-reward-steps">
+				{%- for reward_index in (1..4) -%}
+				{%- capture reward_enable_key -%}cart_page_reward_step_{{ reward_index }}_enable{%- endcapture -%}
+				{%- capture reward_title_key -%}cart_page_reward_step_{{ reward_index }}_title{%- endcapture -%}
+				{%- capture reward_description_key -%}cart_page_reward_step_{{ reward_index }}_description{%- endcapture -%}
+				{%- capture reward_value_key -%}cart_page_reward_step_{{ reward_index }}_value{%- endcapture -%}
+				{%- assign reward_step_enable = settings[reward_enable_key] -%}
+				{%- assign reward_step_title = settings[reward_title_key] -%}
+				{%- assign reward_step_description = settings[reward_description_key] -%}
+				{%- assign reward_step_value = settings[reward_value_key] | times: 1 -%}
+				{%- if reward_index == 1 or reward_step_enable -%}
+				<div class="cart-page-reward-step{% if cart_total_value >= reward_step_value %} is-active{% endif %}">
+					<span class="cart-page-reward-icon">
+						{%- if reward_index == 1 -%}
+						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 6.5H14L13.3 15H4.7L4 6.5Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M6.5 7V5.5C6.5 4.11929 7.61929 3 9 3C10.3807 3 11.5 4.11929 11.5 5.5V7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+						{%- else -%}
+						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 8H15V15H3V8Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M9 8V15M2.5 5.5H15.5V8H2.5V5.5Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M9 5.5H6.75C5.7835 5.5 5 4.7165 5 3.75C5 2.7835 5.7835 2 6.75 2C8.5 2 9 5.5 9 5.5ZM9 5.5H11.25C12.2165 5.5 13 4.7165 13 3.75C13 2.7835 12.2165 2 11.25 2C9.5 2 9 5.5 9 5.5Z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+						{%- endif -%}
+					</span>
+					<strong>{{ reward_step_title }}</strong>
+					<small>{{ reward_step_description | newline_to_br }}</small>
+				</div>
+				{%- endif -%}
+				{%- endfor -%}
+			</div>
+		</div>
+	</div>
+	{%- endif -%}
+</div>

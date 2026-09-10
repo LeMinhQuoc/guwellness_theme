@@ -1,0 +1,7 @@
+<div class="cart-page-empty">
+	{%- if settings.cart_page_empty_image_show and settings.cart_page_empty_image != blank -%}
+	<img src="{{ settings.cart_page_empty_image }}" alt="Giỏ hàng của bạn đang trống" />
+	{%- endif -%}
+	<p>Chưa có sản phẩm trong giỏ hàng.</p>
+	<a href="/collections/all">Tiếp tục mua sắm</a>
+</div>

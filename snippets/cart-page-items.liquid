@@ -1,0 +1,67 @@
+<div class="cart-page-items">
+	{%- for item in cart.items -%}
+	{%- assign cart_item_editable = true -%}
+	{%- if settings.promotion_hrvapp_use -%}
+		{%- if item.price == 0 or item.properties.BuyXGetY != nil or item.properties.Combo != nil -%}
+			{%- assign cart_item_editable = false -%}
+		{%- endif -%}
+	{%- endif -%}
+	<article class="cart-page-item hrv-mini-cart__item" data-line="{{ forloop.index }}" data-variant-id="{{ item.variant_id }}" data-product-id="{{ item.product_id }}">
+		<a class="cart-page-item-image" href="{{ item.url }}" aria-label="{{ item.title | escape }}">
+			<img src="{% if item.variant.image == empty %}{{ item | img_url: 'medium' }}{% else %}{{ item.variant.image | product_img_url: 'medium' }}{% endif %}" alt="{{ item.title | escape }}" />
+			{%- if settings.promotion_hrvapp_use and item.properties.BuyXGetY != nil -%}
+			<span class="cart-page-item-gift"><img src="{{ settings.combo_icon }}" alt="Quà tặng" /></span>
+			{%- endif -%}
+		</a>
+
+		<div class="cart-page-item-content">
+			<h2 class="cart-page-item-title"><a href="{{ item.url }}">{{ item.product.title }}</a></h2>
+			<div class="cart-page-item-price">
+				<span class="cart-page-item-current-price hrv-mnc-price">{{ item.price | money }}</span>
+				<del class="cart-page-item-compare-price hrv-mnc-ori-price">{%- if item.variant.compare_at_price > item.price -%}{{ item.variant.compare_at_price | money }}{%- elsif item.price_original > item.price -%}{{ item.price_original | money }}{%- endif -%}</del>
+			</div>
+
+			<div class="cart-page-item-controls mini-cart-controls">
+				<div class="cart-page-variants mini-cart-variants{% if item.product.variants.size < 2 or cart_item_editable == false %} d-none{% endif %}" data-line="{{ forloop.index }}" data-current-variant="{{ item.variant_id }}" data-product-url="{{ item.product.url | escape }}" data-option-count="{{ item.product.options.size }}"{% if item.product.variants.size > 1 and cart_item_editable %} data-load-variants="true"{% endif %}>
+					{%- for option_name in item.product.options -%}
+					{%- case forloop.index -%}
+					{%- when 1 -%}{%- assign selected_option = item.variant.option1 -%}
+					{%- when 2 -%}{%- assign selected_option = item.variant.option2 -%}
+					{%- when 3 -%}{%- assign selected_option = item.variant.option3 -%}
+					{%- endcase -%}
+					<div class="mini-cart-variant">
+						<select class="mini-cart-option-select" aria-label="{{ option_name | escape }}" data-option-index="{{ forloop.index0 }}" disabled>
+							<option value="{{ selected_option | escape }}" selected>{{ selected_option }}</option>
+						</select>
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</div>
+					{%- endfor -%}
+				</div>
+
+				<div class="cart-page-quantity hrv-mini-cart__quantity">
+					{%- if cart_item_editable -%}
+					<button class="cart-page-quantity-button cart-page-quantity-minus" type="button" aria-label="Giảm số lượng">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10H15" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+					</button>
+					{%- endif -%}
+					<input class="cart-page-quantity-input hrv-qty-value{% unless cart_item_editable %} is-app-item{% endunless %}" type="text" readonly name="updates[]" value="{{ item.quantity }}" data-vid="{{ item.variant_id }}" />
+					{%- if cart_item_editable -%}
+					<button class="cart-page-quantity-button cart-page-quantity-plus" type="button" aria-label="Tăng số lượng">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 5V15M5 10H15" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+					</button>
+					{%- endif -%}
+				</div>
+			</div>
+			{%- if settings.promotion_hrvapp_use and item.properties.Combo != nil -%}
+			<p class="cart-page-item-promotion">{{ item.properties.Combo | append: '' | split: '-' | last }}</p>
+			{%- endif -%}
+		</div>
+
+		{%- unless settings.promotion_hrvapp_use and item.price == 0 -%}
+		<button class="cart-page-item-remove" type="button" aria-label="Xóa {{ item.product.title | escape }}">
+			<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4.5 4.5L13.5 13.5M13.5 4.5L4.5 13.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+		</button>
+		{%- endunless -%}
+	</article>
+	{%- endfor -%}
+</div>

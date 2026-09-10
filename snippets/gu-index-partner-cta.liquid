@@ -1,0 +1,23 @@
+{% comment %}haravan-audit:v2{% endcomment %}
+{% if settings.gu_index_partner_cta_show %}
+<link rel="preload stylesheet" href="{{ 'gu-index-partner-cta.scss.css' | asset_url }}" as="style">
+<script fetchpriority="low" type="text/javascript" defer src="{{ 'gu-index-partner-cta.js' | asset_url }}"></script>
+
+<section class="section-mar-sm container-gu" id="partner" data-filename="gu-index-partner-cta">
+  <div class="container-fluid">
+    <div class="d-flex flex-column flex-md-row align-items-center g-96 reveal">
+      <div class="partner__text">
+        <h2 class="section-title">{{ settings.gu_index_partner_cta_title | newline_to_br }}</h2>
+        <p class="partner__copy">{{ settings.gu_index_partner_cta_desc }}</p>
+        <a class="gu-btn" href="javascript:void(0);" data-partner-popup-open>
+          <span class="gu-btn__icon" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M0 1.827L1.71 0H10V8.22L8.11 10V5.93C8.11 4.938 8.119 4.04 8.14 3.235L1.498 9.815L0.182 8.375L6.823 1.795C6.036 1.817 5.153 1.827 4.176 1.827H0Z" fill="currentColor"/></svg></span>
+          <span class="gu-btn__label">{{ settings.gu_index_partner_cta_btn }}</span>
+        </a>
+      </div>
+      <div class="partner__image flex-fill">
+        <img class="obj-cover obj-center w-100" src="{{ settings.gu_index_partner_cta_image }}" alt="{{ settings.gu_index_partner_cta_image_alt | escape }}">
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}

@@ -1,0 +1,32 @@
+/* haravan-audit:v2 */
+var ProLoop2={};
+window.ProLoop2 = window.ProLoop2 || {};
+ProLoop2.ProductLoop = ProLoop2.ProductLoop || {
+		init: function() {
+			var that = this;
+      that.ProLoop2_loopImgSlider();
+		},
+  ProLoop2_loopImgSlider: function(){
+    const streetvibeImgSlider = new Swiper ('.proloop2-product-loop .slide-img', {
+      slidesPerView: 1,  
+			loop: false,
+      nested: true,
+      speed: 1000,
+      autoplay: false,
+      /*autoplay: {
+        delay: 6000,
+        disableOnInteraction: false,
+      },*/
+			navigation: {
+				nextEl: ".proloop2-product-loop .swiper-next-img",
+				prevEl: ".proloop2-product-loop .swiper-prev-img",
+			},
+    });
+  }
+};
+document.addEventListener('DOMContentLoaded', function() {
+  if (typeof ProLoop2 !== 'undefined' && typeof ProLoop2.ProductLoop !== 'undefined') {
+    ProLoop2.ProductLoop.init();
+  }
+});
+

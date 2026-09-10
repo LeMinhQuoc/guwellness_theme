@@ -1,0 +1,282 @@
+<link rel="stylesheet" href="{{ 'page-chinh-sach-ctv.scss.css' | asset_url }}">
+<div id="top" class="page-chinh-sach-ctv">
+  <div class="page-chinh-sach-ctv-content">
+    {% if settings.page_ctv_hero_enable %}
+      <section class="ctv-hero">
+        {% if settings.page_ctv_hero_image != blank %}<img class="ctv-hero-image" src="{{ settings.page_ctv_hero_image }}" alt="{{ settings.page_ctv_hero_title }}" />{% endif %}
+        <div class="ctv-hero-shade" aria-hidden="true"></div>
+        <div class="ctv-hero-content">
+          <h1>{{ settings.page_ctv_hero_title | newline_to_br }}</h1>
+          <div class="hero-metrics" aria-label="Tổng quan chính sách cộng tác viên">
+            {% for i in (1..3) %}
+              {% capture enable_key %}page_ctv_hero_metric_{{ i }}_enable{% endcapture %}
+              {% capture icon_key %}page_ctv_hero_metric_{{ i }}_icon{% endcapture %}
+              {% capture value_key %}page_ctv_hero_metric_{{ i }}_value{% endcapture %}
+              {% capture label_key %}page_ctv_hero_metric_{{ i }}_label{% endcapture %}
+              {% if settings[enable_key] %}
+                <article>
+                  {% if settings[icon_key] != blank %}<img src="{{ settings[icon_key] }}" alt="" aria-hidden="true" />{% endif %}
+                  <div><strong>{{ settings[value_key] }}</strong><span>{{ settings[label_key] }}</span></div>
+                </article>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+    {% endif %}
+
+    {% if settings.page_ctv_levels_enable %}
+      <section id="levels" class="split-section ctv-levels">
+        <div class="section-copy">
+          <p class="eyebrow">{{ settings.page_ctv_levels_eyebrow }}</p>
+          <h2>{{ settings.page_ctv_levels_title | newline_to_br }}</h2>
+          <p>{{ settings.page_ctv_levels_description | newline_to_br }}</p>
+          <button type="button" class="gu-button" data-ctv-popup-open>
+            <span class="button-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+                    <path d="M0.75 9.08333L9.08333 0.75M9.08333 9.08333V0.75H0.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </span>
+            <span class="button-label">{{ settings.page_ctv_levels_button_text }}</span>
+          </button>
+        </div>
+        <div class="level-grid">
+          {% for i in (1..6) %}
+            {% capture enable_key %}page_ctv_levels_{{ i }}_enable{% endcapture %}
+            {% capture title_key %}page_ctv_levels_{{ i }}_title{% endcapture %}
+            {% capture condition_key %}page_ctv_levels_{{ i }}_condition{% endcapture %}
+            {% capture percent_key %}page_ctv_levels_{{ i }}_percent{% endcapture %}
+            {% case i %}
+              {% when 1 %}{% assign level_class = 'level-soft' %}
+              {% when 2 %}{% assign level_class = 'level-mid' %}
+              {% when 3 %}{% assign level_class = 'level-green' %}
+              {% when 4 %}{% assign level_class = 'level-deep' %}
+              {% when 5 %}{% assign level_class = 'level-gold' %}
+              {% when 6 %}{% assign level_class = 'level-brown' %}
+            {% endcase %}
+            {% if settings[enable_key] %}
+              <article class="level-card {{ level_class }}">
+                <h3>{{ settings[title_key] }}</h3>
+                <p>{{ settings[condition_key] }}</p>
+                <strong>{{ settings[percent_key] }}</strong>
+                <span>Điểm thưởng</span>
+              </article>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if settings.page_ctv_operating_enable %}
+      <section class="split-section operating-section">
+        <div class="section-copy">
+          <p class="eyebrow">{{ settings.page_ctv_operating_eyebrow }}</p>
+          <h2>{{ settings.page_ctv_operating_title | newline_to_br }}</h2>
+        </div>
+        <div class="stack-list">
+          {% for i in (1..4) %}
+            {% capture enable_key %}page_ctv_operating_{{ i }}_enable{% endcapture %}
+            {% capture title_key %}page_ctv_operating_{{ i }}_title{% endcapture %}
+            {% capture description_key %}page_ctv_operating_{{ i }}_description{% endcapture %}
+            {% if settings[enable_key] %}
+              <article{% if i == 2 or i == 3 %} class="is-tinted"{% endif %}>
+                <h3>{{ settings[title_key] }}</h3>
+                <p>{{ settings[description_key] | newline_to_br }}</p>
+              </article>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if settings.page_ctv_audience_enable %}
+      <section class="split-section audience-section">
+        <div class="section-copy">
+          <p class="eyebrow">{{ settings.page_ctv_audience_eyebrow }}</p>
+          <h2>{{ settings.page_ctv_audience_title | newline_to_br }}</h2>
+        </div>
+        <div class="process-stack">
+          {% for i in (1..4) %}
+            {% capture enable_key %}page_ctv_audience_{{ i }}_enable{% endcapture %}
+            {% capture title_key %}page_ctv_audience_{{ i }}_title{% endcapture %}
+            {% capture description_key %}page_ctv_audience_{{ i }}_description{% endcapture %}
+            {% capture number %}0{{ i }}{% endcapture %}
+            {% if settings[enable_key] %}
+              <article{% if i == 4 %} class="is-director"{% elsif i == 2 %} class="is-tinted"{% endif %}>
+                <div><span>{{ number }}</span><h3>{{ settings[title_key] }}</h3></div>
+                <p>{{ settings[description_key] | newline_to_br }}</p>
+                {% if i < 4 and settings.page_ctv_audience_arrow_icon != blank %}<img class="process-arrow process-arrow-down" src="{{ settings.page_ctv_audience_arrow_icon }}" alt="" aria-hidden="true" />{% endif %}
+              </article>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if settings.page_ctv_training_enable %}
+      <section class="split-section training-section">
+        <div class="section-copy">
+          <p class="eyebrow">{{ settings.page_ctv_training_eyebrow }}</p>
+          <h2>{{ settings.page_ctv_training_title | newline_to_br }}</h2>
+        </div>
+        <div class="training-content">
+          <div class="training-pillar-grid">
+            {% for i in (1..4) %}
+              {% capture enable_key %}page_ctv_training_pillar_{{ i }}_enable{% endcapture %}
+              {% capture title_key %}page_ctv_training_pillar_{{ i }}_title{% endcapture %}
+              {% capture text_key %}page_ctv_training_pillar_{{ i }}_text{% endcapture %}
+              {% if settings[enable_key] %}<article><h3>{{ settings[title_key] }}</h3><p>{{ settings[text_key] }}</p></article>{% endif %}
+            {% endfor %}
+          </div>
+          <div class="benefit-grid">
+            {% for i in (1..4) %}
+              {% capture enable_key %}page_ctv_training_benefit_{{ i }}_enable{% endcapture %}
+              {% capture title_key %}page_ctv_training_benefit_{{ i }}_title{% endcapture %}
+              {% capture description_key %}page_ctv_training_benefit_{{ i }}_description{% endcapture %}
+              {% if settings[enable_key] %}
+                <article{% if i == 2 or i == 4 %} class="is-tinted"{% endif %}>
+                  <h3>{{ settings[title_key] }}</h3>
+                  <p>{{ settings[description_key] | newline_to_br }}</p>
+                </article>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+    {% endif %}
+
+    {% if settings.page_ctv_benefit_enable %}
+      <section class="split-section benefit-section">
+        <div class="section-copy">
+          <p class="eyebrow">{{ settings.page_ctv_benefit_eyebrow }}</p>
+          <h2>{{ settings.page_ctv_benefit_title | newline_to_br }}</h2>
+        </div>
+        <div class="benefit-grid">
+          {% for i in (1..4) %}
+            {% capture enable_key %}page_ctv_benefit_{{ i }}_enable{% endcapture %}
+            {% capture title_key %}page_ctv_benefit_{{ i }}_title{% endcapture %}
+            {% capture description_key %}page_ctv_benefit_{{ i }}_description{% endcapture %}
+            {% if settings[enable_key] %}
+              <article{% if i == 2 or i == 4 %} class="is-tinted"{% endif %}>
+                <h3>{{ settings[title_key] }}</h3>
+                <p>{{ settings[description_key] | newline_to_br }}</p>
+              </article>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if settings.page_ctv_toolkit_enable %}
+      <section class="toolkit-band">
+        <div class="toolkit-panel">
+          <div class="toolkit-image">
+            {% if settings.page_ctv_toolkit_image != blank %}<img src="{{ settings.page_ctv_toolkit_image }}" alt="{{ settings.page_ctv_toolkit_title }}" />{% endif %}
+            <h2>{{ settings.page_ctv_toolkit_title | newline_to_br }}</h2>
+          </div>
+          <div class="toolkit-cards">
+            {% for i in (1..3) %}
+              {% capture enable_key %}page_ctv_toolkit_card_{{ i }}_enable{% endcapture %}
+              {% capture title_key %}page_ctv_toolkit_card_{{ i }}_title{% endcapture %}
+              {% capture description_key %}page_ctv_toolkit_card_{{ i }}_description{% endcapture %}
+              {% if settings[enable_key] %}
+                <article{% if i == 2 %} class="is-tinted"{% endif %}>
+                  <h3>{{ settings[title_key] }}</h3>
+                  <p>{{ settings[description_key] | newline_to_br }}</p>
+                </article>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+    {% endif %}
+
+    {% if settings.page_ctv_maintenance_enable %}
+      <section class="maintenance-section container">
+        <div class="center-heading">
+          {% if settings.page_ctv_maintenance_icon != blank %}<img src="{{ settings.page_ctv_maintenance_icon }}" alt="" aria-hidden="true" />{% endif %}
+          <p class="eyebrow">{{ settings.page_ctv_maintenance_eyebrow }}</p>
+          <h2>{{ settings.page_ctv_maintenance_title | newline_to_br }}</h2>
+          <p>{{ settings.page_ctv_maintenance_description | newline_to_br }}</p>
+        </div>
+        <div class="maintenance-card">
+          <h3>{{ settings.page_ctv_maintenance_condition_title }}</h3>
+          <div class="maintenance-row is-three">
+            {% for i in (1..3) %}
+              {% capture enable_key %}page_ctv_maintenance_condition_{{ i }}_enable{% endcapture %}
+              {% capture label_key %}page_ctv_maintenance_condition_{{ i }}_label{% endcapture %}
+              {% capture text_key %}page_ctv_maintenance_condition_{{ i }}_text{% endcapture %}
+              {% if settings[enable_key] %}<article><h4>{{ settings[label_key] }}</h4><p>{{ settings[text_key] }}</p></article>{% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        <div class="maintenance-card is-tinted">
+          <h3>{{ settings.page_ctv_maintenance_special_title }}</h3>
+          <div class="maintenance-row is-two">
+            {% for i in (1..2) %}
+              {% capture enable_key %}page_ctv_maintenance_special_{{ i }}_enable{% endcapture %}
+              {% capture label_key %}page_ctv_maintenance_special_{{ i }}_label{% endcapture %}
+              {% capture text_key %}page_ctv_maintenance_special_{{ i }}_text{% endcapture %}
+              {% if settings[enable_key] %}<article><h4>{{ settings[label_key] }}</h4><p>{{ settings[text_key] }}</p></article>{% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+    {% endif %}
+
+    {% if settings.page_ctv_points_enable %}
+      <section class="points-section">
+        <div class="center-heading compact">
+          <h2>{{ settings.page_ctv_points_title | newline_to_br }}</h2>
+        </div>
+        <div class="points-card">
+          <div class="points-rate"><strong class="h1">{{ settings.page_ctv_points_rate_value }}</strong><span>{{ settings.page_ctv_points_rate_label | newline_to_br }}</span></div>
+          <div class="points-breakdown">
+            <article>
+              <div>{% if settings.page_ctv_points_example_icon != blank %}<img src="{{ settings.page_ctv_points_example_icon }}" alt="" aria-hidden="true" />{% endif %}<span>{{ settings.page_ctv_points_example_label }}</span></div>
+              <strong class="h1">{{ settings.page_ctv_points_example_value }}</strong>
+            </article>
+            {% if settings.page_ctv_points_arrow_icon != blank %}<img class="points-arrow" src="{{ settings.page_ctv_points_arrow_icon }}" alt="" aria-hidden="true" />{% endif %}
+            <article>
+              <div>{% if settings.page_ctv_points_result_icon != blank %}<img src="{{ settings.page_ctv_points_result_icon }}" alt="" aria-hidden="true" />{% endif %}<span>{{ settings.page_ctv_points_result_label }}</span></div>
+              <strong class="h1">{{ settings.page_ctv_points_result_value }}</strong>
+            </article>
+          </div>
+        </div>
+        <div class="points-use">
+          <h3>{{ settings.page_ctv_points_usage_title }}</h3>
+          <ul>
+            {% assign usage_lines = settings.page_ctv_points_usage_list | newline_to_br | split: '<br />' %}
+            {% for line in usage_lines %}
+              {% assign line_text = line | strip %}
+              {% if line_text != blank %}<li>{{ line_text }}</li>{% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </section>
+    {% endif %}
+
+    {% if settings.page_ctv_final_cta_enable %}
+      <section id="contact" class="ctv-final-cta ctv-ending-cta">
+        {% if settings.page_ctv_final_cta_image != blank %}<img src="{{ settings.page_ctv_final_cta_image }}" alt="{{ settings.page_ctv_final_cta_title }}" />{% endif %}
+        <div>
+            <div class="container">
+                <h2>{{ settings.page_ctv_final_cta_title | newline_to_br }}</h2>
+                <a class="gu-button" href="javascript:void(0);" data-ctv-popup-open>
+                    <span class="button-icon" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+                        <path d="M0.75 9.08333L9.08333 0.75M9.08333 9.08333V0.75H0.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    </span>
+                    <span class="button-label">{{ settings.page_ctv_final_cta_button_text }}</span>
+                </a>
+          </div>
+        </div>
+      </section>
+    {% endif %}
+  </div>
+</div>
+
+<script defer src="{{ 'gsap.min.js' | asset_url }}"></script>
+<script defer src="{{ 'ScrollTrigger.min.js' | asset_url }}"></script>
+<script defer src="{{ 'page-chinh-sach-ctv.js' | asset_url }}"></script>

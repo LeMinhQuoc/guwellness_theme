@@ -1,0 +1,35 @@
+<nav id="hrv-pagination" aria-label="Phân trang sản phẩm">
+	{%- if paginate.pages > 1 -%}
+	<ul class="hrv-pagination">
+		{%- if paginate.previous -%}
+		<li class="hrv-pagination-item hrv-pagination-item-arrow">
+			<a href="{{ paginate.previous.url }}" aria-label="Trang trước">
+				<svg width="7" height="12" viewBox="0 0 6.66667 11.6667" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<path d="M5.83333 10.8333L0.833333 5.83333L5.83333 0.833333" stroke="currentColor" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
+			</a>
+		</li>
+		{%- endif -%}
+		{%- for part in paginate.parts -%}
+		{%- if part.is_link -%}
+		<li class="hrv-pagination-item">
+			<a href="{{ part.url }}">{{ part.title }}</a>
+		</li>
+		{%- else -%}
+		<li class="hrv-pagination-item">
+			<span class="{% if part.title == paginate.current_page %}current{% else %}dots{% endif %}"{% if part.title == paginate.current_page %} aria-current="page"{% endif %}>{{ part.title }}</span>
+		</li>
+		{%- endif -%}
+		{%- endfor -%}
+		{%- if paginate.next -%}
+		<li class="hrv-pagination-item hrv-pagination-item-arrow">
+			<a href="{{ paginate.next.url }}" aria-label="Trang sau">
+				<svg width="7" height="12" viewBox="0 0 6.66667 11.6667" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<path d="M0.833333 10.8333L5.83333 5.83333L0.833333 0.833333" stroke="currentColor" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
+			</a>
+		</li>
+		{%- endif -%}
+	</ul>
+	{%- endif -%}
+</nav>

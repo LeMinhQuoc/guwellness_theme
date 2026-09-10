@@ -1,0 +1,51 @@
+{%- assign product_rating = blank -%}
+{%- for tag in product.tags -%}
+	{%- assign product_rating_prefix = tag | slice: 0, 7 -%}
+	{%- if product_rating_prefix == 'rating:' -%}
+		{%- assign product_rating_candidate = tag | remove_first: 'rating:' | strip -%}
+		{%- assign product_rating_candidate_number = product_rating_candidate | plus: 0 -%}
+		{%- if product_rating_candidate != blank and product_rating_candidate_number > 0 and product_rating_candidate_number <= 5 -%}
+			{%- assign product_rating = product_rating_candidate -%}
+			{%- break -%}
+		{%- endif -%}
+	{%- endif -%}
+{%- endfor -%}
+
+<div class="product-title">
+	{%- if settings.product_authentic_show -%} 
+	<div class="product-authentic-badge">
+		<svg xmlns="http://www.w3.org/2000/svg" width="14" height="17" viewBox="0 0 14 17" fill="none">
+			<path d="M4.5 7.824L6 9.324L9.375 5.949M12.75 8.199C12.75 11.8803 8.73453 14.5578 7.27349 15.4102C7.10745 15.507 7.02443 15.5555 6.90726 15.5806C6.81633 15.6001 6.68367 15.6001 6.59274 15.5806C6.47557 15.5555 6.39255 15.507 6.22651 15.4102C4.76547 14.5578 0.75 11.8803 0.75 8.199V4.6122C0.75 4.01257 0.75 3.71275 0.84807 3.45503C0.934706 3.22736 1.07549 3.02421 1.25824 2.86315C1.46512 2.68083 1.74585 2.57556 2.3073 2.36501L6.32865 0.857005C6.48457 0.798535 6.56253 0.769299 6.64274 0.75771C6.71388 0.74743 6.78612 0.74743 6.85726 0.75771C6.93747 0.769299 7.01543 0.798535 7.17135 0.857005L11.1927 2.36501C11.7542 2.57556 12.0349 2.68083 12.2418 2.86315C12.4245 3.02421 12.5653 3.22736 12.6519 3.45503C12.75 3.71275 12.75 4.01257 12.75 4.6122V8.199Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>
+		<span>{{ settings.product_authentic_text | default: 'Chính hãng' }}</span>
+	</div>
+	{%- endif -%}
+	<h1>{{ product.title }}</h1>
+	<div class="product-meta">
+		{% if product.variants[0].sku %}
+		<span id="pro_sku">{{ settings.product_sku_label | default: 'SKU:' }} {{ product.variants[0].sku }}</span>
+		{% endif %}
+		{%- if product_rating != blank -%}
+		<div class="product-rating" aria-label="Đánh giá {{ product_rating | escape }} trên 5">
+			<span class="product-rating-stars" aria-hidden="true">
+				{%- for star in (1..5) -%}
+				<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none">
+					<path d="M12 2.75L14.854 8.532L21.235 9.459L16.618 13.962L17.708 20.317L12 17.32L6.292 20.317L7.382 13.962L2.765 9.459L9.146 8.532L12 2.75Z" fill="currentColor"/>
+				</svg>
+				{%- endfor -%}
+			</span>
+			<span class="product-rating-value">{{ product_rating | escape }}</span>
+		</div>
+		{%- endif -%}
+		{%  comment  %}
+		{%- if settings.productreviews_hrvapp_use -%}
+		<div class="product-reviews">
+			<div class="haravan-product-reviews-badge rating-star" data-id="{{ product.id }}">
+				{{ product.metafields.src.product_loop }}
+			</div>
+		</div>
+		{%- endif -%}
+		{% endcomment %}
+		{% unless product.available %}<span class="pro-soldold">{{ settings.product_sold_out_text | default: 'Hết hàng' }}</span>{% endunless %}
+	</div>
+</div>

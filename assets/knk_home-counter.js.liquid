@@ -1,0 +1,45 @@
+/* haravan-audit:v2 */
+var knk_viewedCounter = false;
+window.KNK = window.KNK || {};
+KNK.indexCounter = KNK.indexCounter || {
+  init: function(){
+    var that = this;
+    that.index_counter(); 
+  }, 
+  index_counter: () => {
+    function isScrolledIntoView(elem) {	
+  		var docViewTop = $(window).scrollTop() +50;
+  		var docViewBottom = docViewTop + $(window).height();
+  		var elemTop = $(elem).offset().top + 50;
+  		var elemBottom = elemTop + $(elem).height();
+  		return ((elemTop <= docViewBottom) && (elemBottom >= docViewTop));
+  	}
+    if( $('.knk_home-counter').length > 0 ) {
+      if(isScrolledIntoView($(".knk_home-counter")) && !knk_viewedCounter) {
+				knk_viewedCounter = true;
+        $('.knk_counter_intoview').addClass('animated fadeInDown');
+				$('.knk_counter_intoview .knk_counter').each(function () {
+					$(this).prop('Counter',0).animate({
+						Counter: $(this).data('counter')
+					}, {
+						duration: 10000,
+						easing: 'swing',
+						step: function (now) {
+							$(this).text(Math.ceil(now));
+						}
+					});
+				});
+			}
+		}
+  }
+};
+$(window).on('load', () => {
+	KNK.indexCounter.init()
+});
+$(window).scroll(() => {
+  KNK.indexCounter.init()
+})
+
+
+
+

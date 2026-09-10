@@ -1,0 +1,44 @@
+/* haravan-audit:v2 */
+window.GuWellness = window.GuWellness || {};
+GuWellness.IndexBanner = GuWellness.IndexBanner || {
+  init: function() {
+    if (typeof Swiper === 'undefined') {
+      return;
+    }
+
+    document.querySelectorAll('.gu-index-banner .gu-index-banner__slider').forEach(function(slider) {
+      var root = slider.closest('.gu-index-banner');
+      var slides = slider.querySelectorAll('.swiper-slide');
+      var shouldLoop = slides.length > 1;
+      var nextButton = root.querySelector('.gu-index-banner__nav--next');
+      var prevButton = root.querySelector('.gu-index-banner__nav--prev');
+      var pagination = root.querySelector('.gu-index-banner__pagination');
+
+      new Swiper(slider, {
+        slidesPerView: 1,
+        loop: shouldLoop,
+        speed: 900,
+        autoplay: shouldLoop ? {
+          delay: 5000,
+          disableOnInteraction: false
+        } : false,
+        navigation: nextButton && prevButton ? {
+          nextEl: nextButton,
+          prevEl: prevButton
+        } : false,
+        pagination: pagination ? {
+          el: pagination,
+          clickable: true
+        } : false
+      });
+
+      if (!shouldLoop) {
+        root.classList.add('gu-index-banner--single');
+      }
+    });
+  }
+};
+
+document.addEventListener('DOMContentLoaded', function() {
+  GuWellness.IndexBanner.init();
+});

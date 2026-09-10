@@ -1,0 +1,53 @@
+{%- assign related_source_product = product -%}
+{%- assign related_collection = collection -%}
+{%- if related_collection == blank or related_collection.handle == 'frontpage' or related_collection.handle == 'all' -%}
+	{%- assign related_collection = blank -%}
+{%- endif -%}
+{%- assign related_collection_count = related_collection.products_count | default: related_collection.all_products_count | default: 0 | times: 1 -%}
+{%- if related_collection_count <= 1 -%}
+	{%- assign related_collection = blank -%}
+	{%- for product_collection in related_source_product.collections -%}
+		{%- assign product_collection_count = product_collection.products_count | default: product_collection.all_products_count | default: 0 | times: 1 -%}
+		{%- if product_collection.handle != 'frontpage' and product_collection.handle != 'all' and product_collection_count > 1 -%}
+			{%- assign related_collection = product_collection -%}
+			{%- assign related_collection_count = product_collection_count -%}
+			{%- break -%}
+		{%- endif -%}
+	{%- endfor -%}
+{%- endif -%}
+{%- assign related_product_limit = settings.productspg_featured_quantity | default: 15 | times: 1 -%}
+{%- if related_product_limit < 1 -%}{%- assign related_product_limit = 15 -%}{%- endif -%}
+{%- assign related_product_title = settings.productspg_related_title | default: 'Sản phẩm liên quan' -%}
+
+{%- if related_collection != blank and related_collection_count > 1 -%}
+<section class="product-related-section layout-collections" data-product-related>
+	<div class="product-related-header">
+		<h2 class="product-related-title">{{ related_product_title | escape }}</h2>
+		<div class="product-related-controls">
+			<button type="button" class="product-related-previous" aria-label="Sản phẩm trước">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+					<path d="M23 12H1M7 6L1 12L7 18" stroke="#42592F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
+			</button>
+			<button type="button" class="product-related-next" aria-label="Sản phẩm tiếp theo">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+					<path d="M1 12H23M17 6L23 12L17 18" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
+			</button>
+		</div>
+	</div>
+	<div class="product-related-slider swiper">
+		<div class="swiper-wrapper">
+			{%- assign related_product_count = 0 -%}
+			{%- for product in related_collection.products -%}
+				{%- if related_product_count >= related_product_limit -%}{%- break -%}{%- endif -%}
+				{%- if related_source_product.handle != product.handle -%}
+				<div class="product-related-slide swiper-slide">{% include 'product-loop' %}</div>
+				{%- assign related_product_count = related_product_count | plus: 1 -%}
+				{%- endif -%}
+			{%- endfor -%}
+			{%- assign product = related_source_product -%}
+		</div>
+	</div>
+</section>
+{%- endif -%}

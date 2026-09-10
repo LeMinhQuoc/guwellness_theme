@@ -1,0 +1,9 @@
+{%comment%}<link rel="preconnect" href="https://www.youtube.com">{%endcomment%} 
+{% capture cache_buster %}?v={{ 'now' | date: '%Y%m%d' }}{% endcapture %}
+{%- if settings.use_logo -%}<link rel="preload" href="{{ settings.logo_png }}" as="image"> {%- endif -%}
+
+<!--+++++++++++++ JS THEME ++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<link href="{{ 'api.jquery.js' | haravan_asset_url }}" rel="preload" as="script" type="text/javascript">
+
+<link href="{{ 'jquery-3.5.1.min.js' | asset_url}}" rel="preload prefetch" as="script" type="text/javascript">
+<link href="{{ 'scripts-default.js' | asset_url }}" rel="preload" as="script" type="text/javascript">

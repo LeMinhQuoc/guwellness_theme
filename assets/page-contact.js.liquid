@@ -1,0 +1,59 @@
+/* haravan-audit:v2 */
+(function () {
+	'use strict';
+
+	var form = document.querySelector('[data-contact-google-form]');
+	if (!form) return;
+
+	var submitButton = form.querySelector('[data-contact-submit]');
+	var successEl = form.querySelector('[data-contact-success]');
+	var errorEl = form.querySelector('[data-contact-error]');
+
+	function showMessage(el) {
+		if (successEl) successEl.hidden = true;
+		if (errorEl) errorEl.hidden = true;
+		if (el) el.hidden = false;
+	}
+
+	form.addEventListener('submit', function (event) {
+		event.preventDefault();
+
+		if (!form.checkValidity()) {
+			form.reportValidity();
+			return;
+		}
+
+		var actionUrl = form.getAttribute('action');
+		var formData = new FormData(form);
+
+		if (submitButton) submitButton.setAttribute('disabled', 'disabled');
+		showMessage(null);
+
+		function handleDone(ok) {
+			if (ok) {
+				form.reset();
+				showMessage(successEl);
+			} else {
+				showMessage(errorEl);
+			}
+			if (submitButton) submitButton.removeAttribute('disabled');
+		}
+
+		if (!actionUrl) {
+			handleDone(true);
+			return;
+		}
+
+		fetch(actionUrl, {
+			method: 'POST',
+			mode: 'no-cors',
+			body: formData
+		})
+			.then(function () {
+				handleDone(true);
+			})
+			.catch(function () {
+				handleDone(false);
+			});
+	});
+})();

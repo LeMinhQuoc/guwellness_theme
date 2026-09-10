@@ -1,0 +1,45 @@
+{% comment %}haravan-audit:v2{% endcomment %}
+{%- if settings.gu_article_sidebar_show -%}
+<aside class="gu-article__sidebar">
+	<h2 class="gu-article__sidebar-title">{{ settings.gu_article_sidebar_title }}</h2>
+	<div class="gu-article__sidebar-list">
+		{%- if sidebar_source == 'all' -%}
+			{%- for art in blogs.all.articles limit: settings.gu_article_sidebar_limit -%}
+			<a class="gu-article__side-card" href="{{ art.url }}" title="{{ art.title | escape }}">
+				<div class="gu-article__side-card-image">
+					{%- if art.image -%}
+					<img class="obj-cover" src="{{ art.image.src | product_img_url: 'compact' }}" alt="{{ art.title | escape }}" loading="lazy" width="150" height="120">
+					{%- else -%}
+					<img class="obj-cover" src="{{ 'no-image-blog.jpg' | asset_url }}" alt="{{ art.title | escape }}" loading="lazy" width="150" height="120">
+					{%- endif -%}
+				</div>
+				<div class="gu-article__side-card-body">
+					<h3 class="gu-article__side-card-title">{{ art.title }}</h3>
+					<p class="gu-article__side-card-excerpt clamp-2">{{ art.excerpt_or_content | strip_html | truncatewords: 18 }}</p>
+				</div>
+			</a>
+			{%- endfor -%}
+		{%- else -%}
+			{%- assign sidebar_count = 0 -%}
+			{%- for art in blog.articles -%}
+				{%- if art.id != article.id and sidebar_count < settings.gu_article_sidebar_limit -%}
+				<a class="gu-article__side-card" href="{{ art.url }}" title="{{ art.title | escape }}">
+					<div class="gu-article__side-card-image">
+						{%- if art.image -%}
+						<img class="obj-cover" src="{{ art.image.src | product_img_url: 'compact' }}" alt="{{ art.title | escape }}" loading="lazy" width="150" height="120">
+						{%- else -%}
+						<img class="obj-cover" src="{{ 'no-image-blog.jpg' | asset_url }}" alt="{{ art.title | escape }}" loading="lazy" width="150" height="120">
+						{%- endif -%}
+					</div>
+					<div class="gu-article__side-card-body">
+						<h3 class="gu-article__side-card-title">{{ art.title }}</h3>
+						<p class="gu-article__side-card-excerpt clamp-2">{{ art.excerpt_or_content | strip_html | truncatewords: 18 }}</p>
+					</div>
+				</a>
+				{%- assign sidebar_count = sidebar_count | plus: 1 -%}
+				{%- endif -%}
+			{%- endfor -%}
+		{%- endif -%}
+	</div>
+</aside>
+{%- endif -%}

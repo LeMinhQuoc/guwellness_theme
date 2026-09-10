@@ -1,0 +1,124 @@
+{%- include 'plugin-js' -%}
+<script fetchpriority="low" type="text/javascript" defer src="{{ 'hrv-addthis-sharing.js' | asset_url }}"></script>
+{%- if template contains 'product' -%}
+<link rel="preload stylesheet" href="{{ 'template-collection.scss.css' | asset_url }}" as="style">
+<link rel="preload stylesheet" href="{{ 'template-product.scss.css' | asset_url }}" as="style">
+<link rel="preload stylesheet" href="{{ 'style-product.scss.css' | asset_url }}" as="style">
+<script fetchpriority="low" type="text/javascript" defer src="{{ 'product-gallery.js' | asset_url }}"></script>
+<script fetchpriority="low" type="text/javascript" defer src="{{ 'product-license-popup.js' | asset_url }}"></script>
+<script fetchpriority="low" type="text/javascript" defer src="{{ 'product-description-tabs.js' | asset_url }}"></script>
+<script fetchpriority="low" type="text/javascript" defer src="{{ 'product-related.js' | asset_url }}"></script>
+<script fetchpriority="low" type="text/javascript" defer src="{{ 'product-add-to-cart.js' | asset_url }}"></script>
+{%- endif -%}
+{%- if template == 'cart' -%}
+<link rel="preload stylesheet" href="{{ 'cart.scss.css' | asset_url }}" as="style">
+{%- endif -%}
+<link href="{{ 'api.jquery.js' | haravan_asset_url }}" rel="preload" as="script" type="text/javascript">
+{%-if settings.promotion_hrvapp_use-%}
+	{%-if settings.promotion_hrvapp == 'appcombo'-%}
+	<link href="{{ 'app-combo.js'  | asset_url }}" rel="preload" as="script" type="text/javascript">
+	{%-elsif settings.promotion_hrvapp == 'appbuyxgety'-%}
+	<link href="{{ 'app-buyxgety.js' | asset_url }}" rel="preload" as="script" type="text/javascript">	
+	{%-endif-%}
+{%-endif-%}
+<script>
+	/* recapcha */
+	setTimeout(function(){
+		!function(e,t,n){var a=t.getElementsByTagName(n)[0],c=t.createElement(n);c.async=true,c.src="https://www.google.com/recaptcha/api.js?render=6LchSLkqAAAAABVHBpeFgg8N-WgkYsr5fO6GUF_s",a.parentNode.insertBefore(c,a)}(window,document,"script");  
+	},5000);
+</script>
+<script defer>
+var HRT = {};
+var AgriMarket = {};
+var formatMoney = '{{ shop.money_format }}';
+var template = "{{ template | strip_html | escape }}";
+var priceMin ='';
+  {%-assign tags_frame = ""-%}
+  {%-assign ico_frame = ""-%}
+  {%-for i in (1..5)-%}
+  	
+  	{%-capture use_frame-%}use_frame_{{i}}{%-endcapture-%}
+  	{%-capture tag_frame-%}tag_frame_{{i}}{%-endcapture-%}
+  	{%-capture icon_frame-%}frame_{{i}}{%-endcapture-%}
+  	
+  		{%-if settings[use_frame] and settings[tags_frame] != ""-%}
+  			{%-assign tags_frame = tags_frame | append: ',' | append: settings[tag_frame]-%}
+  		{%-else-%}
+  			{%-assign tags_frame = tags_frame | append: ',' | append: 'null'-%}
+  		{%-endif-%}
+  		
+  		{%-if settings[use_frame] and settings[icon_frame] != ""-%}
+  			{%-assign ico_frame = ico_frame | append: ',' | append: settings[icon_frame]-%}
+  		{%-else-%}
+  			{%-assign ico_frame = ico_frame | append: ',' | append: 'null'-%}
+  		{%-endif-%}
+  
+  {%-endfor-%}		
+  var prmt_icon = {
+  	"frame": {
+  		"tag": {{tags_frame | remove_first: ',' | json}},
+  		"icon": {{ico_frame | remove_first: ',' | json}}
+  	}
+  };
+prmt_icon.frame.tag = prmt_icon.frame.tag.split(',');
+prmt_icon.frame.icon = prmt_icon.frame.icon.split(',');
+{%- if settings.cart_page_minimum_show and settings.cart_page_minimum_value != blank -%}
+	priceMin = parseInt({{ settings.cart_page_minimum_value }});
+{%-endif-%}
+
+var locationHeader = false;
+{%- if settings.header_inventory_default  -%}
+locationHeader = true;
+{%-endif-%}
+
+/* Fix app buyXgetY */
+  var cartGet = {};
+	document.addEventListener("DOMContentLoaded", function(event) { 
+		if(promotionApp){
+			jQuery.getJSON('/cart.js',function(cart, textStatus) {
+				cartGet = cart;
+			});
+		}
+	})
+var cartItem = {
+	{%-for item in cart.items-%}
+		"{{item.variant_id}}": {{item.quantity}}{%-unless forloop.last-%},{%-endunless-%}
+	{%-endfor-%}
+};
+
+var promotionApp = false,
+		promotionApp_name = '';
+	{%- if settings.promotion_hrvapp_use -%} 
+			promotionApp = {{ settings.promotion_hrvapp_use }};
+		{%- if settings.promotion_hrvapp == 'appcombo' -%} 		
+			promotionApp_name = 'app_combo';
+		{%- elsif settings.promotion_hrvapp == 'appbuyxgety'-%} 	
+			promotionApp_name = 'app_buyxgety';	
+		{%- else -%}
+			promotionApp_name = 'app_buy2get1';	
+		{%-endif-%}
+	{%-endif-%}	
+  
+
+var productReviewsApp = false;
+var productReviewsProloop = false;
+{%- if settings.productreviews_hrvapp_use -%}
+ productReviewsApp = true; 
+ {%- if settings.productreviews_hrvapp_proloop -%} 	productReviewsProloop = true;  {%-endif-%}
+{%-endif-%}
+
+/* product set item */
+var prodItem_desk = 5,
+		prodItem_mobile = 2;
+{%-if settings.product_grid_desktop == 'grid-desk-6'-%}    prodItem_desk = 6
+{%-elsif settings.product_grid_desktop == 'grid-desk-5'-%} prodItem_desk = 5
+{%-elsif settings.product_grid_desktop == 'grid-desk-4'-%} prodItem_desk = 4
+{%-elsif settings.product_grid_desktop == 'grid-desk-3'-%} prodItem_desk = 3
+{%- endif -%}
+
+{%-if settings.product_grid_mobile == 'grid-mb-3'-%}		prodItem_mobile = 3
+{%-elsif settings.product_grid_mobile == 'grid-mb-2'-%} prodItem_mobile = 2
+{%-elsif settings.product_grid_mobile == 'grid-mb-1'-%} prodItem_mobile = 1
+{%- endif -%}
+
+</script>

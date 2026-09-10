@@ -1,0 +1,94 @@
+(function () {
+	'use strict';
+
+	function initializeProductDescriptionTabs(section) {
+		var tabButtons = Array.prototype.slice.call(section.querySelectorAll('[data-product-description-tab]'));
+		var panels = Array.prototype.slice.call(section.querySelectorAll('[data-product-description-panel]'));
+		var toggleButton = section.querySelector('[data-product-description-toggle]');
+		var toggleText = toggleButton ? toggleButton.querySelector('span') : null;
+		var expandText = section.getAttribute('data-expand-text') || 'Xem thêm';
+		var collapseText = section.getAttribute('data-collapse-text') || 'Rút gọn';
+
+		if (!tabButtons.length || !panels.length || !toggleButton) return;
+
+		function getActivePanel() {
+			return section.querySelector('[data-product-description-panel].active');
+		}
+
+		function getActiveContent() {
+			var activePanel = getActivePanel();
+			return activePanel ? activePanel.querySelector('.product-description-tabs-content') : null;
+		}
+
+		function updateToggleVisibility() {
+			var activeContent = getActiveContent();
+			if (!activeContent) return;
+
+			var isExpanded = activeContent.classList.contains('expanded');
+			var hasOverflow = isExpanded || activeContent.scrollHeight > activeContent.clientHeight + 1;
+			toggleButton.classList.toggle('hidden', !hasOverflow);
+			toggleButton.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+			toggleButton.setAttribute('aria-controls', activeContent.id);
+			if (toggleText) toggleText.textContent = isExpanded ? collapseText : expandText;
+		}
+
+		function activateTab(tabButton, moveFocus) {
+			var targetId = tabButton.getAttribute('data-product-description-tab');
+
+			tabButtons.forEach(function (button) {
+				var isActive = button === tabButton;
+				button.classList.toggle('active', isActive);
+				button.setAttribute('aria-selected', isActive ? 'true' : 'false');
+				button.setAttribute('tabindex', isActive ? '0' : '-1');
+			});
+
+			panels.forEach(function (panel) {
+				var isActive = panel.id === targetId;
+				panel.classList.toggle('active', isActive);
+				panel.hidden = !isActive;
+				var content = panel.querySelector('.product-description-tabs-content');
+				if (content) content.classList.remove('expanded');
+			});
+
+			if (moveFocus) tabButton.focus();
+			window.requestAnimationFrame(updateToggleVisibility);
+		}
+
+		tabButtons.forEach(function (tabButton, index) {
+			tabButton.addEventListener('click', function () {
+				activateTab(tabButton, false);
+			});
+
+			tabButton.addEventListener('keydown', function (event) {
+				if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+
+				event.preventDefault();
+				var direction = event.key === 'ArrowRight' ? 1 : -1;
+				var nextIndex = (index + direction + tabButtons.length) % tabButtons.length;
+				activateTab(tabButtons[nextIndex], true);
+			});
+		});
+
+		toggleButton.addEventListener('click', function () {
+			var activeContent = getActiveContent();
+			if (!activeContent) return;
+
+			activeContent.classList.toggle('expanded');
+			updateToggleVisibility();
+		});
+
+		Array.prototype.slice.call(section.querySelectorAll('.product-description-tabs-content img')).forEach(function (image) {
+			image.addEventListener('load', updateToggleVisibility);
+		});
+
+		window.addEventListener('resize', function () {
+			var activeContent = getActiveContent();
+			if (activeContent && !activeContent.classList.contains('expanded')) updateToggleVisibility();
+		});
+
+		section.classList.add('ready');
+		window.requestAnimationFrame(updateToggleVisibility);
+	}
+
+	Array.prototype.slice.call(document.querySelectorAll('[data-product-description-tabs]')).forEach(initializeProductDescriptionTabs);
+})();

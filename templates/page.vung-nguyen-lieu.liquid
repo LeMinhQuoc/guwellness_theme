@@ -1,0 +1,328 @@
+<link rel="stylesheet" href="{{ 'page-vung-nguyen-lieu.scss.css' | asset_url }}">
+<div id="top" class="page-vung-nguyen-lieu">
+  <div class="page-vung-nguyen-lieu-content">
+    {% if settings.page_vnl_hero_enable %}
+      <section class="ingredients-hero section-pad-top">
+        <div class="container">
+          <div class="ingredients-hero-media">
+            {% if settings.page_vnl_hero_image != blank %}<img src="{{ settings.page_vnl_hero_image }}" alt="{{ settings.page_vnl_hero_title }}" />{% endif %}
+          </div>
+          <div class="ingredients-hero-copy">
+            <div>
+              <p class="eyebrow">{{ settings.page_vnl_hero_eyebrow }}</p>
+              <h1>{{ settings.page_vnl_hero_title }}</h1>
+            </div>
+            <p>{{ settings.page_vnl_hero_description | newline_to_br }}</p>
+          </div>
+        </div>
+      </section>
+    {% endif %}
+
+    {% if settings.page_vnl_source_enable %}
+      <section id="ingredients" class="source-map container">
+        <div class="source-map-grid">
+          <aside class="map-panel" aria-label="Bản đồ vùng nguyên liệu">
+            <div class="map-panel-inner">
+              {% if settings.page_vnl_source_map_image != blank %}<img src="{{ settings.page_vnl_source_map_image }}" alt="Bản đồ vùng nguyên liệu" />{% endif %}
+              <div class="map-pins">
+                {% assign first_pin = true %}
+                {% for i in (1..4) %}
+                  {% capture enable_key %}page_vnl_item_{{ i }}_enable{% endcapture %}
+                  {% capture tab_key %}page_vnl_item_{{ i }}_tab{% endcapture %}
+                  {% capture pin_x_key %}page_vnl_item_{{ i }}_pin_x{% endcapture %}
+                  {% capture pin_y_key %}page_vnl_item_{{ i }}_pin_y{% endcapture %}
+                  {% if settings[enable_key] %}
+                    <button type="button" class="map-pin{% if first_pin %} is-active{% endif %}" data-ingredient="{{ i }}" style="left: {{ settings[pin_x_key] }}%; top: {{ settings[pin_y_key] }}%;" aria-label="{{ settings[tab_key] }}">
+                      <span class="map-pin-dot" aria-hidden="true"></span>
+                      <span class="map-pin-tooltip">{{ settings[tab_key] }}</span>
+                    </button>
+                    {% assign first_pin = false %}
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          </aside>
+
+          <div class="source-detail">
+            <div class="ingredient-tabs" role="tablist" aria-label="Chọn vùng nguyên liệu">
+              {% assign first_tab = true %}
+              {% for i in (1..4) %}
+                {% capture enable_key %}page_vnl_item_{{ i }}_enable{% endcapture %}
+                {% capture tab_key %}page_vnl_item_{{ i }}_tab{% endcapture %}
+                {% if settings[enable_key] %}
+                  <button class="{% if first_tab %}is-active{% endif %}" type="button" role="tab" aria-selected="{% if first_tab %}true{% else %}false{% endif %}" data-ingredient="{{ i }}">{{ settings[tab_key] }}</button>
+                  {% assign first_tab = false %}
+                {% endif %}
+              {% endfor %}
+            </div>
+
+            <article class="ingredient-card" aria-live="polite">
+              <section class="ingredient-intro-card">
+                <div class="ingredient-visual-stack">
+                  <div class="ingredient-photo">
+                    <img data-ingredient-photo src="{{ settings.page_vnl_item_1_photo }}" alt="{{ settings.page_vnl_item_1_title }}" />
+                  </div>
+                  <blockquote class="ingredient-quote">
+                    <svg width="48" height="39" viewBox="0 0 48 39" fill="none" aria-hidden="true"><path d="M0 26.0539C0 24.8672 0.108108 23.6266 0.324324 22.332C1.51351 14.2407 5.35135 6.79668 11.8378 0L15.0811 2.42739C11.1892 6.52697 9.18919 10.195 9.08108 13.4315C9.18919 15.2656 10.5405 16.5602 13.1351 17.3154C13.8919 17.5311 14.7027 17.8008 15.5676 18.1245C19.7838 20.0664 21.8919 23.3568 21.8919 27.9959C21.8919 29.722 21.5135 31.3403 20.7568 32.8506C18.8108 36.9502 15.6757 39 11.3514 39C9.83784 39 8.43243 38.7303 7.13514 38.1909C2.37838 36.4647 0 32.4191 0 26.0539ZM26.1081 26.0539C26.1081 24.8672 26.2162 23.6266 26.4324 22.332C27.6216 14.2407 31.4595 6.79668 37.9459 0L41.1892 2.42739C37.2973 6.52697 35.2973 10.195 35.1892 13.4315C35.2973 15.2656 36.6487 16.5602 39.2432 17.3154C40 17.5311 40.8108 17.8008 41.6757 18.1245C45.8919 20.0664 48 23.3568 48 27.9959C48 29.722 47.6216 31.3403 46.8649 32.8506C44.9189 36.9502 41.7838 39 37.4595 39C35.9459 39 34.5405 38.7303 33.2432 38.1909C28.4865 36.4647 26.1081 32.4191 26.1081 26.0539Z" fill="#A9DBE2"/></svg>
+                    <span data-ingredient-quote>{{ settings.page_vnl_item_1_quote }}</span>
+                  </blockquote>
+                </div>
+                <div class="ingredient-copy">
+                  <h2 data-ingredient-title>{{ settings.page_vnl_item_1_title }}</h2>
+                  <p data-ingredient-intro>{{ settings.page_vnl_item_1_intro | newline_to_br }}</p>
+                </div>
+                <div class="metric-row" data-ingredient-metrics></div>
+              </section>
+
+              <section class="mini-section cultivation-panel">
+                <h3>{{ settings.page_vnl_source_cultivation_title }}</h3>
+                <div class="cultivation-grid" data-cultivation-list></div>
+              </section>
+
+              <section class="mini-section nutrition-panel">
+                <h3>{{ settings.page_vnl_source_nutrition_title }}</h3>
+                <div class="nutrition-grid" data-nutrition-list></div>
+              </section>
+
+              <section class="heritage-card" data-heritage-card>
+                <div class="heritage-header">
+                  <p>{{ settings.page_vnl_source_heritage_label }}</p>
+                  <div class="heritage-nav">
+                    <button type="button" class="heritage-nav-prev" data-heritage-prev aria-label="Slide trước">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M15.8346 10.0013H4.16797M10.0013 4.16797L4.16797 10.0013L10.0013 15.8346" stroke="#42592F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </button>
+                    <button type="button" class="heritage-nav-next" data-heritage-next aria-label="Slide sau">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M4.16797 10.0013H15.8346M10.0013 15.8346L15.8346 10.0013L10.0013 4.16797" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="heritage-slider" data-heritage-slider>
+                  <div class="heritage-track" data-heritage-track></div>
+                </div>
+              </section>
+            </article>
+          </div>
+        </div>
+
+        {% if settings.page_vnl_quality_enable %}
+          <section class="quality-standards">
+            <div class="section-heading">
+              <h2>{{ settings.page_vnl_quality_title }}</h2>
+              <p>{{ settings.page_vnl_quality_description | newline_to_br }}</p>
+            </div>
+            <div class="certificate-grid">
+              {% for i in (1..4) %}
+                {% capture enable_key %}page_vnl_quality_{{ i }}_enable{% endcapture %}
+                {% capture image_key %}page_vnl_quality_{{ i }}_image{% endcapture %}
+                {% capture text_key %}page_vnl_quality_{{ i }}_text{% endcapture %}
+                {% if settings[enable_key] %}
+                  <article>
+                    {% if settings[image_key] != blank %}<img src="{{ settings[image_key] }}" alt="{{ settings[text_key] }}" />{% endif %}
+                    <p>{{ settings[text_key] }}</p>
+                  </article>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
+      </section>
+    {% endif %}
+
+    {% if settings.page_vnl_process_enable %}
+      <section class="production-process">
+        <div class="container process-grid">
+          <div class="process-heading">
+            <p class="eyebrow">{{ settings.page_vnl_process_eyebrow }}</p>
+            <h2>{{ settings.page_vnl_process_title }}</h2>
+          </div>
+          <div class="process-list">
+            {% for i in (1..5) %}
+              {% capture enable_key %}page_vnl_process_{{ i }}_enable{% endcapture %}
+              {% capture number_key %}page_vnl_process_{{ i }}_number{% endcapture %}
+              {% capture title_key %}page_vnl_process_{{ i }}_title{% endcapture %}
+              {% capture desc_key %}page_vnl_process_{{ i }}_description{% endcapture %}
+              {% if settings[enable_key] %}
+                {% unless forloop.first %}
+                  <svg class="process-arrow" width="21" height="16" viewBox="0 0 21 16" fill="none" aria-hidden="true"><path d="M12.1249 15C11.3551 16.3333 9.4306 16.3333 8.6608 15L0.000546839 0L20.7852 0L12.1249 15Z" fill="url(#vnl-arrow-{{ i }})"/><defs><linearGradient id="vnl-arrow-{{ i }}" x1="10.0533" y1="0" x2="10.0533" y2="11.3127" gradientUnits="userSpaceOnUse"><stop stop-color="#CCDAB9"/><stop offset="1" stop-color="#6F904B"/></linearGradient></defs></svg>
+                {% endunless %}
+                <article><span>{{ settings[number_key] }}</span><h3>{{ settings[title_key] }}</h3><p>{{ settings[desc_key] | newline_to_br }}</p></article>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+    {% endif %}
+
+    {% if settings.page_vnl_standards_enable %}
+      <section class="standards-section container">
+        <div class="process-heading">
+          <p class="eyebrow">{{ settings.page_vnl_standards_eyebrow }}</p>
+          <h2>{{ settings.page_vnl_standards_title }}</h2>
+        </div>
+        <div class="standards-list">
+          {% for i in (1..3) %}
+            {% capture enable_key %}page_vnl_standards_{{ i }}_enable{% endcapture %}
+            {% capture number_key %}page_vnl_standards_{{ i }}_number{% endcapture %}
+            {% capture title_key %}page_vnl_standards_{{ i }}_title{% endcapture %}
+            {% capture desc_key %}page_vnl_standards_{{ i }}_description{% endcapture %}
+            {% if settings[enable_key] %}
+              <article><span>{{ settings[number_key] }}</span><h3>{{ settings[title_key] }}</h3><p>{{ settings[desc_key] | newline_to_br }}</p></article>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if settings.page_vnl_sustain_enable %}
+      <section class="sustainability-band container">
+        <div class="sustainability-image">
+          {% if settings.page_vnl_sustain_image != blank %}<img src="{{ settings.page_vnl_sustain_image }}" alt="{{ settings.page_vnl_sustain_title }}" />{% endif %}
+          <div>
+            <p class="eyebrow">{{ settings.page_vnl_sustain_eyebrow }}</p>
+            <h2>{{ settings.page_vnl_sustain_title | newline_to_br }}</h2>
+          </div>
+        </div>
+        <div class="sustainability-pillars">
+          {% for i in (1..3) %}
+            {% capture enable_key %}page_vnl_sustain_{{ i }}_enable{% endcapture %}
+            {% capture number_key %}page_vnl_sustain_{{ i }}_number{% endcapture %}
+            {% capture title_key %}page_vnl_sustain_{{ i }}_title{% endcapture %}
+            {% capture desc_key %}page_vnl_sustain_{{ i }}_description{% endcapture %}
+            {% if settings[enable_key] %}
+              <article><span>{{ settings[number_key] }}</span><h3>{{ settings[title_key] }}</h3><p>{{ settings[desc_key] | newline_to_br }}</p></article>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if settings.page_vnl_future_enable %}
+      <section class="future-section container">
+        {% if settings.page_vnl_future_image != blank %}<img src="{{ settings.page_vnl_future_image }}" alt="{{ settings.page_vnl_future_title }}" />{% endif %}
+        <div class="future-copy">
+          <p class="eyebrow">{{ settings.page_vnl_future_eyebrow }}</p>
+          <h2>{{ settings.page_vnl_future_title }}</h2>
+          <p>{{ settings.page_vnl_future_description | newline_to_br }}</p>
+        </div>
+        <div class="future-cards">
+          {% for i in (1..3) %}
+            {% capture enable_key %}page_vnl_future_{{ i }}_enable{% endcapture %}
+            {% capture year_key %}page_vnl_future_{{ i }}_year{% endcapture %}
+            {% capture title_key %}page_vnl_future_{{ i }}_title{% endcapture %}
+            {% capture desc_key %}page_vnl_future_{{ i }}_description{% endcapture %}
+            {% if settings[enable_key] %}
+              <article><span>{{ settings[year_key] }}</span><h3>{{ settings[title_key] }}</h3><p>{{ settings[desc_key] | newline_to_br }}</p></article>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if settings.page_vnl_farmtour_enable %}
+      <section class="farmtour container">
+        {% if settings.page_vnl_farmtour_image != blank %}<img src="{{ settings.page_vnl_farmtour_image }}" alt="{{ settings.page_vnl_farmtour_title }}" />{% endif %}
+        <div class="farmtour-copy">
+          <h2>{{ settings.page_vnl_farmtour_title | newline_to_br }}</h2>
+          <div class="farmtour-cards">
+            {% for i in (1..2) %}
+              {% capture enable_key %}page_vnl_farmtour_{{ i }}_enable{% endcapture %}
+              {% capture title_key %}page_vnl_farmtour_{{ i }}_title{% endcapture %}
+              {% capture desc_key %}page_vnl_farmtour_{{ i }}_description{% endcapture %}
+              {% if settings[enable_key] %}
+                <article><h3>{{ settings[title_key] }}</h3><p>{{ settings[desc_key] | newline_to_br }}</p></article>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <button type="button" class="gu-button" data-farmtour-popup-open>
+            <span class="button-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M0.75 9.08333L9.08333 0.75M9.08333 9.08333V0.75H0.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </span>
+            <span class="button-label">{{ settings.page_vnl_farmtour_button_text }}</span>
+          </button>
+        </div>
+      </section>
+    {% endif %}
+
+    {% if settings.page_vnl_cta_enable %}
+      <section class="ingredients-cta ingredients-ending-cta">
+        {% if settings.page_vnl_cta_image != blank %}<img src="{{ settings.page_vnl_cta_image }}" alt="{{ settings.page_vnl_cta_title }}" />{% endif %}
+        <div>
+          <h2>{{ settings.page_vnl_cta_title | newline_to_br }}</h2>
+          <a class="gu-button" href="javascript:void(0);" data-partner-popup-open>
+            <span class="button-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M0.75 9.08333L9.08333 0.75M9.08333 9.08333V0.75H0.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </span>
+            <span class="button-label">{{ settings.page_vnl_cta_button_text }}</span>
+          </a>
+        </div>
+      </section>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+  window.__PAGE_VNL_ITEMS__ = {
+    {% for i in (1..4) %}
+      {% capture photo_key %}page_vnl_item_{{ i }}_photo{% endcapture %}
+      {% capture quote_key %}page_vnl_item_{{ i }}_quote{% endcapture %}
+      {% capture title_key %}page_vnl_item_{{ i }}_title{% endcapture %}
+      {% capture intro_key %}page_vnl_item_{{ i }}_intro{% endcapture %}
+      {% capture tab_key %}page_vnl_item_{{ i }}_tab{% endcapture %}
+      "{{ i }}": {
+        photo: {{ settings[photo_key] | json }},
+        alt: {{ settings[tab_key] | json }},
+        quote: {{ settings[quote_key] | json }},
+        title: {{ settings[title_key] | json }},
+        intro: {{ settings[intro_key] | json }},
+        metrics: [
+          {% for m in (1..3) %}
+            {% capture mv %}page_vnl_item_{{ i }}_metric_{{ m }}_value{% endcapture %}
+            {% capture ml %}page_vnl_item_{{ i }}_metric_{{ m }}_label{% endcapture %}
+            [{{ settings[mv] | json }}, {{ settings[ml] | json }}]{% unless forloop.last %},{% endunless %}
+          {% endfor %}
+        ],
+        cultivation: [
+          {% for c in (1..3) %}
+            {% capture ct %}page_vnl_item_{{ i }}_cultivation_{{ c }}_title{% endcapture %}
+            {% capture cx %}page_vnl_item_{{ i }}_cultivation_{{ c }}_text{% endcapture %}
+            [{{ settings[ct] | json }}, {{ settings[cx] | json }}]{% unless forloop.last %},{% endunless %}
+          {% endfor %}
+        ],
+        nutrition: [
+          {% for d in (1..4) %}
+            {% capture nv %}page_vnl_item_{{ i }}_nutrition_{{ d }}_value{% endcapture %}
+            {% capture nl %}page_vnl_item_{{ i }}_nutrition_{{ d }}_label{% endcapture %}
+            [{{ settings[nv] | json }}, {{ settings[nl] | json }}]{% unless forloop.last %},{% endunless %}
+          {% endfor %}
+        ],
+        partners: [
+          {% assign partner_first = true %}
+          {% for s in (1..3) %}
+            {% capture pe %}page_vnl_item_{{ i }}_partner_{{ s }}_enable{% endcapture %}
+            {% capture pt %}page_vnl_item_{{ i }}_partner_{{ s }}_title{% endcapture %}
+            {% capture pb %}page_vnl_item_{{ i }}_partner_{{ s }}_body{% endcapture %}
+            {% capture pq %}page_vnl_item_{{ i }}_partner_{{ s }}_quote{% endcapture %}
+            {% capture pi %}page_vnl_item_{{ i }}_partner_{{ s }}_image{% endcapture %}
+            {% if settings[pe] %}
+              {% unless partner_first %},{% endunless %}
+              {
+                title: {{ settings[pt] | json }},
+                body: {{ settings[pb] | json }},
+                quote: {{ settings[pq] | json }},
+                image: {{ settings[pi] | json }}
+              }
+              {% assign partner_first = false %}
+            {% endif %}
+          {% endfor %}
+        ]
+      }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  };
+</script>
+<script defer src="{{ 'gsap.min.js' | asset_url }}"></script>
+<script defer src="{{ 'ScrollTrigger.min.js' | asset_url }}"></script>
+<script defer src="{{ 'page-vung-nguyen-lieu.js' | asset_url }}"></script>

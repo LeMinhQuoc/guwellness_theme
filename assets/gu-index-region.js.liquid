@@ -1,0 +1,185 @@
+/* haravan-audit:v2 */
+(function () {
+  "use strict";
+
+  var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var mobileMq = window.matchMedia("(max-width: 991.98px)");
+
+  function isMobileLayout() {
+    return mobileMq.matches;
+  }
+
+  function getHeaderHeight() {
+    var header = document.querySelector(".site-header");
+    return header ? Math.round(header.getBoundingClientRect().height) : 0;
+  }
+
+  function getPinnedScrollDistance(section) {
+    return Math.max(1, section.offsetHeight - (window.innerHeight - getHeaderHeight()));
+  }
+
+  function getPinnedScrollStart() {
+    return "top 65%";
+  }
+
+  function clamp01(value) {
+    return Math.max(0, Math.min(1, value));
+  }
+
+  function easeInOut(t) {
+    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+  }
+
+  function phase(progress, start, end) {
+    return easeInOut(clamp01((progress - start) / (end - start)));
+  }
+
+  function setStaticScrollState() {
+    document.querySelectorAll(".js-region-scroll").forEach(function (section) {
+      section.style.setProperty("--region-bg", 1);
+      section.style.setProperty("--region-text", 1);
+      section.style.setProperty("--card-1", 1);
+      section.style.setProperty("--card-2", 1);
+      section.style.setProperty("--card-3", 1);
+      section.style.setProperty("--card-4", 1);
+    });
+  }
+
+  function setupGsapScroll() {
+    if (prefersReducedMotion || isMobileLayout()) {
+      setStaticScrollState();
+      return true;
+    }
+
+    if (!window.gsap || !window.ScrollTrigger) {
+      return false;
+    }
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    function refreshScrollTriggers() {
+      if (!window.ScrollTrigger) {
+        return;
+      }
+
+      window.requestAnimationFrame(function () {
+        ScrollTrigger.refresh();
+        ScrollTrigger.update();
+
+        window.setTimeout(function () {
+          ScrollTrigger.refresh();
+          ScrollTrigger.update();
+        }, 180);
+      });
+    }
+
+    function refreshAfterLayoutSettles() {
+      refreshScrollTriggers();
+
+      if (document.readyState === "complete") {
+        refreshScrollTriggers();
+      } else {
+        window.addEventListener("load", refreshScrollTriggers, { once: true });
+      }
+
+      window.addEventListener("pageshow", refreshScrollTriggers);
+      document.addEventListener("lazyloaded", refreshScrollTriggers);
+    }
+
+    var mm = gsap.matchMedia();
+
+    mm.add("(min-width: 992px)", function () {
+      gsap.utils.toArray(".js-region-scroll").forEach(function (section) {
+        var bg = section.querySelector(".region__bg");
+        var content = section.querySelector(".region__content");
+        var cards = section.querySelectorAll(".category-card");
+
+        if (!bg || !content || !cards.length) {
+          return;
+        }
+
+        gsap.set(bg, { autoAlpha: 0 });
+        gsap.set(content, { autoAlpha: 0, y: 60 });
+        gsap.set(cards, { autoAlpha: 0, y: 100 });
+
+        var tl = gsap.timeline({
+          defaults: { ease: "power2.out" },
+          scrollTrigger: {
+            trigger: section,
+            start: getPinnedScrollStart,
+            end: function () { return "+=" + getPinnedScrollDistance(section); },
+            scrub: 0.7,
+            invalidateOnRefresh: true
+          }
+        })
+          .fromTo(bg,
+            { autoAlpha: 0 },
+            { autoAlpha: 1, duration: 0.18 },
+            0
+          )
+          .fromTo(content,
+            { autoAlpha: 0, y: 60 },
+            { autoAlpha: 1, y: 0, duration: 0.2 },
+            0.06
+          );
+
+        if (cards[0]) tl.fromTo(cards[0], { autoAlpha: 0, y: 100 }, { autoAlpha: 1, y: 0, duration: 0.2 }, 0.24);
+        if (cards[1]) tl.fromTo(cards[1], { autoAlpha: 0, y: 100 }, { autoAlpha: 1, y: 0, duration: 0.2 }, 0.39);
+        if (cards[2]) tl.fromTo(cards[2], { autoAlpha: 0, y: 100 }, { autoAlpha: 1, y: 0, duration: 0.2 }, 0.54);
+        if (cards[3]) tl.fromTo(cards[3], { autoAlpha: 0, y: 100 }, { autoAlpha: 1, y: 0, duration: 0.2 }, 0.69);
+      });
+
+      refreshAfterLayoutSettles();
+    });
+
+    mm.add("(max-width: 991px)", function () {
+      setStaticScrollState();
+      gsap.set(".region__bg, .region__content, .category-card", {
+        clearProps: "all"
+      });
+    });
+
+    return true;
+  }
+
+  function setupPinnedScrollFallback() {
+    var region = document.querySelectorAll(".js-region-scroll");
+
+    if (!region.length) {
+      return;
+    }
+
+    function update() {
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      var headerH = getHeaderHeight();
+
+      if ((window.innerWidth || document.documentElement.clientWidth) < 992 || prefersReducedMotion) {
+        setStaticScrollState();
+        return;
+      }
+
+      region.forEach(function (section) {
+        var rect = section.getBoundingClientRect();
+        var max = section.offsetHeight - (vh - headerH);
+        var p = max > 0 ? clamp01(((vh * 0.65) - rect.top) / max) : 0;
+
+        section.style.setProperty("--region-bg", phase(p, 0, 0.18).toFixed(4));
+        section.style.setProperty("--region-text", phase(p, 0.06, 0.26).toFixed(4));
+        section.style.setProperty("--card-1", phase(p, 0.24, 0.44).toFixed(4));
+        section.style.setProperty("--card-2", phase(p, 0.39, 0.59).toFixed(4));
+        section.style.setProperty("--card-3", phase(p, 0.54, 0.74).toFixed(4));
+        section.style.setProperty("--card-4", phase(p, 0.69, 0.89).toFixed(4));
+      });
+    }
+
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    if (!setupGsapScroll()) {
+      setupPinnedScrollFallback();
+    }
+  });
+})();

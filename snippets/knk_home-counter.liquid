@@ -1,0 +1,31 @@
+{% comment %}haravan-audit:v2{% endcomment %}
+<section class="knk_home-counter" data-filename="knk_home-counter"
+  style="--clr-title: {{ settings.knk_counter_clr_title | default: '' }};
+        --clr-stitle: {{ settings.knk_counter_clr_stitle | default: '' }};
+        --clr-number: {{ settings.knk_counter_clr_count | default: '' }};">
+  <link rel="preload stylesheet" href="{{ 'knk_home-counter.css' | asset_url }}" as="style">
+  <script fetchpriority="low" type="text/javascript" defer src="{{ 'knk_home-counter.js' | asset_url }}"></script>
+  
+  <div class="wrapper-home-counter">
+    <div class="container">
+      <div class="knk_counter_intoview knk_margin_flex d-flex-counter">
+        {% for i in (1..4) %}
+        {% capture number %}knk_counter_number_{{i}}{% endcapture %}
+        {% capture sub_number -%}knk_counter_subnumber_{{i}}{% endcapture %}
+        {% capture title %}knk_counter_title_{{i}}{% endcapture %}
+        {% capture desc %}knk_counter_desc_{{i}}{% endcapture %}
+        <div class="knk_counter_home_item">
+          <div class="counter-content">
+            <div class="flex-counter">
+              {% if settings[number] != blank %}<div data-counter="{{ settings[number] | default: '' }}" class="knk_counter">0</div>{% endif %}
+              {% if settings[sub_number] != blank %}<div class="knk_counter_label">{{ settings[sub_number] | default: '' }}</div>{% endif %}
+            </div>
+            {% if settings[title] != blank %}<h2 class="knk_heading_counter">{{ settings[title] | default: '' }}</h2>{% endif %}
+            {% if settings[desc] != blank %}<div class="knk_desc_counter">{{ settings[desc] | default: '' }}</div>{% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

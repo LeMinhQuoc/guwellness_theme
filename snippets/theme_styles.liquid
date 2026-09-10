@@ -1,0 +1,59 @@
+{%- include 'plugins-css' -%}
+<link href="{{ 'style-default.scss.css' | asset_url }}" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="{{ 'style-default.scss.css' | asset_url }}" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"></noscript>
+<link href="{{ 'hrv-addthis-sharing.scss.css' | asset_url }}" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="{{ 'hrv-addthis-sharing.scss.css' | asset_url }}" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"></noscript>
+{%- if settings.base_font %}  
+{%- unless settings.base_font contains 'Arial' %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family={{ settings.base_font | replace: ' ', '+' }}:wght@400;500;600;700&display=swap"></noscript>
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family={{ settings.base_font | replace: ' ', '+' }}:wght@400;500;600;700&display=swap">
+{%- endunless -%}
+{%endif%}
+{%- if settings.base_font_title and settings.base_font_title != settings.base_font %}  
+{%- unless settings.base_font_title contains 'Arial' %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family={{ settings.base_font_title | replace: ' ', '+' }}:wght@400;500;600;700&display=swap"></noscript>
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family={{ settings.base_font_title | replace: ' ', '+' }}:wght@400;500;600;700&display=swap">
+{%- endunless -%}
+{%endif%}
+<style>
+  :root {
+	/*Theme*/
+	--shop-color-main: {{settings.shop_main_color | default: '#000000'}};
+	--shop-color-bg: {{settings.shop_color_bg | default: '#ffffff'}};
+	--shop-color-text: {{settings.shop_text_color | default: '#000000'}};
+	--shop-color-title: {{settings.shop_title_color | default: '#000000'}};
+	--shop-text-hover: {{settings.shop_text_hover_color | default: '#000000'}};
+	--color-heading: {{settings.shop_title_color | default: '#000000'}};
+		/*Default*/
+		--shop-color-border: {{settings.shop_main_border}};
+		--stroke-width: 1px;
+		--fill-color: transparent;
+		--stroke-color: #000000;
+		--icon-width: 24px;
+		--icon-height: 24px;
+		--base-font: {{settings.base_font | default: 'Quicksand'}};
+	--heading-font-family: {{settings.base_font_title | default: 'Quicksand'}};
+		/*Swiper*/
+		--swiper-theme-color: #121212;
+		--swiper-navigation-size: 24px;
+		--swiper-pagination-bullet-inactive-color: {{settings.theme_color | default: '#171718'}};
+		--swiper-pagination-color: {{settings.theme_color | default: '#171718'}};
+		--swiper-pagination-bullet-inactive-opacity: .4;
+		--swiper-pagination-bullet-horizontal-gap: 4px;
+		--swiper-pagination-bullet-width: 10px;
+		--swiper-pagination-bullet-height: 10px;
+	--w-container: 1440px;
+	--w-container-location: calc(var(--w-container) - 180px);
+	--body-font-size: 16px;
+	--heading-font-size: 16px;
+	--base-font-family: {{settings.base_font | default: 'Quicksand'}};
+	/*Translate*/
+	--traslate-color: #000;
+	--traslate-colorhover: #fff;
+} 
+  
+</style>

@@ -1,0 +1,31 @@
+<style>
+    .loading-screen {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--gu-cream);
+        transition: opacity 0.55s ease, visibility 0.55s ease;
+    }
+    .loading-screen svg {
+        color: #8BA466;
+    }
+    .is-loaded .loading-screen {
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+    }
+</style>
+<div class="loading-screen" aria-hidden="true">
+    <img src="{{ settings.logo_png }}" height="80" alt="{{ shop.name }}" class="site-logo"/>
+</div>
+<script> 
+    $(function () {
+        window.setTimeout(function () {
+            var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            $("body").addClass("is-loaded");
+        }, (window.matchMedia("(prefers-reduced-motion: reduce)").matches || window.matchMedia("(max-width: 991.98px)").matches) ? 0 : 100);
+    });
+</script>

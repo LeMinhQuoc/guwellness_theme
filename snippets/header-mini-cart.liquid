@@ -1,0 +1,174 @@
+{% comment %}haravan-audit:v2{% endcomment %}
+{%- unless template contains 'cart'-%}
+{%- assign checkPriTotal = false -%}
+{%- assign valuePriTotal =  cart.total_price | divided_by : 100 -%}
+{%- assign valuePriMin = 0-%}
+{%- if settings.cart_page_minimum_show and settings.cart_page_minimum_value != blank -%}
+{%- assign valuePriMin = settings.cart_page_minimum_value | lstrip | rstrip | times: 1 -%}
+{%- if valuePriMin > valuePriTotal -%} 
+{%- assign checkPriTotal = true -%}
+{%- endif -%}
+{%- endif -%}
+
+{% if valuePriTotal == 0 %} {%- assign checkPriTotal = true -%} {% endif %}
+<div class="dentalhub-sitenav-wrapper hrv-sitenav-wrapper dentalhub-sitenav-right hrv-sitenav-right dentalhub-sitenav-cart hrv-sitenav-cart {%if valuePriTotal == 0 %}hrv-cart-empty{%endif%}">
+	<div class="dentalhub-sitenav-inner hrv-sitenav-inner">
+		<div class="dentalhub-sitenav-header hrv-sitenav-header">
+			<p class="dentalhub-sitenav-header__title hrv-sitenav-header__title hrv-count-holder">Giỏ hàng của bạn <span class="mini-cart-title-count">(<span class="js-cart-count">{{ cart.item_count }}</span>)</span></p>
+			<a name="button-close" class="dentalhub-sitenav-header__btn hrv-sitenav-header__btn dentalhub-btn-sitenav-close hrv-btn-sitenav-close">
+				<svg viewBox="0 0 19 19" role="presentation"><path d="M9.1923882 8.39339828l7.7781745-7.7781746 1.4142136 1.41421357-7.7781746 7.77817459 7.7781746 7.77817456L16.9705627 19l-7.7781745-7.7781746L1.41421356 19 0 17.5857864l7.7781746-7.77817456L0 2.02943725 1.41421356.61522369 9.1923882 8.39339828z" fill-rule="evenodd"></path></svg>
+			</a>
+		</div>
+		<div class="dentalhub-sitenav-content hrv-sitenav-content">
+			<div class="dentalhub-cart-view hrv-cart-view">
+				<div class="dentalhub-cart-view-scroll hrv-cart-view-scroll">
+					<div id="hrv-clone-item-cart" class="dentalhub-table-clone-cart hrv-table-clone-cart">
+						<div class="dentalhub-mini-cart__item hrv-mini-cart__item d-none">
+							<div class="dentalhub-mini-cart__left hrv-mini-cart__left"><a class="dentalhub-mnc-link hrv-mnc-link" href="#" title=""><img src="" alt="" /></a></div>
+							<div class="dentalhub-mini-cart__right hrv-mini-cart__right">
+								<p class="dentalhub-mini-cart__title hrv-mini-cart__title">	
+									<a class="dentalhub-mnc-title hrv-mnc-title dentalhub-mnc-link hrv-mnc-link" href="#" title=""></a>
+								</p>
+								<div class="dentalhub-mini-cart__price hrv-mini-cart__price">
+									<span class="hrv-mnc-price">{{ item.price | money }}</span> 
+									<del class="dentalhub-mnc-ori-price hrv-mnc-ori-price"></del>
+								</div>
+								<div class="mini-cart-controls">
+									<div class="mini-cart-variants d-none"></div>
+									<div class="dentalhub-mini-cart__quantity hrv-mini-cart__quantity">
+										<button type="button" class="dentalhub-qty-btn hrv-qty-btn dentalhub-mnc-minus hrv-mnc-minus" aria-label="Giảm số lượng">
+											<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+												<path d="M4.16797 10H15.8346" stroke="#0A0A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+											</svg>
+										</button>
+										<input class="dentalhub-qty-value hrv-qty-value" type="text" readonly="" name="dentalhub-mnc-quantity" value="1">
+										<button type="button" class="dentalhub-qty-btn hrv-qty-btn dentalhub-mnc-plus hrv-mnc-plus" aria-label="Tăng số lượng">
+											<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+												<path d="M10.0013 4.16406V15.8307M4.16797 9.9974H15.8346" stroke="#0A0A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+											</svg>
+										</button>
+									</div>
+								</div>
+								<div class="dentalhub-mini-cart__remove hrv-mini-cart__remove">
+								<a href="javascript:void(0);" aria-label="Xóa sản phẩm">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 4L12 12M12 4L4 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+								</a>
+								</div>
+							</div>
+						</div>   
+					</div>
+					<div id="hrv-cart-view">
+						{%- if cart.item_count > 0 -%}
+						{%- assign xHasyPrice = ''-%} 
+						{%- for item in cart.items -%}
+						{%-assign promtoionref = item.promotionref | append: ''-%}
+						{%-if item.price == 0 and item.price_original > 0 and item.promotionref != 'null'-%}
+						{%-if item.promotionby[0].variant_ids.size == 0-%}
+						{%- assign xHasyPrice = xHasyPrice | append: ',' | append: item.promotionby[0].product_id-%}
+						{%-else-%}
+						{%-comment-%}<!-- Xử lý case theo biến thể -->{%-endcomment-%}
+						{%-endif-%}
+						{%-endif-%}
+						{%-endfor-%}
+						{%- assign xHasyPrice = xHasyPrice | remove_first: ',' | split: ','-%}
+
+						{%- for item in cart.items -%}
+						{%-assign promtoionref = item.promotionref | append: ''-%}
+						{%-assign signSpecial = ''-%}
+						{%-if xHasyPrice != ''-%}
+						{%-assign itemPrdId = item.product_id | append: ''-%}
+						{%-assign itemVrtId = item.variant_id | append: ''-%}
+						{%-if xHasyPrice contains itemPrdId or xHasyPrice contains itemVrtId-%}
+						{%-assign signSpecial = ' xSpecial'-%}
+						{%-endif-%}
+						{%-endif-%}
+						{%- assign show_btn_qty = true -%}
+						{%- if settings.promotion_hrvapp_use -%}
+						{%- if item.price == 0 or item.properties.BuyXGetY != nil or item.properties.Combo != nil -%}
+						{%- assign show_btn_qty = false -%}
+						{%- endif -%}
+						{%- endif -%}
+						<div class="dentalhub-mini-cart__item hrv-mini-cart__item {{signSpecial}}" data-vid="{{item.variant_id}}" data-pid="{{item.product_id}}">
+							<div class="dentalhub-mini-cart__left hrv-mini-cart__left">
+								<a class="dentalhub-mnc-link hrv-mnc-link" href="{{ item.product.url }}">
+									<img src="{% if item.variant.image == empty %} {{ item | img_url: 'small' }} {% else%} {{ item.variant.image | product_img_url : 'small'}}  {% endif %}" alt="{{ item.title }}" />
+									{%- if settings.promotion_hrvapp_use and item.properties.BuyXGetY != nil -%}
+									<span class="dentalhub-mnc-gift hrv-mnc-gift"><img src="{{ settings.combo_icon | default: '' }}" alt="icon quà tặng"></span>
+									{%- endif -%}
+								</a>
+							</div>
+							<div class="dentalhub-mini-cart__right hrv-mini-cart__right">
+								<p class="dentalhub-mini-cart__title hrv-mini-cart__title">	
+									<a class="dentalhub-mnc-title hrv-mnc-title dentalhub-mnc-link hrv-mnc-link" href="{{ item.product.url }}" title="{{ item.title }}">{{ item.title }}</a>
+								</p>
+								<div class="dentalhub-mini-cart__price hrv-mini-cart__price">
+									<span class="hrv-mnc-price">{{ item.price | money }}</span>
+									<del class="dentalhub-mnc-ori-price hrv-mnc-ori-price">{%- if item.variant.compare_at_price > item.price -%}{{ item.variant.compare_at_price | money }}{%- elsif item.price_original > item.price -%}{{ item.price_original | money }}{%- endif -%}</del>
+								</div>
+								<div class="mini-cart-controls">
+									<div class="mini-cart-variants{% if item.product.variants.size < 2 or show_btn_qty == false %} d-none{% endif %}" data-line="{{ forloop.index }}" data-current-variant="{{ item.variant_id }}" data-product-url="{{ item.product.url | escape }}" data-option-count="{{ item.product.options.size }}" data-load-variants="true">
+										{%- for option_name in item.product.options -%}
+										{%- case forloop.index -%}
+										{%- when 1 -%}
+										{%- assign selected_option = item.variant.option1 -%}
+										{%- when 2 -%}
+										{%- assign selected_option = item.variant.option2 -%}
+										{%- when 3 -%}
+										{%- assign selected_option = item.variant.option3 -%}
+										{%- endcase -%}
+										<div class="mini-cart-variant">
+											<select class="mini-cart-option-select" aria-label="{{ option_name | escape }}" data-option-index="{{ forloop.index0 }}" disabled>
+												<option value="{{ selected_option | escape }}" selected>{{ selected_option }}</option>
+											</select>
+											<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+										</div>
+										{%- endfor -%}
+									</div>
+									<div class="dentalhub-mini-cart__quantity hrv-mini-cart__quantity">
+									{%-if show_btn_qty-%}
+									<button type="button" class="dentalhub-qty-btn hrv-qty-btn dentalhub-mnc-minus hrv-mnc-minus" aria-label="Giảm số lượng"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12H19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+									{%-endif-%}
+									<input class="dentalhub-qty-value hrv-qty-value {%unless show_btn_qty %} dentalhub-qty-value-app hrv-qty-value-app {% endunless %} " type="text" readonly="" name="dentalhub-mnc-quantity" value="{{item.quantity}}" data-vid="{{item.variant_id}}">
+									{%-if show_btn_qty-%}
+									<button type="button" class="dentalhub-qty-btn hrv-qty-btn dentalhub-mnc-plus hrv-mnc-plus" aria-label="Tăng số lượng"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+									{%-endif-%}
+									</div>
+								</div>
+								{%-unless settings.promotion_hrvapp_use and item.price == 0 -%}
+								<div class="dentalhub-mini-cart__remove hrv-mini-cart__remove">
+									<a href="javascript:void(0);" onclick="HRVTheme.General.deleteCart({{forloop.index}}, {{item.variant_id}})" aria-label="Xóa sản phẩm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 4L12 12M12 4L4 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+								</div>
+								{%-endunless-%}
+							</div>
+						</div>
+						{% endfor %}
+						{% else %}
+						<div class="hrv-mini-cart__empty">
+							<div class="hrv-svgico-mini-cart">
+								<img class="lazyload" data-src="{{ 'cart_banner_image.jpg' | asset_url }}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Giỏ hàng của bạn đang trống"/>
+								<p>Chưa có sản phẩm trong giỏ hàng...</p>
+							</div>					
+						</div>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="hrv-sitenav-footer">
+			<div class="dentalhub-cart-view-total hrv-cart-view-total">
+				<div class="hrv-total-price">
+					<div class="dentalhub-mnc-total hrv-mnc-total text-left">Tạm tính :</div>
+					<div class="dentalhub-mnc-total hrv-mnc-total text-right" id="hrv-total-view-cart">{{cart.total_price | money}}</div>
+				</div>
+				<div class="dentalhub-total-actions hrv-total-actions">
+					<div class="dentalhub-summary-alert hrv-summary-alert alert alert-danger" {% if checkPriTotal %}style="display:block"{% endif %}>
+						Giỏ hàng của bạn hiện chưa đạt mức tối thiểu để thanh toán.
+					</div>
+					<div class="mini-cart-footer-actions"><a href="/checkout" class="dentalhub-linktocheckout hrv-linktocheckout {% if checkPriTotal %}disabled{% endif %}">Thanh toán ngay</a><a href="/cart" class="dentalhub-linktocart hrv-linktocart">Xem giỏ hàng</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="dentalhub-sidebar-overlay hrv-sidebar-overlay"></div>
+</div>
+{%- endunless -%}

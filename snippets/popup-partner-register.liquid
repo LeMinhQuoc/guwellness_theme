@@ -1,0 +1,94 @@
+<link rel="stylesheet" href="{{ 'popup-ctv-register.scss.css' | asset_url }}">
+
+<div class="ctv-popup-overlay" data-partner-popup-overlay aria-hidden="true">
+  <div class="ctv-popup" role="dialog" aria-modal="true" aria-labelledby="partnerPopupTitle">
+    <button type="button" class="ctv-popup-close" data-partner-popup-close aria-label="Đóng">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1L13 13M13 1L1 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg>
+    </button>
+    <h2 id="partnerPopupTitle">{{ settings.page_ctv_partner_popup_title | newline_to_br }}</h2>
+    <form class="ctv-popup-form" data-partner-popup-form action="{{ settings.page_ctv_partner_popup_form_action }}" method="POST">
+      <input type="hidden" name="{{ settings.page_ctv_partner_popup_entry_type }}" value="Đối tác" />
+
+      <div class="ctv-popup-section">
+        <p class="ctv-popup-label">Thông tin cá nhân</p>
+        <div class="ctv-popup-row">
+          <input type="text" name="{{ settings.page_ctv_partner_popup_entry_fullname }}" placeholder="Họ và tên *" required />
+          <input type="text" class="ctv-popup-date" name="{{ settings.page_ctv_partner_popup_entry_dob }}" placeholder="Ngày tháng năm sinh" />
+        </div>
+        <div class="ctv-popup-row">
+          <input type="tel" name="{{ settings.page_ctv_partner_popup_entry_phone }}" placeholder="SĐT liên hệ *" required />
+          <input type="email" name="{{ settings.page_ctv_partner_popup_entry_email }}" placeholder="VD:info@email.com" />
+        </div>
+      </div>
+
+      <div class="ctv-popup-section">
+        <p class="ctv-popup-label">Thông tin kinh doanh :</p>
+        <input type="text" name="{{ settings.page_ctv_partner_popup_entry_address }}" placeholder="Địa chỉ" />
+        <div class="ctv-popup-row">
+          <select name="{{ settings.page_ctv_partner_popup_entry_province }}" required class="ctv-popup-select-placeholder" data-vn-province data-placeholder="Tỉnh/Thành phố *">
+            <option value="" selected disabled>Tỉnh/Thành phố *</option>
+          </select>
+          <select name="{{ settings.page_ctv_partner_popup_entry_district }}" class="ctv-popup-select-placeholder" data-vn-ward data-placeholder="Phường/Xã" disabled>
+            <option value="" selected disabled>Phường/Xã</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="ctv-popup-section">
+        <p class="ctv-popup-label">Kênh bán hàng hiện tại</p>
+        <div class="ctv-popup-radio-group">
+          <label class="ctv-popup-radio"><input type="radio" name="{{ settings.page_ctv_partner_popup_entry_channel }}" value="Facebook" checked /><span>Facebook</span></label>
+          <label class="ctv-popup-radio"><input type="radio" name="{{ settings.page_ctv_partner_popup_entry_channel }}" value="TikTok" /><span>TikTok</span></label>
+          <label class="ctv-popup-radio"><input type="radio" name="{{ settings.page_ctv_partner_popup_entry_channel }}" value="Shopee" /><span>Shopee</span></label>
+          <label class="ctv-popup-radio"><input type="radio" name="{{ settings.page_ctv_partner_popup_entry_channel }}" value="Website" /><span>Website</span></label>
+          <label class="ctv-popup-radio"><input type="radio" name="{{ settings.page_ctv_partner_popup_entry_channel }}" value="Cửa hàng Offline" /><span>Cửa hàng Offline</span></label>
+          <label class="ctv-popup-radio"><input type="radio" name="{{ settings.page_ctv_partner_popup_entry_channel }}" value="Khác" /><span>Khác</span></label>
+        </div>
+      </div>
+
+      <div class="ctv-popup-section">
+        <p class="ctv-popup-label">Thông tin hợp tác</p>
+        <div class="ctv-popup-radio-group">
+          <label class="ctv-popup-radio"><input type="radio" name="{{ settings.page_ctv_partner_popup_entry_cooperation_type }}" value="CTV" checked /><span>CTV</span></label>
+          <label class="ctv-popup-radio"><input type="radio" name="{{ settings.page_ctv_partner_popup_entry_cooperation_type }}" value="Đại lý" /><span>Đại lý</span></label>
+          <label class="ctv-popup-radio"><input type="radio" name="{{ settings.page_ctv_partner_popup_entry_cooperation_type }}" value="Nhà phân phối" /><span>Nhà phân phối</span></label>
+          <label class="ctv-popup-radio"><input type="radio" name="{{ settings.page_ctv_partner_popup_entry_cooperation_type }}" value="KOC/KOL" /><span>KOC/KOL</span></label>
+        </div>
+      </div>
+
+      <div class="ctv-popup-section">
+        <p class="ctv-popup-label">Kinh nghiệm bán hàng</p>
+        <input type="text" name="{{ settings.page_ctv_partner_popup_entry_experience }}" placeholder="Doanh số hiện tại (nếu có)" />
+        <textarea name="{{ settings.page_ctv_partner_popup_entry_note }}" rows="4" placeholder="Ghi chú của bạn"></textarea>
+      </div>
+
+      <button type="submit" class="gu-button ctv-popup-submit">
+        <span class="button-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+            <path d="M0.75 9.08333L9.08333 0.75M9.08333 9.08333V0.75H0.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </span>
+        <span class="button-label">{{ settings.page_ctv_partner_popup_submit_text }}</span>
+      </button>
+    </form>
+  </div>
+</div>
+
+<div class="ctv-success-overlay" data-partner-success-overlay aria-hidden="true">
+  <div class="ctv-success-popup" role="dialog" aria-modal="true">
+    <button type="button" class="ctv-popup-close" data-partner-success-close aria-label="Đóng">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1L13 13M13 1L1 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg>
+    </button>
+    <div class="ctv-success-icon" aria-hidden="true">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" /></svg>
+    </div>
+    <h3>{{ settings.page_ctv_partner_popup_success_title }}</h3>
+    <p>{{ settings.page_ctv_partner_popup_success_message | newline_to_br }}</p>
+    <button type="button" class="gu-button" data-partner-success-close>
+      <span class="button-label">{{ settings.page_ctv_partner_popup_success_close_text }}</span>
+    </button>
+  </div>
+</div>
+
+<script defer src="{{ 'vn-units.js' | asset_url }}"></script>
+<script defer src="{{ 'popup-partner-register.js' | asset_url }}"></script>

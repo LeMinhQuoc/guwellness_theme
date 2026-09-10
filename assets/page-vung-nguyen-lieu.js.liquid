@@ -1,0 +1,542 @@
+(function () {
+  "use strict";
+
+  const pageRoot = document.querySelector(".page-vung-nguyen-lieu");
+  if (!pageRoot) return;
+
+  const ingredientData = window.__PAGE_VNL_ITEMS__ || {};
+
+  const buttons = Array.from(pageRoot.querySelectorAll(".ingredient-tabs [data-ingredient]"));
+  const pins = Array.from(pageRoot.querySelectorAll(".map-pin[data-ingredient]"));
+  const photo = pageRoot.querySelector("[data-ingredient-photo]");
+  const quote = pageRoot.querySelector("[data-ingredient-quote]");
+  const title = pageRoot.querySelector("[data-ingredient-title]");
+  const intro = pageRoot.querySelector("[data-ingredient-intro]");
+  const metrics = pageRoot.querySelector("[data-ingredient-metrics]");
+  const cultivation = pageRoot.querySelector("[data-cultivation-list]");
+  const nutrition = pageRoot.querySelector("[data-nutrition-list]");
+  const card = pageRoot.querySelector(".ingredient-card");
+  const heritageCard = pageRoot.querySelector("[data-heritage-card]");
+  const heritageTrack = pageRoot.querySelector("[data-heritage-track]");
+  const heritagePrev = pageRoot.querySelector("[data-heritage-prev]");
+  const heritageNext = pageRoot.querySelector("[data-heritage-next]");
+  let heritageIndex = 0;
+  let heritageSlides = [];
+
+  const QUOTE_SVG =
+    '<svg width="48" height="39" viewBox="0 0 48 39" fill="none" aria-hidden="true"><path d="M0 26.0539C0 24.8672 0.108108 23.6266 0.324324 22.332C1.51351 14.2407 5.35135 6.79668 11.8378 0L15.0811 2.42739C11.1892 6.52697 9.18919 10.195 9.08108 13.4315C9.18919 15.2656 10.5405 16.5602 13.1351 17.3154C13.8919 17.5311 14.7027 17.8008 15.5676 18.1245C19.7838 20.0664 21.8919 23.3568 21.8919 27.9959C21.8919 29.722 21.5135 31.3403 20.7568 32.8506C18.8108 36.9502 15.6757 39 11.3514 39C9.83784 39 8.43243 38.7303 7.13514 38.1909C2.37838 36.4647 0 32.4191 0 26.0539ZM26.1081 26.0539C26.1081 24.8672 26.2162 23.6266 26.4324 22.332C27.6216 14.2407 31.4595 6.79668 37.9459 0L41.1892 2.42739C37.2973 6.52697 35.2973 10.195 35.1892 13.4315C35.2973 15.2656 36.6487 16.5602 39.2432 17.3154C40 17.5311 40.8108 17.8008 41.6757 18.1245C45.8919 20.0664 48 23.3568 48 27.9959C48 29.722 47.6216 31.3403 46.8649 32.8506C44.9189 36.9502 41.7838 39 37.4595 39C35.9459 39 34.5405 38.7303 33.2432 38.1909C28.4865 36.4647 26.1081 32.4191 26.1081 26.0539Z" fill="#A9DBE2"/></svg>';
+
+  function escapeHtml(value) {
+    return String(value == null ? "" : value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function formatMultiline(value) {
+    return escapeHtml(value).replace(/\r\n|\r|\n/g, "<br />");
+  }
+
+  function updateHeritageNav() {
+    const multi = heritageSlides.length > 1;
+    if (heritageCard) heritageCard.classList.toggle("is-single-slide", !multi);
+    if (heritagePrev) heritagePrev.disabled = !multi;
+    if (heritageNext) heritageNext.disabled = !multi;
+  }
+
+  function goHeritage(index) {
+    if (!heritageTrack || !heritageSlides.length) return;
+    heritageIndex = (index + heritageSlides.length) % heritageSlides.length;
+    heritageTrack.style.transform = "translateX(-" + heritageIndex * 100 + "%)";
+    updateHeritageNav();
+  }
+
+  function renderHeritage(partners) {
+    if (!heritageTrack) return;
+    heritageSlides = Array.isArray(partners) ? partners.filter(Boolean) : [];
+    heritageIndex = 0;
+
+    if (!heritageSlides.length) {
+      heritageTrack.innerHTML = "";
+      heritageTrack.style.transform = "translateX(0)";
+      updateHeritageNav();
+      return;
+    }
+
+    heritageTrack.innerHTML = heritageSlides
+      .map(function (slide) {
+        const img = slide.image
+          ? '<img src="' + escapeHtml(slide.image) + '" alt="' + escapeHtml(slide.title || "") + '" />'
+          : "";
+        return (
+          '<article class="heritage-slide">' +
+          "<h3>" +
+          escapeHtml(slide.title || "") +
+          "</h3>" +
+          "<p>" +
+          formatMultiline(slide.body || "") +
+          "</p>" +
+          '<blockquote class="partner-quote">' +
+          QUOTE_SVG +
+          "<span>" +
+          escapeHtml(slide.quote || "") +
+          "</span>" +
+          "</blockquote>" +
+          img +
+          "</article>"
+        );
+      })
+      .join("");
+
+    heritageTrack.style.transform = "translateX(0)";
+    updateHeritageNav();
+  }
+
+  function renderPairs(container, items, className) {
+    if (!container) return;
+    container.innerHTML = (items || [])
+      .map(function (pair) {
+        return '<article class="' + className + '"><strong>' + (pair[0] || "") + "</strong><span>" + (pair[1] || "") + "</span></article>";
+      })
+      .join("");
+  }
+
+  function setIngredient(key) {
+    const item = ingredientData[key];
+    if (!item || !card) return;
+
+    buttons.forEach(function (button) {
+      const active = button.dataset.ingredient === key;
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-selected", String(active));
+    });
+
+    pins.forEach(function (pin) {
+      pin.classList.toggle("is-active", pin.dataset.ingredient === key);
+    });
+
+    card.classList.add("is-swapping");
+    window.setTimeout(function () {
+      if (photo) {
+        photo.src = item.photo || "";
+        photo.alt = item.alt || "";
+      }
+      if (quote) quote.textContent = item.quote || "";
+      if (title) title.textContent = item.title || "";
+      if (intro) intro.textContent = item.intro || "";
+      renderPairs(metrics, item.metrics, "metric-card");
+      renderPairs(cultivation, item.cultivation, "process-mini-card");
+      renderPairs(nutrition, item.nutrition, "nutrition-card");
+      renderHeritage(item.partners);
+      card.classList.remove("is-swapping");
+    }, 120);
+  }
+
+  if (heritagePrev) {
+    heritagePrev.addEventListener("click", function () {
+      goHeritage(heritageIndex - 1);
+    });
+  }
+  if (heritageNext) {
+    heritageNext.addEventListener("click", function () {
+      goHeritage(heritageIndex + 1);
+    });
+  }
+
+  buttons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      setIngredient(button.dataset.ingredient);
+    });
+  });
+
+  pins.forEach(function (pin) {
+    pin.addEventListener("click", function () {
+      setIngredient(pin.dataset.ingredient);
+    });
+  });
+
+  if (buttons.length) setIngredient(buttons[0].dataset.ingredient);
+
+  const motionSelectors = [
+    ".ingredients-hero-media img",
+    ".ingredients-hero-copy > *",
+    ".source-map-grid > *",
+    ".ingredient-card > *",
+    ".process-list article",
+    ".process-arrow",
+    ".standards-list article",
+    ".sustainability-image",
+    ".sustainability-pillars article",
+    ".future-copy > *",
+    ".future-cards article",
+    ".farmtour > img",
+    ".farmtour-copy > *",
+    ".ingredients-ending-cta > img",
+    ".ingredients-ending-cta > div > *"
+  ];
+
+  function toArray(targets, scope) {
+    scope = scope || pageRoot;
+    if (!targets) return [];
+    if (Array.isArray(targets)) return targets.filter(Boolean);
+    if (targets instanceof Element || targets === window || targets === document) return [targets];
+    if (targets instanceof NodeList || targets instanceof HTMLCollection) return Array.from(targets).filter(Boolean);
+    if (typeof targets === "string") {
+      return window.gsap ? gsap.utils.toArray(targets, scope) : Array.from(scope.querySelectorAll(targets));
+    }
+    return [];
+  }
+
+  function $(selector, scope) {
+    return (scope || pageRoot).querySelector(selector);
+  }
+
+  function $$(selector, scope) {
+    return toArray(selector, scope || pageRoot);
+  }
+
+  function setVisible(targets) {
+    if (!window.gsap) return;
+    const elements = toArray(targets);
+    if (!elements.length) return;
+    gsap.set(elements, {
+      autoAlpha: 1,
+      x: 0,
+      y: 0,
+      scale: 1,
+      rotation: 0,
+      clearProps: "transform,opacity,visibility"
+    });
+  }
+
+  function reveal(targets, options) {
+    options = options || {};
+    const elements = toArray(targets);
+    if (!elements.length || !window.gsap) return;
+
+    gsap.fromTo(
+      elements,
+      {
+        autoAlpha: options.fromAlpha != null ? options.fromAlpha : 0,
+        y: options.y != null ? options.y : 48,
+        x: options.x != null ? options.x : 0,
+        scale: options.scale != null ? options.scale : 1
+      },
+      {
+        autoAlpha: 1,
+        y: 0,
+        x: 0,
+        scale: 1,
+        duration: options.duration != null ? options.duration : 0.9,
+        ease: options.ease || "power3.out",
+        stagger: options.stagger != null ? options.stagger : 0.08,
+        scrollTrigger: {
+          trigger: options.trigger || elements[0],
+          start: options.start || "top 82%",
+          toggleActions: "play none none reverse"
+        }
+      }
+    );
+  }
+
+  function createHeroScroll() {
+    const hero = $(".ingredients-hero");
+    const media = $(".ingredients-hero-media");
+    const image = $(".ingredients-hero-media img");
+    const copyItems = $$(".ingredients-hero-copy > *");
+    let heroTrigger;
+
+    if (!hero || !media || !image || !copyItems.length) return;
+
+    const placeholder = document.createElement("div");
+    placeholder.className = "ingredients-hero-media-placeholder";
+    placeholder.setAttribute("aria-hidden", "true");
+    media.before(placeholder);
+
+    const syncPlaceholder = function () {
+      const isFixed = getComputedStyle(media).position === "fixed";
+      const rect = media.getBoundingClientRect();
+      const targetHeight = isFixed
+        ? parseFloat(placeholder.dataset.targetHeight) || parseFloat(placeholder.style.height) || 855
+        : rect.height;
+      placeholder.style.display = "block";
+      placeholder.style.width = "100%";
+      placeholder.style.height = targetHeight + "px";
+      placeholder.dataset.targetHeight = String(targetHeight);
+      placeholder.style.borderRadius = getComputedStyle(media).borderRadius;
+    };
+
+    const getTarget = function () {
+      const container = $(".ingredients-hero .container");
+      if (placeholder.style.display === "none") placeholder.style.display = "block";
+      if (!placeholder.style.height || parseFloat(placeholder.style.height) === 0) {
+        placeholder.style.height = (media.offsetHeight || 855) + "px";
+      }
+      const rect = placeholder.getBoundingClientRect();
+      if (rect.width > 0 && rect.height > 0) {
+        return { x: rect.left, y: rect.top, width: rect.width, height: rect.height };
+      }
+      const containerRect = container ? container.getBoundingClientRect() : { left: 0, top: 0, width: window.innerWidth };
+      return {
+        x: containerRect.left,
+        y: containerRect.top,
+        width: containerRect.width,
+        height: parseFloat(placeholder.style.height) || media.offsetHeight || 855
+      };
+    };
+
+    const setHeroActive = function () {
+      syncPlaceholder();
+      gsap.set(media, {
+        autoAlpha: 1,
+        position: "fixed",
+        zIndex: 9,
+        left: 0,
+        top: 0,
+        x: 0,
+        y: 0,
+        width: window.innerWidth,
+        height: window.innerHeight,
+        borderRadius: 0,
+        pointerEvents: "none"
+      });
+    };
+
+    const setHeroStatic = function () {
+      placeholder.style.display = "none";
+      gsap.set(media, {
+        autoAlpha: 1,
+        clearProps: "position,zIndex,left,top,x,y,width,height,borderRadius,pointerEvents,transform"
+      });
+      gsap.set(image, { clearProps: "transform" });
+    };
+
+    setHeroActive();
+    gsap.set(image, { scale: 1.06, transformOrigin: "center center" });
+    gsap.set(copyItems, { autoAlpha: 0, y: 28 });
+
+    const tl = gsap.timeline({
+      defaults: { ease: "none" },
+      scrollTrigger: {
+        trigger: hero,
+        start: "top top",
+        end: "+=1100",
+        scrub: 1,
+        pin: true,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+        onRefreshInit: function () {
+          if (!heroTrigger || window.scrollY <= heroTrigger.end + 2) setHeroStatic();
+        },
+        onRefresh: function (self) {
+          if (window.scrollY > self.end + 2) setHeroStatic();
+          else if (self.isActive || window.scrollY <= self.end) setHeroActive();
+        },
+        onEnter: setHeroActive,
+        onEnterBack: setHeroActive,
+        onLeave: setHeroStatic
+      }
+    });
+    heroTrigger = tl.scrollTrigger;
+
+    tl.fromTo(
+      media,
+      {
+        x: 0,
+        y: 0,
+        width: function () { return window.innerWidth; },
+        height: function () { return window.innerHeight; },
+        borderRadius: 0
+      },
+      {
+        x: function () { return getTarget().x; },
+        y: function () { return getTarget().y; },
+        width: function () { return getTarget().width; },
+        height: function () { return getTarget().height; },
+        borderRadius: 20
+      },
+      0
+    )
+      .fromTo(image, { yPercent: 0, scale: 1.06 }, { yPercent: -8, scale: 1 }, 0)
+      .to(copyItems, { autoAlpha: 1, y: 0, stagger: 0.06, duration: 0.14 }, 0.82);
+  }
+
+  function createStepCardScroll(sectionSelector, cardSelector, arrowSelector) {
+    const section = $(sectionSelector);
+    const cards = $$(cardSelector);
+    const arrows = arrowSelector ? $$(arrowSelector) : [];
+    if (!section || !cards.length) return;
+
+    gsap.set(cards, { autoAlpha: 0, y: 82 });
+    if (arrows.length) gsap.set(arrows, { autoAlpha: 0, y: 20, scale: 0.9, rotation: 0 });
+
+    const tl = gsap.timeline({
+      defaults: { ease: "none" },
+      scrollTrigger: {
+        trigger: section,
+        start: "top 70%",
+        end: "bottom 44%",
+        scrub: 1
+      }
+    });
+
+    cards.forEach(function (item, index) {
+      tl.to(item, { autoAlpha: 1, y: 0, duration: 0.16 }, index * 0.18);
+      if (arrows[index]) {
+        tl.to(arrows[index], { autoAlpha: 1, y: 0, scale: 1, rotation: 0, duration: 0.08 }, index * 0.18 + 0.12);
+      }
+    });
+  }
+
+  function createPhilosophyLikeScroll(sectionSelector, imageSelector, copySelector, cardSelector, options) {
+    options = options || {};
+    const section = $(sectionSelector);
+    if (!section) return;
+
+    const image = $(imageSelector);
+    const copyItems = $$(copySelector);
+    const cards = $$(cardSelector);
+
+    gsap.set(copyItems, { autoAlpha: 0, y: 32 });
+    gsap.set(cards, { autoAlpha: 0, y: 90 });
+    if (image) gsap.set(image, { scale: options.imageScale != null ? options.imageScale : 1.08, yPercent: 0 });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top top+=90",
+        end: options.end || "+=1000",
+        scrub: 1,
+        pin: true,
+        anticipatePin: 1,
+        invalidateOnRefresh: true
+      },
+      defaults: { ease: "none" }
+    });
+
+    if (copyItems.length) tl.to(copyItems, { autoAlpha: 1, y: 0, stagger: 0.12 }, 0);
+    if (cards.length) tl.to(cards, { autoAlpha: 1, y: 0, stagger: 0.12 }, options.cardsAt != null ? options.cardsAt : 0.32);
+    if (image) {
+      tl.to(image, {
+        scale: options.endScale != null ? options.endScale : 1.04,
+        yPercent: options.yPercent != null ? options.yPercent : -3
+      }, 0);
+    }
+  }
+
+  function createEndingReveal() {
+    const cta = $(".ingredients-ending-cta");
+    if (!cta) return;
+    reveal(".ingredients-ending-cta > img, .ingredients-ending-cta > div > *", {
+      trigger: cta,
+      start: "top 78%",
+      y: 48,
+      stagger: 0.1
+    });
+  }
+
+  function createDesktopMotion() {
+    createHeroScroll();
+    reveal(".source-map-grid > *", { trigger: $(".source-map"), start: "top 74%", y: 42, stagger: 0.12 });
+    createStepCardScroll(".production-process", ".process-list article", ".process-arrow");
+    createStepCardScroll(".standards-section", ".standards-list article");
+    createPhilosophyLikeScroll(
+      ".sustainability-band",
+      ".sustainability-image > img",
+      ".sustainability-image .eyebrow, .sustainability-image h2",
+      ".sustainability-pillars article",
+      { end: "+=900", yPercent: -3, imageScale: 1.08, endScale: 1.04, cardsAt: 0.28 }
+    );
+    createPhilosophyLikeScroll(
+      ".future-section",
+      ".future-section > img",
+      ".future-copy > *",
+      ".future-cards article",
+      { end: "+=1000", imageScale: 1.08, endScale: 1.04, yPercent: -3, cardsAt: 0.32 }
+    );
+    reveal(".farmtour > img, .farmtour-copy > *", { trigger: $(".farmtour"), start: "top 72%", y: 56, stagger: 0.1 });
+    createEndingReveal();
+  }
+
+  function createMobileMotion() {
+    setVisible(".ingredients-hero-media img, .ingredients-hero-copy > *");
+    gsap.from($$(".ingredients-hero-copy > *"), {
+      autoAlpha: 0,
+      y: 28,
+      duration: 0.8,
+      ease: "power3.out",
+      stagger: 0.1
+    });
+
+    const targets = $$(
+      ".source-map-grid > *, .ingredient-card > *, .process-list article, .process-arrow, .standards-list article, .sustainability-image, .sustainability-pillars article, .future-copy > *, .future-cards article, .farmtour > img, .farmtour-copy > *, .ingredients-ending-cta > div > *"
+    );
+    gsap.set(targets, { autoAlpha: 0, y: 34 });
+    gsap.set($$(".process-arrow"), { rotation: 0 });
+
+    ScrollTrigger.batch(targets, {
+      start: "top 88%",
+      interval: 0.08,
+      batchMax: 4,
+      onEnter: function (batch) {
+        gsap.to(batch, {
+          autoAlpha: 1,
+          y: 0,
+          rotation: 0,
+          duration: 0.7,
+          ease: "power3.out",
+          stagger: 0.05,
+          overwrite: true
+        });
+      },
+      onLeaveBack: function (batch) {
+        gsap.to(batch, {
+          autoAlpha: 0,
+          y: 34,
+          rotation: 0,
+          duration: 0.35,
+          ease: "power2.out",
+          stagger: 0.03,
+          overwrite: true
+        });
+      }
+    });
+  }
+
+  function reducedMotionFallback() {
+    pageRoot.classList.add("is-reduced-motion");
+    setVisible(motionSelectors.join(", "));
+    gsap.set($$(".process-arrow"), { rotation: 0 });
+    if (window.ScrollTrigger) {
+      ScrollTrigger.getAll().forEach(function (trigger) {
+        trigger.kill();
+      });
+    }
+  }
+
+  function initMotion() {
+    if (!window.gsap || !window.ScrollTrigger) {
+      pageRoot.classList.add("motion-fallback");
+      return;
+    }
+
+    gsap.registerPlugin(ScrollTrigger);
+    pageRoot.classList.add("motion-ready");
+
+    const media = gsap.matchMedia();
+    media.add("(prefers-reduced-motion: reduce)", reducedMotionFallback);
+    media.add("(min-width: 1024px) and (prefers-reduced-motion: no-preference)", createDesktopMotion);
+    media.add("(max-width: 1023px) and (prefers-reduced-motion: no-preference)", createMobileMotion);
+
+    window.addEventListener("load", function () {
+      ScrollTrigger.refresh();
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initMotion);
+  } else {
+    initMotion();
+  }
+})();

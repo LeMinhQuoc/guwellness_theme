@@ -1,0 +1,31 @@
+{% comment %}haravan-audit:v2{% endcomment %}
+{% if settings.gu_index_blog_cards_show %}
+<link rel="preload stylesheet" href="{{ 'gu-index-blog-cards.scss.css' | asset_url }}" as="style">
+<script fetchpriority="low" type="text/javascript" defer src="{{ 'gu-index-blog-cards.js' | asset_url }}"></script>
+
+<section class="blog-grid section-mar container-gu reveal" id="blog" data-filename="gu-index-blog-cards">
+  <div class="container-fluid">
+    <h2 class="section-title text-center mb-5">Wellness Blog</h2>
+    <div class="row">
+      {% for article in blogs[settings.gu_index_blog_cards_select].articles limit: settings.gu_index_blog_cards_number %}
+      <div class="col-6 col-md-3">
+        <article class="blog-card hover-zoom">
+          <a href="{{ article.url }}">
+            <div class="blog-card__image"><img class="obj-cover obj-center" src="{{ article.image.src | product_img_url: 'grande' }}" alt="{{ article.title }}"></div>
+            <p class="blog-card__date">{{ article.published_at | date: '%d %b %Y' }}</p>
+            <h3 class="blog-card__title">{{ article.title }}</h3>
+            <p class="blog-card__excerpt clamp-2">{{ article.content | strip_html | truncatewords: 50 }}</p>
+          </a>
+        </article>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="d-flex justify-content-center mt-4">
+      <a class="gu-btn" href="{{ blogs[settings.gu_index_blog_cards_select].url }}">
+        <span class="gu-btn__icon" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M0 1.827L1.71 0H10V8.22L8.11 10V5.93C8.11 4.938 8.119 4.04 8.14 3.235L1.498 9.815L0.182 8.375L6.823 1.795C6.036 1.817 5.153 1.827 4.176 1.827H0Z" fill="currentColor"/></svg></span>
+        <span class="gu-btn__label">Xem thêm</span>
+      </a>
+    </div>
+  </div>
+</section>
+{% endif %}

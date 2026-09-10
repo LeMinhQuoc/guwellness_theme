@@ -1,0 +1,102 @@
+/* haravan-audit:v2 */
+(function () {
+  "use strict";
+
+  var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var mobileMq = window.matchMedia("(max-width: 991.98px)");
+
+  function isMobileLayout() {
+    return mobileMq.matches;
+  }
+
+  function setupRevealFallback(items) {
+    if (!("IntersectionObserver" in window) || prefersReducedMotion || isMobileLayout()) {
+      items.forEach(function (item) {
+        item.classList.add("is-visible");
+      });
+      return;
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12 });
+
+    items.forEach(function (el) {
+      observer.observe(el);
+    });
+  }
+
+  function setupReveal() {
+    var items = Array.prototype.slice.call(document.querySelectorAll('[data-filename="gu-index-product-cards"].reveal'));
+
+    if (!items.length) {
+      return;
+    }
+
+    if (!window.gsap || !window.ScrollTrigger || prefersReducedMotion || isMobileLayout()) {
+      setupRevealFallback(items);
+      return;
+    }
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.utils.toArray(items).forEach(function (el) {
+      gsap.fromTo(el,
+        { autoAlpha: 0, y: 42 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.85,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 82%",
+            once: true
+          }
+        }
+      );
+    });
+  }
+  document.addEventListener("DOMContentLoaded", setupReveal);
+
+  let prodItem_desk = 4;
+  $('#products .owl-carousel').owlCarousel({
+    items: prodItem_desk,
+    loop: false,
+    nav: true,
+    dots: false,
+    lazyLoad:true,
+    margin: 20,
+    responsive:{
+      0:{
+        items: 2,
+        dots: false,
+        nav: false,
+        stagePadding: 15
+      },
+      768:{
+        items: 2,
+        nav: false
+      },
+      992:{
+        items: prodItem_desk
+      },
+      1200:{
+        items: prodItem_desk,
+        touchDrag: $('#products .product-loop').length > prodItem_desk ? true:false,
+        mouseDrag: $('#products .product-loop').length > prodItem_desk ? true:false
+      }
+    },
+    onChanged: function (event) {
+      setTimeout(function(){
+        $('#products').find('.owl-dots button').each(function(index) {
+          $(this).attr('aria-label', index + 1);
+        });
+      }, 400);
+    }
+  });
+})();

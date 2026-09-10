@@ -1,0 +1,38 @@
+{%- unless settings.product_description_show == false -%}
+{%- assign product_description_heading = settings.product_description_heading | default: 'Mô tả sản phẩm' -%}
+{%- assign product_description_first_tab_text = settings.product_description_first_tab_text | default: 'Tổng quan' -%}
+{%- assign product_description_expand_text = settings.product_description_expand_text | default: 'Xem thêm' -%}
+{%- assign product_description_collapse_text = settings.product_description_collapse_text | default: 'Rút gọn' -%}
+{%- assign product_app_tabs = product.metafields.hrvptabs.tabs -%}
+{%- assign product_app_tab_list = product_app_tabs | append: '' | split: '@@###@@' -%}
+<section class="product-description-tabs" data-product-description-tabs data-expand-text="{{ product_description_expand_text | escape }}" data-collapse-text="{{ product_description_collapse_text | escape }}" aria-labelledby="product-description-heading-{{ product.id }}">
+	<h2 id="product-description-heading-{{ product.id }}" class="product-description-tabs-title">{{ product_description_heading | escape }}</h2>
+	<div class="product-description-tabs-navigation" role="tablist" aria-label="{{ product_description_heading | escape }}">
+		<button type="button" id="product-description-tab-{{ product.id }}-1" class="product-description-tabs-button active" role="tab" aria-selected="true" aria-controls="product-description-panel-{{ product.id }}-1" tabindex="0" data-product-description-tab="product-description-panel-{{ product.id }}-1">{{ product_description_first_tab_text | escape }}</button>
+		{%- for product_app_tab in product_app_tab_list limit: 4 -%}
+			{%- assign product_app_tab_parts = product_app_tab | split: '@@##@@' -%}
+			{%- assign product_app_tab_title = product_app_tab_parts | first | strip -%}
+			{%- assign product_app_tab_content = product_app_tab_parts | last | strip -%}
+			{%- if product_app_tab_title != blank and product_app_tab_content != blank -%}
+			<button type="button" id="product-description-tab-{{ product.id }}-{{ forloop.index | plus: 1 }}" class="product-description-tabs-button" role="tab" aria-selected="false" aria-controls="product-description-panel-{{ product.id }}-{{ forloop.index | plus: 1 }}" tabindex="-1" data-product-description-tab="product-description-panel-{{ product.id }}-{{ forloop.index | plus: 1 }}">{{ product_app_tab_title | escape }}</button>
+			{%- endif -%}
+		{%- endfor -%}
+	</div>
+	<div class="product-description-tabs-panels">
+		<div id="product-description-panel-{{ product.id }}-1" class="product-description-tabs-panel active" role="tabpanel" aria-labelledby="product-description-tab-{{ product.id }}-1" data-product-description-panel>
+			<div id="product-description-content-{{ product.id }}-1" class="product-description-tabs-content rte">{{ product.description }}</div>
+		</div>
+		{%- for product_app_tab in product_app_tab_list limit: 4 -%}
+			{%- assign product_app_tab_parts = product_app_tab | split: '@@##@@' -%}
+			{%- assign product_app_tab_title = product_app_tab_parts | first | strip -%}
+			{%- assign product_app_tab_content = product_app_tab_parts | last | strip -%}
+			{%- if product_app_tab_title != blank and product_app_tab_content != blank -%}
+			<div id="product-description-panel-{{ product.id }}-{{ forloop.index | plus: 1 }}" class="product-description-tabs-panel" role="tabpanel" aria-labelledby="product-description-tab-{{ product.id }}-{{ forloop.index | plus: 1 }}" data-product-description-panel hidden>
+				<div id="product-description-content-{{ product.id }}-{{ forloop.index | plus: 1 }}" class="product-description-tabs-content rte">{{ product_app_tab_content }}</div>
+			</div>
+			{%- endif -%}
+		{%- endfor -%}
+	</div>
+	<button type="button" class="product-description-tabs-toggle hidden" data-product-description-toggle aria-expanded="false" aria-controls="product-description-content-{{ product.id }}-1"><span>{{ product_description_expand_text | escape }}</span></button>
+</section>
+{%- endunless -%}

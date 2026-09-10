@@ -1,0 +1,43 @@
+{% comment %}haravan-audit:v2{% endcomment %}
+{% comment %}<!-- Tính phần trăm -->{% endcomment %}
+{% assign on_sale = false %}
+{% if product.variants.first.compare_at_price > product.variants.first.price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+{% comment %}<!-- Tính giá khuyến mãi  -->{% endcomment %}
+{% if product.variants.first.compare_at_price > product.variants.first.price %}
+  {% assign price_sale = 0 %}
+  {% assign price_sale = product.variants.first.compare_at_price | minus: product.variants.first.price | divided_by: product.variants.first.compare_at_price | times: 100 | round: 0 %}
+{% endif %}
+
+{% comment %}<!-- Sản phẩm có giá 0đ  -->{% endcomment %}
+{%- assign price_zero = false -%}
+{%- if product.variants.first.price == 0 -%}
+  {%- assign price_zero = true -%}
+{%- endif -%}
+{% comment %}<!-- Tình trạng hết hàng -->{% endcomment %}
+{% assign sold_out = true %}
+{% if product.available %}
+  {% assign sold_out = false %}
+{% endif %}
+<article class="product-card" data-product-id="{{ product.id }}">
+  <a class="product-card-link" href="{{ product.url }}">
+    <div class="product-card__image ratio-product">
+      {%- if product.featured_image != blank -%}
+      <img class="obj-cover" width="900" height="900" src="{{ product.featured_image.src | product_img_url: 'grande' }}" alt="{{ product.title | escape }}" loading="lazy" />
+      {%- else -%}
+      <img class="obj-cover" width="900" height="900" src="{{ 'no_image.jpg' | asset_url }}" alt="{{ product.title | escape }}" loading="lazy" />
+      {%- endif -%}
+    </div>
+    <div class="product-card__body">
+      <h3 class="product-card__title">{{ product.title }}</h3>
+      <div class="product-card__prices">
+        <span class="product-card__price">{{ product.variants.first.price | money }}</span>
+				{%- if on_sale -%}			
+				<span class="product-card__price-old">{{ product.variants.first.compare_at_price | money }}</span>
+				{%- endif -%}
+      </div>
+    </div>
+  </a>
+</article>

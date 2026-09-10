@@ -1,0 +1,315 @@
+<link rel="stylesheet" href="{{ 'page-about-us.scss.css' | asset_url }}">
+<div id="top" class="page-about-us">
+  <div class="page-about-us-content">
+    {% if settings.page_about_hero_enable %}
+      <section class="hero section-pad-top">
+        <div class="hero-fullscreen-stage" aria-hidden="true">
+          {% if settings.page_about_hero_image != blank %}<img src="{{ settings.page_about_hero_image }}" alt="" />{% endif %}
+        </div>
+        <div class="container-fluid">
+          <div class="hero-image">
+            {% if settings.page_about_hero_image != blank %}<img src="{{ settings.page_about_hero_image }}" alt="{{ settings.page_about_hero_title }}" />{% endif %}
+          </div>
+        </div>
+        <div class="container-fluid hero-copy">
+          <div>
+            <p class="eyebrow">{{ settings.page_about_hero_eyebrow }}</p>
+            <h1>{{ settings.page_about_hero_title }}</h1>
+          </div>
+          <p class="hero-intro">{{ settings.page_about_hero_description }}</p>
+        </div>
+      </section>
+    {% endif %}
+
+    {% if settings.page_about_origin_enable %}
+      <section id="about" class="origin container-fluid">
+        <div class="origin-copy">
+          <h2>{{ settings.page_about_origin_title }}</h2>
+          <p class="origin-intro">{{ settings.page_about_origin_description }}</p>
+      </div>
+        <div class="question-grid">
+          {% for i in (1..3) %}
+            {% capture enable_key %}page_about_origin_{{ i }}_enable{% endcapture %}
+            {% capture image_key %}page_about_origin_{{ i }}_image{% endcapture %}
+            {% capture text_key %}page_about_origin_{{ i }}_text{% endcapture %}
+            {% if settings[enable_key] %}
+              <article class="question-card">
+                {% if settings[image_key] != blank %}<img src="{{ settings[image_key] }}" alt="" />{% endif %}
+                <p>{{ settings[text_key] }}</p>
+              </article>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if settings.page_about_ingredient_enable %}
+      <section id="ingredients" class="ingredient-section">
+        <div class="container-fluid ingredient-shell">
+          <div class="ingredient-content">
+            <h2>{{ settings.page_about_ingredient_title }}</h2>
+            <div class="ingredient-cards">
+              {% for i in (1..4) %}
+                {% capture enable_key %}page_about_ingredient_{{ i }}_enable{% endcapture %}
+                {% capture image_key %}page_about_ingredient_{{ i }}_image{% endcapture %}
+                {% capture title_key %}page_about_ingredient_{{ i }}_title{% endcapture %}
+                {% capture description_key %}page_about_ingredient_{{ i }}_description{% endcapture %}
+                {% if settings[enable_key] %}
+                  <article>
+                    {% if settings[image_key] != blank %}<img src="{{ settings[image_key] }}" alt="{{ settings[title_key] }}" />{% endif %}
+                    <div><h3>{{ settings[title_key] }}</h3><p>{{ settings[description_key] }}</p></div>
+                  </article>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+          <div class="map-card">
+            {% if settings.page_about_ingredient_map_image != blank %}<img src="{{ settings.page_about_ingredient_map_image }}" alt="{{ settings.page_about_ingredient_title }}" />{% endif %}
+          </div>
+        </div>
+      </section>
+    {% endif %}
+
+    {% if settings.page_about_realization_enable %}
+      <section id="products" class="realization container-fluid">
+        <div class="quote-over-image">
+          {% if settings.page_about_realization_image != blank %}<img src="{{ settings.page_about_realization_image }}" alt="{{ settings.page_about_realization_title }}" />{% endif %}
+          <p>{{ settings.page_about_realization_description }}</p>
+        </div>
+        <h2>{{ settings.page_about_realization_title }}</h2>
+      </section>
+    {% endif %}
+
+    {% if settings.page_about_philosophy_enable %}
+      <section class="container-fluid">
+        <div class="philosophy">
+          {% if settings.page_about_philosophy_image != blank %}<img class="philosophy-bg" src="{{ settings.page_about_philosophy_image }}" alt="{{ settings.page_about_philosophy_title }}" />{% endif %}
+          <div class="philosophy-overlay">
+            <div class="philosophy-heading">
+              <p class="eyebrow">{{ settings.page_about_philosophy_eyebrow }}</p>
+              <h2>{{ settings.page_about_philosophy_title }}</h2>
+            </div>
+            <div class="glass-grid">
+              {% for i in (1..4) %}
+                {% capture enable_key %}page_about_philosophy_{{ i }}_enable{% endcapture %}
+                {% capture title_key %}page_about_philosophy_{{ i }}_title{% endcapture %}
+                {% capture description_key %}page_about_philosophy_{{ i }}_description{% endcapture %}
+                {% if settings[enable_key] %}<article><h3>{{ settings[title_key] }}</h3><p>{{ settings[description_key] }}</p></article>{% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </section>
+    {% endif %}
+
+    {% if settings.page_about_mission_enable %}
+      <section class="mission-vision container-fluid">
+        {% for i in (1..2) %}
+          {% capture enable_key %}page_about_mission_{{ i }}_enable{% endcapture %}
+          {% capture image_key %}page_about_mission_{{ i }}_image{% endcapture %}
+          {% capture title_key %}page_about_mission_{{ i }}_title{% endcapture %}
+          {% capture description_key %}page_about_mission_{{ i }}_description{% endcapture %}
+          {% if settings[enable_key] %}
+            <article>
+              {% if settings[image_key] != blank %}<img src="{{ settings[image_key] }}" alt="{{ settings[title_key] }}" />{% endif %}
+              <div class="text-block"><h2>{{ settings[title_key] }}</h2><p>{{ settings[description_key] }}</p></div>
+            </article>
+          {% endif %}
+        {% endfor %}
+      </section>
+    {% endif %}
+
+    {% if settings.page_about_core_enable %}
+      <section class="core-values">
+        <div class="core-bg">{% if settings.page_about_core_image != blank %}<img src="{{ settings.page_about_core_image }}" alt="" />{% endif %}</div>
+        <div class="container-fluid core-layout">
+          <div class="value-list">
+            {% for i in (1..2) %}
+              {% capture enable_key %}page_about_core_{{ i }}_enable{% endcapture %}
+              {% capture image_key %}page_about_core_{{ i }}_image{% endcapture %}
+              {% capture title_key %}page_about_core_{{ i }}_title{% endcapture %}
+              {% if settings[enable_key] %}<article><h3>{{ settings[title_key] }}</h3>{% if settings[image_key] != blank %}<img src="{{ settings[image_key] }}" alt="{{ settings[title_key] }}" />{% endif %}</article>{% endif %}
+            {% endfor %}
+          </div>
+          <h2>{{ settings.page_about_core_title }}</h2>
+          <div class="value-list">
+            {% for i in (3..4) %}
+              {% capture enable_key %}page_about_core_{{ i }}_enable{% endcapture %}
+              {% capture image_key %}page_about_core_{{ i }}_image{% endcapture %}
+              {% capture title_key %}page_about_core_{{ i }}_title{% endcapture %}
+              {% if settings[enable_key] %}<article><h3>{{ settings[title_key] }}</h3>{% if settings[image_key] != blank %}<img src="{{ settings[image_key] }}" alt="{{ settings[title_key] }}" />{% endif %}</article>{% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+    {% endif %}
+
+    {% if settings.page_about_team_enable %}
+      <section class="team container-fluid">
+        <h2>{{ settings.page_about_team_title }}</h2>
+        <div class="team-grid">
+          {% for i in (1..3) %}
+            {% capture enable_key %}page_about_team_{{ i }}_enable{% endcapture %}
+            {% capture image_key %}page_about_team_{{ i }}_image{% endcapture %}
+            {% capture title_key %}page_about_team_{{ i }}_title{% endcapture %}
+            {% capture description_key %}page_about_team_{{ i }}_description{% endcapture %}
+            {% if settings[enable_key] %}
+              <article>
+                {% if settings[image_key] != blank %}<img src="{{ settings[image_key] }}" alt="{{ settings[title_key] }}" />{% endif %}
+                <h3>{{ settings[title_key] }}</h3>
+                {% assign new_line = settings[description_key] | newline_to_br %}
+                {% assign description_lines = new_line | split: '<br />' %}
+                <ul>
+                  {% for line in description_lines %}
+                    {% assign line_text = line | strip %}
+                    {% if line_text != blank %}<li>{{ line_text }}</li>{% endif %}
+                  {% endfor %}
+                </ul>
+              </article>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if settings.page_about_timeline_enable %}
+      <section class="timeline container-fluid">
+        <h2>{{ settings.page_about_timeline_title }}</h2>
+        <div class="timeline-list">
+          <span class="timeline-line" aria-hidden="true"></span>
+          {% for i in (1..3) %}
+            {% capture enable_key %}page_about_timeline_{{ i }}_enable{% endcapture %}
+            {% capture year_key %}page_about_timeline_{{ i }}_year{% endcapture %}
+            {% capture title_key %}page_about_timeline_{{ i }}_title{% endcapture %}
+            {% if settings[enable_key] %}
+              <article class="{% if i == 2 %}timeline-right{% else %}timeline-left{% endif %}">
+                <span>{{ settings[year_key] }}</span>
+                <h3>{{ settings[title_key] }}</h3>
+                <ul>
+                  {% for j in (1..3) %}
+                    {% capture text_key %}page_about_timeline_{{ i }}_text_{{ j }}{% endcapture %}
+                    <li>{{ settings[text_key] }}</li>
+                  {% endfor %}
+                </ul>
+              </article>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if settings.page_about_sustainability_enable %}
+      <section class="sustainability container-fluid">
+        <h2>{{ settings.page_about_sustainability_title | newline_to_br }}</h2>
+        <div class="sustain-list">
+          {% for i in (1..4) %}
+            {% capture enable_key %}page_about_sustainability_{{ i }}_enable{% endcapture %}
+            {% capture image_key %}page_about_sustainability_{{ i }}_image{% endcapture %}
+            {% capture title_key %}page_about_sustainability_{{ i }}_title{% endcapture %}
+            {% capture description_key %}page_about_sustainability_{{ i }}_description{% endcapture %}
+            {% if settings[enable_key] %}
+              <article>
+                {% if settings[image_key] != blank %}<img src="{{ settings[image_key] }}" alt="{{ settings[title_key] }}" />{% endif %}
+                <div>
+                  <h3>{{ settings[title_key] }}</h3>
+                  {% assign new_line = settings[description_key] | newline_to_br %}
+                  {% assign description_lines = new_line | split: '<br />' %}
+                  <ul>
+                    {% for line in description_lines %}
+                      {% assign line_text = line | strip %}
+                      {% if line_text != blank %}<li>{{ line_text }}</li>{% endif %}
+                    {% endfor %}
+                  </ul>
+                </div>
+              </article>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if settings.page_about_community_enable %}
+      <section class="community">
+        <div class="container-fluid community-heading">
+          <p class="eyebrow">{{ settings.page_about_community_eyebrow }}</p>
+          <h2>{{ settings.page_about_community_title }}</h2>
+        </div>
+        <div class="container-fluid community-image">
+          {% if settings.page_about_community_image != blank %}<img src="{{ settings.page_about_community_image }}" alt="{{ settings.page_about_community_title }}" />{% endif %}
+          <div class="community-cards">
+            {% for i in (1..4) %}
+              {% capture enable_key %}page_about_community_{{ i }}_enable{% endcapture %}
+              {% capture title_key %}page_about_community_{{ i }}_title{% endcapture %}
+              {% capture description_key %}page_about_community_{{ i }}_description{% endcapture %}
+              {% if settings[enable_key] %}
+                <article>
+                  <h3>{{ settings[title_key] }}</h3>
+                  {% assign new_line = settings[description_key] | newline_to_br %}
+                  {% assign description_lines = new_line | split: '<br />' %}
+                  <ul>
+                    {% for line in description_lines %}
+                      {% assign line_text = line | strip %}
+                      {% if line_text != blank %}<li>{{ line_text }}</li>{% endif %}
+                    {% endfor %}
+                  </ul>
+                </article>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+    {% endif %}
+
+    {% if settings.page_about_collab_enable %}
+      <section id="partner" class="collab container-fluid">
+        <div class="collab-copy">
+          <p class="eyebrow">{{ settings.page_about_collab_eyebrow }}</p>
+          <h2>{{ settings.page_about_collab_title }}</h2>
+        </div>
+        <div class="letter-stack" aria-hidden="true">
+          {% if settings.page_about_collab_back_image != blank %}<img class="letter back" src="{{ settings.page_about_collab_back_image }}" alt="" />{% endif %}
+          {% for i in (1..4) %}
+            {% capture image_key %}page_about_collab_{{ i }}_image{% endcapture %}
+            {% if settings[image_key] != blank %}<img class="letter l{{ i }}" src="{{ settings[image_key] }}" alt="" />{% endif %}
+          {% endfor %}
+          {% if settings.page_about_collab_front_image != blank %}<img class="letter front" src="{{ settings.page_about_collab_front_image }}" alt="" />{% endif %}
+        </div>
+        <a class="gu-button" href="{{ settings.page_about_collab_button_link }}">
+          <span class="button-icon gu-btn__icon" aria-hidden="true">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M0 1.827L1.71 0H10V8.22L8.11 10V5.93C8.11 4.938 8.119 4.04 8.14 3.235L1.498 9.815L0.182 8.375L6.823 1.795C6.036 1.817 5.153 1.827 4.176 1.827H0Z" fill="currentColor"></path></svg>
+          </span>
+          <span class="button-label gu-btn__label">{{ settings.page_about_collab_button_text }}</span>
+        </a>
+      </section>
+    {% endif %}
+
+    {% if settings.page_about_contact_enable %}
+      <section id="contact" class="contact container-fluid">
+        {% for i in (1..2) %}
+          {% capture enable_key %}page_about_contact_{{ i }}_enable{% endcapture %}
+          {% capture title_key %}page_about_contact_{{ i }}_title{% endcapture %}
+          {% capture company_key %}page_about_contact_{{ i }}_company{% endcapture %}
+          {% capture description_key %}page_about_contact_{{ i }}_description{% endcapture %}
+          {% capture button_text_key %}page_about_contact_{{ i }}_button_text{% endcapture %}
+          {% capture button_link_key %}page_about_contact_{{ i }}_button_link{% endcapture %}
+          {% if settings[enable_key] %}
+            <article>
+              <h2>{{ settings[title_key] }}</h2>
+              <h3>{{ settings[company_key] }}</h3>
+              <p>{{ settings[description_key] | newline_to_br }}</p>
+              <a class="gu-button" href="{{ settings[button_link_key] }}">
+                <span class="button-icon gu-btn__icon" aria-hidden="true">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M0 1.827L1.71 0H10V8.22L8.11 10V5.93C8.11 4.938 8.119 4.04 8.14 3.235L1.498 9.815L0.182 8.375L6.823 1.795C6.036 1.817 5.153 1.827 4.176 1.827H0Z" fill="currentColor"></path></svg>
+                </span>
+                <span class="button-label gu-btn__label">{{ settings[button_text_key] }}</span>
+              </a>
+            </article>
+          {% endif %}
+        {% endfor %}
+      </section> 
+    {% endif %}
+  </div>
+</div>
+<script defer src="{{ 'gsap.min.js' | asset_url }}"></script>
+<script defer src="{{ 'ScrollTrigger.min.js' | asset_url }}"></script>
+<script defer src="{{ 'page-about-us.js' | asset_url }}"></script>

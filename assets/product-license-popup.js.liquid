@@ -1,0 +1,59 @@
+(function () {
+	'use strict';
+
+	var activeTrigger = null;
+
+	function getPopup(trigger) {
+		var popupId = trigger.getAttribute('aria-controls');
+		return popupId ? document.getElementById(popupId) : null;
+	}
+
+	function openPopup(trigger) {
+		var popup = getPopup(trigger);
+		if (!popup) return;
+
+		activeTrigger = trigger;
+		trigger.setAttribute('aria-expanded', 'true');
+		popup.classList.remove('hidden');
+		document.body.classList.add('product-license-popup-open');
+
+		var closeButton = popup.querySelector('.product-license-popup-close');
+		if (closeButton) closeButton.focus();
+	}
+
+	function closePopup(popup) {
+		if (!popup) return;
+
+		popup.classList.add('hidden');
+		document.body.classList.remove('product-license-popup-open');
+
+		if (activeTrigger) {
+			activeTrigger.setAttribute('aria-expanded', 'false');
+			activeTrigger.focus();
+		}
+
+		activeTrigger = null;
+	}
+
+	document.addEventListener('click', function (event) {
+		if (!event.target.closest) return;
+
+		var trigger = event.target.closest('[data-product-license-open]');
+		if (trigger) {
+			openPopup(trigger);
+			return;
+		}
+
+		var closeControl = event.target.closest('[data-product-license-close]');
+		if (closeControl) {
+			closePopup(closeControl.closest('[data-product-license-popup]'));
+		}
+	});
+
+	document.addEventListener('keydown', function (event) {
+		if (event.key !== 'Escape') return;
+
+		var popup = document.querySelector('[data-product-license-popup]:not(.hidden)');
+		if (popup) closePopup(popup);
+	});
+})();

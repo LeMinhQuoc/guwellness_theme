@@ -1,0 +1,80 @@
+<script fetchpriority="low" type="text/javascript" defer src="{{ 'template-cart.js' | asset_url }}"></script>
+
+{%- assign cart_total_value = cart.total_price | divided_by: 100 -%}
+{%- assign cart_minimum_value = 0 -%}
+{%- assign cart_minimum_invalid = false -%}
+{%- if settings.cart_page_minimum_show and settings.cart_page_minimum_value != blank -%}
+	{%- assign cart_minimum_value = settings.cart_page_minimum_value | lstrip | rstrip | times: 1 -%}
+	{%- if cart_minimum_value > cart_total_value -%}
+		{%- assign cart_minimum_invalid = true -%}
+	{%- endif -%}
+{%- endif -%}
+
+<div class="cart-page" id="layout-cart">
+	<div class="container">
+		<div class="cart-page-heading">
+			<h1 class="cart-page-title">Giỏ hàng của bạn <span class="cart-page-count">({{ cart.item_count }})</span></h1>
+		</div> 
+
+		{%- if cart.item_count > 0 -%}
+		<div class="cart-page-layout">
+			<div class="cart-page-main">
+				{%- include 'cart-page-reward' -%}
+
+				{%- if settings.promotion_hrvapp_use and settings.promotion_hrvapp == 'appbuy2get1' -%}
+				<div class="cart-page-promotion-app is-hidden" id="hrv-promotion-buy2get1">
+					<div class="notify-setting">
+						<div class="setting-left"><div class="item logo"></div><div class="item"><h4 class="header"></h4><div class="content"></div></div></div>
+						<div class="item"><button id="btn-buy-now" type="button">Mua ngay</button></div>
+					</div>
+					<div class="notify-system"><div class="item"><h4 class="header"></h4></div><div class="item"><div class="content"></div><ul class="list"></ul></div></div>
+				</div>
+				{%- endif -%}
+				<div class="cart-page-promotion-app pageCart-hrvpmo hrvpmo-grids"><div class="hrv-pmo-discount" data-hrvpmo-layout="grids"></div></div>
+
+				<form action="/cart" method="post" id="cartformpage">
+					{%- include 'cart-page-items' -%}
+				</form>
+
+				{%- include 'cart-page-recommendations' -%}
+			</div>
+
+			<aside class="cart-page-summary">
+				<div class="cart-page-summary-card">
+					<h2 class="cart-page-summary-title">Thông tin đơn hàng</h2>
+					<div class="cart-page-summary-total">
+						<span>Giá tạm tính :</span>
+						<strong>{{ cart.total_price | money }}</strong>
+					</div>
+
+					<label class="cart-page-terms" for="cart-page-terms">
+						<input id="cart-page-terms" type="checkbox" autocomplete="off" />
+						<span class="cart-page-terms-box" aria-hidden="true">
+							<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+						</span>
+						<span>Tôi đồng ý với <a href="/pages/chinh-sach-bao-mat">Điều khoản mua hàng</a></span>
+					</label>
+					<p class="cart-page-terms-error" role="alert">Vui lòng đồng ý với điều khoản mua hàng trước khi thanh toán.</p>
+
+					<a id="btnCart-checkout" class="cart-page-checkout-button{% if cart_minimum_invalid %} is-minimum-disabled{% else %} is-terms-disabled{% endif %}" href="/checkout" aria-disabled="true">THANH TOÁN NGAY</a>
+
+					<div class="cart-page-minimum-slot">
+						{%- if cart_minimum_invalid -%}
+						<p class="cart-page-minimum-alert">Giỏ hàng của bạn chưa đạt mức tối thiểu {{ cart_minimum_value | times: 100 | money }} để thanh toán.</p>
+						{%- endif -%}
+					</div>
+
+					{%- if settings.cart_page_summary_notes_show -%}
+					<ul class="cart-page-summary-notes">
+						<li>{{ settings.cart_page_summary_note_1 | newline_to_br }}</li>
+						<li>{{ settings.cart_page_summary_note_2 | newline_to_br }}</li>
+					</ul>
+					{%- endif -%}
+				</div>
+			</aside>
+		</div>
+		{%- else -%}
+		{%- include 'cart-page-empty' -%}
+		{%- endif -%}
+	</div>
+</div>

@@ -1,0 +1,15 @@
+<link href="{{ 'quickview.scss.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript></noscript><link href="{{ 'quickview.scss.css' | asset_url }}" rel="stylesheet"></noscript>
+<script type="text/javascript" src="{{ 'quickview.js' | asset_url }}" defer fetchpriority="low"></script>
+<div id="hrv-quick-view-modal" class="modal fade hrv-modal-product-quickview">	
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content hrv-wrapper-quickview">
+			
+		</div>
+	</div>
+</div>
+<div class="quickviewOverlay"></div>
+
+{%-if settings.promotion_hrvapp_use and settings.promotion_hrvapp == 'appbuyxgety' -%}
+{%-include 'modal-buyxgety-qv'-%}
+{%-endif-%}

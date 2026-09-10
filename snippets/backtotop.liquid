@@ -1,0 +1,62 @@
+<div class="backtotop">
+  <span class="cms-svg-icon lh-0 cms-eicon rtl-flip empty-none" style="--svg-size:11px;"><svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg"> <path d="M37.4181 0.644662L71.3592 34.5858C72.1399 35.3664 72.1399 36.6336 71.3592 37.4142C70.5786 38.1949 69.3114 38.1949 68.5308 37.4142L38.0043 6.88771L38.0036 69.9411C38.0036 71.0456 37.1084 71.9408 36.0039 71.9408C35.4509 71.9408 34.9517 71.7174 34.5897 71.3553C34.2276 70.9933 34.0035 70.4934 34.0042 69.9411L34.0042 6.887L3.47697 37.4142C2.69633 38.1949 1.42919 38.1949 0.648547 37.4142C-0.132099 36.6336 -0.132099 35.3664 0.648547 34.5858L34.5897 0.644662C35.3703 -0.135984 36.6375 -0.135984 37.4181 0.644662Z"></path> <path d="M37.4181 0.644662L71.3592 34.5858C72.1399 35.3664 72.1399 36.6336 71.3592 37.4142C70.5786 38.1949 69.3114 38.1949 68.5308 37.4142L38.0043 6.88771L38.0036 69.9411C38.0036 71.0456 37.1084 71.9408 36.0039 71.9408C35.4509 71.9408 34.9517 71.7174 34.5897 71.3553C34.2276 70.9933 34.0035 70.4934 34.0042 69.9411L34.0042 6.887L3.47697 37.4142C2.69633 38.1949 1.42919 38.1949 0.648547 37.4142C-0.132099 36.6336 -0.132099 35.3664 0.648547 34.5858L34.5897 0.644662C35.3703 -0.135984 36.6375 -0.135984 37.4181 0.644662Z"></path> </svg> </span>
+</div>
+<style>
+  .backtotop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    background: var(--gu-green, #55723a);
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+    z-index: 30;
+   border-radius: 6px;
+    cursor: pointer;transform: translateY(200px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.26);
+    transition: all .25s cubic-bezier(.104,.204,.492,1);
+  }
+  .backtotop.active {transform: translateY(0);}
+  .backtotop svg {
+    width: 16px;
+    align-content: center;
+    color: var(--gu-white, #ffffff);
+  }
+  .backtotop svg path {fill: currentcolor;}
+  .backtotop svg path {
+    transition: transform 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+    will-change: transform;
+  }
+  .backtotop svg path:first-child{
+        transform: translate(0, 0);
+    transition-delay: 0.1s;
+  }
+  .backtotop svg path:last-child{
+       transition-delay: 0s;
+        transform: translate(0, 100%);
+  }
+  .backtotop:hover {background-color: var(--gu-green-dark, #2a3d1e);}
+  .backtotop:hover path:first-child{
+        transform: translate(0, -100%);
+  }
+  .backtotop:hover path:last-child{
+        transform: translate(0, 0);
+  }
+  @media (max-width: 992px) {
+    .backtotop{bottom: 65px;}
+  }
+</style>
+<script defer>
+  $(window).on("scroll",function() {
+    if ($(this).scrollTop() > 100 ) {
+        $('.backtotop').addClass('active');
+    } else {
+        $('.backtotop').removeClass('active');
+    }
+  });
+$(".backtotop").on("click",function() {
+    $("html, body").animate({scrollTop: 0}, 800);
+ });
+</script>

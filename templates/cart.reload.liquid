@@ -1,0 +1,28 @@
+{%- layout none -%}
+
+{%- assign cart_total_value = cart.total_price | divided_by: 100 -%}
+{%- assign cart_minimum_value = 0 -%}
+{%- assign cart_minimum_invalid = false -%}
+{%- if settings.cart_page_minimum_show and settings.cart_page_minimum_value != blank -%}
+	{%- assign cart_minimum_value = settings.cart_page_minimum_value | lstrip | rstrip | times: 1 -%}
+	{%- if cart_minimum_value > cart_total_value -%}
+		{%- assign cart_minimum_invalid = true -%}
+	{%- endif -%}
+{%- endif -%}
+
+<div class="cart-page-reload-fragment" data-cart-count="{{ cart.item_count }}" data-minimum-invalid="{% if cart_minimum_invalid %}true{% else %}false{% endif %}">
+	<span class="cart-page-reload-total">{{ cart.total_price | money }}</span>
+	{%- if cart.item_count > 0 -%}
+	{%- include 'cart-page-reward' -%}
+	<form action="/cart" method="post" id="cartformpage">
+		{%- include 'cart-page-items' -%}
+	</form>
+	<div class="cart-page-minimum-slot">
+		{%- if cart_minimum_invalid -%}
+		<p class="cart-page-minimum-alert">Giỏ hàng của bạn chưa đạt mức tối thiểu {{ cart_minimum_value | times: 100 | money }} để thanh toán.</p>
+		{%- endif -%}
+	</div>
+	{%- else -%}
+	{%- include 'cart-page-empty' -%}
+	{%- endif -%}
+</div>

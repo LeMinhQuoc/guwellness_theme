@@ -1,0 +1,99 @@
+(function () {
+  "use strict";
+
+  if (window.__guVnUnitsInit) return;
+  window.__guVnUnitsInit = true;
+
+  var DATA_URL = "https://cdn.hstatic.net/files/200001149312/file/full_json_generated_data_vn_units_2026-07-25__20_49_07.json";
+  var dataPromise = null;
+
+  function loadUnits() {
+    if (!dataPromise) {
+      dataPromise = fetch(DATA_URL).then(function (res) {
+        if (!res.ok) throw new Error("vn-units");
+        return res.json();
+      });
+    }
+    return dataPromise;
+  }
+
+  function labelOf(item) {
+    return String((item && (item.FullName || item.Name)) || "");
+  }
+
+  function sortByText(list) {
+    return (list || []).slice().sort(function (a, b) {
+      return labelOf(a).localeCompare(labelOf(b), "vi", { sensitivity: "base" });
+    });
+  }
+
+  function setPlaceholder(select, label) {
+    var option = document.createElement("option");
+    option.value = "";
+    option.disabled = true;
+    option.selected = true;
+    option.textContent = label;
+    select.appendChild(option);
+    select.classList.add("ctv-popup-select-placeholder");
+  }
+
+  function fillSelect(select, items, placeholder, disabled) {
+    if (!select) return;
+    var label = select.getAttribute("data-placeholder") || placeholder;
+    select.innerHTML = "";
+    setPlaceholder(select, label);
+    sortByText(items).forEach(function (item) {
+      var option = document.createElement("option");
+      option.value = labelOf(item);
+      option.textContent = labelOf(item);
+      if (item.Code) option.setAttribute("data-code", item.Code);
+      select.appendChild(option);
+    });
+    select.disabled = !!disabled;
+  }
+
+  function bindPair(provinceSelect) {
+    var form = provinceSelect.closest("form");
+    var wardSelect = form ? form.querySelector("[data-vn-ward]") : null;
+
+    loadUnits().then(function (provinces) {
+      fillSelect(provinceSelect, provinces, "Tỉnh/Thành phố *", false);
+      fillSelect(wardSelect, [], "Phường/Xã", true);
+
+      provinceSelect.addEventListener("change", function () {
+        provinceSelect.classList.toggle("ctv-popup-select-placeholder", !provinceSelect.value);
+        var selected = provinceSelect.options[provinceSelect.selectedIndex];
+        var code = selected ? selected.getAttribute("data-code") : "";
+        var province = provinces.filter(function (item) {
+          return item.Code === code;
+        })[0];
+        fillSelect(wardSelect, province && province.Wards, "Phường/Xã", !province);
+      });
+
+      if (wardSelect) {
+        wardSelect.addEventListener("change", function () {
+          wardSelect.classList.toggle("ctv-popup-select-placeholder", !wardSelect.value);
+        });
+      }
+
+      if (form) {
+        form.addEventListener("reset", function () {
+          window.setTimeout(function () {
+            fillSelect(provinceSelect, provinces, "Tỉnh/Thành phố *", false);
+            fillSelect(wardSelect, [], "Phường/Xã", true);
+          }, 0);
+        });
+      }
+    }).catch(function () {});
+  }
+
+  function init() {
+    document.querySelectorAll("[data-vn-province]").forEach(bindPair);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();

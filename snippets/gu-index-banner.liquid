@@ -1,0 +1,172 @@
+{% comment %}haravan-audit:v2{% endcomment %}
+{% if settings.gu_index_banner_show %}
+<link rel="preload stylesheet" href="{{ 'gu-index-banner.scss.css' | asset_url }}" as="style">
+<script fetchpriority="low" type="text/javascript" defer src="{{ 'gu-index-banner.js' | asset_url }}"></script>
+
+<section class="gu-index-banner{% if settings.gu_index_banner_nav_show %} gu-index-banner--nav-enabled{% endif %}{% if settings.gu_index_banner_dot_show %} gu-index-banner--dot-enabled{% endif %}" data-filename="gu-index-banner"
+  style="{% unless settings.gu_index_banner_bg_color == blank %}--gu-index-banner-bg: {{ settings.gu_index_banner_bg_color }};{% endunless %}
+         {% unless settings.gu_index_banner_text_color == blank %}--gu-index-banner-text: {{ settings.gu_index_banner_text_color }};{% endunless %}
+         {% unless settings.gu_index_banner_button_bg == blank %}--gu-index-banner-button-bg: {{ settings.gu_index_banner_button_bg }};{% endunless %}
+         {% unless settings.gu_index_banner_button_text == blank %}--gu-index-banner-button-text: {{ settings.gu_index_banner_button_text }};{% endunless %}
+         --gu-index-banner-overlay: rgba(0, 0, 0, 0.15);">
+  <div class="swiper gu-index-banner__slider">
+    <div class="swiper-wrapper">
+      {% if settings.gu_index_banner_slide_1_show or settings.gu_index_banner_slide_1_image_url != blank or settings.gu_index_banner_slide_1_title != blank or settings.gu_index_banner_slide_1_button != blank %}
+      <div class="swiper-slide gu-index-banner__slide" data-swiper-autoplay="{{ settings.gu_index_banner_slide_1_duration | default: 5000 }}">
+        <div class="gu-index-banner__media" aria-hidden="true">
+          {% unless settings.gu_index_banner_slide_1_image_url == blank %}
+          <picture>
+            {% unless settings.gu_index_banner_slide_1_image_mobile_url == blank %}
+            <source media="(max-width: 767px)" srcset="{{ settings.gu_index_banner_slide_1_image_mobile_url }}">
+            {% endunless %}
+            <img class="gu-index-banner__image" src="{{ settings.gu_index_banner_slide_1_image_url }}" alt="" loading="eager" fetchpriority="high">
+          </picture>
+          {% endunless %}
+          <div class="gu-index-banner__overlay"></div>
+        </div>
+        <div class="gu-index-banner__content">
+          {% unless settings.gu_index_banner_slide_1_title == blank %}
+          <h2 class="gu-index-banner__title">{{ settings.gu_index_banner_slide_1_title | newline_to_br }}</h2>
+          {% endunless %}
+          {% unless settings.gu_index_banner_slide_1_button == blank %}
+          <a class="gu-index-banner__button" href="{{ settings.gu_index_banner_slide_1_button_link }}">
+            <span class="gu-index-banner__button-icon" aria-hidden="true">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M0 1.827L1.71 0H10V8.22L8.11 10V5.93C8.11 4.938 8.119 4.04 8.14 3.235L1.498 9.815L0.182 8.375L6.823 1.795C6.036 1.817 5.153 1.827 4.176 1.827H0Z" fill="currentColor"/></svg>
+            </span>
+            <span class="gu-index-banner__button-label">{{ settings.gu_index_banner_slide_1_button }}</span>
+          </a>
+          {% endunless %}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if settings.gu_index_banner_slide_2_show or settings.gu_index_banner_slide_2_image_url != blank or settings.gu_index_banner_slide_2_title != blank or settings.gu_index_banner_slide_2_button != blank %}
+      <div class="swiper-slide gu-index-banner__slide" data-swiper-autoplay="{{ settings.gu_index_banner_slide_2_duration | default: 5000 }}">
+        <div class="gu-index-banner__media" aria-hidden="true">
+          {% unless settings.gu_index_banner_slide_2_image_url == blank %}
+          <picture>
+            {% unless settings.gu_index_banner_slide_2_image_mobile_url == blank %}
+            <source media="(max-width: 767px)" srcset="{{ settings.gu_index_banner_slide_2_image_mobile_url }}">
+            {% endunless %}
+            <img class="gu-index-banner__image" src="{{ settings.gu_index_banner_slide_2_image_url }}" alt="" loading="lazy">
+          </picture>
+          {% endunless %}
+          <div class="gu-index-banner__overlay"></div>
+        </div>
+        <div class="gu-index-banner__content">
+          {% unless settings.gu_index_banner_slide_2_title == blank %}
+          <h2 class="gu-index-banner__title">{{ settings.gu_index_banner_slide_2_title | newline_to_br }}</h2>
+          {% endunless %}
+          {% unless settings.gu_index_banner_slide_2_button == blank %}
+          <a class="gu-index-banner__button" href="{{ settings.gu_index_banner_slide_2_button_link }}">
+            <span class="gu-index-banner__button-icon" aria-hidden="true">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M0 1.827L1.71 0H10V8.22L8.11 10V5.93C8.11 4.938 8.119 4.04 8.14 3.235L1.498 9.815L0.182 8.375L6.823 1.795C6.036 1.817 5.153 1.827 4.176 1.827H0Z" fill="currentColor"/></svg>
+            </span>
+            <span class="gu-index-banner__button-label">{{ settings.gu_index_banner_slide_2_button }}</span>
+          </a>
+          {% endunless %}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if settings.gu_index_banner_slide_3_show or settings.gu_index_banner_slide_3_image_url != blank or settings.gu_index_banner_slide_3_title != blank or settings.gu_index_banner_slide_3_button != blank %}
+      <div class="swiper-slide gu-index-banner__slide" data-swiper-autoplay="{{ settings.gu_index_banner_slide_3_duration | default: 5000 }}">
+        <div class="gu-index-banner__media" aria-hidden="true">
+          {% unless settings.gu_index_banner_slide_3_image_url == blank %}
+          <picture>
+            {% unless settings.gu_index_banner_slide_3_image_mobile_url == blank %}
+            <source media="(max-width: 767px)" srcset="{{ settings.gu_index_banner_slide_3_image_mobile_url }}">
+            {% endunless %}
+            <img class="gu-index-banner__image" src="{{ settings.gu_index_banner_slide_3_image_url }}" alt="" loading="lazy">
+          </picture>
+          {% endunless %}
+          <div class="gu-index-banner__overlay"></div>
+        </div>
+        <div class="gu-index-banner__content">
+          {% unless settings.gu_index_banner_slide_3_title == blank %}
+          <h2 class="gu-index-banner__title">{{ settings.gu_index_banner_slide_3_title | newline_to_br }}</h2>
+          {% endunless %}
+          {% unless settings.gu_index_banner_slide_3_button == blank %}
+          <a class="gu-index-banner__button" href="{{ settings.gu_index_banner_slide_3_button_link }}">
+            <span class="gu-index-banner__button-icon" aria-hidden="true">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M0 1.827L1.71 0H10V8.22L8.11 10V5.93C8.11 4.938 8.119 4.04 8.14 3.235L1.498 9.815L0.182 8.375L6.823 1.795C6.036 1.817 5.153 1.827 4.176 1.827H0Z" fill="currentColor"/></svg>
+            </span>
+            <span class="gu-index-banner__button-label">{{ settings.gu_index_banner_slide_3_button }}</span>
+          </a>
+          {% endunless %}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if settings.gu_index_banner_slide_4_show or settings.gu_index_banner_slide_4_image_url != blank or settings.gu_index_banner_slide_4_title != blank or settings.gu_index_banner_slide_4_button != blank %}
+      <div class="swiper-slide gu-index-banner__slide" data-swiper-autoplay="{{ settings.gu_index_banner_slide_4_duration | default: 5000 }}">
+        <div class="gu-index-banner__media" aria-hidden="true">
+          {% unless settings.gu_index_banner_slide_4_image_url == blank %}
+          <picture>
+            {% unless settings.gu_index_banner_slide_4_image_mobile_url == blank %}
+            <source media="(max-width: 767px)" srcset="{{ settings.gu_index_banner_slide_4_image_mobile_url }}">
+            {% endunless %}
+            <img class="gu-index-banner__image" src="{{ settings.gu_index_banner_slide_4_image_url }}" alt="" loading="lazy">
+          </picture>
+          {% endunless %}
+          <div class="gu-index-banner__overlay"></div>
+        </div>
+        <div class="gu-index-banner__content">
+          {% unless settings.gu_index_banner_slide_4_title == blank %}
+          <h2 class="gu-index-banner__title">{{ settings.gu_index_banner_slide_4_title | newline_to_br }}</h2>
+          {% endunless %}
+          {% unless settings.gu_index_banner_slide_4_button == blank %}
+          <a class="gu-index-banner__button" href="{{ settings.gu_index_banner_slide_4_button_link }}">
+            <span class="gu-index-banner__button-icon" aria-hidden="true">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M0 1.827L1.71 0H10V8.22L8.11 10V5.93C8.11 4.938 8.119 4.04 8.14 3.235L1.498 9.815L0.182 8.375L6.823 1.795C6.036 1.817 5.153 1.827 4.176 1.827H0Z" fill="currentColor"/></svg>
+            </span>
+            <span class="gu-index-banner__button-label">{{ settings.gu_index_banner_slide_4_button }}</span>
+          </a>
+          {% endunless %}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if settings.gu_index_banner_slide_5_show or settings.gu_index_banner_slide_5_image_url != blank or settings.gu_index_banner_slide_5_title != blank or settings.gu_index_banner_slide_5_button != blank %}
+      <div class="swiper-slide gu-index-banner__slide" data-swiper-autoplay="{{ settings.gu_index_banner_slide_5_duration | default: 5000 }}">
+        <div class="gu-index-banner__media" aria-hidden="true">
+          {% unless settings.gu_index_banner_slide_5_image_url == blank %}
+          <picture>
+            {% unless settings.gu_index_banner_slide_5_image_mobile_url == blank %}
+            <source media="(max-width: 767px)" srcset="{{ settings.gu_index_banner_slide_5_image_mobile_url }}">
+            {% endunless %}
+            <img class="gu-index-banner__image" src="{{ settings.gu_index_banner_slide_5_image_url }}" alt="" loading="lazy">
+          </picture>
+          {% endunless %}
+          <div class="gu-index-banner__overlay"></div>
+        </div>
+        <div class="gu-index-banner__content">
+          {% unless settings.gu_index_banner_slide_5_title == blank %}
+          <h2 class="gu-index-banner__title">{{ settings.gu_index_banner_slide_5_title | newline_to_br }}</h2>
+          {% endunless %}
+          {% unless settings.gu_index_banner_slide_5_button == blank %}
+          <a class="gu-index-banner__button" href="{{ settings.gu_index_banner_slide_5_button_link }}">
+            <span class="gu-index-banner__button-icon" aria-hidden="true">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M0 1.827L1.71 0H10V8.22L8.11 10V5.93C8.11 4.938 8.119 4.04 8.14 3.235L1.498 9.815L0.182 8.375L6.823 1.795C6.036 1.817 5.153 1.827 4.176 1.827H0Z" fill="currentColor"/></svg>
+            </span>
+            <span class="gu-index-banner__button-label">{{ settings.gu_index_banner_slide_5_button }}</span>
+          </a>
+          {% endunless %}
+        </div>
+      </div>
+      {% endif %}
+    </div>
+    {% if settings.gu_index_banner_nav_show %}
+    <button class="gu-index-banner__nav gu-index-banner__nav--prev" type="button" aria-label="Slide trước">
+      <svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M12.8 3.2 6 10l6.8 6.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="gu-index-banner__nav gu-index-banner__nav--next" type="button" aria-label="Slide sau">
+      <svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M7.2 3.2 14 10l-6.8 6.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    {% endif %}
+    {% if settings.gu_index_banner_dot_show %}
+    <div class="gu-index-banner__pagination swiper-pagination"></div>
+    {% endif %}
+  </div>
+</section>
+{% endif %}

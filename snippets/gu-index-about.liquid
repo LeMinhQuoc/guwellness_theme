@@ -1,0 +1,86 @@
+{% comment %}haravan-audit:v2{% endcomment %}
+{% if settings.gu_index_about_show %}
+<link rel="preload stylesheet" href="{{ 'gu-index-about.scss.css' | asset_url }}" as="style">
+<script fetchpriority="low" type="text/javascript" defer src="{{ 'gu-index-about.js' | asset_url }}"></script>
+
+<section class="story-scroll js-story-scroll" id="about" data-filename="gu-index-about">
+  <div class="pin-frame story">
+    <div class="story__intro">
+      <div class="story__rows">
+        <div class="story__row story__row--right">
+          {% if settings.gu_index_about_item_1_show or settings.gu_index_about_item_1_title != blank or settings.gu_index_about_item_1_image_url != blank %}
+          <div class="story__item">
+            {% unless settings.gu_index_about_item_1_image_url == blank %}
+            <div class="story__thumb"><img class="obj-cover" src="{{ settings.gu_index_about_item_1_image_url }}" alt="{{ settings.gu_index_about_item_1_title | escape }}"></div>
+            {% endunless %}
+            {% unless settings.gu_index_about_item_1_title == blank %}
+            <span class="story__text">{{ settings.gu_index_about_item_1_title }}</span>
+            {% endunless %}
+          </div>
+          {% endif %}
+
+          {% if settings.gu_index_about_item_2_show or settings.gu_index_about_item_2_title != blank or settings.gu_index_about_item_2_image_url != blank %}
+          <div class="story__item">
+            {% unless settings.gu_index_about_item_2_image_url == blank %}
+            <div class="story__thumb"><img class="obj-cover" src="{{ settings.gu_index_about_item_2_image_url }}" alt="{{ settings.gu_index_about_item_2_title | escape }}"></div>
+            {% endunless %}
+            {% unless settings.gu_index_about_item_2_title == blank %}
+            <span class="story__text">{{ settings.gu_index_about_item_2_title }}</span>
+            {% endunless %}
+          </div>
+          {% endif %}
+        </div>
+
+        <div class="story__row story__row--left">
+          {% if settings.gu_index_about_item_3_show or settings.gu_index_about_item_3_title != blank or settings.gu_index_about_item_3_image_url != blank %}
+          <div class="story__item">
+            {% unless settings.gu_index_about_item_3_title == blank %}
+            <span class="story__text">{{ settings.gu_index_about_item_3_title }}</span>
+            {% endunless %}
+            {% unless settings.gu_index_about_item_3_image_url == blank %}
+            <div class="story__thumb"><img class="obj-cover" src="{{ settings.gu_index_about_item_3_image_url }}" alt="{{ settings.gu_index_about_item_3_title | escape }}"></div>
+            {% endunless %}
+          </div>
+          {% endif %}
+
+          {% if settings.gu_index_about_item_4_show or settings.gu_index_about_item_4_title != blank or settings.gu_index_about_item_4_image_url != blank %}
+          <div class="story__item">
+            {% unless settings.gu_index_about_item_4_title == blank %}
+            <span class="story__text">{{ settings.gu_index_about_item_4_title }}</span>
+            {% endunless %}
+            {% unless settings.gu_index_about_item_4_image_url == blank %}
+            <div class="story__thumb story__zoom-source"><img class="obj-cover" src="{{ settings.gu_index_about_item_4_image_url }}" alt="{{ settings.gu_index_about_item_4_title | escape }}"></div>
+            {% endunless %}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <div class="story__zoom" aria-hidden="true">
+      {% unless settings.gu_index_about_brand_image_url == blank %}
+      <img class="obj-cover obj-center" src="{{ settings.gu_index_about_brand_image_url }}" alt="">
+      {% endunless %}
+    </div>
+
+    <div class="story__brand">
+      <div class="story__brand-inner">
+        {% unless settings.gu_index_about_eyebrow == blank %}
+        <p class="story__eyebrow">{{ settings.gu_index_about_eyebrow }}</p>
+        {% endunless %}
+        {% unless settings.gu_index_about_quote == blank %}
+        <p class="story__quote">{{ settings.gu_index_about_quote | newline_to_br }}</p>
+        {% endunless %}
+        {% unless settings.gu_index_about_button == blank %}
+        <a class="gu-btn" href="{{ settings.gu_index_about_button_link }}">
+          <span class="gu-btn__icon" aria-hidden="true">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M0 1.827L1.71 0H10V8.22L8.11 10V5.93C8.11 4.938 8.119 4.04 8.14 3.235L1.498 9.815L0.182 8.375L6.823 1.795C6.036 1.817 5.153 1.827 4.176 1.827H0Z" fill="currentColor"/></svg>
+          </span>
+          <span class="gu-btn__label">{{ settings.gu_index_about_button }}</span>
+        </a>
+        {% endunless %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}

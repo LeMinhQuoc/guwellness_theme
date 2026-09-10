@@ -1,0 +1,35 @@
+{% comment %}haravan-audit:v2{% endcomment %}
+{% if settings.gu_index_feature_product_show %}
+<link rel="preload stylesheet" href="{{ 'gu-index-feature-product.scss.css' | asset_url }}" as="style">
+<script fetchpriority="low" type="text/javascript" defer src="{{ 'gu-index-feature-product.js' | asset_url }}"></script>
+
+<div class="gu-index-feature-product" data-filename="gu-index-feature-product">
+  <div class="container-fluid my-5">
+    <section class="feature-product section-inside">
+      <div class="feature-product__bg" aria-hidden="true">
+        {% unless settings.gu_index_feature_product_bg_image_url == blank %}
+        <img class="obj-cover" src="{{ settings.gu_index_feature_product_bg_image_url }}" alt="">
+        {% endunless %}
+      </div>
+      <div class="feature-product__inner container-gu-narrow">
+        <div class="row align-items-center">
+          <div class="col-lg-12 reveal">
+            {% unless settings.gu_index_feature_product_subtitle == blank %}
+            <p class="feature-product__subtitle">{{ settings.gu_index_feature_product_subtitle }}</p>
+            {% endunless %}
+            {% unless settings.gu_index_feature_product_title == blank %}
+            <h2 class="feature-product__title">{{ settings.gu_index_feature_product_title | newline_to_br }}</h2>
+            {% endunless %}
+            {% unless settings.gu_index_feature_product_button == blank %}
+            <a class="gu-btn" href="{{ settings.gu_index_feature_product_button_link }}">
+              <span class="gu-btn__icon" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M0 1.827L1.71 0H10V8.22L8.11 10V5.93C8.11 4.938 8.119 4.04 8.14 3.235L1.498 9.815L0.182 8.375L6.823 1.795C6.036 1.817 5.153 1.827 4.176 1.827H0Z" fill="currentColor"/></svg></span>
+              <span class="gu-btn__label">{{ settings.gu_index_feature_product_button }}</span>
+            </a>
+            {% endunless %}
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+{% endif %}

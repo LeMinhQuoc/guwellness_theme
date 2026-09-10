@@ -1,0 +1,107 @@
+(function($) {
+	'use strict';
+
+	var selectors = {
+		button: '#add-to-cart',
+		form: '#add-item-form',
+		variant: '#product-select',
+		quantity: '#quantity'
+	};
+	var isAdding = false;
+
+	function openCartDrawer() {
+		var $sidebar = $('.dentalhub-sidebar-main, .hrv-sidebar-main');
+		var $cartDrawer = $sidebar.find('.dentalhub-sitenav-cart, .hrv-sitenav-cart');
+
+		if (!$cartDrawer.length) {
+			return;
+		}
+
+		$('body').addClass('dentalhub-locked-scroll locked-scroll');
+		$('.dentalhub-header-action-item, .hrv-header-action-item')
+			.removeClass('dentalhub-js-action-show js-action-show');
+		$sidebar.addClass('dentalhub-is-show-right hrv-is-show-right');
+		$cartDrawer.addClass('dentalhub-show hrv-show');
+	}
+
+	function refreshAndOpenCart() {
+		$.getJSON('/cart.js')
+			.done(function(cart) {
+				if (window.HRVTheme && HRVTheme.General && typeof HRVTheme.General.getCartModal === 'function') {
+					HRVTheme.General.getCartModal(false, cart);
+				}
+				openCartDrawer();
+			})
+			.fail(function() {
+				if (window.HRVTheme && HRVTheme.General && typeof HRVTheme.General.getCartModal === 'function') {
+					HRVTheme.General.getCartModal(false);
+				}
+				openCartDrawer();
+			});
+	}
+
+	function getErrorMessage(xhr) {
+		var fallbackMessage = "{{ settings.product_inventory_alert_text | default: 'Sản phẩm bạn vừa mua đã vượt quá tồn kho' | json }}";
+		var response = xhr.responseJSON;
+
+		if (!response && xhr.responseText) {
+			try {
+				response = JSON.parse(xhr.responseText);
+			} catch (error) {
+				response = null;
+			}
+		}
+
+		return response && response.description ? response.description : fallbackMessage;
+	}
+
+	$(function() {
+		var $form = $(selectors.form);
+		var $button = $form.find(selectors.button);
+
+		if (!$form.length || !$button.length) {
+			return;
+		}
+
+		$button.on('click.productAddToCart', function(event) {
+			event.preventDefault();
+
+			if (isAdding || $button.prop('disabled') || $button.hasClass('loading')) {
+				return;
+			}
+
+			var variantId = parseInt($form.find(selectors.variant).val(), 10);
+			var quantity = parseInt($form.find(selectors.quantity).val(), 10);
+
+			if (!variantId) {
+				return;
+			}
+
+			if (!quantity || quantity < 1) {
+				quantity = 1;
+				$form.find(selectors.quantity).val(quantity);
+			}
+
+			isAdding = true;
+			$button.prop('disabled', true).attr('aria-busy', 'true').addClass('loading');
+
+			$.ajax({
+				type: 'POST',
+				url: '/cart/add.js',
+				data: {
+					id: variantId,
+					quantity: quantity
+				},
+				dataType: 'json'
+			})
+				.done(refreshAndOpenCart)
+				.fail(function(xhr) {
+					alert(getErrorMessage(xhr));
+				})
+				.always(function() {
+					isAdding = false;
+					$button.prop('disabled', false).removeAttr('aria-busy').removeClass('loading');
+				});
+		});
+	});
+})(jQuery);

@@ -1,0 +1,74 @@
+/* haravan-audit:v2 */
+(function () {
+	'use strict';
+
+	function createSwiper(slider, prevEl, nextEl, slidesPerViewDesktop) {
+		if (!slider || typeof window.Swiper === 'undefined') return null;
+
+		return new window.Swiper(slider, {
+			slidesPerView: 1.15,
+			spaceBetween: 20,
+			speed: 450,
+			loop: false,
+			watchOverflow: true,
+			navigation: {
+				prevEl: prevEl,
+				nextEl: nextEl
+			},
+			breakpoints: {
+				576: {
+					slidesPerView: Math.min(2, slidesPerViewDesktop),
+					spaceBetween: 20
+				},
+				768: {
+					slidesPerView: Math.min(2.4, slidesPerViewDesktop),
+					spaceBetween: 20
+				},
+				992: {
+					slidesPerView: Math.min(3, slidesPerViewDesktop),
+					spaceBetween: 20
+				},
+				1200: {
+					slidesPerView: slidesPerViewDesktop,
+					spaceBetween: 20
+				}
+			}
+		});
+	}
+
+	function initLatest(root) {
+		var section = root.querySelector('[data-tongquan-latest]');
+		if (!section) return;
+		createSwiper(
+			section.querySelector('[data-tongquan-latest-slider]'),
+			section.querySelector('[data-tongquan-latest-prev]'),
+			section.querySelector('[data-tongquan-latest-next]'),
+			3
+		);
+	}
+
+	function initGroups(root) {
+		var groups = root.querySelectorAll('[data-tongquan-group]');
+		Array.prototype.forEach.call(groups, function (section) {
+			createSwiper(
+				section.querySelector('[data-tongquan-group-slider]'),
+				section.querySelector('[data-tongquan-group-prev]'),
+				section.querySelector('[data-tongquan-group-next]'),
+				5
+			);
+		});
+	}
+
+	function init() {
+		var root = document.querySelector('.page-tongquanblog');
+		if (!root) return;
+		initLatest(root);
+		initGroups(root);
+	}
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', init);
+	} else {
+		init();
+	}
+})();

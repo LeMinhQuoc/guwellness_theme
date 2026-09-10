@@ -1,0 +1,66 @@
+{% comment %}haravan-audit:v2{% endcomment %}
+{%- capture flashsale_style -%}
+    --home-collection1-bg: {{ settings.fl_collection_flashsale_1_bg_color | default: '#ffffff' }};
+    --home-collection1-icon: {{ settings.fl_collection_flashsale_1_bgicon_color | default: '#ffffff' }};
+    --home-collection1-color-text: {{ settings.fl_collection_flashsale_1_text_color | default: '#333333' }};
+    --countdown-text: {{ settings.fl_collection1_countdown_txt | default: '#333333' }};
+    --countdown-bg: {{ settings.fl_collection1_countdown_bg | default: '#ffffff' }};
+    --text-ic-addcart: {{ settings.fl_text_ic_addcart | default: '#333333' }};
+    --bg-ic-addcart: {{ settings.fl_bg_ic_addcart | default: '#ffffff' }};
+    {%- endcapture -%}
+  {%- if settings.home_collection_flashsale_1_show -%}
+  <section class="home-collection-flashsale" style="{{flashsale_style-}}">
+    <link rel="stylesheet" href="{{ 'hrvtheme-flashsale.css' | asset_url }}" as="style">
+    <link rel="stylesheet" href="{{ 'hrvtheme-product-loop.scss.css' | asset_url }}" as="style">
+    <script fetchpriority="low" type="text/javascript" defer src="{{ 'hrvtheme-flashsale.js' | asset_url }}"></script>
+      <div class="container container-pd-parent">
+          <div class="wrapper-content row-mg-parent">
+              <div class="section-heading">	
+                  <div class="box-header">
+                      {%- if settings.home_collection_flashsale_1_title != blank -%}
+                      <h2 class="hTitle"><a href="{{collections[settings.home_collection_flashsale_1_handle].url}}">{{ settings.home_collection_flashsale_1_title | default: '' }}</a></h2>
+                      {%- else -%}
+                      <h2 class="hTitle"><a href="{{collections[settings.home_collection_flashsale_1_handle].url}}">{{collections[settings.home_collection_flashsale_1_handle].title}}</a></h2>
+                      {%- endif -%}
+                  </div>
+                  {%- if settings.collection1_flashsale_countdown_end != blank -%} 
+                  <div class="box-countdown flip-js-countdown">
+                      <div class="auto-due soon" 
+                               data-due="{{settings.collection1_flashsale_countdown_end | lstrip | rstrip | replace: ' ','T'}}" 
+                               data-face="slot"
+                               data-format="d,h,m,s"
+                               data-labels-days="Dia,Ngày"
+                               data-labels-hours="Hora,Giờ"
+                               data-labels-minutes="Minuto,Phút"
+                               data-labels-seconds="Segundo,Giây">
+                          <span id="label-due"></span><div id="soon-espa" style="display: none;"></div>
+                      </div>
+                  </div>
+                  {%- endif -%}
+                  
+              </div>
+              {%-if collections[settings.home_collection_flashsale_1_handle].products.size > 0-%}	
+              <div class="listProduct-row owl-carousel owlCarousel-style owlCarousel-dfex">
+                  {% for product in collections[settings.home_collection_flashsale_1_handle].products limit: {{ settings.home_collection_flashsale_1_limit | default: '' }} %}
+                      {% include 'product-loop-slider' %}
+                  {% endfor %}
+              </div>
+              <div class="box-link">
+                  <a href="{{collections[settings.home_collection_flashsale_1_handle].url}}" class="button">
+                      {{ settings.home_collection_flashsale_1_titlelink | default: '' }} 
+                      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve"><circle class="st0" cx="16" cy="16" r="13"/><polyline class="st0" points="14,11.8 18.2,16 14,20.2 "/></svg>
+                  </a>
+              </div>
+              {%-else-%}
+              <div class="listProduct-row">
+                  <div class="owl-carousel owlCarousel-style owlCarousel-dfex">
+                      {% for product in (1..{{ settings.home_collection_flashsale_1_limit | default: '' }}) %}
+                      {% include 'product-loop-slider-no' %}
+                      {% endfor %}
+                  </div>
+              </div>
+              {%-endif-%}
+          </div>
+      </div>
+  </section>
+  {%- endif -%}

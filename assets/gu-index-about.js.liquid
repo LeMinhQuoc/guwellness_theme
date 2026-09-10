@@ -1,0 +1,260 @@
+/* haravan-audit:v2 */
+(function () {
+  "use strict";
+
+  var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var mobileMq = window.matchMedia("(max-width: 991.98px)");
+
+  function isMobileLayout() {
+    return mobileMq.matches;
+  }
+
+  function getHeaderHeight() {
+    var header = document.querySelector(".site-header");
+    return header ? Math.round(header.getBoundingClientRect().height) : 0;
+  }
+
+  function getPinnedScrollDistance(section) {
+    return Math.max(1, section.offsetHeight - (window.innerHeight - getHeaderHeight()));
+  }
+
+  function getPinnedScrollStart() {
+    return "top 65%";
+  }
+
+  function clamp01(value) {
+    return Math.max(0, Math.min(1, value));
+  }
+
+  function easeInOut(t) {
+    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+  }
+
+  function phase(progress, start, end) {
+    return easeInOut(clamp01((progress - start) / (end - start)));
+  }
+
+  function setStaticScrollState() {
+    document.querySelectorAll(".js-story-scroll").forEach(function (section) {
+      section.style.setProperty("--story-slide", "0px");
+      section.style.setProperty("--story-zoom", 1);
+      section.style.setProperty("--story-text", 1);
+    });
+  }
+
+  function setupGsapScroll() {
+    if (prefersReducedMotion || isMobileLayout()) {
+      setStaticScrollState();
+      return true;
+    }
+
+    if (!window.gsap || !window.ScrollTrigger) {
+      return false;
+    }
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    function refreshScrollTriggers() {
+      if (!window.ScrollTrigger) {
+        return;
+      }
+
+      window.requestAnimationFrame(function () {
+        ScrollTrigger.refresh();
+        ScrollTrigger.update();
+
+        window.setTimeout(function () {
+          ScrollTrigger.refresh();
+          ScrollTrigger.update();
+        }, 180);
+      });
+    }
+
+    function refreshAfterLayoutSettles() {
+      refreshScrollTriggers();
+
+      if (document.readyState === "complete") {
+        refreshScrollTriggers();
+      } else {
+        window.addEventListener("load", refreshScrollTriggers, { once: true });
+      }
+
+      window.addEventListener("pageshow", refreshScrollTriggers);
+      document.addEventListener("lazyloaded", refreshScrollTriggers);
+    }
+
+    var mm = gsap.matchMedia();
+
+    mm.add("(min-width: 992px)", function () {
+      gsap.utils.toArray(".js-story-scroll").forEach(function (section) {
+        var rowRight = section.querySelector(".story__row--right");
+        var rowLeft = section.querySelector(".story__row--left");
+        var intro = section.querySelector(".story__intro");
+        var zoomSource = section.querySelector(".story__zoom-source");
+        var zoomLayer = section.querySelector(".story__zoom");
+        var brand = section.querySelector(".story__brand");
+        var brandInner = section.querySelector(".story__brand-inner");
+        var frame = section.querySelector(".story");
+        var zoomStartRect = { top: 0, left: 0, width: 157, height: 105 };
+
+        if (!rowRight || !rowLeft || !intro || !zoomSource || !zoomLayer || !brand || !brandInner || !frame) {
+          return;
+        }
+
+        function updateZoomStartRect() {
+          var currentRightX = gsap.getProperty(rowRight, "x");
+          var currentLeftX = gsap.getProperty(rowLeft, "x");
+
+          gsap.set(rowRight, { x: 0 });
+          gsap.set(rowLeft, { x: 0 });
+
+          var sourceRect = zoomSource.getBoundingClientRect();
+          var frameRect = frame.getBoundingClientRect();
+          zoomStartRect = {
+            top: sourceRect.top - frameRect.top,
+            left: sourceRect.left - frameRect.left,
+            width: sourceRect.width,
+            height: sourceRect.height
+          };
+
+          gsap.set(rowRight, { x: currentRightX });
+          gsap.set(rowLeft, { x: currentLeftX });
+
+          gsap.set(zoomLayer, {
+            top: zoomStartRect.top,
+            left: zoomStartRect.left,
+            width: zoomStartRect.width,
+            height: zoomStartRect.height
+          });
+        }
+
+        function zoomStartValue(prop) {
+          return zoomStartRect[prop];
+        }
+
+        gsap.set(rowRight, { x: function () { return window.innerWidth * 1.15; } });
+        gsap.set(rowLeft, { x: function () { return window.innerWidth * -1.15; } });
+        gsap.set(intro, { autoAlpha: 1 });
+        gsap.set(zoomSource, { autoAlpha: 1 });
+        updateZoomStartRect();
+        gsap.set(zoomLayer, {
+          autoAlpha: 0,
+          top: zoomStartRect.top,
+          left: zoomStartRect.left,
+          width: zoomStartRect.width,
+          height: zoomStartRect.height,
+          borderRadius: 40
+        });
+        gsap.set(brand, { autoAlpha: 0 });
+        gsap.set(brandInner, { y: 50 });
+
+        var storyTl = gsap.timeline({
+          defaults: { ease: "power2.inOut" },
+          scrollTrigger: {
+            trigger: section,
+            start: getPinnedScrollStart,
+            end: function () { return "+=" + getPinnedScrollDistance(section); },
+            scrub: 0.7,
+            invalidateOnRefresh: true,
+            onRefreshInit: updateZoomStartRect,
+            onUpdate: function (self) {
+              var timelineProgress = self.animation ? self.animation.progress() : self.progress;
+              gsap.set(zoomLayer, { autoAlpha: timelineProgress >= 0.38 ? 1 : 0 });
+              gsap.set(zoomSource, { autoAlpha: timelineProgress >= 0.38 ? 0 : 1 });
+            }
+          }
+        });
+
+        storyTl
+          .fromTo(rowRight,
+            { x: function () { return window.innerWidth * 1.15; } },
+            { x: 0, duration: 0.38 },
+            0
+          )
+          .fromTo(rowLeft,
+            { x: function () { return window.innerWidth * -1.15; } },
+            { x: 0, duration: 0.38 },
+            0
+          )
+          .fromTo(zoomLayer,
+            {
+              autoAlpha: 1,
+              top: function () { return zoomStartValue("top"); },
+              left: function () { return zoomStartValue("left"); },
+              width: function () { return zoomStartValue("width"); },
+              height: function () { return zoomStartValue("height"); },
+              borderRadius: 40,
+            },
+            {
+              autoAlpha: 1,
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              borderRadius: 0,
+              duration: 0.3,
+              immediateRender: false
+            },
+            0.38
+          )
+          .set(zoomSource, { autoAlpha: 0, immediateRender: false }, 0.38)
+          .to(intro, { autoAlpha: 0, duration: 0.16 }, 0.38)
+          .to(brand, { autoAlpha: 1, duration: 0.32 }, 0.68)
+          .to(brandInner, { y: 0, duration: 0.32 }, 0.68);
+      });
+
+      refreshAfterLayoutSettles();
+    });
+
+    mm.add("(max-width: 991px)", function () {
+      setStaticScrollState();
+      gsap.set(".story__row--right, .story__row--left, .story__intro, .story__zoom-source, .story__zoom, .story__brand, .story__brand-inner", {
+        clearProps: "all"
+      });
+    });
+
+    return true;
+  }
+
+  function setupPinnedScrollFallback() {
+    var story = document.querySelectorAll(".js-story-scroll");
+
+    if (!story.length) {
+      return;
+    }
+
+    function update() {
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      var vw = window.innerWidth || document.documentElement.clientWidth;
+      var headerH = getHeaderHeight();
+
+      if (vw < 992 || prefersReducedMotion) {
+        setStaticScrollState();
+        return;
+      }
+
+      story.forEach(function (section) {
+        var rect = section.getBoundingClientRect();
+        var max = section.offsetHeight - (vh - headerH);
+        var p = max > 0 ? clamp01(((vh * 0.65) - rect.top) / max) : 0;
+        var slide = easeInOut(clamp01(p / 0.38));
+        var zoom = phase(p, 0.38, 0.68);
+        var text = phase(p, 0.68, 1);
+
+        section.style.setProperty("--story-slide", ((1 - slide) * vw * 1.15) + "px");
+        section.style.setProperty("--story-zoom", zoom.toFixed(4));
+        section.style.setProperty("--story-text", text.toFixed(4));
+      });
+    }
+
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    if (!setupGsapScroll()) {
+      setupPinnedScrollFallback();
+    }
+  });
+})();

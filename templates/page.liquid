@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="{{ 'breadcrumb.scss.css' | asset_url }}" as="style">
+<link rel="stylesheet" href="{{ 'hrv-sidebar.scss.css' | asset_url }}" as="style">
+  <link rel="stylesheet" href="{{ 'template-page.scss.css' | asset_url }}" as="style">
+<div class="hrv-layout-pageDetail">
+	{%- if settings.templatepage_banner_show -%}
+  <section class="section-breadcrumb {% if settings.page_banner_select == 'image'%}section-breadcrumb-bg{%endif%}" style="--text-color: {{settings.page_banner_color_text}};--bg-color: {{settings.page_banner_color_bg}};">
+    {% unless settings.page_banner_select == "color"%}
+    <div class="breadcrumb-banner">
+      <img src="{{ 'page_banner.jpg' | asset_url }}" alt="{{collection.title}}"/>
+    </div>
+    {%- endunless -%}
+    <div class="new-breadcrumb">
+      <div class="container">
+        <h1 class="text-center font-title">{{page.title}}</h1>
+        {%- include 'hrv-breadcrumb' -%}
+      </div>
+    </div>
+  </section>
+  {%endif%}
+	<div class="container pd-top pd-bottom">
+		<div class="row">
+			<div class="col-lg-9 col-md-8 col-12">
+				<div class="hrv-wrapper-pageDetail">
+					<div class="hrv-heading-pageDetail"><h1>{{ page.title }}</h1></div>
+					<div class="hrv-content-pageDetail typeList-style">{{ page.content }}</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-4 col-12">
+				{% include 'hrv-sidebar-page' %}
+			</div>
+		</div>
+	</div>
+</div>

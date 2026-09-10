@@ -1,0 +1,89 @@
+window.HRVTheme = window.HRVTheme || {};
+HRVTheme.Collection = {
+		init: function() {
+			var that = this;
+      that.HRVTheme_toggleFilterMobile();
+      that.HRVTheme_menuSidebarCollection();
+      that.HRVTheme_openFilter();
+      that.HRVTheme_toggleDescCollection();
+		},
+  HRVTheme_toggleFilterMobile: function(){
+		$('body').on('click','.filter_group-subtitle', function(){
+			var $subtitle = jQuery(this);
+			$subtitle.toggleClass('action-group').parent().find('.filter_group-content').stop().slideToggle('medium');
+			$subtitle.closest('.filter_group').attr('aria-expanded', !$subtitle.hasClass('action-group'));
+		});
+		$('.collection-sortby-filter').on('click', function(){
+			$('.collection-sortby-option').toggleClass('isShow');
+		});
+		var filterMobileState = null;
+		function ColResize(){
+			var shouldUseMobileFilter = $(window).width() < 992;
+			if(filterMobileState === shouldUseMobileFilter) return;
+
+			if(shouldUseMobileFilter){
+				var filter = $('.col-filter').html();
+				$('.col-filter .wrapper_layered_filter').remove();
+				$('.wrapper-filter-mb').append(filter);
+			}
+			else{
+				var filter = $('.wrapper-filter-mb').html();
+				$('.wrapper-filter-mb .wrapper_layered_filter').remove();
+				$('.col-filter').append(filter);
+			}
+			filterMobileState = shouldUseMobileFilter;
+		}
+		ColResize();
+		$(window).resize(function(){
+			ColResize();
+		});
+	}, 
+	HRVTheme_menuSidebarCollection: function(){
+		$(document).on('click','.tree-menu .tree-menu-lv1',function(){
+			$this = $(this).find('.tree-menu-sub');
+			$('.tree-menu .has-child .tree-menu-sub').not($this).slideUp('fast');
+			$(this).find('.tree-menu-sub').slideToggle('fast');
+			$(this).toggleClass('menu-collapsed');
+			$(this).toggleClass('menu-uncollapsed');
+			var $this1 = $(this);
+			$('.tree-menu .has-child').not($this1).removeClass('menu-uncollapsed');
+		});
+	},
+	HRVTheme_openFilter: function(){
+		$('body').on('click', '.filter-box, .filter-box-mb, .filter-icon', function(){
+			$('body').addClass('open-filter');
+			$('.filter-icon').attr('aria-expanded', 'true');
+		});
+		$('body').on('click', '.overlay-filter, .close_filter', function(){
+			$('body').removeClass('open-filter');
+			$('.filter-icon').attr('aria-expanded', 'false');
+		});
+	},
+	HRVTheme_toggleDescCollection: function(){
+		if($('.wrapper-collection-header .collection-desc').length > 0){
+			$('.collection-desc .collection-desc').css('height', '100px');
+			var expandable_height = $('.collection-desc').outerHeight() - 30;
+			if(expandable_height > 100){
+				$('.collection-desc').addClass('is-expandable');
+				$('.collection-desc .collection-desc__info').css({
+					"height": "100px",
+					"overflow": "hidden"
+				});
+			}
+			else{
+				$('.collection-desc').removeClass('is-expandable');
+				$('.collection-desc .collection-desc__info').css({
+					"max-height": "auto",
+				});
+			}
+
+			$('.collection-desc .collection-desc__view').click(function(){
+				$('.collection-desc .collection-desc__info').css('height', 'auto');
+				$(this).parents('.collection-desc').removeClass('is-expandable');
+			});
+		}
+	},
+};
+(function() {
+  HRVTheme.Collection.init();
+})();

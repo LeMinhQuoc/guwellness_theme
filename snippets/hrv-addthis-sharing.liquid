@@ -1,0 +1,92 @@
+{%- if settings.contact_icons_enable -%}
+	{%- assign contact_launcher_color = settings.contact_icons_launcher_color | default: '#55723a' -%}
+	{%- assign contact_phone_link = settings.contact_icons_phone_link -%}
+	{%- assign contact_phone_icon = settings.contact_icons_phone_icon -%}
+	{%- assign contact_facebook_link = settings.contact_icons_facebook_link -%}
+	{%- assign contact_facebook_icon = settings.contact_icons_facebook_icon -%}
+	{%- assign contact_zalo_link = settings.contact_icons_zalo_link -%}
+	{%- assign contact_zalo_icon = settings.contact_icons_zalo_icon -%}
+	{%- assign contact_messenger_link = settings.contact_icons_messenger_link -%}
+	{%- assign contact_messenger_icon = settings.contact_icons_messenger_icon -%}
+	<div class="contact-icons" id="contact-icons">
+		<div class="contact-icons-list" id="contact-icons-list" aria-hidden="true">
+			{%- if settings.contact_icons_phone_show -%}
+			<a class="contact-icons-item contact-icons-phone{% if contact_phone_icon != blank %} contact-icons-item-custom{% endif %}"{% if contact_phone_link != blank %} href="{{ contact_phone_link | escape }}"{% else %} aria-disabled="true"{% endif %} aria-label="Gọi điện">
+				{%- if contact_phone_icon != blank -%}
+				<img class="contact-icons-custom-image" src="{{ contact_phone_icon | escape }}" alt="" width="34" height="34" loading="lazy">
+				{%- else -%}
+				<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+					<g clip-path="url(#clip0_contact_hotline)">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M20 0C31.0457 0 40 8.9543 40 20C40 31.0457 31.0457 40 20 40C8.9543 40 0 31.0457 0 20C0 8.9543 8.9543 0 20 0Z" fill="#F97316"/>
+						<path d="M32.1889 28.1712C32.1889 28.5764 32.0285 28.9652 31.7427 29.2524C31.59 29.4042 31.4083 29.596 31.2148 29.8001L31.1783 29.8387C30.6619 30.3868 30.0169 31.0681 29.6123 31.3445C27.4844 32.7983 24.6384 32.1027 22.625 31.2638C19.9691 30.1571 17.0776 28.1173 14.4811 25.5206C11.8823 22.9236 9.84273 20.0312 8.73609 17.3767C7.89835 15.3628 7.20101 12.5158 8.65515 10.3877C8.92833 9.98716 9.59984 9.35247 10.1443 8.83791L10.1616 8.82148C10.3805 8.61523 10.5852 8.42031 10.747 8.25898C11.0344 7.97303 11.4233 7.8125 11.8287 7.8125C12.2341 7.8125 12.623 7.97303 12.9104 8.25898L16.8253 12.1727C17.1111 12.46 17.2715 12.8488 17.2715 13.2541C17.2715 13.6594 17.1111 14.0482 16.8253 14.3355L15.7594 15.3996C15.4033 15.7532 15.1709 16.2122 15.0967 16.7085C15.0225 17.2048 15.1105 17.7118 15.3477 18.1541C16.8144 20.9224 19.0787 23.1864 21.8472 24.6527C22.2893 24.8899 22.7962 24.9778 23.2924 24.9035C23.7886 24.8292 24.2474 24.5966 24.6007 24.2403L25.6645 23.176C25.9519 22.8901 26.3408 22.7296 26.7462 22.7296C27.1515 22.7296 27.5404 22.8901 27.8278 23.176L31.7427 27.0901C32.0285 27.3773 32.1889 27.7661 32.1889 28.1712Z" fill="white"/>
+					</g>
+					<defs>
+						<clipPath id="clip0_contact_hotline">
+							<rect width="40" height="40" fill="white"/>
+						</clipPath>
+					</defs>
+				</svg>
+				{%- endif -%}
+			</a>
+			{%- endif -%}
+			{%- if settings.contact_icons_facebook_show -%}
+			<a class="contact-icons-item contact-icons-facebook{% if contact_facebook_icon != blank %} contact-icons-item-custom{% endif %}"{% if contact_facebook_link != blank %} href="{{ contact_facebook_link | escape }}" target="_blank" rel="noopener"{% else %} aria-disabled="true"{% endif %} aria-label="Facebook">
+				{%- if contact_facebook_icon != blank -%}
+				<img class="contact-icons-custom-image" src="{{ contact_facebook_icon | escape }}" alt="" width="34" height="34" loading="lazy">
+				{%- else -%}
+				<svg viewBox="0 0 24 24" width="23" height="23" aria-hidden="true">
+					<path fill="currentColor" d="M13.8 22v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5H17V4.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.5V14h2.8v8h3.5Z"/>
+				</svg>
+				{%- endif -%}
+			</a>
+			{%- endif -%}
+			{%- if settings.contact_icons_zalo_show -%}
+			<a class="contact-icons-item contact-icons-zalo{% if contact_zalo_icon != blank %} contact-icons-item-custom{% endif %}"{% if contact_zalo_link != blank %} href="{{ contact_zalo_link | escape }}" target="_blank" rel="noopener"{% else %} aria-disabled="true"{% endif %} aria-label="Zalo">
+				{%- if contact_zalo_icon != blank -%}
+				<img class="contact-icons-custom-image" src="{{ contact_zalo_icon | escape }}" alt="" width="34" height="34" loading="lazy">
+				{%- else -%}
+				<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+					<g clip-path="url(#clip0_contact_zalo)">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M18.2256 0.132812H21.7592C26.6122 0.132812 29.4482 0.845608 31.9658 2.19537C34.4833 3.54512 36.47 5.51668 37.8046 8.03424C39.1543 10.5518 39.8671 13.3878 39.8671 18.2408V21.7593C39.8671 26.6123 39.1543 29.4483 37.8046 31.9658C36.4548 34.4834 34.4833 36.4702 31.9658 37.8047C29.4482 39.1545 26.6122 39.8673 21.7592 39.8673H18.2407C13.3877 39.8673 10.5517 39.1545 8.03416 37.8047C5.51666 36.455 3.52994 34.4834 2.19536 31.9658C0.8456 29.4483 0.132812 26.6123 0.132812 21.7593V18.2408C0.132812 13.3878 0.8456 10.5518 2.19536 8.03424C3.54511 5.51668 5.51666 3.52996 8.03416 2.19537C10.5366 0.845608 13.3877 0.132812 18.2256 0.132812Z" fill="#0068FF"/>
+						<path opacity="0.12" fill-rule="evenodd" clip-rule="evenodd" d="M39.8669 21.1797V21.7603C39.8669 26.6134 39.1542 29.4494 37.8044 31.9669C36.4546 34.4844 34.483 36.4711 31.9655 37.8058C29.448 39.1555 26.612 39.8683 21.759 39.8683H18.2406C14.2695 39.8683 11.649 39.391 9.44832 38.4781L5.82031 34.7422L39.8669 21.1797Z" fill="#001A33"/>
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M6.22515 34.8714C8.08347 35.0768 10.4068 34.5469 12.0565 33.746C19.22 37.7054 30.4177 37.5163 37.1958 33.1786C37.4587 32.7842 37.7043 32.3742 37.9322 31.949C39.2869 29.4223 40.0023 26.576 40.0023 21.7053V18.174C40.0023 13.3032 39.2869 10.4569 37.9322 7.93018C36.5928 5.40349 34.5988 3.42474 32.0721 2.07006C29.5454 0.715391 26.6991 0 21.8284 0H18.2819C14.1335 0 11.4405 0.522203 9.17787 1.51914C9.05419 1.6299 8.93283 1.74254 8.81403 1.85708C2.17582 8.25624 1.67122 22.1274 7.30018 29.6626C7.30646 29.6737 7.31342 29.6849 7.32106 29.6962C8.18867 30.9748 7.3515 33.2123 6.0425 34.5213C5.8294 34.7192 5.9055 34.841 6.22515 34.8714Z" fill="white"/>
+						<path d="M16.4494 13.5996H8.66935V15.2678H14.0683L8.74511 21.865C8.57831 22.1076 8.45703 22.3351 8.45703 22.8507V23.2754H15.7972C16.1612 23.2754 16.4646 22.9721 16.4646 22.6081V21.7133H10.7926L15.7972 15.4346C15.873 15.3437 16.0095 15.1769 16.0702 15.101L16.1006 15.0555C16.3887 14.6309 16.4494 14.2669 16.4494 13.8271V13.5996Z" fill="#0068FF"/>
+						<path d="M26.3541 23.2754H27.4612V13.5996H25.793V22.7142C25.793 23.0176 26.0356 23.2754 26.3541 23.2754Z" fill="#0068FF"/>
+						<path d="M20.6508 15.7539C18.5579 15.7539 16.8594 17.4525 16.8594 19.5453C16.8594 21.6382 18.5579 23.3368 20.6508 23.3368C22.7437 23.3368 24.4423 21.6382 24.4423 19.5453C24.4575 17.4525 22.7589 15.7539 20.6508 15.7539ZM20.6508 21.7747C19.4224 21.7747 18.4215 20.7737 18.4215 19.5453C18.4215 18.3169 19.4224 17.316 20.6508 17.316C21.8792 17.316 22.8802 18.3169 22.8802 19.5453C22.8802 20.7737 21.8944 21.7747 20.6508 21.7747Z" fill="#0068FF"/>
+						<path d="M32.3882 15.6934C30.2801 15.6934 28.5664 17.4071 28.5664 19.5151C28.5664 21.6232 30.2801 23.337 32.3882 23.337C34.4962 23.337 36.2099 21.6232 36.2099 19.5151C36.2099 17.4071 34.4962 15.6934 32.3882 15.6934ZM32.3882 21.7749C31.1446 21.7749 30.1436 20.7739 30.1436 19.5303C30.1436 18.2867 31.1446 17.2858 32.3882 17.2858C33.6318 17.2858 34.6327 18.2867 34.6327 19.5303C34.6327 20.7739 33.6318 21.7749 32.3882 21.7749Z" fill="#0068FF"/>
+						<path d="M23.5657 23.2748H24.4605V15.9648H22.8984V22.6227C22.8984 22.9715 23.2017 23.2748 23.5657 23.2748Z" fill="#0068FF"/>
+					</g>
+					<defs>
+						<clipPath id="clip0_contact_zalo">
+							<rect width="40" height="40" fill="white"/>
+						</clipPath>
+					</defs>
+				</svg>
+				{%- endif -%}
+			</a>
+			{%- endif -%}
+			{%- if settings.contact_icons_messenger_show -%}
+			<a class="contact-icons-item contact-icons-messenger{% if contact_messenger_icon != blank %} contact-icons-item-custom{% endif %}"{% if contact_messenger_link != blank %} href="{{ contact_messenger_link | escape }}" target="_blank" rel="noopener"{% else %} aria-disabled="true"{% endif %} aria-label="Messenger">
+				{%- if contact_messenger_icon != blank -%}
+				<img class="contact-icons-custom-image" src="{{ contact_messenger_icon | escape }}" alt="" width="34" height="34" loading="lazy">
+				{%- else -%}
+				<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="36 12 40 40" fill="none" aria-hidden="true">
+					<path d="M56 12C44.735 12 36 20.2548 36 31.3995C36 37.2293 38.39 42.2692 42.28 45.7491C42.605 46.0391 42.805 46.4491 42.815 46.889L42.925 50.4489C42.933 50.7109 43.0052 50.9668 43.1353 51.1943C43.2654 51.4218 43.4494 51.6138 43.6711 51.7536C43.8928 51.8933 44.1454 51.9764 44.4068 51.9957C44.6681 52.0149 44.9302 51.9697 45.17 51.8639L49.14 50.114C49.475 49.964 49.855 49.939 50.21 50.034C52.035 50.5339 53.975 50.8039 56 50.8039C67.265 50.8039 76 42.5492 76 31.4045C76 20.2598 67.265 12 56 12Z" fill="#0766FE"/>
+					<path d="M43.9909 37.0742L49.8659 27.7544C50.0869 27.4036 50.3782 27.1023 50.7215 26.8697C51.0649 26.6371 51.4527 26.4782 51.8605 26.403C52.2683 26.3278 52.6873 26.338 53.091 26.433C53.4947 26.5279 53.8743 26.7054 54.2059 26.9545L58.8809 30.4594C59.0896 30.6156 59.3435 30.6996 59.6042 30.6987C59.8649 30.6978 60.1183 30.6121 60.3259 30.4544L66.6359 25.6645C67.4759 25.0245 68.5759 26.0345 68.0159 26.9295L62.1359 36.2442C61.9149 36.5951 61.6235 36.8963 61.2802 37.1289C60.9369 37.3616 60.5491 37.5205 60.1413 37.5956C59.7334 37.6708 59.3145 37.6606 58.9108 37.5657C58.5071 37.4708 58.1275 37.2932 57.7959 37.0442L53.1209 33.5393C52.9122 33.383 52.6583 33.299 52.3975 33.2999C52.1368 33.3008 51.8835 33.3866 51.6759 33.5443L45.3659 38.3342C44.5259 38.9741 43.4259 37.9692 43.9909 37.0742Z" fill="white"/>
+				</svg>
+				{%- endif -%}
+			</a>
+			{%- endif -%}
+			<button class="contact-icons-close" type="button" aria-label="Đóng nhóm liên hệ">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+					<path d="M18 6L6 18M6 6L18 18" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
+			</button>
+		</div>
+		<button class="contact-icons-launcher" type="button" aria-expanded="false" aria-controls="contact-icons-list" aria-label="Mở nhóm liên hệ">
+			<svg xmlns="http://www.w3.org/2000/svg" width="23" height="20" viewBox="0 0 23 20" fill="none">
+				<path d="M4.71094 3.13908C6.62838 0.828097 9.5592 -0.320098 12.542 0.0775539C15.5519 0.468941 18.1661 2.51802 19.3535 5.33732H20.75C21.8524 5.33732 22.7488 6.23396 22.749 7.33634V10.0024C22.749 11.1049 21.8525 12.0024 20.75 12.0024H19.3447C18.2702 14.5827 16.0351 16.4695 13.374 17.102V18.0004C13.374 19.1029 12.4774 20.0003 11.375 20.0004C10.2725 20.0004 9.375 19.103 9.375 18.0004C9.37508 16.8979 10.278 16.0014 11.3877 16.0014C14.4792 16.0014 17.2472 14.0384 18.2764 11.1166L18.2793 11.1088C18.6939 9.96527 18.8072 8.70184 18.6074 7.45548C18.5476 7.03826 18.4433 6.63214 18.2949 6.23771L18.29 6.22306C17.3694 3.64069 15.0451 1.74755 12.3682 1.39884C9.83716 1.06708 7.35984 2.03499 5.7373 3.99064C4.08606 5.98033 3.61642 8.58213 4.4502 11.1283L4.73633 12.0024H1.99902C0.896676 12.0021 0 11.1048 0 10.0024V7.33634C0.000216304 6.23412 0.896809 5.33756 1.99902 5.33732H3.37207C3.69945 4.55757 4.14727 3.81858 4.71094 3.13908ZM11.375 2.6713C14.6826 2.67145 17.373 5.36273 17.373 8.67033C17.3728 11.9778 14.6824 14.6682 11.375 14.6684H5.37598V13.3354C5.98322 13.3354 6.49646 12.9371 6.65723 12.3754C5.82939 11.3217 5.37606 10.0188 5.37598 8.67033C5.37598 5.36264 8.06731 2.6713 11.375 2.6713ZM8.04199 8.00334V9.33634H9.375V8.00334H8.04199ZM10.708 8.00334V9.33634H12.041V8.00334H10.708ZM13.374 8.00334V9.33634H14.707V8.00334H13.374Z" fill="white"/>
+			</svg>
+		</button>
+	</div>
+{%- endif -%}

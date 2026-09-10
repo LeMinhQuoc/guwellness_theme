@@ -1,0 +1,133 @@
+{% comment %}haravan-audit:v2{% endcomment %}
+<link rel="stylesheet" href="{{ 'gu-utilities.css' | asset_url }}" as="style">
+<link rel="stylesheet" href="{{ 'page-contact.scss.css' | asset_url }}" as="style">
+<script fetchpriority="low" type="text/javascript" defer src="{{ 'page-contact.js' | asset_url }}"></script>
+
+<div class="page-contact" data-filename="page-contact">
+	{%- if settings.gu_contact_banner_show -%}
+	<section class="page-contact__banner">
+		<div class="container-fluid">
+		<picture>
+				<source media="(max-width: 767px)" srcset="{{ settings.gu_contact_banner_mb }}">
+				<img class="obj-cover" src="{{ settings.gu_contact_banner_pc }}" alt="{{ page.title | escape }}" width="1600" height="500" loading="eager">
+			</picture>
+		</div>
+	</section>
+	{%- endif -%}
+	{%- if settings.gu_contact_show -%}
+	<section class="page-contact__intro-info">
+		<div class="container-fluid">
+			<div class="page-contact__intro-info-inner">
+				<div class="page-contact__intro">
+					<h1 class="page-contact__title">{{ settings.gu_contact_title }}</h1>
+					{%- unless settings.gu_contact_desc == blank -%}
+					<p class="page-contact__desc">{{ settings.gu_contact_desc | newline_to_br }}</p>
+					{%- endunless -%}
+				</div>
+				<div class="page-contact__info">
+					<article class="page-contact__info-card">
+						<span class="page-contact__pill">{{ settings.gu_contact1_label }}</span>
+						<div class="page-contact__info-body">
+							{{ settings.gu_contact1_body | newline_to_br }}
+						</div>
+					</article>
+					<article class="page-contact__info-card">
+						<span class="page-contact__pill">{{ settings.gu_contact2_label }}</span>
+						<div class="page-contact__info-body">
+							{{ settings.gu_contact2_body | newline_to_br }}
+						</div>
+					</article>
+				</div>
+			</div>
+		</div>
+	</section>
+	{%- endif -%}
+	<section class="page-contact__form-section">
+		<div class="container-fluid">
+			<div class="page-contact__form-shell">
+				<div class="page-contact__form-media">
+					{%- if settings.gu_contact_form_image != blank -%}
+					<img class="obj-cover" src="{{ settings.gu_contact_form_image }}" alt="{{ settings.gu_contact_form_title | escape }}" width="640" height="720" loading="lazy">
+					{%- else -%}
+					<img class="obj-cover" src="{{ 'no_image.jpg' | asset_url }}" alt="{{ settings.gu_contact_form_title | escape }}" width="640" height="720" loading="lazy">
+					{%- endif -%}
+					<span class="page-contact__form-media-fade" aria-hidden="true"></span>
+				</div>
+				<div class="page-contact__form-panel">
+					<h2 class="page-contact__form-title">{{ settings.gu_contact_form_title }}</h2>
+					{%- unless settings.gu_contact_form_desc == blank -%}
+					<p class="page-contact__form-desc">{{ settings.gu_contact_form_desc }}</p>
+					{%- endunless -%}
+
+					<form class="page-contact__form" data-contact-google-form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfPGaElaQXEFxtS4uiZ3cQ8ILfva2MtlCRK7hcGCPvnYbAIKw/formResponse" method="POST" novalidate>
+						<div class="page-contact__field">
+							<label class="visually-hidden" for="gu-contact-name">Họ và tên</label>
+							<input id="gu-contact-name" type="text" name="entry.768530323" placeholder="Nguyễn Văn A" required>
+						</div>
+						<div class="page-contact__field-row">
+							<div class="page-contact__field">
+								<label class="visually-hidden" for="gu-contact-phone">Số điện thoại</label>
+								<input id="gu-contact-phone" type="tel" name="entry.866164576" placeholder="SĐT liên hệ" pattern="[0-9\s+()-]{8,20}" required>
+							</div>
+							<div class="page-contact__field">
+								<label class="visually-hidden" for="gu-contact-email">Email</label>
+								<input id="gu-contact-email" type="email" name="entry.1474739440" placeholder="VD:info@email.com" required>
+							</div>
+						</div>
+						<div class="page-contact__field">
+							<label class="visually-hidden" for="gu-contact-topic">Chủ đề</label>
+							<select id="gu-contact-topic" name="entry.1576407584" required>
+								{%- assign gu_contact_form_topics = settings.gu_contact_form_topics | split: ';' -%}
+								<option value="" disabled selected>Chủ đề</option>
+								{%- for topic in gu_contact_form_topics -%}
+								<option value="{{ topic }}">{{ topic }}</option>
+								{%- endfor -%}
+							</select>
+						</div>
+						<div class="page-contact__field">
+							<label class="visually-hidden" for="gu-contact-message">Nội dung</label>
+							<textarea id="gu-contact-message" name="entry.730719087" rows="6" placeholder="Nội dung" required></textarea>
+						</div>
+						<div class="page-contact__form-actions">
+							<button type="submit" class="gu-btn page-contact__submit" data-contact-submit>
+								<span class="gu-btn__icon" aria-hidden="true">
+									<svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M0 1.827L1.71 0H10V8.22L8.11 10V5.93C8.11 4.938 8.119 4.04 8.14 3.235L1.498 9.815L0.182 8.375L6.823 1.795C6.036 1.817 5.153 1.827 4.176 1.827H0Z" fill="currentColor"/>
+									</svg>
+								</span>
+								<span class="gu-btn__label">{{ settings.gu_contact_form_btn }}</span>
+							</button>
+						</div>
+						<p class="page-contact__form-success" data-contact-success hidden>{{ settings.gu_contact_form_success }}</p>
+						<p class="page-contact__form-error" data-contact-error hidden>Không gửi được. Vui lòng thử lại.</p>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="page-contact__guides">
+		<div class="container-fluid">
+			<h2 class="page-contact__guides-title">{{ settings.gu_contact_guide_title }}</h2>
+			<div class="page-contact__guides-grid">
+				{%- for i in (1..4) -%}
+					{%- capture guide_item_show %}gu_contact_guide_{{ i }}_show{% endcapture -%}
+					{%- if settings[guide_item_show] -%}
+						{%- capture guide_item_title %}gu_contact_guide_{{ i }}_title{% endcapture -%}
+						{%- capture guide_item_body %}gu_contact_guide_{{ i }}_body{% endcapture -%}
+						{%- if settings[guide_item_title] != blank or settings[guide_item_body] != blank -%}
+						<article class="page-contact__guide-card">
+							{%- unless settings[guide_item_title] == blank -%}
+							<span class="page-contact__pill">{{ settings[guide_item_title] }}</span>
+							{%- endunless -%}
+							{%- unless settings[guide_item_body] == blank -%}
+							<div class="page-contact__guide-body">{{ settings[guide_item_body] | newline_to_br }}</div>
+							{%- endunless -%}
+						</article>
+						{%- endif -%}
+					{%- endif -%}
+				{%- endfor -%}
+			</div>
+		</div>
+	</section>
+</div>

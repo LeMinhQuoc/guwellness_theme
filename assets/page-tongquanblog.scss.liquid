@@ -1,0 +1,334 @@
+/* haravan-audit:v2 */
+.page-tongquanblog {
+	padding-top: 48px;
+	padding-bottom: 80px;
+	color: var(--gu-black);
+	background: var(--gu-white);
+}
+
+.page-tongquanblog__latest {
+	margin-bottom: 24px;
+}
+
+.page-tongquanblog__latest-head {
+	position: relative;
+	z-index: 2;
+	margin-bottom: -2px;
+}
+
+.page-tongquanblog__latest-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 64px;
+	padding: 12px 20px 10px 32px;
+	border-radius: 24px 24px 24px 0;
+	background: linear-gradient(224deg, #ccdab9 3.56%, #6f904b 71.86%), linear-gradient(230deg, #fef8ed 5.95%, #f8ebcc 66.22%);
+}
+
+.page-tongquanblog__latest-title {
+	margin: 0;
+	font-family: var(--gu-font-serif);
+	font-size: 48px;
+	font-weight: 400;
+	line-height: 1.2;
+	letter-spacing: -2.5px;
+	color: var(--gu-white);
+	white-space: nowrap;
+}
+
+.page-tongquanblog__latest-controls {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	flex: 0 0 auto;
+}
+
+.page-tongquanblog__nav-prev,
+.page-tongquanblog__nav-next {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 48px;
+	height: 48px;
+	padding: 0;
+	border-radius: 100px;
+	cursor: pointer;
+	transition: opacity 0.2s ease;
+}
+
+.page-tongquanblog__nav-prev {
+	border: 1px solid #ccdab9;
+	background: var(--gu-white);
+	color: #42592f;
+}
+
+.page-tongquanblog__nav-next {
+	border: 0;
+	background: var(--gu-green);
+	color: var(--gu-white);
+}
+
+.page-tongquanblog__nav-prev.swiper-button-disabled,
+.page-tongquanblog__nav-next.swiper-button-disabled {
+	opacity: 0.4;
+	cursor: default;
+}
+
+.page-tongquanblog__latest-panel {
+	position: relative;
+	z-index: 1;
+	padding: 20px;
+	border-radius: 0 20px 20px 20px;
+	background: #f5f6ee;
+}
+
+.page-tongquanblog__latest-slider {
+	overflow: hidden;
+}
+
+.page-tongquanblog__latest-slider .swiper-slide {
+	height: auto;
+}
+
+.page-tongquanblog__feature-card {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	width: 100%;
+	aspect-ratio: 5 / 4;
+	border-radius: 20px;
+	color: inherit;
+	text-decoration: none;
+}
+
+.page-tongquanblog__feature-media {
+	position: absolute;
+	inset: 0;
+}
+
+.page-tongquanblog__feature-media img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+.page-tongquanblog__feature-content {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 10px;
+	padding: 80px 32px 24px 24px;
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+}
+
+.page-tongquanblog__feature-date {
+	display: inline-flex;
+	align-items: center;
+	padding: 8px 16px 10px;
+	border-radius: 50px;
+	color: var(--gu-white);
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 13px;
+	letter-spacing: -0.2px;
+	background-image:
+		linear-gradient(200.47deg, #ccdab9 5.95%, #6f904b 66.22%),
+		linear-gradient(90deg, #f5f6ee 0%, #f5f6ee 100%);
+}
+
+.page-tongquanblog__feature-title {
+	margin: 0;
+	font-family: var(--gu-font-serif);
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 26px;
+	letter-spacing: -1.2px;
+	color: var(--gu-white);
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+}
+
+.page-tongquanblog__groups {
+	display: flex;
+	flex-direction: column;
+}
+
+.page-tongquanblog__group {
+	padding-top: 80px;
+}
+
+.page-tongquanblog__group-slider {
+	overflow: hidden;
+}
+
+.page-tongquanblog__group-slider .swiper-slide {
+	height: auto;
+}
+
+.page-tongquanblog .gu-btn {
+	display: inline-flex;
+	align-items: center;
+	width: fit-content;
+	color: var(--gu-white);
+	border: 0;
+	background: transparent;
+	cursor: pointer;
+	user-select: none;
+}
+
+.page-tongquanblog .gu-btn__icon,
+.page-tongquanblog .gu-btn__label {
+	display: inline-flex;
+	align-items: center;
+	height: 40px;
+	background: var(--gu-green);
+}
+
+.page-tongquanblog .gu-btn__icon {
+	justify-content: center;
+	width: 40px;
+	margin-right: -1px;
+	border-radius: 50%;
+	flex-shrink: 0;
+}
+
+.page-tongquanblog .gu-btn__label {
+	padding: 0 24px;
+	border-radius: 999px;
+	font-family: var(--gu-font-serif);
+	font-size: 18px;
+	line-height: 1;
+	letter-spacing: -0.5px;
+	text-transform: uppercase;
+}
+
+@media (max-width: 1199.98px) {
+	.page-tongquanblog__latest-title {
+		font-size: 36px;
+		line-height: 1.15;
+		letter-spacing: -1.6px;
+	}
+
+	.page-tongquanblog__latest-badge {
+		gap: 24px;
+	}
+
+	.page-tongquanblog__feature-content {
+		padding: 64px 24px 20px 20px;
+	}
+}
+
+@media (max-width: 991.98px) {
+	.page-tongquanblog {
+		padding-top: 24px;
+		padding-bottom: 48px;
+	}
+
+	.page-tongquanblog__latest {
+		margin-bottom: 16px;
+	}
+
+	.page-tongquanblog__group {
+		padding-top: 48px;
+	}
+
+	.page-tongquanblog__latest-badge {
+		width: 100%;
+		justify-content: space-between;
+		gap: 16px;
+		padding: 12px 16px 10px;
+		border-radius: 20px 20px 0 0;
+	}
+
+	.page-tongquanblog__latest-title {
+		font-size: 32px;
+		letter-spacing: -1.4px;
+		white-space: normal;
+	}
+
+	.page-tongquanblog__latest-panel {
+		padding: 16px;
+		border-radius: 0 0 20px 20px;
+	}
+
+	.page-tongquanblog__feature-card {
+		border-radius: 16px;
+	}
+
+	.page-tongquanblog__feature-content {
+		padding: 56px 20px 20px 16px;
+	}
+
+	.page-tongquanblog .gu-btn__label {
+		padding: 0 20px;
+	}
+}
+
+@media (max-width: 575.98px) {
+	.page-tongquanblog {
+		padding-top: 16px;
+		padding-bottom: 40px;
+	}
+
+	.page-tongquanblog__group {
+		padding-top: 40px;
+	}
+
+	.page-tongquanblog__latest-title {
+		font-size: 28px;
+		line-height: 1.15;
+		letter-spacing: -1.2px;
+	}
+
+	.page-tongquanblog__latest-badge {
+		gap: 12px;
+		padding: 10px 12px;
+		border-radius: 16px 16px 0 0;
+	}
+
+	.page-tongquanblog__nav-prev,
+	.page-tongquanblog__nav-next {
+		width: 40px;
+		height: 40px;
+		flex-shrink: 0;
+	}
+
+	.page-tongquanblog__latest-panel {
+		padding: 12px;
+		border-radius: 0 0 16px 16px;
+	}
+
+	.page-tongquanblog__feature-card {
+		border-radius: 12px;
+	}
+
+	.page-tongquanblog__feature-content {
+		gap: 8px;
+		padding: 48px 16px 16px;
+	}
+
+	.page-tongquanblog__feature-date {
+		padding: 6px 12px 8px;
+		font-size: 12px;
+		line-height: 12px;
+	}
+
+	.page-tongquanblog__feature-title {
+		font-size: 18px;
+		line-height: 24px;
+		letter-spacing: -0.8px;
+	}
+
+	.page-tongquanblog .gu-btn__label {
+		font-size: 16px;
+		padding: 0 20px;
+	}
+}

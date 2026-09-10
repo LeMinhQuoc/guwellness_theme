@@ -1,0 +1,392 @@
+.ctv-popup-overlay,
+.ctv-success-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(10, 10, 10, 0.55);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.ctv-popup-overlay.is-open,
+.ctv-success-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.ctv-popup {
+  position: relative;
+  width: 100%;
+  max-width: 780px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 32px;
+  border-radius: 24px;
+  background: #f5f6ee;
+  scrollbar-width: thin;
+  scrollbar-color: #a8bf8a #e8eedc;
+}
+
+.ctv-popup::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ctv-popup::-webkit-scrollbar-track {
+  margin: 16px 0;
+  background: #e8eedc;
+  border-radius: 99px;
+}
+
+.ctv-popup::-webkit-scrollbar-thumb {
+  background: #a8bf8a;
+  border-radius: 99px;
+}
+
+.ctv-popup::-webkit-scrollbar-thumb:hover {
+  background: #55723a;
+}
+
+.ctv-popup-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: #fff;
+  color: #55723a;
+  cursor: pointer;
+}
+
+.ctv-popup h2 {
+  margin: 0 0 32px;
+  text-align: center;
+}
+
+.ctv-popup-form {
+  display: grid;
+  gap: 20px;
+}
+
+.ctv-popup-section {
+  display: grid;
+  gap: 12px;
+}
+
+.ctv-popup-label {
+  margin: 0;
+  color: #55723a;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.ctv-popup-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.ctv-popup-form input[type="text"],
+.ctv-popup-form input[type="tel"],
+.ctv-popup-form input[type="email"],
+.ctv-popup-form input[type="number"],
+.ctv-popup-form input[type="date"],
+.ctv-popup-form select,
+.ctv-popup-form textarea {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 7.5px 15px;
+  border: 1px solid #fff;
+  border-radius: 99px;
+  background: #fff;
+  color: #404040;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: normal;
+  vertical-align: middle;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.ctv-popup-form input[type="text"],
+.ctv-popup-form input[type="tel"],
+.ctv-popup-form input[type="email"],
+.ctv-popup-form input[type="number"],
+.ctv-popup-form input[type="date"],
+.ctv-popup-form select {
+  height: 40px;
+  min-height: 40px;
+  max-height: 40px;
+}
+
+.ctv-popup-form input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.ctv-popup-form input[type="number"]::-webkit-outer-spin-button,
+.ctv-popup-form input[type="number"]::-webkit-inner-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+.ctv-popup-form select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%2355723a' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 12px 8px;
+  padding-right: 40px;
+  cursor: pointer;
+}
+
+.ctv-popup-form select:invalid,
+.ctv-popup-form select.ctv-popup-select-placeholder {
+  color: #9a9a9a;
+}
+
+.ctv-popup-form select option {
+  color: #404040;
+}
+
+.ctv-popup-form input::placeholder,
+.ctv-popup-form textarea::placeholder {
+  color: #9a9a9a;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 24px;
+  opacity: 1;
+}
+
+.ctv-popup-form input:focus,
+.ctv-popup-form select:focus,
+.ctv-popup-form textarea:focus {
+  outline: none;
+  border-color: #85a55e;
+}
+
+/*.ctv-popup-form input:invalid:not(:placeholder-shown):not(:focus),
+.ctv-popup-form select:invalid:not(:focus) {
+  border-color: #c45c5c;
+}*/
+
+.ctv-popup-form textarea {
+  height: auto;
+  min-height: 110px;
+  max-height: none;
+  resize: vertical;
+  border-radius: 20px;
+}
+
+.ctv-popup-date {
+  position: relative;
+  box-sizing: border-box;
+  height: 40px;
+  min-height: 40px;
+  max-height: 40px;
+  padding-right: 48px;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 24px;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2355723a' stroke-width='1.6'%3E%3Crect x='3' y='5' width='18' height='16' rx='3'/%3E%3Cpath d='M8 3v4M16 3v4M3 10h18'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 20px 20px;
+}
+
+.ctv-popup-date::-webkit-datetime-edit,
+.ctv-popup-date::-webkit-datetime-edit-fields-wrapper,
+.ctv-popup-date::-webkit-datetime-edit-text,
+.ctv-popup-date::-webkit-datetime-edit-month-field,
+.ctv-popup-date::-webkit-datetime-edit-day-field,
+.ctv-popup-date::-webkit-datetime-edit-year-field {
+  padding: 0;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 24px;
+  color: #404040;
+}
+
+.ctv-popup-date::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.ctv-popup-radio-group,
+.ctv-popup-checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 28px;
+}
+
+.ctv-popup-radio,
+.ctv-popup-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #404040;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.ctv-popup-radio input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  border: 1.5px solid #ccdab9;
+  border-radius: 50%;
+  background: #fff;
+  appearance: none;
+  cursor: pointer;
+}
+
+.ctv-popup-radio input[type="radio"]:checked {
+  border: 5px solid #55723a;
+}
+
+.ctv-popup-checkbox input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  border: 1.5px solid #ccdab9;
+  border-radius: 6px;
+  background-color: #fff;
+  appearance: none;
+  cursor: pointer;
+}
+
+.ctv-popup-checkbox input[type="checkbox"]:checked {
+  background-color: #55723a;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 12px 12px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.5L6.2 11.7L13 4.5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  border-color: #55723a;
+}
+ 
+.ctv-popup .gu-button,
+.ctv-success-popup .gu-button {
+  position: relative;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 18px;
+  line-height: 18px;
+  text-transform: uppercase;
+  letter-spacing: -0.2px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.ctv-popup .button-icon,
+.ctv-success-popup .button-icon {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  border-radius: 100px;
+  background: #55723a;
+  color: #fff;
+}
+
+.ctv-popup .button-icon svg,
+.ctv-popup .button-icon img,
+.ctv-success-popup .button-icon svg,
+.ctv-success-popup .button-icon img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  transform: translate(-50%, -50%);
+}
+
+.ctv-popup .button-label,
+.ctv-success-popup .button-label {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  margin-left: -1px;
+  padding: 0 20px;
+  border-radius: 100px;
+  background: #55723a;
+}
+
+.ctv-popup-submit {
+  justify-self: center;
+  margin-top: 8px;
+}
+
+.ctv-success-popup {
+  position: relative;
+  display: grid;
+  width: 100%;
+  max-width: 420px;
+  padding: 48px 40px;
+  border-radius: 24px;
+  background: #f5f6ee;
+  text-align: center;
+  justify-items: center;
+  gap: 16px;
+}
+
+.ctv-success-icon {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #55723a;
+  color: #fff;
+}
+
+.ctv-success-popup h3 {
+  margin: 0;
+  color: #0a0a0a;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 400;
+}
+
+.ctv-success-popup p {
+  margin: 0;
+  color: #404040;
+  font-size: 16px;
+  line-height: 23px;
+}
+
+@media (max-width: 640px) {
+  .ctv-popup {
+    padding: 32px 24px;
+  }
+
+  .ctv-popup-row {
+    grid-template-columns: 1fr;
+  }
+}

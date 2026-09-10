@@ -1,0 +1,118 @@
+(function () {
+  "use strict";
+
+  if (window.__farmtourPopupRegisterInit) return;
+  window.__farmtourPopupRegisterInit = true;
+
+  var popupOverlay = document.querySelector("[data-farmtour-popup-overlay]");
+  var successOverlay = document.querySelector("[data-farmtour-success-overlay]");
+  var popupForm = document.querySelector("[data-farmtour-popup-form]");
+
+  if (!popupOverlay || !popupForm) return;
+
+  function isAnyOverlayOpen() {
+    return (popupOverlay && popupOverlay.classList.contains("is-open")) ||
+      (successOverlay && successOverlay.classList.contains("is-open"));
+  }
+
+  function openOverlay(overlay) {
+    if (!overlay) return;
+    overlay.classList.add("is-open");
+    overlay.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeOverlay(overlay) {
+    if (!overlay) return;
+    overlay.classList.remove("is-open");
+    overlay.setAttribute("aria-hidden", "true");
+    if (!isAnyOverlayOpen()) document.body.style.overflow = "";
+  }
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest("[data-farmtour-popup-open]")) {
+      openOverlay(popupOverlay);
+      return;
+    }
+    if (event.target.closest("[data-farmtour-popup-close]")) {
+      closeOverlay(popupOverlay);
+      return;
+    }
+    if (event.target.closest("[data-farmtour-success-close]")) {
+      closeOverlay(successOverlay);
+      return;
+    }
+    if (event.target === popupOverlay) closeOverlay(popupOverlay);
+    if (event.target === successOverlay) closeOverlay(successOverlay);
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key !== "Escape") return;
+    closeOverlay(popupOverlay);
+    closeOverlay(successOverlay);
+  });
+
+  var dateInputs = popupForm.querySelectorAll(".ctv-popup-date");
+  dateInputs.forEach(function (input) {
+    input.addEventListener("focus", function () {
+      input.type = "date";
+    });
+    input.addEventListener("blur", function () {
+      if (!input.value) input.type = "text";
+    });
+  });
+
+  var selects = popupForm.querySelectorAll("select");
+  selects.forEach(function (select) {
+    function syncSelectColor() {
+      if (!select.value) {
+        select.classList.add("ctv-popup-select-placeholder");
+      } else {
+        select.classList.remove("ctv-popup-select-placeholder");
+      }
+    }
+    syncSelectColor();
+    select.addEventListener("change", syncSelectColor);
+  });
+
+  popupForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    if (!popupForm.checkValidity()) {
+      popupForm.reportValidity();
+      return;
+    }
+
+    var actionUrl = popupForm.getAttribute("action");
+    var submitButton = popupForm.querySelector(".ctv-popup-submit");
+    var formData = new FormData(popupForm);
+
+    if (submitButton) submitButton.setAttribute("disabled", "disabled");
+
+    function handleDone() {
+      popupForm.reset();
+      dateInputs.forEach(function (input) {
+        input.type = "text";
+      });
+      selects.forEach(function (select) {
+        select.classList.add("ctv-popup-select-placeholder");
+      });
+      closeOverlay(popupOverlay);
+      openOverlay(successOverlay);
+      if (submitButton) submitButton.removeAttribute("disabled");
+    }
+
+    if (!actionUrl) {
+      handleDone();
+      return;
+    }
+
+    fetch(actionUrl, {
+      method: "POST",
+      mode: "no-cors",
+      body: formData
+    })
+      .then(handleDone)
+      .catch(handleDone);
+  });
+})();

@@ -1,0 +1,102 @@
+(function () {
+  "use strict";
+
+  if (window.__ctvPopupRegisterInit) return;
+  window.__ctvPopupRegisterInit = true;
+
+  var popupOverlay = document.querySelector("[data-ctv-popup-overlay]");
+  var successOverlay = document.querySelector("[data-ctv-success-overlay]");
+  var popupForm = document.querySelector("[data-ctv-popup-form]");
+
+  if (!popupOverlay || !popupForm) return;
+
+  function isAnyOverlayOpen() {
+    return (popupOverlay && popupOverlay.classList.contains("is-open")) ||
+      (successOverlay && successOverlay.classList.contains("is-open"));
+  }
+
+  function openOverlay(overlay) {
+    if (!overlay) return;
+    overlay.classList.add("is-open");
+    overlay.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeOverlay(overlay) {
+    if (!overlay) return;
+    overlay.classList.remove("is-open");
+    overlay.setAttribute("aria-hidden", "true");
+    if (!isAnyOverlayOpen()) document.body.style.overflow = "";
+  }
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest("[data-ctv-popup-open]")) {
+      openOverlay(popupOverlay);
+      return;
+    }
+    if (event.target.closest("[data-ctv-popup-close]")) {
+      closeOverlay(popupOverlay);
+      return;
+    }
+    if (event.target.closest("[data-ctv-success-close]")) {
+      closeOverlay(successOverlay);
+      return;
+    }
+    if (event.target === popupOverlay) closeOverlay(popupOverlay);
+    if (event.target === successOverlay) closeOverlay(successOverlay);
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key !== "Escape") return;
+    closeOverlay(popupOverlay);
+    closeOverlay(successOverlay);
+  });
+
+  var dateInputs = popupForm.querySelectorAll(".ctv-popup-date");
+  dateInputs.forEach(function (input) {
+    input.addEventListener("focus", function () {
+      input.type = "date";
+    });
+    input.addEventListener("blur", function () {
+      if (!input.value) input.type = "text";
+    });
+  });
+
+  popupForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    if (!popupForm.checkValidity()) {
+      popupForm.reportValidity();
+      return;
+    }
+
+    var actionUrl = popupForm.getAttribute("action");
+    var submitButton = popupForm.querySelector(".ctv-popup-submit");
+    var formData = new FormData(popupForm);
+
+    if (submitButton) submitButton.setAttribute("disabled", "disabled");
+
+    function handleDone() {
+      popupForm.reset();
+      dateInputs.forEach(function (input) {
+        input.type = "text";
+      });
+      closeOverlay(popupOverlay);
+      openOverlay(successOverlay);
+      if (submitButton) submitButton.removeAttribute("disabled");
+    }
+
+    if (!actionUrl) {
+      handleDone();
+      return;
+    }
+
+    fetch(actionUrl, {
+      method: "POST",
+      mode: "no-cors",
+      body: formData
+    })
+      .then(handleDone)
+      .catch(handleDone);
+  });
+})();

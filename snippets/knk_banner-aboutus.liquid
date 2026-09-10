@@ -1,0 +1,81 @@
+{% comment %}haravan-audit:v2{% endcomment %}
+{%comment%}
+theme=knit_knot
+section=index
+module=knk_home-aboutus
+primary_file=knk_banner-aboutus.liquid
+{%endcomment%}
+{% if settings.knk_aboutus_title_module  != blank %}
+<link rel="preload stylesheet" href="{{ 'knk_subheading-module.css' | asset_url }}" as="style">
+{% endif %}
+<link rel="preload stylesheet" href="{{ 'knk_home-aboutus.css' | asset_url }}" as="style">
+
+<section class="knk_banner-aboutus" data-filename="knk_banner-aboutus"
+  style="--clr-title: {{ settings.knk_aboutus_clr_title | default: '' }};
+        --clr-stitle: {{ settings.knk_aboutus_clr_stitle | default: '' }};
+        --clr-bg-icon: {{ settings.knk_aboutus_bg_ic | default: '#ffffff' }};
+        --clr-bg-btn: {{ settings.knk_aboutus_bg_btn | default: '#ffffff' }};
+  			--clr-txt-btn: {{ settings.knk_aboutus_clr_btn | default: '#333333' }};
+        --clr-bg-btn-hover: {{ settings.knk_aboutus_bg_btn_hv | default: '#ffffff' }};
+  			--clr-txt-btn-hover: {{ settings.knk_aboutus_clr_btn_hv | default: '#333333' }};">
+  <div class="wrapper-home-aboutus">
+    <div class="container">
+      <div class="d-flex-aboutus">
+        <div class="aboutus-item about-left-img">
+          <div class="img-aboutus">
+            <img loading="lazy" decoding="async"
+              class="lazyload dt-width-100" src="{{ 'knit_knot_knk_aboutus_ig_left.jpg' | product_img_url: 'small' | asset_url }}"
+              data-src="{{ 'knit_knot_knk_aboutus_ig_left.jpg' | asset_url }}"
+              alt="{{ settings.knk_aboutus_title | escape | default: 'banner aboutus' }}"  />
+          </div>
+        </div>
+        <div class="aboutus-item about-right-info">
+          <div class="text-list-content animated fadeInDown">
+            {% if settings.knk_aboutus_title_module  != blank %}
+              {% include 'knk_subheading-module' with title: settings.knk_aboutus_title_module, color: settings.knk_aboutus_bg_ic %}
+            {% endif %}
+            {% if settings.knk_aboutus_title  != blank %}<h2 class="title-list-aboutus">{{ settings.knk_aboutus_title | default: '' }}</h2>{% endif %}
+            {% if settings.knk_aboutus_desc  != blank %}<p class="text-list-desc">{{ settings.knk_aboutus_desc | default: '' }}</p>{% endif %}
+
+            <div class="text-list_description_2">
+              <ul>
+                {% for i in (1..4) %}
+                {% capture desc_2 %}knk_aboutus_{{i}}_hlg{% endcapture %}
+                {% if settings[desc_2]  != blank %}
+                 <li>
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"> <circle cx="9" cy="9" r="9"> </circle> <path d="M7.57302 11.352L5.88942 9.66842C5.72467 9.50282 5.63246 9.27856 5.63306 9.04496C5.63366 8.81137 5.72703 8.58758 5.89263 8.42283C6.05738 8.25723 6.28117 8.16386 6.51476 8.16326C6.74835 8.16266 6.97261 8.25488 7.13822 8.41962L8.1316 9.41301L10.865 6.67962C11.0298 6.51402 11.2535 6.42065 11.4871 6.42005C11.7207 6.41944 11.945 6.51166 12.1106 6.67641C12.2753 6.84201 12.3676 7.06627 12.367 7.29987C12.3664 7.53346 12.273 7.75725 12.1074 7.922L8.68021 11.3492C8.53376 11.4964 8.33484 11.5794 8.1272 11.5799C7.91957 11.5804 7.72022 11.4985 7.57302 11.352Z" fill="white"> </path> </svg>
+                   {{ settings[desc_2] | default: '' }} 
+                 </li>
+                {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
+            {% if settings.knk_aboutus_btntitle  != blank %}
+            <div class="button-wrapper">
+              <a href="{{ settings.knk_aboutus_btnurl | default: '' }}" class="btn-link-aboutus">
+                {{ settings.knk_aboutus_btntitle | default: '' }} 
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M12.039 3H13V3.96096V10.6877V11.6486H11.0781V10.6877V6.27327L5.04204 12.3393L4.35135 13L3 11.6486L3.66066 10.958L9.72673 4.92192H5.31231H4.35135V3H5.31231H12.039Z"/> </svg>
+              </a>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% comment %}
+      <div class="about-banner-bottom">
+        <img loading="lazy" decoding="async" class="lazyload dt-width-100" src="{{ 'knk_aboutus_ig_bottom.jpg' | product_img_url: 'small' | asset_url }}"
+              data-src="{{ 'knk_aboutus_ig_bottom.jpg' | asset_url }}"
+             alt="Banner aboutus bottom"/>
+      </div>
+      {% endcomment %}
+      <div class="about-banner-counter-flex">
+        {% include 'knk_home-counter' %}
+        <div class="about-banner-right">
+          <img loading="lazy" decoding="async" class="lazyload dt-width-100" src="{{ 'knit_knot_knk_aboutus_ig_right.jpg' | product_img_url: 'small' | asset_url }}"
+                data-src="{{ 'knit_knot_knk_aboutus_ig_right.jpg' | asset_url }}"
+               alt="Banner aboutus right"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

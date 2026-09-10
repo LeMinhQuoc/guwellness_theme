@@ -1,0 +1,173 @@
+(function () {
+  'use strict';
+
+  var galleryControllers = [];
+
+  function normalizeImageUrl(value) {
+    return String(value || '')
+      .replace(/^https?:/, '')
+      .split('?')[0];
+  }
+
+  function setActiveSlide(controller, index) {
+    var slides = controller.element.querySelectorAll('.product-gallery-item');
+    var thumbs = controller.element.querySelectorAll('.product-gallery__thumb');
+
+    Array.prototype.forEach.call(slides, function (slide, slideIndex) {
+      slide.classList.toggle('is-active', slideIndex === index);
+    });
+
+    Array.prototype.forEach.call(thumbs, function (thumb, thumbIndex) {
+      var isActive = thumbIndex === index;
+      thumb.classList.toggle('active', isActive);
+      thumb.setAttribute('aria-current', isActive ? 'true' : 'false');
+    });
+  }
+
+  function initGallery(element) {
+    var mainElement = element.querySelector('.product-image-detail.swiper');
+    var thumbElement = element.querySelector('.product-gallery__thumbs.swiper');
+    var thumbNextButton = element.querySelector('.product-gallery-thumbs-next');
+    var previousButton = element.querySelector('.product-gallery-previous');
+    var nextButton = element.querySelector('.product-gallery-next');
+    var thumbSlider = null;
+    var controller;
+
+    if (!mainElement || typeof window.Swiper === 'undefined') {
+      return;
+    }
+
+    if (thumbElement) {
+      thumbSlider = new window.Swiper(thumbElement, {
+        direction: 'vertical',
+        slidesPerView: 'auto',
+        spaceBetween: 10,
+        freeMode: true,
+        observer: true,
+        observeParents: true,
+        watchSlidesProgress: true,
+        watchOverflow: true,
+        mousewheel: {
+          forceToAxis: true,
+          releaseOnEdges: true
+        }
+      });
+    }
+
+    controller = {
+      element: element,
+      thumbSlider: thumbSlider,
+      mainSlider: null
+    };
+
+    mainElement.classList.add('product-gallery-slider-ready');
+    controller.mainSlider = new window.Swiper(mainElement, {
+      slidesPerView: 1,
+      autoHeight: true,
+      speed: 450,
+      loop: false,
+      grabCursor: true,
+      observer: true,
+      observeParents: true,
+      watchOverflow: true,
+      keyboard: {
+        enabled: true
+      },
+      navigation: previousButton && nextButton ? {
+        prevEl: previousButton,
+        nextEl: nextButton
+      } : undefined,
+      thumbs: thumbSlider ? {
+        swiper: thumbSlider
+      } : undefined,
+      on: {
+        init: function () {
+          setActiveSlide(controller, this.activeIndex);
+        },
+        slideChange: function () {
+          setActiveSlide(controller, this.activeIndex);
+        }
+      }
+    });
+
+    Array.prototype.forEach.call(mainElement.querySelectorAll('.product-image-feature'), function (image) {
+      if (!image.complete) {
+        image.addEventListener('load', function () {
+          controller.mainSlider.updateAutoHeight(0);
+
+          if (controller.thumbSlider) {
+            controller.thumbSlider.update();
+          }
+        }, { once: true });
+      }
+    });
+
+    if (controller.thumbSlider) {
+      Array.prototype.forEach.call(thumbElement.querySelectorAll('img'), function (image) {
+        if (!image.complete) {
+          image.addEventListener('load', function () {
+            controller.thumbSlider.update();
+          }, { once: true });
+        }
+      });
+    }
+
+    Array.prototype.forEach.call(element.querySelectorAll('.product-gallery__thumb'), function (thumb, index) {
+      thumb.addEventListener('click', function (event) {
+        event.preventDefault();
+        controller.mainSlider.slideTo(index);
+      });
+    });
+
+    if (thumbSlider && thumbNextButton) {
+      thumbNextButton.classList.toggle('hidden', thumbSlider.isLocked);
+      thumbSlider.on('lock', function () {
+        thumbNextButton.classList.add('hidden');
+      });
+      thumbSlider.on('unlock', function () {
+        thumbNextButton.classList.remove('hidden');
+      });
+      thumbNextButton.addEventListener('click', function () {
+        thumbSlider.slideNext();
+      });
+    }
+
+    galleryControllers.push(controller);
+  }
+
+  function slideToImage(imageUrl) {
+    var normalizedImage = normalizeImageUrl(imageUrl);
+
+    Array.prototype.forEach.call(galleryControllers, function (controller) {
+      var slides = controller.element.querySelectorAll('.product-gallery-item');
+      var targetIndex = -1;
+
+      Array.prototype.some.call(slides, function (slide, index) {
+        if (normalizeImageUrl(slide.getAttribute('data-image')) === normalizedImage) {
+          targetIndex = index;
+          return true;
+        }
+
+        return false;
+      });
+
+      if (targetIndex >= 0) {
+        controller.mainSlider.slideTo(targetIndex);
+      }
+    });
+  }
+
+  function init() {
+    Array.prototype.forEach.call(document.querySelectorAll('.productDetail-page .product-gallery'), initGallery);
+  }
+
+  window.HRVProductGallery = {
+    slideToImage: slideToImage
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();

@@ -1,0 +1,5264 @@
+{
+
+"current": {
+
+
+"hrv_toolbar_icon_zalo_bg": "#1272e8",
+
+
+"hrv_toolbar_icon_phone_bg": "#e81a23",
+
+
+"hrv_toolbar_icon_msg_bg": "#0a7cff",
+
+
+"hrv_toolbar_icon_stores_bg": "#eb1c24",
+
+
+"greenweave_collection_bg": "#ffffff",
+
+
+"collection_color_bg": "#ffffff",
+
+
+"collection_color_text": "#000000",
+
+
+"color_code_new_3": "#f54105",
+
+
+"color_code_new_4": "#f23895",
+
+
+"color_code_new_5": "#000000",
+
+
+"color_code_new_6": "#cccaca",
+
+
+"color_code_new_7": "#fffcfc",
+
+
+"color_code_new_8": "#1757eb",
+
+
+"color_code_new_9": "#099116",
+
+
+"color_code_new_10": "#52ff52",
+
+
+"color_code_new_11": "#ff0000",
+
+
+"color_code_new_12": "#cccaca",
+
+
+"color_code_new_13": "#964B00",
+
+
+"color_code_new_14": "#a2e5ff",
+
+
+"color_code_new_15": "#0196ff",
+
+
+"color_code_new_16": "#035080",
+
+
+"color_code_new_17": "#ffffa1",
+
+
+"color_code_new_18": "#022d44",
+
+
+"color_code_new_19": "#db999b",
+
+
+"color_code_new_20": "#000000",
+
+
+"color_code_new_23": "#f5b505",
+
+
+"color_code_new_24": "#f0e4e4",
+
+
+"color_code_new_25": "#a66c6c",
+
+
+"color_code_new_26": "#948a8a",
+
+
+"color_code_new_27": "#9e9b9b",
+
+
+"color_code_new_28": "#999393",
+
+
+"color_code_new_29": "#614040",
+
+
+"color_code_new_30": "#d95f5f",
+
+
+"greenweave_product_bg": "#ffffff",
+
+
+"pproduct_color_text": "#000000",
+
+
+"blog_banner_color_bg": "#ffffff",
+
+
+"blog_banner_color_text": "#ffffff",
+
+
+"page_banner_color_bg": "#ffffff",
+
+
+"page_banner_color_text": "#000000",
+
+
+"shop_color_bg": "#FFFFFF",
+
+
+"shop_text_color": "#000000",
+
+
+"shop_title_color": "#000000",
+
+
+"shop_main_color": "#e8c4c4",
+
+
+"shop_main_border": "#d5d5d5",
+
+
+"shop_text_hover_color": "#e8c4c4",
+
+
+"shop_main_button_bg_1": "#e8c4c4",
+
+
+"shop_main_button_text_1": "#e8c4c4",
+
+
+"shop_main_button_bghover_1": "#e8c4c4",
+
+
+"shop_main_button_texthover_1": "#e8c4c4",
+
+
+"shop_article_bg": "#ffffff",
+
+
+"shop_article_border": "#e5e5e5",
+
+
+"shop_article_link": "#e8c4c4",
+
+
+"hrv_addthis_iconList_bg": "#3CA200",
+
+
+"hrv_addthis_iconList_color": "#ffffff",
+
+
+"hrv_addthis_icon1_color1": "#e8434c",
+
+
+"hrv_addthis_icon1_color2": "#d61114",
+
+
+"hrv_addthis_icon2_color1": "#3985f7",
+
+
+"hrv_addthis_icon2_color2": "#1272e8",
+
+
+"hrv_addthis_icon3_color1": "#70f3ff",
+
+
+"hrv_addthis_icon3_color2": "#00dcf0",
+
+
+"hrv_addthis_btn_bg": "#538bf6",
+
+
+"hrv_addthis_btn_color": "#ffffff",
+
+
+"hrv_addthis_icon4_color1": "#FECF72",
+
+
+"hrv_addthis_icon4_color2": "#EF9F00",
+
+
+"home-coupon-bg": "#e8c4c4",
+
+
+"home-coupon-highlight": "#e8c4c4",
+
+
+"home-coupon-border": "#e5e5e5",
+
+
+"home-coupon-text": "#e8c4c4",
+
+
+"greenweave_page_contact_maincolor": "#e8c4c4",
+
+
+"greenweave_page_contact_bg": "#ffffff",
+
+
+"greenweave_page_contact_color": "#e8c4c4",
+
+
+"greenweave_page_contact_bg_btn": "#e8c4c4",
+
+
+"greenweave_page_contact_color_btn": "#e8c4c4",
+
+
+"dentalhub_header_color_bkg": "#ffffff",
+
+
+"dentalhub_header_color_text": "#0a0a0a",
+
+
+"dentalhub_header_color_bkg_sb": "#ffffff",
+
+
+"dentalhub_header_color_text_sb": "#000000",
+
+
+"dentalhub_header_color_border": "#55723a",
+
+
+"dentalhub_header_coupon_bg": "#ffffff",
+
+
+"dentalhub_header_coupon_highlight": "#e8c4c4",
+
+
+"dentalhub_header_coupon_border": "#e5e5e5",
+
+
+"dentalhub_header_coupon_text": "#000000",
+
+
+"dentalhub_header_coupon_btn_bg": "#ffffff",
+
+
+"dentalhub_header_coupon_btn_color": "#ffffff",
+
+
+"dentalhub_header_live_color": "#e8c4c4",
+
+
+"dentalhub_header_btn_bg": "#ffffff",
+
+
+"dentalhub_header_btn_color": "#ffffff",
+
+
+"dentalhub_header_color_text_hover": "#e8c4c4",
+
+
+"rebellook_index_slider_button": "#e8c4c4",
+
+
+"rebellook_index_slider_button_text": "#ffffff",
+
+
+"rebellook_index_slider_color": "#e8c4c4",
+
+
+"fl_collection_flashsale_1_bg_color": "#ffffff",
+
+
+"fl_collection_flashsale_1_bgicon_color": "#e8c4c4",
+
+
+"fl_collection_flashsale_1_text_color": "#000000",
+
+
+"fl_bg_ic_addcart": "#ffffff",
+
+
+"fl_collection1_countdown_bg": "#ffffff",
+
+
+"fl_collection1_countdown_txt": "#e8c4c4",
+
+
+"fl_text_ic_addcart": "#000000",
+
+
+"knk_aboutus_clr_title": "#000000",
+
+
+"knk_aboutus_clr_stitle": "#000000",
+
+
+"knk_aboutus_bg_ic": "#ffffff",
+
+
+"knk_aboutus_bg_btn": "#e8c4c4",
+
+
+"knk_aboutus_clr_btn": "#e8c4c4",
+
+
+"knk_aboutus_bg_btn_hv": "#e8c4c4",
+
+
+"knk_aboutus_clr_btn_hv": "#e8c4c4",
+
+
+"knk_counter_clr_count": "#e8c4c4",
+
+
+"knk_counter_clr_title": "#000000",
+
+
+"knk_counter_clr_stitle": "#000000",
+
+
+"streetvibe_index_review_color": "#e8c4c4",
+
+
+"streetvibe_index_blog_bg_btn": "#e8c4c4",
+
+
+"streetvibe_index_blog_color": "#e8c4c4",
+
+
+"streetvibe_index_blog_color_btn": "#e8c4c4",
+
+
+"dentalhub_footer_bg": "#ffffff",
+
+
+"dentalhub_footer_bg_btn": "#ffffff",
+
+
+"dentalhub_footer_color": "#e8c4c4",
+
+
+"dentalhub_footer_color_btn": "#e8c4c4",
+
+
+"social_link_facebook": "https://facebook.com/hoaanlilybeauty",
+
+
+"social_link_twitter": "Nội dung demo — Hoa An Lily",
+
+
+"social_link_instagram": "Nội dung demo — Hoa An Lily",
+
+
+"social_link_linkedin": "Nội dung demo — Hoa An Lily",
+
+
+"social_link_youtube": "https://youtube.com/@hoaanlily",
+
+
+"social_link_tiktok": "Nội dung demo — Hoa An Lily",
+
+
+"social_link_shopee": "Nội dung demo — Hoa An Lily",
+
+
+"social_link_lazada": "Nội dung demo — Hoa An Lily",
+
+
+"logo.png": "",
+
+
+"favicon.png": "",
+
+
+"share_fb_home.png": "",
+
+
+"show_icon_mess": true,
+
+
+"text_messenger_mb": "Nội dung demo — Hoa An Lily",
+
+
+"messenger_link": "Nội dung demo — Hoa An Lily",
+
+
+"hrv_addthis_iconList_show": true,
+
+
+"popup_contact_banner.jpg": "",
+
+
+"popup_contact_bkg.jpg": "",
+
+
+"popup_discount_bkg.jpg": "",
+
+
+"popup_discount_title": "Sản phẩm mới",
+
+
+"popup_discount_code": "HAL15",
+
+
+"prod_resize_img": "Nội dung demo — Hoa An Lily",
+
+
+"prod_pricezero_title": "Liên hệ",
+
+
+"prod_pricezero_link": " tel:02862717666 ",
+
+
+"prod_vendor_show": true,
+
+
+"coupon_title": "Sản phẩm mới",
+
+
+"home_coupon_1_img.png": "",
+
+
+"home_coupon_2_img.png": "",
+
+
+"home_coupon_3_img.png": "",
+
+
+"shop_buying": true,
+
+
+"freshstart_shop_google_translate": true,
+
+
+"collection_banner.jpg": "",
+
+
+"title_list_col": "Nội dung demo — Hoa An Lily",
+
+
+"collection_filter_title": "Sản phẩm mới",
+
+
+"type_title": "Loại sản phẩm",
+
+
+"type_limit": "15",
+
+
+"tag_title_custom_3": "Mùi vị / Hương vị",
+
+
+"pproduct_banner.jpg": "",
+
+
+"product_deliverly_1_ico.png": "",
+
+
+"product_deliverly_2_ico.png": "",
+
+
+"product_deliverly_3_ico.png": "",
+
+
+"product_deliverly_4_ico.png": "",
+
+
+"product_deliverly_5_ico.png": "",
+
+
+"product_deliverly_6_ico.png": "",
+
+
+"product_coupon_show": true,
+
+
+"product_related_show": true,
+
+
+"product_related_title": "Sản phẩm mới",
+
+
+"product_viewed_show": true,
+
+
+"product_viewed_title": "Sản phẩm mới",
+
+
+"blogs_news_show": true,
+
+
+"blogs_news_title": "Sản phẩm mới",
+
+
+"page_banner.jpg": "",
+
+
+"page_banner_image.jpg": "",
+
+
+"page_banner_alt": "Nội dung demo — Hoa An Lily",
+
+
+"greenweave_google_maps_show": true,
+
+
+"show_greenweave_contact_info": true,
+
+
+"greenweave_contact_info_title": "Sản phẩm mới",
+
+
+"greenweave_contact_address_1": "Tầng 4, tòa nhà ABC, số 182, đường Nguyễn Thị Minh Khai, phường Phú Thọ, Tp. Hồ Chí Minh",
+
+
+"greenweave_contact_address_2": "Tầng 4, tòa nhà ABC, số 182, đường Nguyễn Thị Minh Khai, phường Phú Thọ, Tp. Hồ Chí Minh",
+
+
+"greenweave_contact_address_3": "Tầng 4, tòa nhà ABC, số 182, đường Nguyễn Thị Minh Khai, phường Phú Thọ, Tp. Hồ Chí Minh",
+
+
+"greenweave_contact_phone_1": "1900.000.XXX",
+
+
+"greenweave_contact_phone_2": "1900.000.XXX",
+
+
+"greenweave_contact_phone_3": "1900.000.XXX",
+
+
+"greenweave_contact_email_1": "haravan@haravan.com",
+
+
+"greenweave_contact_email_2": "haravan@haravan.com",
+
+
+"greenweave_contact_email_3": "haravan@haravan.com",
+
+
+"show_greenweave_contact_social": true,
+
+
+"greenweave_contact_social_link_facebook": "https://facebook.com/hoaanlilybeauty",
+
+
+"greenweave_contact_social_link_youtube": "https://youtube.com/@hoaanlily",
+
+
+"greenweave_contact_social_link_instagram": "Nội dung demo — Hoa An Lily",
+
+
+"greenweave_contact_social_link_tiktok": "Nội dung demo — Hoa An Lily",
+
+
+"greenweave_contact_social_link_shopee": "Nội dung demo — Hoa An Lily",
+
+
+"greenweave_contact_social_link_lazada": "Nội dung demo — Hoa An Lily",
+
+
+"show_greenweave_contact_form": true,
+
+
+"greenweave_contact_form_btn": "Xem tất cả",
+
+
+"cart_freeship_min": 5,
+
+
+"cart_deliverytime_start": "Nội dung demo — Hoa An Lily",
+
+
+"cart_deliverytime_end": "Nội dung demo — Hoa An Lily",
+
+
+"cart_collection_show": true,
+
+
+"cart_banner_image.jpg": "",
+
+
+"dentalhub_toolbar_bottom_selected": "Nội dung demo — Hoa An Lily",
+
+
+"dentalhub_sidebar_icon_cart_show": true,
+
+
+"show_dentalhub_header_search": true,
+
+
+"show_dentalhub_header_account": true,
+
+
+"show_dentalhub_header_hotline": true,
+
+
+"dentalhub_header_hotline_num": "1900.000.XXX",
+
+
+"show_dentalhub_header_email": true,
+
+
+"dentalhub_header_email_num": "haravan@haravan.com",
+
+
+"dentalhub_use_logo": false,
+
+
+"dentalhub_header_info_show": true,
+
+
+"dentalhub_header_info_phone": "1900.000.XXX",
+
+
+"dentalhub_header_info_mail": "haravan@haravan.com",
+
+
+"dentalhub_header_info_time_show": true,
+
+
+"dentalhub_header_info_time_title": "Sản phẩm mới",
+
+
+"dentalhub_header_info_social_show": true,
+
+
+"dentalhub_header_social_link_facebook": "https://facebook.com/hoaanlilybeauty",
+
+
+"dentalhub_header_social_link_youtube": "https://youtube.com/@hoaanlily",
+
+
+"dentalhub_header_social_link_instagram": "https://example.com/trang-demo",
+
+
+"dentalhub_header_social_link_tiktok": "https://example.com/trang-demo",
+
+
+"dentalhub_header_social_link_shopee": "https://example.com/trang-demo",
+
+
+"dentalhub_header_social_link_lazada": "https://example.com/trang-demo",
+
+
+"dentalhub_header_coupon_select": "Chăm sóc da / Trang điểm",
+
+
+"dentalhub_header_coupon_title": "Sản phẩm mới",
+
+
+"dentalhub_header_coupon_1_show": true,
+
+
+"dentalhub_header_coupon_1_img.png": "",
+
+
+"dentalhub_header_coupon_1_title": "Ưu đãi làm đẹp",
+
+
+"dentalhub_header_coupon_1_text": "Nội dung 1",
+
+
+"dentalhub_header_coupon_1_date": "31/12/2026",
+
+
+"dentalhub_header_coupon_1_code": "HAL15",
+
+
+"dentalhub_header_coupon_2_show": true,
+
+
+"dentalhub_header_coupon_2_img.png": "",
+
+
+"dentalhub_header_coupon_2_title": "Ưu đãi làm đẹp",
+
+
+"dentalhub_header_coupon_2_text": "Nội dung 1",
+
+
+"dentalhub_header_coupon_2_date": "31/12/2026",
+
+
+"dentalhub_header_coupon_2_code": "HAL15",
+
+
+"dentalhub_header_coupon_3_show": true,
+
+
+"dentalhub_header_coupon_3_img.png": "",
+
+
+"dentalhub_header_coupon_3_title": "Ưu đãi làm đẹp",
+
+
+"dentalhub_header_coupon_3_text": "Nội dung 1",
+
+
+"dentalhub_header_coupon_3_date": "31/12/2026",
+
+
+"dentalhub_header_coupon_3_code": "HAL15",
+
+
+"dentalhub_header_coupon_4_show": true,
+
+
+"dentalhub_header_coupon_4_img.png": "",
+
+
+"dentalhub_header_coupon_4_title": "Ưu đãi làm đẹp",
+
+
+"dentalhub_header_coupon_4_text": "Nội dung 1",
+
+
+"dentalhub_header_coupon_4_date": "31/12/2026",
+
+
+"dentalhub_header_coupon_4_code": "HAL15",
+
+
+"dentalhub_header_live_show": true,
+
+
+"dentalhub_header_live_txt": "Nội dung 1",
+
+
+"dentalhub_header_live_code": "HAL15",
+
+
+"dentalhub_shop_buying": "Nội dung demo — Hoa An Lily",
+
+
+"dentalhub_mini_cart_name": "Nguyễn Văn A",
+
+
+"dentalhub_mini_cart_linkreturn": "https://example.com/trang-demo",
+
+
+"dentalhub_shop_google_translate": "Nội dung demo — Hoa An Lily",
+
+
+"show_dentalhub_header_btn": true,
+
+
+"dentalhub_header_btn_title": "Xem tất cả",
+
+
+"dh_form_header_title": "Sản phẩm mới",
+
+
+"dh_form_header_booking": "Nội dung demo — Hoa An Lily",
+
+
+"dh_form_header_service_1": "Nội dung demo — Hoa An Lily",
+
+
+"dh_form_header_service_2": "Nội dung demo — Hoa An Lily",
+
+
+"dh_form_header_service_3": "Nội dung demo — Hoa An Lily",
+
+
+"dh_form_header_service_4": "Nội dung demo — Hoa An Lily",
+
+
+"dh_form_header_service_5": "Nội dung demo — Hoa An Lily",
+
+
+"dh_form_header_service_6": "Nội dung demo — Hoa An Lily",
+
+
+"dh_form_header_service_7": "Nội dung demo — Hoa An Lily",
+
+
+"dh_form_header_service_8": "Nội dung demo — Hoa An Lily",
+
+
+"dh_form_header_service_9": "Nội dung demo — Hoa An Lily",
+
+
+"dh_form_header_service_10": "Nội dung demo — Hoa An Lily",
+
+
+"dh_form_header_time_1": "Nội dung demo — Hoa An Lily",
+
+
+"dh_form_header_time_2": "Nội dung demo — Hoa An Lily",
+
+
+"dh_form_header_time_3": "Nội dung demo — Hoa An Lily",
+
+
+"dh_form_header_time_4": "Nội dung demo — Hoa An Lily",
+
+
+"dh_form_header_time_5": "Nội dung demo — Hoa An Lily",
+
+
+"dh_form_header_time_6": "Nội dung demo — Hoa An Lily",
+
+
+"dh_form_header_time_7": "Nội dung demo — Hoa An Lily",
+
+
+"dh_form_header_time_8": "Nội dung demo — Hoa An Lily",
+
+
+"dh_form_header_time_9": "Nội dung demo — Hoa An Lily",
+
+
+"dh_form_header_time_10": "Nội dung demo — Hoa An Lily",
+
+
+"dh_form_header_full_name": "Nguyễn Văn A",
+
+
+"dh_form_header_phone": "1900.000.XXX",
+
+
+"dh_form_header_email": "haravan@haravan.com",
+
+
+"dh_form_header_service": "Nội dung demo — Hoa An Lily",
+
+
+"dh_form_header_time": "Nội dung demo — Hoa An Lily",
+
+
+"dh_form_header_btn": "Xem tất cả",
+
+
+"dh_form_header_success": "Nội dung demo — Hoa An Lily",
+
+
+"dh_gg_header_link_form": "https://example.com/trang-demo",
+
+
+"dh_gg_header_full_name": "Nguyễn Văn A",
+
+
+"dh_gg_header_phone": "1900.000.XXX",
+
+
+"dh_gg_header_email": "haravan@haravan.com",
+
+
+"dh_gg_header_service": "Nội dung demo — Hoa An Lily",
+
+
+"dh_gg_header_date": "31/12/2026",
+
+
+"dh_gg_header_time": "Nội dung demo — Hoa An Lily",
+
+
+"combo_icon": "https://placehold.co/80x80/e5e7eb/4b5563.png?text=Icon+80x80",
+
+
+"DentalHub_shop_google_translate": "Nội dung demo — Hoa An Lily",
+
+
+"dh_form_header_date": "31/12/2026",
+
+
+"productreviews_hrvapp_proloop": "Nội dung demo — Hoa An Lily",
+
+
+"productreviews_hrvapp_use": true,
+
+
+"promotion_hrvapp": "Nội dung demo — Hoa An Lily",
+
+
+"rebellook_index_slider_1_title": "Sản phẩm mới",
+
+
+"rebellook_index_slider_1_btn_1": "Xem tất cả",
+
+
+"rebellook_index_slider_1_link_1": "https://example.com/trang-demo",
+
+
+"rebellook_index_slider_1_btn_2": "Xem tất cả",
+
+
+"rebellook_index_slider_1_link_2": "https://example.com/trang-demo",
+
+
+"rebellook_index_slider_1_show": true,
+
+
+"home_collection_flashsale_1_limit": 5,
+
+
+"home_collection_flashsale_1_show": true,
+
+
+"home_collection_flashsale_1_title": "Sản phẩm mới",
+
+
+"home_collection_flashsale_1_titlelink": "Xem tất cả",
+
+
+"add_to_cart_show": true,
+
+
+"appbuyxgety_icon": "https://placehold.co/80x80/e5e7eb/4b5563.png?text=Icon+80x80",
+
+
+"knk_aboutus_title_module": "Nội dung demo — Hoa An Lily",
+
+
+"knk_aboutus_title": "Sản phẩm mới",
+
+
+"knk_aboutus_1_hlg": "Nội dung demo — Hoa An Lily",
+
+
+"knk_aboutus_2_hlg": "Nội dung demo — Hoa An Lily",
+
+
+"knk_aboutus_3_hlg": "Nội dung demo — Hoa An Lily",
+
+
+"knk_aboutus_4_hlg": "Nội dung demo — Hoa An Lily",
+
+
+"knk_aboutus_btntitle": "Xem tất cả",
+
+
+"knk_aboutus_btnurl": "https://example.com/trang-demo",
+
+
+"knk_counter_number_1": 75,
+
+
+"knk_counter_subnumber_1": "Nội dung demo — Hoa An Lily",
+
+
+"knk_counter_title_1": "Ưu đãi làm đẹp",
+
+
+"knk_counter_number_2": 76,
+
+
+"knk_counter_subnumber_2": "Nội dung demo — Hoa An Lily",
+
+
+"knk_counter_title_2": "Ưu đãi làm đẹp",
+
+
+"knk_counter_number_3": 77,
+
+
+"knk_counter_subnumber_3": "Nội dung demo — Hoa An Lily",
+
+
+"knk_counter_title_3": "Ưu đãi làm đẹp",
+
+
+"knk_counter_number_4": 78,
+
+
+"knk_counter_subnumber_4": "Nội dung demo — Hoa An Lily",
+
+
+"knk_counter_title_4": "Ưu đãi làm đẹp",
+
+
+"rebellook_index_logo_show_1": true,
+
+
+"rebellook_index_logo_img_1.jpg": "",
+
+
+"rebellook_index_logo_alt_1": "",
+
+
+"rebellook_index_logo_show_2": true,
+
+
+"rebellook_index_logo_img_2.jpg": "",
+
+
+"rebellook_index_logo_alt_2": "",
+
+
+"rebellook_index_logo_show_3": true,
+
+
+"rebellook_index_logo_img_3.jpg": "",
+
+
+"rebellook_index_logo_alt_3": "",
+
+
+"rebellook_index_logo_show_4": true,
+
+
+"rebellook_index_logo_img_4.jpg": "",
+
+
+"rebellook_index_logo_alt_4": "",
+
+
+"rebellook_index_logo_show_5": true,
+
+
+"rebellook_index_logo_img_5.jpg": "",
+
+
+"rebellook_index_logo_alt_5": "",
+
+
+"rebellook_index_logo_show_6": true,
+
+
+"rebellook_index_logo_img_6.jpg": "",
+
+
+"rebellook_index_logo_alt_6": "",
+
+
+"rebellook_index_logo_show_7": true,
+
+
+"rebellook_index_logo_img_7.jpg": "",
+
+
+"rebellook_index_logo_alt_7": "",
+
+
+"rebellook_index_logo_show_8": true,
+
+
+"rebellook_index_logo_img_8.jpg": "",
+
+
+"rebellook_index_logo_alt_8": "",
+
+
+"rebellook_index_logo_show_9": true,
+
+
+"rebellook_index_logo_img_9.jpg": "",
+
+
+"rebellook_index_logo_alt_9": "",
+
+
+"rebellook_index_logo_show_10": true,
+
+
+"rebellook_index_logo_img_10.jpg": "",
+
+
+"rebellook_index_logo_alt_10": "",
+
+
+"rebellook_shop_buying": "Nội dung demo — Hoa An Lily",
+
+
+"rebellook_index_col_slide_1_btn": "Xem tất cả",
+
+
+"rebellook_index_col_slide_1_limit": 5,
+
+
+"rebellook_index_col_slide_1_title": "Sản phẩm mới",
+
+
+"urbanconstruct_index_about_1_title_1": "Ưu đãi làm đẹp",
+
+
+"urbanconstruct_index_about_1_title_2": "Ưu đãi làm đẹp",
+
+
+"show_urbanconstruct_index_about_1_banner_1": true,
+
+
+"urbanconstruct_index_about_1_banner_1_alt": "",
+
+
+"show_urbanconstruct_index_about_1_banner_2": true,
+
+
+"urbanconstruct_index_about_1_banner_2_alt": "",
+
+
+"streetvibe_index_review_1_btn": "Xem tất cả",
+
+
+"streetvibe_index_review_1_link": "https://example.com/trang-demo",
+
+
+"streetvibe_index_review_1_name": "Nguyễn Văn A",
+
+
+"streetvibe_index_review_1_title": "Sản phẩm mới",
+
+
+"streetvibe_index_review_2_btn": "Xem tất cả",
+
+
+"streetvibe_index_review_2_link": "https://example.com/trang-demo",
+
+
+"streetvibe_index_review_2_name": "Nguyễn Văn A",
+
+
+"streetvibe_index_review_2_title": "Sản phẩm mới",
+
+
+"streetvibe_index_review_3_btn": "Xem tất cả",
+
+
+"streetvibe_index_review_3_link": "https://example.com/trang-demo",
+
+
+"streetvibe_index_review_3_name": "Nguyễn Văn A",
+
+
+"streetvibe_index_review_3_title": "Sản phẩm mới",
+
+
+"streetvibe_index_review_4_btn": "Xem tất cả",
+
+
+"streetvibe_index_review_4_link": "https://example.com/trang-demo",
+
+
+"streetvibe_index_review_4_name": "Nguyễn Văn A",
+
+
+"streetvibe_index_review_4_title": "Sản phẩm mới",
+
+
+"streetvibe_index_review_5_btn": "Xem tất cả",
+
+
+"streetvibe_index_review_5_link": "https://example.com/trang-demo",
+
+
+"streetvibe_index_review_5_name": "Nguyễn Văn A",
+
+
+"streetvibe_index_review_5_title": "Sản phẩm mới",
+
+
+"show_streetvibe_index_review_1": true,
+
+
+"show_streetvibe_index_review_2": true,
+
+
+"show_streetvibe_index_review_3": true,
+
+
+"show_streetvibe_index_review_4": true,
+
+
+"show_streetvibe_index_review_5": true,
+
+
+"streetvibe_index_blog_title": "Bài viết mới nhất",
+
+
+"streetvibe_index_blog_btn": "Xem tất cả",
+
+
+"dentalhub_footer_about_show": true,
+
+
+"dentalhub_footer_address1": "Tầng 4, tòa nhà ABC, số 182, đường Nguyễn Thị Minh Khai, phường Phú Thọ, Tp. Hồ Chí Minh",
+
+
+"dentalhub_footer_address2": "Tầng 4, tòa nhà ABC, số 182, đường Nguyễn Thị Minh Khai, phường Phú Thọ, Tp. Hồ Chí Minh",
+
+
+"dentalhub_footer_address3": "Tầng 4, tòa nhà ABC, số 182, đường Nguyễn Thị Minh Khai, phường Phú Thọ, Tp. Hồ Chí Minh",
+
+
+"dentalhub_footer_blog_limit": 5,
+
+
+"dentalhub_footer_blog_show": true,
+
+
+"dentalhub_footer_blog_title": "Sản phẩm mới",
+
+
+"dentalhub_footer_copyright": "© 2026 Hoa An Lily. Bảo lưu mọi quyền.",
+
+
+"dentalhub_footer_email": "haravan@haravan.com",
+
+
+"dentalhub_footer_linklist1_title": "Sản phẩm mới",
+
+
+"dentalhub_footer_logobct_alt": "",
+
+
+"dentalhub_footer_logobct_link": "https://example.com/trang-demo",
+
+
+"dentalhub_footer_logobct_show": true,
+
+
+"dentalhub_footer_newsletter_show": true,
+
+
+"dentalhub_footer_newsletter_title": "Sản phẩm mới",
+
+
+"dentalhub_footer_social_link_facebook": "/",
+
+
+"dentalhub_footer_social_link_instagram": "/",
+
+
+"dentalhub_footer_social_link_lazada": "/",
+
+
+"dentalhub_footer_social_link_shopee": "/",
+
+
+"dentalhub_footer_social_link_tiktok": "/",
+
+
+"dentalhub_footer_social_link_youtube": "/",
+
+
+"dentalhub_footer_social_show": true,
+
+
+"dentalhub_footer_tell1": "1900.000.XXX",
+
+
+"dentalhub_footer_tell2": "1900.000.XXX",
+
+
+"dentalhub_footer_tell3": "1900.000.XXX",
+
+
+"dentalhub_footer_time_show": true,
+
+
+"dentalhub_footer_time_title": "Sản phẩm mới",
+
+
+"dentalhub_show_logo_footer": true,
+
+
+"popup_discount_content": "Nội dung demo — Hoa An Lily",
+
+
+"enter_tag_3": "Atichoke Đà Lạt,Bưởi Bến Tre,Nghệ Quảng Nam,Gừng An Giang",
+
+
+"product_deliverly_4_text": "Nội dung 1",
+
+
+"product_deliverly_5_text": "Nội dung 1",
+
+
+"product_deliverly_6_text": "Nội dung 1",
+
+
+"greenweave_google_maps_code": "HAL15",
+
+
+"dentalhub_header_info_desc": "Đặt lịch soi da và routine cá nhân hóa. Hotline hỗ trợ chọn sản phẩm phù hợp loại da.",
+
+
+"dentalhub_header_info_time_desc": "Đặt lịch soi da và routine cá nhân hóa. Hotline hỗ trợ chọn sản phẩm phù hợp loại da.",
+
+
+"rebellook_index_slider_1_desc": "Đặt lịch soi da và routine cá nhân hóa. Hotline hỗ trợ chọn sản phẩm phù hợp loại da.",
+
+
+"knk_aboutus_desc": "Đặt lịch soi da và routine cá nhân hóa. Hotline hỗ trợ chọn sản phẩm phù hợp loại da.",
+
+
+"knk_counter_desc_1": "Đặt lịch soi da và routine cá nhân hóa. Hotline hỗ trợ chọn sản phẩm phù hợp loại da.",
+
+
+"knk_counter_desc_2": "Đặt lịch soi da và routine cá nhân hóa. Hotline hỗ trợ chọn sản phẩm phù hợp loại da.",
+
+
+"knk_counter_desc_3": "Đặt lịch soi da và routine cá nhân hóa. Hotline hỗ trợ chọn sản phẩm phù hợp loại da.",
+
+
+"knk_counter_desc_4": "Đặt lịch soi da và routine cá nhân hóa. Hotline hỗ trợ chọn sản phẩm phù hợp loại da.",
+
+
+"urbanconstruct_index_about_1_desc": "Đặt lịch soi da và routine cá nhân hóa. Hotline hỗ trợ chọn sản phẩm phù hợp loại da.",
+
+
+"streetvibe_index_review_1_desc": "Dùng được hai tuần, da mịn hơn hẳn. Nhân viên tư vấn nhiệt tình, đóng gói cẩn thận.",
+
+
+"streetvibe_index_review_2_desc": "Dùng được hai tuần, da mịn hơn hẳn. Nhân viên tư vấn nhiệt tình, đóng gói cẩn thận.",
+
+
+"streetvibe_index_review_3_desc": "Dùng được hai tuần, da mịn hơn hẳn. Nhân viên tư vấn nhiệt tình, đóng gói cẩn thận.",
+
+
+"streetvibe_index_review_4_desc": "Dùng được hai tuần, da mịn hơn hẳn. Nhân viên tư vấn nhiệt tình, đóng gói cẩn thận.",
+
+
+"streetvibe_index_review_5_desc": "Dùng được hai tuần, da mịn hơn hẳn. Nhân viên tư vấn nhiệt tình, đóng gói cẩn thận.",
+
+
+"dentalhub_footer_about_desc": "Đặt lịch soi da và routine cá nhân hóa. Hotline hỗ trợ chọn sản phẩm phù hợp loại da.",
+
+
+"dentalhub_footer_newsletter_desc": "Đặt lịch soi da và routine cá nhân hóa. Hotline hỗ trợ chọn sản phẩm phù hợp loại da.",
+
+
+"dentalhub_footer_time_desc": "Đặt lịch soi da và routine cá nhân hóa. Hotline hỗ trợ chọn sản phẩm phù hợp loại da.",
+
+
+"theme_container": "full-width",
+
+
+"collection_select": "image",
+
+
+"collection_sidebar": "main-menu",
+
+
+"collection_pagination_limit": "30",
+
+
+"pproduct_select": "image",
+
+
+"blogs_pagination_limit": "14",
+
+
+"page_banner_select": "image",
+
+
+"dentalhub_mainmenu_link": "main-menu",
+
+
+"rebellook_index_col_slide_1_handle": "hot-products",
+
+
+"streetvibe_index_blog_handle": "news",
+
+
+"dentalhub_footer_blog_handle": "news",
+
+
+"dentalhub_footer_linklist1_menu": "main-menu",
+
+
+"dentalhub_footer_linklist1_show": "main-menu",
+
+
+"hrv_page_contact_maincolor": "#e8c4c4",
+
+
+"promotion_hrvapp_use": false,
+
+
+"use_logo": true,
+
+
+"customer_layout": "theme",
+
+
+"base_font": "Mona Sans",
+
+
+"base_font_title": "Libertinus Sans",
+
+
+"collection_filter_show": true,
+
+
+"collection_sortby": true,
+
+
+"collection_sortby_title": "Sắp xếp",
+
+
+"hrv_blogs_menu_show": true,
+
+
+"hrv_blogs_menu_title": "Danh mục bài viết",
+
+
+"hrv_blogs_menu_category": "main-menu",
+
+
+"page_menu_title": "Danh mục",
+
+
+"page_menu_category": "main-menu",
+
+
+"page_banner_show": true,
+
+
+"page_banner_link": "/",
+
+
+"gu_article_sidebar_show": true,
+
+
+"gu_article_sidebar_title": "Bài viết cùng chủ đề",
+
+
+"gu_article_sidebar_limit": "5",
+
+
+"gu_article_products_show": true,
+
+
+"gu_article_products_title": "Sản phẩm liên quan",
+
+
+"gu_article_products_limit": "10",
+
+
+"gu_article_latest_show": true,
+
+
+"gu_article_latest_title": "Nhóm bài viết 4",
+
+
+"gu_article_latest_handle": "all",
+
+
+"gu_article_latest_limit": "10",
+
+
+"gu_tongquanblog_latest_title": "Tin tức mới nhất",
+
+
+"gu_tongquanblog_latest_limit": "12",
+
+
+"gu_tongquanblog_menu": "menu-blog",
+
+
+"gu_tongquanblog_group_limit": "15",
+
+
+"gu_tongquanblog_btn": "Xem thêm",
+
+
+"cart_total_min": "400000",
+
+
+"use_cart_freeship_min": "400000",
+
+
+"use_cart_total_min": true,
+
+
+"cart_collection": "hot-products",
+
+
+"cart_collection_title": "Sản phẩm bán chạy",
+
+
+"cart_deliverytime_now": "",
+
+
+"cart_deliverytime_1": "",
+
+
+"cart_deliverytime_2": "",
+
+
+"cart_deliverytime_3": "",
+
+
+"cart_deliverytime_4": "",
+
+
+"cart_deliverytime_5": "",
+
+
+"cart_deliverytime_6": "",
+
+
+"cart_deliverytime_7": "",
+
+
+"cart_deliverytime_8": "",
+
+
+"cart_deliverytime_9": "",
+
+
+"cart_deliverytime_10": "",
+
+
+"cart_deliverytime_11": "",
+
+
+"cart_deliverytime_12": "",
+
+
+"cart_deliverytime_13": "",
+
+
+"cart_deliverytime_14": "",
+
+
+"cart_txt1": "",
+
+
+"cart_txt2": "",
+
+
+"cart_txt3": "",
+
+
+"cart_coupon_show": true,
+
+
+"hrv_addthis_iconList_show_group": true,
+
+
+"hrv_addthis_icon1_show": true,
+
+
+"hrv_addthis_icon1_tootlip": "Gọi ngay cho chúng tôi",
+
+
+"hrv_addthis_icon1_action": "1900636099",
+
+
+"hrv_addthis_icon2_show": true,
+
+
+"hrv_addthis_icon2_tootlip": "Chat với chúng tôi qua Zalo",
+
+
+"hrv_addthis_icon2_action": "https://zalo.me/0901866099",
+
+
+"hrv_addthis_icon3_show": true,
+
+
+"hrv_addthis_icon3_tootlip": "Đăng kí thông tin và để lại lời nhắn",
+
+
+"hrv_addthis_icon3_title": "Để lại lời nhắn cho chúng tôi",
+
+
+"hrv_addthis_icon3_title2": "Đăng kí thông tin thành công",
+
+
+"hrv_addthis_icon3_content": "Cảm ơn bạn đã để lại thông tin. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất",
+
+
+"hrv_addthis_icon4_show": true,
+
+
+"hrv_addthis_icon4_tootlip": "Xem địa chỉ doanh nghiệp",
+
+
+"hrv_addthis_icon4_action": "/pages/lien-he",
+
+
+"hrv_toolbar_bottom_selected": "parkrise_toolbar_style_2",
+
+
+"hrv_sidebar_icon_home_show": true,
+
+
+"hrv_sidebar_icon_home_text": "Trang chủ",
+
+
+"hrv_sidebar_icon_home_img.jpg": "",
+
+
+"hrv_sidebar_icon_cate_show": true,
+
+
+"hrv_sidebar_icon_cate_text": "Danh mục",
+
+
+"hrv_sidebar_icon_cate_img.jpg": "",
+
+
+"hrv_sidebar_icon_support_show": true,
+
+
+"hrv_sidebar_icon_suport_text": "Tư vấn",
+
+
+"hrv_sidebar_icon_suport_img.jpg": "",
+
+
+"hrv_sidebar_icon_cart_show": true,
+
+
+"hrv_sidebar_icon_cart_text": "Giỏ hàng",
+
+
+"hrv_sidebar_icon_cart_img.jpg": "",
+
+
+"hrv_toolbar_icon_zalo_text": "NHẬN TƯ VẤN QUA ZALO",
+
+
+"hrv_toolbar_icon_zalo_link": "//zalo.me/0901866099",
+
+
+"hrv_toolbar_icon_phone_text": "HOTLINE 24/7 1900.636.000",
+
+
+"hrv_toolbar_icon_phone_link": "1900636000",
+
+
+"hrv_toolbar_icon_msg_text": "TƯ VẤN QUA MESSENGER",
+
+
+"hrv_toolbar_icon_msg_link": "//m.me/108520260558644",
+
+
+"hrv_toolbar_icon_stores_text": "CỬA HÀNG",
+
+
+"hrv_toolbar_icon_stores_link": "/pages/he-thong-cua-hang",
+
+
+"hrv_addthis_live_show": false,
+
+
+"hrv_addthis_live_color": "",
+
+
+"hrv_addthis_live_code_mb": "",
+
+
+"popup_contact_show": false,
+
+
+"popup_contact_select": "popupForm",
+
+
+"popup_contact_banner": "https://file.hstatic.net/1000397797/file/dsdsd_1e0164271a6b431681978d30307aab08.jpg",
+
+
+"popup_contact_alt": "Các ưu đãi của chúng tôi",
+
+
+"popup_contact_link": "/collections/all",
+
+
+"popup_contact_bkg": "https://file.hstatic.net/1000397797/file/bannerpopup-runner_6f69d441149048efbce03ffb50a6b8ef.jpg",
+
+
+"popup_contact_title": "Hãy đến với chúng tôi",
+
+
+"popup_contact_content": "Chúng tôi sẽ cập nhật các chương trình khuyến mãi đến bạn.",
+
+
+"popup_contact_description_1": "Giảm giá sản phẩm",
+
+
+"popup_contact_description_2": "Sản phẩm mới",
+
+
+"popup_contact_description_3": "Sản phẩm bán chạy",
+
+
+"faqs_1_title": "Làm thế nào để tôi đặt hàng online?",
+
+
+"faqs_1_desc": "Chilldeck rất vui lòng hỗ trợ khách hàng đặt hàng online bằng một trong những cách đặt hàng sau:\n<br>\n- Truy cập trang web: The swan\n<br>\n- Gửi email đặt hàng về địa chỉ: hi@theswan.com\n<br>\n- Liên hệ số hotline: 1900.636.000 để đặt sản phẩm\n<br>\n- Chat với tư vấn viên trên fanpage của The swan",
+
+
+"faqs_2_title": "Nếu tôi đặt hàng trực tuyến có những rủi ro gì không?",
+
+
+"faqs_2_desc": "Với Chilldeck, khách hàng không phải lo lắng, vì chúng tôi cam kết cung cấp sản phẩm chất lượng tốt, giá cả phải chăng. Đặc biệt, khách hàng sẽ nhận được sản phẩm và thanh toán cùng một thời điểm.",
+
+
+"faqs_3_title": "Nếu tôi mua sản phẩm với số lượng nhiều thì giá có được giảm không?",
+
+
+"faqs_3_desc": "Khi mua hàng với số lượng nhiều khách hàng sẽ được hưởng chế độ ưu đãi, giảm giá ngay tại thời điểm mua hàng. \n<br>\nKhách hàng vui lòng liên hệ Mode để được hỗ trợ trực tiếp qua số điện thoại: 1900.636.000",
+
+
+"faqs_4_title": "Quy đinh hoàn trả và đổi sản phẩm của Mode như thế nào?",
+
+
+"faqs_4_desc": "Khách hàng vui lòng tham khảo chính sách đổi trả sản phẩm của Chilldeck để được cung cấp thông tin đầy đủ và chi tiết nhất.\n<br>\nLưu ý: Đối với dòng sản phẩm túi và giày điều kiện đổi trả được thực hiện trong vòng 30 ngày kể từ ngày nhận hàng và hàng hoá đảm bảo còn giữ nguyên tem nhãn sản phẩm. (chưa qua sử dụng)",
+
+
+"faqs_5_title": "Tôi mua hàng rồi, không vừa ý có thể đổi lại hay không? ",
+
+
+"faqs_5_desc": "Khi mua hàng nếu khách hàng không vừa ý với sản phẩm, hãy cho Chilldeck được biết, chúng tôi sẽ đổi ngay sản phẩm cho khách hàng. Chỉ cần đảm bảo sản phẩm chưa qua sử dụng, còn nguyên tem nhãn. Chúng tôi sẽ hỗ trợ đổi (size, màu, sản phẩm khác) cho khách hàng.",
+
+
+"faqs_6_title": "Tôi đã chọn hình thức thanh toán COD, nhưng khi hàng tới nơi, tôi không muốn lấy có được không?",
+
+
+"faqs_6_desc": "Chilldeck sẵn sàng nhận lại hàng và mong nhận được phản hồi từ quý khách.",
+
+
+"faqs_7_title": "Tôi phải trả phí vận chuyển tận nơi như thế nào?",
+
+
+"faqs_7_desc": "Khách hàng sẽ được miễn phí 100% cước vận chuyển trong nước với đơn hàng trị giá trên 300.000vnd.",
+
+
+"faqs_8_title": "Tôi có được đổi sản phẩm mới hoặc hoàn trả tiền không?",
+
+
+"faqs_8_desc": "Khi hàng hoá thoả điều kiện đổi/ trả, khách sẽ được đổi trả và hoàn tiền trong trường hợp trả hàng hoặc đổi hàng có giá trị thấp hơn",
+
+
+"faqs_9_title": "Nếu đổi trả tôi không mang theo hoá đơn và phiếu thông tin sản phẩm thì có được đổi trả không? ",
+
+
+"faqs_9_desc": "Trường hợp, khách hàng không có hóa đơn hoặc phiếu thông tin sản phẩm, Mode vẫn linh động đổi hoặc trả sản phẩm thông qua Số điện thoại mà Khách hàng đã cung cấp lúc mua hàng.\n<br>\nKhách hàng vui lòng cung cấp Số điện thoại cho nhân viên bán hàng để đối soát lại với hệ thống để được hỗ trợ nhanh chóng. ",
+
+
+"faqs_10_title": "Khi đặt hàng online, tôi phải thanh toán như thế nào?",
+
+
+"faqs_10_desc": " Mode cung cấp đến Khách hàng các hình thức thanh toán linh hoạt như\n<br>\n- COD: Thanh toán trực tiếp khi nhận hàng cho nhân viên bưu điện\n<br>\n- Chuyển khoản\n<br>\nCác hình thức ví điện tử khác",
+
+
+"product_faq_show": true,
+
+
+"product_faq_title": "Câu hỏi thường gặp",
+
+
+"title_product_btn_bottom": "Click vào đây để nhận ưu đãi",
+
+
+"link_product_btn_bottom": "https://m.me/108520260558644",
+
+
+"combo_icon_qickview": "https://file.hstatic.net/200000680615/file/gift-filled_6a49965edcf8423fb69651de10fefc1f.png",
+
+
+"combo_text_qickview": "Thường được mua cùng",
+
+
+"tagsize_show": true,
+
+
+"tagsize_title": "Hưỡng dẫn chọn size",
+
+
+"tagsize_1_tag": "size_ao",
+
+
+"tagsize_1_img.jpg": "",
+
+
+"tagsize_1_text": "",
+
+
+"tagsize_2_tag": "",
+
+
+"tagsize_2_img.jpg": "",
+
+
+"tagsize_2_text": "",
+
+
+"tagsize_3_tag": "",
+
+
+"tagsize_3_img.jpg": "",
+
+
+"tagsize_3_text": "",
+
+
+"tagsize_4_tag": "",
+
+
+"tagsize_4_img.jpg": "",
+
+
+"tagsize_4_text": "",
+
+
+"use_color_filter": true,
+
+
+"color_title": "Màu sắc",
+
+
+"use_color_filter_1": true,
+
+
+"color_name_new_1": "Tím",
+
+
+"color_code_new_1": "#eb11eb",
+
+
+"use_color_filter_2": true,
+
+
+"color_name_new_2": "Vàng",
+
+
+"color_code_new_2": "#ffff05",
+
+
+"use_color_filter_3": true,
+
+
+"color_name_new_3": "Cam",
+
+
+"use_color_filter_4": true,
+
+
+"color_name_new_4": "Hồng",
+
+
+"use_color_filter_5": true,
+
+
+"color_name_new_5": "Đen",
+
+
+"use_color_filter_6": true,
+
+
+"color_name_new_6": "Xám",
+
+
+"use_color_filter_7": true,
+
+
+"color_name_new_7": "Trắng",
+
+
+"use_color_filter_8": true,
+
+
+"color_name_new_8": "Xanh dương",
+
+
+"use_color_filter_9": true,
+
+
+"color_name_new_9": "Xanh",
+
+
+"use_color_filter_10": true,
+
+
+"color_name_new_10": "Xanh lá",
+
+
+"use_color_filter_11": true,
+
+
+"color_name_new_11": "Đỏ",
+
+
+"use_color_filter_12": true,
+
+
+"color_name_new_12": "Bạc",
+
+
+"use_color_filter_13": true,
+
+
+"color_name_new_13": "Nâu",
+
+
+"use_color_filter_14": true,
+
+
+"color_name_new_14": "Xanh nhật",
+
+
+"use_color_filter_15": true,
+
+
+"color_name_new_15": "Blue/Blue",
+
+
+"use_color_filter_16": true,
+
+
+"color_name_new_16": "Blue/Grey",
+
+
+"use_color_filter_17": true,
+
+
+"color_name_new_17": "Vàng Nhạt",
+
+
+"use_color_filter_18": true,
+
+
+"color_name_new_18": "Blue/Black",
+
+
+"use_color_filter_19": false,
+
+
+"color_name_new_19": "",
+
+
+"use_color_filter_20": false,
+
+
+"color_name_new_20": "",
+
+
+"use_color_filter_21": false,
+
+
+"color_name_new_21": "",
+
+
+"color_code_new_21": "#ff0000",
+
+
+"use_color_filter_22": false,
+
+
+"color_name_new_22": "",
+
+
+"color_code_new_22": "#ffff05",
+
+
+"use_color_filter_23": false,
+
+
+"color_name_new_23": "",
+
+
+"use_color_filter_24": false,
+
+
+"color_name_new_24": "",
+
+
+"use_color_filter_25": false,
+
+
+"color_name_new_25": "",
+
+
+"use_color_filter_26": false,
+
+
+"color_name_new_26": "",
+
+
+"use_color_filter_27": false,
+
+
+"color_name_new_27": "",
+
+
+"use_color_filter_28": false,
+
+
+"color_name_new_28": "",
+
+
+"use_color_filter_29": false,
+
+
+"color_name_new_29": "",
+
+
+"use_color_filter_30": false,
+
+
+"color_name_new_30": "",
+
+
+"pagination_limit": "20",
+
+
+"show_collection_filter": true,
+
+
+"filter_title": "Bộ lọc",
+
+
+"use_vendor_filter": true,
+
+
+"vendor_title": "Thương hiệu",
+
+
+"vendor_limit": "15",
+
+
+"use_tag_custom_2": false,
+
+
+"tag_title_custom_2": "Kích thước",
+
+
+"enter_tag_2": "14 x 20 cm, 15 x 23 cm, 13 x 18 cm",
+
+
+"use_price_filter": true,
+
+
+"title_tag_3": "Lọc giá",
+
+
+"1_price_to": "1000000",
+
+
+"2_price_from": "1000000",
+
+
+"2_price_to": "2000000",
+
+
+"3_price_from": "2000000",
+
+
+"3_price_to": "3000000",
+
+
+"4_price_from": "3000000",
+
+
+"4_price_to": "4000000",
+
+
+"5_price_from": "4000000",
+
+
+"product_deliverly_show": true,
+
+
+"product_deliverly_1_show": true,
+
+
+"product_deliverly_1_text": "An toàn sức khỏe",
+
+
+"product_deliverly_2_show": true,
+
+
+"product_deliverly_2_text": "Giao hàng siêu tốc",
+
+
+"product_deliverly_3_show": true,
+
+
+"product_deliverly_3_text": "100% hài lòng khi mua",
+
+
+"pcontact_banner.jpg": "",
+
+
+"pcontact_select": "image",
+
+
+"pcontact_image_show": true,
+
+
+"hrv_page_contact_bg": "#ffffff",
+
+
+"hrv_page_contact_color": "#ffffff",
+
+
+"hrv_google_maps_show": true,
+
+
+"hrv_google_maps_code": "<iframe  class=\"lazyload\" data-src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.615593436863!2d106.65415201477133!3d10.76408024232994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752eec7752c743%3A0xd832d71bd12b6a15!2zRmxlbWluZ3RvbiBUb3dlciwgMTgyIEzDqiDEkOG6oWkgSMOgbmgsIHBoxrDhu51uZyAxNSwgUXXhuq1uIDExLCBI4buTIENow60gTWluaCwgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1521530731757\" width=\"100%\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>",
+
+
+"show_hrv_contact_info": true,
+
+
+"hrv_contact_info_title": "Thông tin liên hệ",
+
+
+"hrv_contact_address_1": "123 Nguyễn Thị Minh Khai, phường 3, quận 3, Tp. Hồ Chí Minh",
+
+
+"hrv_contact_address_2": "456 Vòng Lâm Nguyên, phường 5, Tp. Đà Lạt",
+
+
+"hrv_contact_address_3": "",
+
+
+"hrv_contact_phone_1": "1900 636 001",
+
+
+"hrv_contact_phone_2": "1900 636 002",
+
+
+"hrv_contact_phone_3": "",
+
+
+"hrv_contact_email_1": "hi@tidy-space.abc",
+
+
+"hrv_contact_email_2": "info@tidy-space.com",
+
+
+"hrv_contact_email_3": "",
+
+
+"show_hrv_contact_social": true,
+
+
+"hrv_contact_social_link_facebook": "/",
+
+
+"hrv_contact_social_link_youtube": "/",
+
+
+"hrv_contact_social_link_instagram": "/",
+
+
+"hrv_contact_social_link_tiktok": "/",
+
+
+"hrv_contact_social_link_shopee": "/",
+
+
+"hrv_contact_social_link_lazada": "/",
+
+
+"show_hrv_contact_form": true,
+
+
+"hrv_page_contact_bg_btn": "#00A650",
+
+
+"hrv_page_contact_color_btn": "#ffffff",
+
+
+"hrv_contact_form_btn": "Gửi thông tin",
+
+
+"gu_contact_banner_show": true,
+
+
+"gu_contact_banner_pc": "https://cdn.hstatic.net/files/200001149312/file/banner-contact.webp",
+
+
+"gu_contact_banner_mb": "https://cdn.hstatic.net/files/200001149312/file/banner-contact.webp",
+
+
+"gu_contact_title": "Liên hệ với Gu Wellness",
+
+
+"gu_contact_desc": "Chúng tôi luôn sẵn lòng lắng nghe và hỗ trợ bạn. Dù là câu hỏi về sản phẩm, đơn hàng hay bất kỳ vấn đề nào khác – đội ngũ GU Wellness sẽ phản hồi bạn sớm nhất có thể.",
+
+
+"gu_contact1_label": "Tên công ty",
+
+
+"gu_contact1_body": "CÔNG TY CỔ PHẦN SỐNG KHỎE CÓ GU VIỆT NAM\n(WELLNESS WITH GU VIETNAM JOINT STOCK COMPANY)\nĐịa chỉ\n41 Đường 19E, Phường An Lạc, Thành phố Hồ Chí Minh, Việt Nam\nHotline\n078 660 7789 (Thứ 2 – Thứ 7, 8:00 – 17:30)\nEmail hỗ trợ\nsongkhoecogu@guwellness.com\nWebsite\nhttps://guwellness.com",
+
+
+"gu_contact2_label": "Thời gian làm việc",
+
+
+"gu_contact2_body": "• Thứ 2 – Thứ 6: 8:00 – 17:30\n• Thứ 7: 8:00 – 12:00\n• Chủ nhật và ngày lễ: Nghỉ\nCác yêu cầu hỗ trợ gửi ngoài giờ làm việc sẽ được phản hồi vào đầu ngày làm việc tiếp theo.",
+
+
+"gu_contact_form_image": "https://cdn.hstatic.net/files/200001149312/file/banner-form-contact_36d6baccfec84346968141255c2a1954.webp",
+
+
+"gu_contact_form_title": "Để lại thông tin liên hệ",
+
+
+"gu_contact_form_desc": "Vui lòng điền đầy đủ thông tin để chúng tôi có thể hỗ trợ bạn tốt nhất",
+
+
+"gu_contact_form_btn": "Gửi tin nhắn",
+
+
+"gu_contact_form_success": "Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất có thể.",
+
+
+"gu_contact_form_topics": "Đơn hàng;Sản phẩm;Đổi trả;Hợp tác;Khác",
+
+
+"gu_contact_guide_show": true,
+
+
+"gu_contact_guide_title": "Hướng Dẫn Liên Hệ",
+
+
+"gu_contact_guide_1_show": true,
+
+
+"gu_contact_guide_1_title": "Đơn hàng và giao hàng",
+
+
+"gu_contact_guide_1_body": "Vui lòng chuẩn bị sẵn mã đơn hàng (bắt đầu bằng GU-...) để được hỗ trợ nhanh nhất. Hotline 078 660 7789 là kênh nhanh nhất để tra cứu tình trạng đơn hàng.",
+
+
+"gu_contact_guide_2_show": true,
+
+
+"gu_contact_guide_2_title": "Đổi trả và hoàn tiền",
+
+
+"gu_contact_guide_2_body": "Gửi email đến songkhoecogu@guwellness.com kèm hình ảnh/video minh chứng và mã đơn hàng. Chúng tôi sẽ phản hồi trong vòng 02 ngày làm việc.",
+
+
+"gu_contact_guide_3_show": true,
+
+
+"gu_contact_guide_3_title": "Sản phẩm và tư vấn sức khỏe",
+
+
+"gu_contact_guide_3_body": "Đội ngũ tư vấn của GU Wellness sẵn sàng giải đáp các câu hỏi về thành phần, công dụng và cách sử dụng sản phẩm phù hợp với nhu cầu của bạn.",
+
+
+"gu_contact_guide_4_show": true,
+
+
+"gu_contact_guide_4_title": "Hợp tác kinh doanh",
+
+
+"gu_contact_guide_4_body": "Nếu bạn quan tâm đến hợp tác phân phối, truyền thông hoặc OEM, vui lòng gửi email với tiêu đề [HỢP TÁC] đến songkhoecogu@guwellness.com.",
+
+
+"blog_banner_show": true,
+
+
+"blog_banner_select": "image",
+
+
+"blog_banner.jpg": "",
+
+
+"collection1_flashsale_countdown_start": "2022-03-15 10:00:00",
+
+
+"collection1_flashsale_countdown_end": "2026-06-30 10:00:00",
+
+
+"home_collection_flashsale_1_handle": "hot-products",
+
+
+"coupon_select": "couponView1",
+
+
+"home_coupon_1_show": true,
+
+
+"home_coupon_1_title": "Miễn phí vận chuyển",
+
+
+"home_coupon_1_text": "Đơn hàng từ 300k",
+
+
+"home_coupon_1_date": "10/04/2022",
+
+
+"home_coupon_1_note1": "Dành cho đơn hàng từ 300k",
+
+
+"home_coupon_1_note2": "Mỗi khách hàng được sử dụng tối đa 1 lần.",
+
+
+"home_coupon_1_note3": "Sao chép mã và nhập mã khuyến mãi ở trang thanh toán",
+
+
+"home_coupon_1_code": "A87TYRT55",
+
+
+"home_coupon_2_show": true,
+
+
+"home_coupon_2_title": "Giảm 20%",
+
+
+"home_coupon_2_text": "Đơn hàng từ 200k",
+
+
+"home_coupon_2_date": "05/05/2022",
+
+
+"home_coupon_2_note1": "Dành cho đơn hàng từ 200k",
+
+
+"home_coupon_2_note2": "Mỗi khách hàng được sử dụng tối đa 1 lần.",
+
+
+"home_coupon_2_note3": "Sao chép mã và nhập mã khuyến mãi ở trang thanh toán",
+
+
+"home_coupon_2_code": "QH5G8J0Y",
+
+
+"home_coupon_3_show": true,
+
+
+"home_coupon_3_title": "Giảm 50k",
+
+
+"home_coupon_3_text": "Đơn hàng từ 500k",
+
+
+"home_coupon_3_date": "10/05/2022",
+
+
+"home_coupon_3_note1": "",
+
+
+"home_coupon_3_note2": "",
+
+
+"home_coupon_3_note3": "Sao chép mã và nhập mã khuyến mãi ở trang thanh toán",
+
+
+"home_coupon_3_code": "FT45YUO8H",
+
+
+"home_coupon_4_show": true,
+
+
+"home_coupon_4_img.png": "",
+
+
+"home_coupon_4_title": "Giảm 10%",
+
+
+"home_coupon_4_text": "Đơn hàng từ 100k",
+
+
+"home_coupon_4_date": "20/05/2022",
+
+
+"home_coupon_4_note1": "Sao chép mã và nhập mã khuyến mãi ở trang thanh toán",
+
+
+"home_coupon_4_note2": "",
+
+
+"home_coupon_4_note3": "",
+
+
+"home_coupon_4_code": "A789UYT",
+
+
+"url_video_default": "https://cdn.hstatic.net/files/200001116681/file/homepage-header-video.mp4",
+
+
+"sale_popup_active": true,
+
+
+"sale_popup_count_show": "20",
+
+
+"sale_popup_time_delay_between": "8000",
+
+
+"sale_popup_time_delay_popup": "4000",
+
+
+"sale_popup_type_picker": "collections",
+
+
+"sale_popup_collection_picker": "frontpage",
+
+
+"sale_popup_products": "",
+
+
+"sale_popup_customers": "Bích Thủy ở Quảng Bình,Quang Hải ở Nghệ An,Thu Quỳnh ở Hà Nội",
+
+
+"sale_popup_time_ago": "Cách đây 30 phút,5 phút trước,7 phút trước",
+
+
+"hrv_backtotop": true,
+
+
+"title_review_default": "Khách hàng đánh giá",
+
+
+"title_blog_default": "Bài viết mới nhất",
+
+
+"popup_contact_time": "",
+
+
+"collection_image_show": true,
+
+
+"show_list_col": false,
+
+
+"use_type_filter": true,
+
+
+"use_tag_custom_3": true,
+
+
+"pproduct_image_show": false,
+
+
+"products_social_icons": false,
+
+
+"product_deliverly_txt1": "",
+
+
+"product_deliverly_txt2": "",
+
+
+"product_deliverly_4_show": false,
+
+
+"product_deliverly_5_show": false,
+
+
+"product_deliverly_6_show": false,
+
+
+"display_sidebar_bottom_product": false,
+
+
+"templatepage_banner_show": false,
+
+
+"page_menu_show": false,
+
+
+"cart_deliverytime_show": false,
+
+
+"share_fb_home_png": "https://cdn.hstatic.net/files/200001149312/file/logo__7_.png",
+
+
+"logo_png": "https://cdn.hstatic.net/files/200001149312/file/thi_t_k__ch_a_c__t_n_-_2026-06-03t114048.549.png",
+
+
+"favicon_png": "https://cdn.hstatic.net/files/200001149312/file/ch_a_c__t_n__60_x_60_px___4_.png",
+
+
+"gu_index_banner_show": true,
+
+
+"gu_index_banner_title": "Dinh dưỡng Tinh khiết\nSức sống Bền lâu",
+
+
+"gu_index_banner_button": "Mua ngay",
+
+
+"gu_index_banner_button_link": "/collections/all",
+
+
+"gu_index_banner_bg_url": "https://cdn.hstatic.net/files/200001149312/file/hero-product-overlay.png",
+
+
+"gu_index_banner_bg_mobile_url": "https://cdn.hstatic.net/files/200001149312/file/hero-product-overlay.png",
+
+
+"gu_index_banner_product_url": "https://cdn.hstatic.net/files/200001149312/file/hero-product-overlay.png",
+
+
+"gu_index_banner_bg_color": "#f6efe7",
+
+
+"gu_index_banner_text_color": "#0a0a0a",
+
+
+"gu_index_banner_button_bg": "#55723a",
+
+
+"gu_index_banner_button_text": "#ffffff",
+
+
+"gu_index_banner_overlay": "rgba(0, 0, 0, 0.15)",
+
+
+"gu_index_banner_slide_1_show": true,
+
+
+"gu_index_banner_slide_1_image_url": "https://cdn.hstatic.net/files/200001149312/file/mobile-gif_3_.gif",
+
+
+"gu_index_banner_slide_1_image_mobile_url": "https://cdn.hstatic.net/files/200001149312/file/mobile_gif.gif",
+
+
+"gu_index_banner_slide_1_title": "",
+
+
+"gu_index_banner_slide_1_button": "Mua ngay",
+
+
+"gu_index_banner_slide_1_button_link": "/collections/all",
+
+
+"gu_index_banner_slide_1_duration": 5000,
+
+
+"gu_index_banner_slide_2_show": false,
+
+
+"gu_index_banner_slide_2_image_url": "https://cdn.hstatic.net/files/200001149312/file/banner_web_2_ae58885969884dc1a77c000254aa8946.png",
+
+
+"gu_index_banner_slide_2_image_mobile_url": "https://cdn.hstatic.net/files/200001149312/file/banner_mobile_2.png",
+
+
+"gu_index_banner_slide_2_title": "",
+
+
+"gu_index_banner_slide_2_button": "Mua ngay",
+
+
+"gu_index_banner_slide_2_button_link": "/collections/all",
+
+
+"gu_index_banner_slide_2_duration": 5000,
+
+
+"gu_index_banner_slide_3_show": false,
+
+
+"gu_index_banner_slide_3_image_url": "https://cdn.hstatic.net/files/200001149312/file/banner_web_3_88152b1ee3c24df397aa636e4d6ecbca.png",
+
+
+"gu_index_banner_slide_3_image_mobile_url": "https://cdn.hstatic.net/files/200001149312/file/banner_mobile_3.png",
+
+
+"gu_index_banner_slide_3_title": "",
+
+
+"gu_index_banner_slide_3_button": "",
+
+
+"gu_index_banner_slide_3_button_link": "",
+
+
+"gu_index_banner_slide_3_duration": 5000,
+
+
+"gu_index_banner_slide_4_show": false,
+
+
+"gu_index_banner_slide_4_image_url": "https://cdn.hstatic.net/files/200001149312/file/banner_web_4_62b1d983369245aba9eb3cdc7249ac99.png",
+
+
+"gu_index_banner_slide_4_image_mobile_url": "https://cdn.hstatic.net/files/200001149312/file/banner_mobile_4.png",
+
+
+"gu_index_banner_slide_4_title": "",
+
+
+"gu_index_banner_slide_4_button": "",
+
+
+"gu_index_banner_slide_4_button_link": "",
+
+
+"gu_index_banner_slide_4_duration": 5000,
+
+
+"gu_index_banner_slide_5_show": false,
+
+
+"gu_index_banner_slide_5_image_url": "",
+
+
+"gu_index_banner_slide_5_image_mobile_url": "",
+
+
+"gu_index_banner_slide_5_title": "",
+
+
+"gu_index_banner_slide_5_button": "",
+
+
+"gu_index_banner_slide_5_button_link": "",
+
+
+"gu_index_banner_slide_5_duration": 5000,
+
+
+"gu_index_banner_nav_show": false,
+
+
+"gu_index_banner_dot_show": false,
+
+
+"gu_index_about_show": true,
+
+
+"gu_index_about_bg_color": "#ffffff",
+
+
+"gu_index_about_text_color": "#26351f",
+
+
+"gu_index_about_brand_text_color": "#ffffff",
+
+
+"gu_index_about_button_bg": "#55723a",
+
+
+"gu_index_about_button_text": "#ffffff",
+
+
+"gu_index_about_brand_image_url": "https://cdn.hstatic.net/files/200001149312/file/ae27e2ed4aa5989b3ffad7fab43952aa3e8fc907.png",
+
+
+"gu_index_about_eyebrow": "BRAND STORY",
+
+
+"gu_index_about_quote": "\"Live Well. Live Your Gu\"",
+
+
+"gu_index_about_button": "Đọc thêm",
+
+
+"gu_index_about_button_link": "/pages/about-us",
+
+
+"gu_index_about_item_1_show": true,
+
+
+"gu_index_about_item_1_title": "Nguyên liệu Việt",
+
+
+"gu_index_about_item_1_image_url": "https://cdn.hstatic.net/files/200001149312/file/image__1_.png",
+
+
+"gu_index_about_item_2_show": true,
+
+
+"gu_index_about_item_2_title": "Tiện lợi mỗi ngày",
+
+
+"gu_index_about_item_2_image_url": "https://cdn.hstatic.net/files/200001149312/file/image.png",
+
+
+"gu_index_about_item_3_show": true,
+
+
+"gu_index_about_item_3_title": "Hàm lượng tối ưu",
+
+
+"gu_index_about_item_3_image_url": "https://cdn.hstatic.net/files/200001149312/file/image__2_.png",
+
+
+"gu_index_about_item_4_show": true,
+
+
+"gu_index_about_item_4_title": "Có Gu sống khỏe",
+
+
+"gu_index_about_item_4_image_url": "https://cdn.hstatic.net/files/200001149312/file/ae27e2ed4aa5989b3ffad7fab43952aa3e8fc907.png",
+
+
+"gu_index_region_show": true,
+
+
+"gu_index_region_bg_image_url": "https://cdn.hstatic.net/files/200001149312/file/region-bg.png",
+
+
+"gu_index_region_eyebrow": "TỪ VÙNG ĐẤT VIỆT",
+
+
+"gu_index_region_title": "Làm nên Gu sống khỏe Việt",
+
+
+"gu_index_region_button": "Khám phá",
+
+
+"gu_index_region_button_link": "#",
+
+
+"gu_index_region_card_1_show": true,
+
+
+"gu_index_region_card_1_title": "Atiso Đà Lạt",
+
+
+"gu_index_region_card_1_image_url": "https://cdn.hstatic.net/files/200001149312/file/ingredient-atiso.png",
+
+
+"gu_index_region_card_2_show": true,
+
+
+"gu_index_region_card_2_title": "Gừng An Giang",
+
+
+"gu_index_region_card_2_image_url": "https://cdn.hstatic.net/files/200001149312/file/ingredient-ginger.png",
+
+
+"gu_index_region_card_3_show": true,
+
+
+"gu_index_region_card_3_title": "Nghệ Quảng Nam",
+
+
+"gu_index_region_card_3_image_url": "https://cdn.hstatic.net/files/200001149312/file/ingredient-turmeric.png",
+
+
+"gu_index_region_card_4_show": true,
+
+
+"gu_index_region_card_4_title": "Bưởi Bến Tre",
+
+
+"gu_index_region_card_4_image_url": "https://cdn.hstatic.net/files/200001149312/file/ingredient-pomelo.png",
+
+
+"gu_index_feature_product_show": true,
+
+
+"gu_index_feature_product_bg_image_url": "https://cdn.hstatic.net/files/200001149312/file/hero-lifestyle.png",
+
+
+"gu_index_feature_product_subtitle": "Artichoke Jelly",
+
+
+"gu_index_feature_product_title": "Thạch dẻo Atiso thiên nhiên",
+
+
+"gu_index_feature_product_button": "Mua ngay",
+
+
+"gu_index_feature_product_button_link": "/",
+
+
+"gu_index_feature_product_image_url": "https://cdn.hstatic.net/files/200001149312/file/product-curcumin.png",
+
+
+"gu_index_feature_product_image_alt": "Artichoke Jelly",
+
+
+"gu_index_product_cards_show": false,
+
+
+"gu_index_product_cards_title": "Bộ sưu tập dinh dưỡng",
+
+
+"gu_index_product_cards_collection": "hot-products",
+
+
+"gu_index_product_cards_count": "4",
+
+
+"gu_index_testimonial_show": true,
+
+
+"gu_index_testimonial_image_1": "https://cdn.hstatic.net/files/200001149312/file/testimonial-01.png",
+
+
+"gu_index_testimonial_image_1_alt": "",
+
+
+"gu_index_testimonial_image_2": "https://cdn.hstatic.net/files/200001149312/file/testimonial-03.png",
+
+
+"gu_index_testimonial_image_2_alt": "",
+
+
+"gu_index_testimonial_image_3": "https://cdn.hstatic.net/files/200001149312/file/testimonial-03.png",
+
+
+"gu_index_testimonial_image_3_alt": "",
+
+
+"gu_index_testimonial_review_label": "3158 đánh giá",
+
+
+"gu_index_testimonial_review_text": "3158 Reviews",
+
+
+"gu_index_testimonial_title": "Testimonial",
+
+
+"gu_index_testimonial_desc": "We want to make healthy, science-backed nutrition simple and accessible so you can feel better, perform better, and enjoy life every single day.",
+
+
+"gu_index_testimonial_btn": "Buy now",
+
+
+"gu_index_testimonial_link": "/collections/all",
+
+
+"gu_index_partner_cta_show": true,
+
+
+"gu_index_partner_cta_title": "Trở thành đối tác của Gu Wellness",
+
+
+"gu_index_partner_cta_desc": "Độc quyền dành cho đối tác, miễn phí vận chuyển, giảm giá và quà tặng đặc biệt.",
+
+
+"gu_index_partner_cta_btn": "ĐĂNG KÝ NGAY",
+
+
+"gu_index_partner_cta_link": "/collections/all",
+
+
+"gu_index_partner_cta_image": "https://cdn.hstatic.net/files/200001149312/file/image-placeholder__-_change_image_here.png",
+
+
+"gu_index_partner_cta_image_alt": "",
+
+
+"gu_index_blog_cards_show": true,
+
+
+"gu_footer_newsletter_title": "Đăng ký nhận ngay ưu đãi",
+
+
+"gu_footer_brand_name": "WELLNESS WITH GU VIETNAM JSC",
+
+
+"gu_footer_address": "84 đường 11, Khu phố 5, P. Linh Xuân, Q. Thủ Đức, TP Hồ Chí Minh",
+
+
+"gu_footer_phone": "(028) 3724 6889  (028) 6271 7666 ",
+
+
+"gu_footer_email": "info@guwellness.com",
+
+
+"gu_footer_menu_1_title": "Giới thiệu",
+
+
+"gu_footer_menu_1": "gioi-thieu",
+
+
+"gu_footer_menu_2_title": "Sản phẩm",
+
+
+"gu_footer_menu_2": "left",
+
+
+"gu_footer_menu_3_title": "Chính sách",
+
+
+"gu_footer_menu_3": "chinh-sach",
+
+
+"gu_footer_copyright": "",
+
+
+"gu_footer_newsletter_show": false,
+
+
+"gu_footer_menu_1_show": true,
+
+
+"gu_footer_menu_2_show": true,
+
+
+"gu_footer_menu_3_show": true,
+
+
+"gu_footer_menu_4_show": false,
+
+
+"gu_footer_menu_4_title": "",
+
+
+"gu_footer_menu_4": "",
+
+
+"dentalhub_footer_social_link_show": true,
+
+
+"dentalhub_footer_social_link_title": "Follow on social",
+
+
+"fot_bct_show": true,
+
+
+"fot_bct_link": "/",
+
+
+"fot_bct_logo.png": "",
+
+
+"fot_logo_png": "https://cdn.hstatic.net/files/200001149312/file/logo.png",
+
+
+"fot_background_png": "https://cdn.hstatic.net/files/200001149312/file/2f1541bb069beefef93f4913b07cccacd142a7e6.jpg",
+
+
+"gu_index_blog_cards_select": "news",
+
+
+"gu_index_blog_cards_number": "4",
+
+
+"page_about_hero_enable": true,
+
+
+"page_about_hero_image": "https://cdn.hstatic.net/files/200001149312/file/image-placeholder__-_change_image_here_cf14585107234a3186d08936c44ac4e3.png",
+
+
+"page_about_hero_eyebrow": "SỐNG KHỎE CÓ GU",
+
+
+"page_about_hero_title": "Live Well. Live Your Gu",
+
+
+"page_about_hero_description": "Câu chuyện về những người trẻ Việt Nam tin rằng wellness không chỉ là xu hướng, mà là cách sống có gu và bền vững.",
+
+
+"page_about_origin_enable": true,
+
+
+"page_about_origin_title": "Câu chuyện khởi nguồn",
+
+
+"page_about_origin_1_enable": true,
+
+
+"page_about_origin_1_image": "https://cdn.hstatic.net/files/200001149312/file/noun-allergy-to-medicine-3843731_1__1_.png",
+
+
+"page_about_origin_1_text": "\"Tại sao người Việt phải uống những viên thuốc bổ nhập khẩu không phù hợp cơ địa ?",
+
+
+"page_about_origin_2_enable": true,
+
+
+"page_about_origin_2_image": "https://cdn.hstatic.net/files/200001149312/file/noun-allergy-to-medicine-3843731_1.png",
+
+
+"page_about_origin_2_text": "Tại sao Wellness phải có cảm giác 'y tế' và cứng nhắc?",
+
+
+"page_about_origin_3_enable": true,
+
+
+"page_about_origin_3_image": "https://cdn.hstatic.net/files/200001149312/file/noun-allergy-to-medicine-3843731_1__2_.png",
+
+
+"page_about_origin_3_text": "Liệu có thể tạo ra những sản phẩm Wellness vừa tốt, vừa ngon, vừa đẹp — phù hợp với lifestyle của thế hệ trẻ Việt Nam?\"",
+
+
+"page_about_ingredient_enable": true,
+
+
+"page_about_ingredient_title": "Từ câu hỏi ấy, chúng tôi bắt đầu cuộc\nhành trình khám phá khắp ba miền đất nước",
+
+
+"page_about_ingredient_map_image": "https://cdn.hstatic.net/files/200001149312/file/frame_1000010326.png",
+
+
+"page_about_ingredient_1_enable": true,
+
+
+"page_about_ingredient_1_image": "https://cdn.hstatic.net/files/200001149312/file/img.png",
+
+
+"page_about_ingredient_1_title": "Đà Lạt, Lâm Đồng",
+
+
+"page_about_ingredient_1_description": "Nơi những búp atiso xanh mướt vươn mình trong sương mù núi rừng, chứa đựng dưỡng chất quý giá cho gan và hệ tiêu hóa.",
+
+
+"page_about_ingredient_2_enable": true,
+
+
+"page_about_ingredient_2_image": "https://cdn.hstatic.net/files/200001149312/file/img__1_.png",
+
+
+"page_about_ingredient_2_title": "An Giang",
+
+
+"page_about_ingredient_2_description": "Cánh đồng gừng bát ngát trên đất phù sa Mekong, nơi tinh dầu gừng đặc trưng được hun đúc qua bao thế hệ.",
+
+
+"page_about_ingredient_3_enable": true,
+
+
+"page_about_ingredient_3_image": "https://cdn.hstatic.net/files/200001149312/file/img__2_.png",
+
+
+"page_about_ingredient_3_title": "Bến Tre",
+
+
+"page_about_ingredient_3_description": "Xứ dừa với những vườn bưởi da xanh ngọt thanh, giàu vitamin C và các chất chống oxy hóa tự nhiên.",
+
+
+"page_about_ingredient_4_enable": true,
+
+
+"page_about_ingredient_4_image": "https://cdn.hstatic.net/files/200001149312/file/img__3_.png",
+
+
+"page_about_ingredient_4_title": "Quảng Nam",
+
+
+"page_about_ingredient_4_description": "Vùng đất trồng nghệ nổi tiếng, nơi hàm lượng curcumin trong củ nghệ đạt đến mức tối ưu nhờ thổ nhưỡng và khí hậu đặc biệt.",
+
+
+"page_about_realization_enable": true,
+
+
+"page_about_realization_image": "https://cdn.hstatic.net/files/200001149312/file/image_f9d0372a9bd04eeaa24436634a82451b.png",
+
+
+"page_about_realization_description": "Qua hành trình ấy, chúng tôi nhận ra rằng Việt Nam sở hữu những \"siêu thực phẩm\" có chất lượng không thua kém gì các nguyên liệu cao cấp từ châu Âu hay Mỹ.",
+
+
+"page_about_realization_title": "Điều thiếu chỉ là cách chế biến hiện đại, bao bì đẹp mắt và câu chuyện thương hiệu phù hợp với thế hệ trẻ.",
+
+
+"page_about_philosophy_enable": true,
+
+
+"page_about_philosophy_image": "https://cdn.hstatic.net/files/200001149312/file/frame_1000010455.png",
+
+
+"page_about_philosophy_eyebrow": "TRIẾT LÝ THƯƠNG HIỆU",
+
+
+"page_about_philosophy_title": "\"Gu\" là gì? Gu không chỉ là tên thương hiệu, mà là triết lý sống. Đối với chúng tôi, \"Gu\" là:",
+
+
+"page_about_philosophy_1_enable": true,
+
+
+"page_about_philosophy_1_title": "Sự tinh tế trong lựa chọn",
+
+
+"page_about_philosophy_1_description": "Không chạy theo xu hướng mù quáng, mà biết đâu là những gì thực sự phù hợp với bản thân.",
+
+
+"page_about_philosophy_2_enable": true,
+
+
+"page_about_philosophy_2_title": "Sự cân bằng bền vững",
+
+
+"page_about_philosophy_2_description": "Wellness không phải là cực đoan hay hy sinh, mà là những thói quen nhỏ được duy trì lâu dài.",
+
+
+"page_about_philosophy_3_enable": true,
+
+
+"page_about_philosophy_3_title": "Sự kết nối với cộng đồng",
+
+
+"page_about_philosophy_3_description": "Wellness không phải là hành trình đơn độc, mà là cách để kết nối với những người cùng chí hướng",
+
+
+"page_about_philosophy_4_enable": true,
+
+
+"page_about_philosophy_4_title": "Sự đẹp đẽ trong từng chi tiết",
+
+
+"page_about_philosophy_4_description": "Từ bao bì đến trải nghiệm sử dụng, mọi thứ đều được thiết kế để mang lại niềm vui và cảm giác tốt.",
+
+
+"page_about_mission_enable": true,
+
+
+"page_about_mission_1_enable": true,
+
+
+"page_about_mission_1_image": "https://cdn.hstatic.net/files/200001149312/file/image__1__f68b4a162a7b498098b8e488e5febb0a.png",
+
+
+"page_about_mission_1_title": "Sứ mệnh của chúng tôi",
+
+
+"page_about_mission_1_description": "Xây dựng thế hệ người Việt khỏe mạnh và chủ động hơn bằng tư duy chăm sóc cơ thể từ sớm, nạp dinh dưỡng trước khi cơ thể lên tiếng.",
+
+
+"page_about_mission_2_enable": true,
+
+
+"page_about_mission_2_image": "https://cdn.hstatic.net/files/200001149312/file/image__2__09c4f107076c4a2a80e29525a65dffe1.png",
+
+
+"page_about_mission_2_title": "Tầm nhìn",
+
+
+"page_about_mission_2_description": "Trở thành thương hiệu wellness hàng đầu Việt Nam, nơi mọi người tin tưởng lựa chọn khi muốn sống khỏe một cách có gu.",
+
+
+"page_about_core_enable": true,
+
+
+"page_about_core_image": "https://cdn.hstatic.net/files/200001149312/file/frame_1000010275.png",
+
+
+"page_about_core_title": "Giá trị cốt lõi",
+
+
+"page_about_core_1_enable": true,
+
+
+"page_about_core_1_title": "Chất lượng cao",
+
+
+"page_about_core_1_image": "https://cdn.hstatic.net/files/200001149312/file/component_56.png",
+
+
+"page_about_core_2_enable": true,
+
+
+"page_about_core_2_title": "Dễ tiếp cận",
+
+
+"page_about_core_2_image": "https://cdn.hstatic.net/files/200001149312/file/component_56__2_.png",
+
+
+"page_about_core_3_enable": true,
+
+
+"page_about_core_3_title": "Tự nhiên & An toàn",
+
+
+"page_about_core_3_image": "https://cdn.hstatic.net/files/200001149312/file/component_56__1_.png",
+
+
+"page_about_core_4_enable": true,
+
+
+"page_about_core_4_title": "Thiết kế đẹp",
+
+
+"page_about_core_4_image": "https://cdn.hstatic.net/files/200001149312/file/component_56__3_.png",
+
+
+"page_about_team_enable": true,
+
+
+"page_about_team_title": "Đội ngũ & Chuyên môn",
+
+
+"page_about_team_1_enable": true,
+
+
+"page_about_team_1_image": "https://cdn.hstatic.net/files/200001149312/file/image__3__cb522fa9a1ad4332bc9b7621154f8868.png",
+
+
+"page_about_team_1_title": "Đội ngũ R& D bao gồm",
+
+
+"page_about_team_1_description": "Dược sĩ có kinh nghiệm trong ngành thực phẩm chức năng\nChuyên gia dinh dưỡng hiểu sâu về cơ địa người Việt\nKỹ thuật viên thực phẩm từ các trường đại học hàng đầu\nCộng tác viên là nông dân, chủ trang trại nguyên liệu",
+
+
+"page_about_team_2_enable": true,
+
+
+"page_about_team_2_image": "https://cdn.hstatic.net/files/200001149312/file/image__4_.png",
+
+
+"page_about_team_2_title": "Quality Control",
+
+
+"page_about_team_2_description": "Lab kiểm định riêng với thiết bị hiện đại\nQuy trình GMP (Good Manufacturing Practice)\nKiểm tra vi sinh, kim loại nặng, hóa chất bảo vệ thực vật\nTruy xuất nguồn gốc từng lô sản phẩm",
+
+
+"page_about_team_3_enable": true,
+
+
+"page_about_team_3_image": "https://cdn.hstatic.net/files/200001149312/file/image__5_.png",
+
+
+"page_about_team_3_title": "Marketing & Community",
+
+
+"page_about_team_3_description": "Đội marketing gồm những người trẻ am hiểu lifestyle Gen Z\nCommunity manager là wellness enthusiast thực thụ\nHợp tác với KOL, chuyên gia có uy tín trong ngành\nLắng nghe feedback khách hàng để cải tiến liên tụ",
+
+
+"page_about_timeline_enable": true,
+
+
+"page_about_timeline_title": "Tương lai của Gu Wellness",
+
+
+"page_about_timeline_1_enable": true,
+
+
+"page_about_timeline_1_year": "2026:",
+
+
+"page_about_timeline_1_title": "Foundation Year",
+
+
+"page_about_timeline_1_text_1": "Ra mắt 5 sản phẩm cốt lõi (Gu Gummies & Gu Jelly)",
+
+
+"page_about_timeline_1_text_2": "Xây dựng network 1,000+ cộng tác viên",
+
+
+"page_about_timeline_1_text_3": "Có mặt tại 500+ spa/gym trên toàn quốc",
+
+
+"page_about_timeline_2_enable": true,
+
+
+"page_about_timeline_2_year": "2027:",
+
+
+"page_about_timeline_2_title": "Expansion Year",
+
+
+"page_about_timeline_2_text_1": "Mở rộng sang dòng skincare từ nguyên liệu Việt",
+
+
+"page_about_timeline_2_text_2": "Launch Gu Wellness Center đầu tiên tại TP.HCM",
+
+
+"page_about_timeline_2_text_3": "Hợp tác với các chain pharmacy lớn",
+
+
+"page_about_timeline_3_enable": true,
+
+
+"page_about_timeline_3_year": "2028:",
+
+
+"page_about_timeline_3_title": "Innovation Year",
+
+
+"page_about_timeline_3_text_1": "Mở rộng sang dòng skincare từ nguyên liệu Việt",
+
+
+"page_about_timeline_3_text_2": "Launch Gu Wellness Center đầu tiên tại TP.HCM",
+
+
+"page_about_timeline_3_text_3": "Hợp tác với các chain pharmacy lớn",
+
+
+"page_about_sustainability_enable": true,
+
+
+"page_about_sustainability_title": "Cam kết với môi trường\nSustainability First",
+
+
+"page_about_sustainability_1_enable": true,
+
+
+"page_about_sustainability_1_image": "https://cdn.hstatic.net/files/200001149312/file/image__6_.png",
+
+
+"page_about_sustainability_1_title": " Nguồn gốc bền vững",
+
+
+"page_about_sustainability_1_description": "Hợp tác với các hợp tác xã nông nghiệp hữu cơ\nTrả giá công bằng cho nông dân\nKhông khai thác cạn kiệt đất trồng",
+
+
+"page_about_sustainability_2_enable": true,
+
+
+"page_about_sustainability_2_image": "https://cdn.hstatic.net/files/200001149312/file/image__7_.png",
+
+
+"page_about_sustainability_2_title": "Vận chuyển xanh",
+
+
+"page_about_sustainability_2_description": "Ưu tiên đối tác vận chuyển có cam kết carbon neutral\nTối ưu hóa route để giảm phát thải\nKhuyến khích khách hàng mua số lượng lớn để giảm số lần giao hàng",
+
+
+"page_about_sustainability_3_enable": true,
+
+
+"page_about_sustainability_3_image": "https://cdn.hstatic.net/files/200001149312/file/image__8_.png",
+
+
+"page_about_sustainability_3_title": "Bao bì thân thiện",
+
+
+"page_about_sustainability_3_description": "Sử dụng giấy tái chế và ink từ thực vật\nThiết kế compact để giảm carbon footprint vận chuyển\nChương trình thu hồi bao bì cũ để tái chế",
+
+
+"page_about_sustainability_4_enable": true,
+
+
+"page_about_sustainability_4_image": "https://cdn.hstatic.net/files/200001149312/file/image__9_.png",
+
+
+"page_about_sustainability_4_title": "Giving Back",
+
+
+"page_about_sustainability_4_description": "1% doanh thu hàng năm dành cho các dự án environmental\nTài trợ cho các nghiên cứu về nông nghiệp bền vững\nHỗ trợ nông dân chuyển đổi sang canh tác hữu cơ",
+
+
+"page_about_community_enable": true,
+
+
+"page_about_community_eyebrow": "CỘNG ĐỒNG GU WELLNESS",
+
+
+"page_about_community_title": "Gu Wellness không chỉ bán sản phẩm, mà còn xây dựng cộng đồng. Khi tham gia \"Gu Family\", bạn sẽ có :",
+
+
+"page_about_community_image": "https://cdn.hstatic.net/files/200001149312/file/image__10_.png",
+
+
+"page_about_community_1_enable": true,
+
+
+"page_about_community_1_title": "Kiến thức Wellness",
+
+
+"page_about_community_1_description": "Weekly newsletter với tips sống khỏe\nWebinar với chuyên gia dinh dưỡng\nAccess vào private Facebook group\nEarly access đến sản phẩm mới",
+
+
+"page_about_community_2_enable": true,
+
+
+"page_about_community_2_title": "Quyền lợi đặc biệt",
+
+
+"page_about_community_2_description": "Điểm tích lũy và quà tặng\nSinh nhật bonus\nReferral program hấp dẫn\nPriority customer service",
+
+
+"page_about_community_3_enable": true,
+
+
+"page_about_community_3_title": "Sự kiện độc quyền",
+
+
+"page_about_community_3_description": "Wellness workshop hàng tháng\nFarm tour đến vùng nguyên liệu\nYoga & meditation session\nMeet & greet với founder",
+
+
+"page_about_community_4_enable": true,
+
+
+"page_about_community_4_title": "Đối tác Spa & Gym",
+
+
+"page_about_community_4_description": "Chúng tôi đặc biệt chú trọng hợp tác với các spa, gym, wellness center để:\nNâng cao chất lượng dịch vụ của đối tác\nMang wellness đến gần hơn với khách hàng\nXây dựng ecosystem wellness toàn diện",
+
+
+"page_about_collab_enable": true,
+
+
+"page_about_collab_eyebrow": "",
+
+
+"page_about_collab_title": "Hãy tham gia cùng chúng tôi nếu bạn tin rằng",
+
+
+"page_about_collab_back_image": "https://cdn.hstatic.net/files/200001149312/file/back.png",
+
+
+"page_about_collab_1_image": "https://cdn.hstatic.net/files/200001149312/file/letter_1.png",
+
+
+"page_about_collab_2_image": "https://cdn.hstatic.net/files/200001149312/file/letter_2.png",
+
+
+"page_about_collab_3_image": "https://cdn.hstatic.net/files/200001149312/file/letter_3.png",
+
+
+"page_about_collab_4_image": "https://cdn.hstatic.net/files/200001149312/file/letter_4.png",
+
+
+"page_about_collab_front_image": "https://cdn.hstatic.net/files/200001149312/file/front.png",
+
+
+"page_about_collab_button_image": "",
+
+
+"page_about_collab_button_text": "THAM GIA NGAY",
+
+
+"page_about_collab_button_link": "/",
+
+
+"page_about_contact_enable": true,
+
+
+"page_about_contact_button_image": "",
+
+
+"page_about_contact_1_enable": true,
+
+
+"page_about_contact_1_title": "Liên hệ",
+
+
+"page_about_contact_1_company": "Gu Wellness Co. Ltd",
+
+
+"page_about_contact_1_description": "<b>Địa chỉ:</b> [Địa chỉ công ty] \n<b>Hotline:</b> 0866 913 911\n<b>Email:</b> songkhoecogu@gmail.com",
+
+
+"page_about_contact_1_button_text": "LIÊN HỆ NGAY VỚI GUWELLNESS",
+
+
+"page_about_contact_1_button_link": "/pages/lien-he",
+
+
+"page_about_contact_2_enable": true,
+
+
+"page_about_contact_2_title": "Báo chí & hợp tác",
+
+
+"page_about_contact_2_company": "Gu Wellness Co. Ltd",
+
+
+"page_about_contact_2_description": "<b>Email:</b> pr@guwellness.vn\n<b>Email:</b> partnership@guwellness.vn",
+
+
+"page_about_contact_2_button_text": "LIÊN HỆ NGAY VỚI GUWELLNESS",
+
+
+"page_about_contact_2_button_link": "/pages/lien-he",
+
+
+"page_about_origin_description": "Năm 2024, giữa những ngày Hà Nội ô nhiễm không khí, stress công việc và áp lực cuộc sống, đội ngũ sáng lập Gu Wellness tự hỏi:",
+
+
+"page_ctv_hero_enable": true,
+
+
+"page_ctv_hero_image": "https://cdn.hstatic.net/files/200001149312/file/image_034779d809cb49a78b7278bd141e045b.png",
+
+
+"page_ctv_hero_title": "Chính sách dành cho\ncộng tác viên của Gu Wellness",
+
+
+"page_ctv_hero_metric_1_enable": true,
+
+
+"page_ctv_hero_metric_1_icon": "https://cdn.hstatic.net/files/200001149312/file/component_56__1__798e580f575948b7ad5af2353215f6f7.png",
+
+
+"page_ctv_hero_metric_1_value": "5% - 40%",
+
+
+"page_ctv_hero_metric_1_label": "Hoa hồng theo cấp bậc",
+
+
+"page_ctv_hero_metric_2_enable": true,
+
+
+"page_ctv_hero_metric_2_icon": "https://cdn.hstatic.net/files/200001149312/file/component_56_b540bcdf1b9543688bfcfc80cff5ca23.png",
+
+
+"page_ctv_hero_metric_2_value": "6 cấp",
+
+
+"page_ctv_hero_metric_2_label": "Lộ trình phát triển CTV",
+
+
+"page_ctv_hero_metric_3_enable": true,
+
+
+"page_ctv_hero_metric_3_icon": "https://cdn.hstatic.net/files/200001149312/file/component_56__2__a830186b413a4d18ae8a3d02c466bcd2.png",
+
+
+"page_ctv_hero_metric_3_value": "Gu Points",
+
+
+"page_ctv_hero_metric_3_label": "Điểm thưởng đổi quyền lợi",
+
+
+"page_ctv_levels_enable": true,
+
+
+"page_ctv_levels_eyebrow": "HỆ THỐNG CẤP BẬC & HOA HỒNG",
+
+
+"page_ctv_levels_title": "Lộ trình rõ ràng cho động lực tăng trưởng mạnh mẽ",
+
+
+"page_ctv_levels_description": "Từ đơn đầu tiên đến cấp director, mỗi bậc đều có mốc doanh số, hoa hồng và điểm thưởng riêng để CTV tự theo dõi tiến độ.",
+
+
+"page_ctv_levels_button_text": "Trở thành CTV ngay",
+
+
+"page_ctv_levels_1_enable": true,
+
+
+"page_ctv_levels_1_title": "Hạng Gu Friend",
+
+
+"page_ctv_levels_1_condition": "Khi mua Đơn bất kỳ",
+
+
+"page_ctv_levels_1_percent": "5%",
+
+
+"page_ctv_levels_2_enable": true,
+
+
+"page_ctv_levels_2_title": "Hạng Gu Partner",
+
+
+"page_ctv_levels_2_condition": "Khi tích lũy ≥ 12 triệu",
+
+
+"page_ctv_levels_2_percent": "10%",
+
+
+"page_ctv_levels_3_enable": true,
+
+
+"page_ctv_levels_3_title": "Hạng Gu KOC",
+
+
+"page_ctv_levels_3_condition": "Khi tích lũy ≥ 50 triệu",
+
+
+"page_ctv_levels_3_percent": "17%",
+
+
+"page_ctv_levels_4_enable": true,
+
+
+"page_ctv_levels_4_title": "Hạng Gu Ambassador",
+
+
+"page_ctv_levels_4_condition": "Khi tích lũy ≥ 120 triệu",
+
+
+"page_ctv_levels_4_percent": "22%",
+
+
+"page_ctv_levels_5_enable": true,
+
+
+"page_ctv_levels_5_title": "Hạng Regional Director",
+
+
+"page_ctv_levels_5_condition": "Khi tích lũy ≥ 500 triệu",
+
+
+"page_ctv_levels_5_percent": "30%",
+
+
+"page_ctv_levels_6_enable": true,
+
+
+"page_ctv_levels_6_title": "Hạng Territory Director",
+
+
+"page_ctv_levels_6_condition": "Khi tích lũy ≥ 1 tỷ",
+
+
+"page_ctv_levels_6_percent": "40%",
+
+
+"page_ctv_operating_enable": true,
+
+
+"page_ctv_operating_eyebrow": "CƠ CHẾ HOẠT ĐỘNG",
+
+
+"page_ctv_operating_title": "Nhiều cách bán hàng, 1 hệ thống ghi nhận rõ ràng",
+
+
+"page_ctv_operating_1_enable": true,
+
+
+"page_ctv_operating_1_title": "Mua về phân phối",
+
+
+"page_ctv_operating_1_description": "CTV mua sỉ, bán lại, hưởng chênh lệch + hoa hồng theo cấp bậc.",
+
+
+"page_ctv_operating_2_enable": true,
+
+
+"page_ctv_operating_2_title": "Gửi link bán lẻ",
+
+
+"page_ctv_operating_2_description": "CTV share link, khách mua trực tiếp, hệ thống ghi nhận hoa hồng theo cấp.",
+
+
+"page_ctv_operating_3_enable": true,
+
+
+"page_ctv_operating_3_title": "Tự tích lũy nâng hạng",
+
+
+"page_ctv_operating_3_description": "Doanh số cá nhân được cộng dồn, không phụ thuộc downline để bắt đầu.",
+
+
+"page_ctv_operating_4_enable": true,
+
+
+"page_ctv_operating_4_title": "Hoa hồng quản lý vùng/miền",
+
+
+"page_ctv_operating_4_description": "Regional Director: 2-3% tổng doanh số vùng tỉnh/thành. Territory Director: 4-5% tổng doanh số miền Bắc/Trung/Nam/Tây. Tính trên doanh thu thực tế từ tất cả CTV trong vùng/miền.",
+
+
+"page_ctv_audience_enable": true,
+
+
+"page_ctv_audience_eyebrow": "ĐỐI TƯỢNG CHỦ YẾU",
+
+
+"page_ctv_audience_title": "Ai cũng có điểm bắt đầu phù hợp",
+
+
+"page_ctv_audience_arrow_icon": "https://cdn.hstatic.net/files/200001149312/file/polygon_9.png",
+
+
+"page_ctv_audience_1_enable": true,
+
+
+"page_ctv_audience_1_title": "Gu Friend / Gu Partner",
+
+
+"page_ctv_audience_1_description": "Cá nhân yêu thích sản phẩm, bán part-time\nKOL nhỏ, người có network",
+
+
+"page_ctv_audience_2_enable": true,
+
+
+"page_ctv_audience_2_title": "Gu KOC",
+
+
+"page_ctv_audience_2_description": "Chủ spa, thẩm mỹ viện\nChủ phòng gym, yoga, fitness\nNgười dạy thiền, wellness coach\nChuyên gia dinh dưỡng, bác sĩ",
+
+
+"page_ctv_audience_3_enable": true,
+
+
+"page_ctv_audience_3_title": "Gu Ambassador",
+
+
+"page_ctv_audience_3_description": "Chuỗi spa/gym đa chi nhánh\nKOL có tầm ảnh hưởng lớn\nDoanh nghiệp wellness",
+
+
+"page_ctv_audience_4_enable": true,
+
+
+"page_ctv_audience_4_title": "Gu Regional / Territory Director",
+
+
+"page_ctv_audience_4_description": "Chuỗi spa/gym đa chi nhánh\nKOL có tầm ảnh hưởng lớn\nDoanh nghiệp wellness",
+
+
+"page_ctv_training_enable": true,
+
+
+"page_ctv_training_eyebrow": "CHƯƠNG TRÌNH ĐÀO TẠO GU WELLNESS",
+
+
+"page_ctv_training_title": "Không chỉ giao sản phẩm, Gu đào tạo cách bán và xây thương hiệu",
+
+
+"page_ctv_training_pillar_1_enable": true,
+
+
+"page_ctv_training_pillar_1_title": "Bán hàng",
+
+
+"page_ctv_training_pillar_1_text": "Sales & closing",
+
+
+"page_ctv_training_pillar_2_enable": true,
+
+
+"page_ctv_training_pillar_2_title": "Sản phẩm",
+
+
+"page_ctv_training_pillar_2_text": "Product knowledge",
+
+
+"page_ctv_training_pillar_3_enable": true,
+
+
+"page_ctv_training_pillar_3_title": "Hình ảnh",
+
+
+"page_ctv_training_pillar_3_text": "Personal branding",
+
+
+"page_ctv_training_pillar_4_enable": true,
+
+
+"page_ctv_training_pillar_4_title": "Thương hiệu cá nhân",
+
+
+"page_ctv_training_pillar_4_text": "Build authority",
+
+
+"page_ctv_training_benefit_1_enable": true,
+
+
+"page_ctv_training_benefit_1_title": "Gu Friend / Gu Partner",
+
+
+"page_ctv_training_benefit_1_description": "Online Training 2-3 giờ\nSản phẩm cơ bản, bán hàng 101, script bán hàng, xử lý từ chối, hình ảnh online, caption bán hàng.",
+
+
+"page_ctv_training_benefit_2_enable": true,
+
+
+"page_ctv_training_benefit_2_title": "Gu KOC",
+
+
+"page_ctv_training_benefit_2_description": "Offline 1 ngày tại HCM/HN\nConsultative selling cho spa/gym, product deep-dive, visual branding, xây dựng image chuyên gia wellness.",
+
+
+"page_ctv_training_benefit_3_enable": true,
+
+
+"page_ctv_training_benefit_3_title": "Gu Ambassador",
+
+
+"page_ctv_training_benefit_3_description": "Offline 2 ngày tại resort\nSales management, tích hợp Gu vào menu dịch vụ, content strategy 3 tháng, industry leadership.",
+
+
+"page_ctv_training_benefit_4_enable": true,
+
+
+"page_ctv_training_benefit_4_title": "Gu Regional / Territory Director",
+
+
+"page_ctv_training_benefit_4_description": "Executive Leadership Program 3 ngày VIP\nStrategic selling, B2B partnership, product roadmap input, brand empire building, network leadership.",
+
+
+"page_ctv_benefit_enable": true,
+
+
+"page_ctv_benefit_eyebrow": "QUYỀN LỢI ĐẶC BIỆT THEO CẤP",
+
+
+"page_ctv_benefit_title": "Quyền lợi tăng dần theo vai trò và năng lực",
+
+
+"page_ctv_benefit_1_enable": true,
+
+
+"page_ctv_benefit_1_title": "Gu Friend / Gu Partner",
+
+
+"page_ctv_benefit_1_description": "Online Training 2-3 giờ\nSản phẩm cơ bản, bán hàng 101, script bán hàng, xử lý từ chối, hình ảnh online, caption bán hàng.",
+
+
+"page_ctv_benefit_2_enable": true,
+
+
+"page_ctv_benefit_2_title": "Gu KOC",
+
+
+"page_ctv_benefit_2_description": "Offline 1 ngày tại HCM/HN\nConsultative selling cho spa/gym, product deep-dive, visual branding, xây dựng image chuyên gia wellness.",
+
+
+"page_ctv_benefit_3_enable": true,
+
+
+"page_ctv_benefit_3_title": "Gu Ambassador",
+
+
+"page_ctv_benefit_3_description": "Offline 2 ngày tại resort\nSales management, tích hợp Gu vào menu dịch vụ, content strategy 3 tháng, industry leadership.",
+
+
+"page_ctv_benefit_4_enable": true,
+
+
+"page_ctv_benefit_4_title": "Gu Regional / Territory Director",
+
+
+"page_ctv_benefit_4_description": "Executive Leadership Program 3 ngày VIP\nStrategic selling, B2B partnership, product roadmap input, brand empire building, network leadership.",
+
+
+"page_ctv_toolkit_enable": true,
+
+
+"page_ctv_toolkit_image": "https://cdn.hstatic.net/files/200001149312/file/image__1__cbfd25e779364f3db527d50e81c03efd.png",
+
+
+"page_ctv_toolkit_title": "Cộng tác viên có đủ công cụ để bán,\ntư vấn và tạo hình ảnh chuyên nghiệp",
+
+
+"page_ctv_toolkit_card_1_enable": true,
+
+
+"page_ctv_toolkit_card_1_title": "Gu KOC Kit",
+
+
+"page_ctv_toolkit_card_1_description": "Sales tools: script tư vấn cho khách spa/gym\nProduct samples: 30 viên mẫu/tháng\nPhoto kit: background, props chụp hình sản phẩm\nAuthority builder: Certificate “Gu Wellness Expert”",
+
+
+"page_ctv_toolkit_card_2_enable": true,
+
+
+"page_ctv_toolkit_card_2_title": "Gu Ambassador Kit",
+
+
+"page_ctv_toolkit_card_2_description": "Training materials: slide deck đào tạo nhân viên\nPremium samples: sản phẩm mới trial exclusive\nProfessional photos: profile + workspace\nContent bank: 50 templates post, story, video script",
+
+
+"page_ctv_toolkit_card_3_enable": true,
+
+
+"page_ctv_toolkit_card_3_title": "Director Level",
+
+
+"page_ctv_toolkit_card_3_description": "Leadership tools: hệ thống quản lý team CTV\nBusiness insights: báo cáo thị trường vùng/miền\nExecutive branding: personal PR package\nStrategic access: hotline riêng với management Gu",
+
+
+"page_ctv_maintenance_enable": true,
+
+
+"page_ctv_maintenance_icon": "https://cdn.hstatic.net/files/200001149312/file/component_56_b540bcdf1b9543688bfcfc80cff5ca23.png",
+
+
+"page_ctv_maintenance_eyebrow": "DUY TRÌ & NÂNG HẠNG",
+
+
+"page_ctv_maintenance_title": "Chu kỳ 6 tháng để giữ nhịp tăng trưởng",
+
+
+"page_ctv_maintenance_description": "Các điều kiện duy trì giúp hệ thống minh bạch, còn fast track và partnership bonus tạo động lực tăng tốc cho CTV có năng lực.",
+
+
+"page_ctv_maintenance_condition_title": "Điều kiện duy trì",
+
+
+"page_ctv_maintenance_special_title": "Nâng hạng đặc biệt",
+
+
+"page_ctv_maintenance_condition_1_enable": true,
+
+
+"page_ctv_maintenance_condition_1_label": "KOC → Ambassador:",
+
+
+"page_ctv_maintenance_condition_1_text": "Cần ≥30tr trong 6 tháng gần nhất.",
+
+
+"page_ctv_maintenance_condition_2_enable": true,
+
+
+"page_ctv_maintenance_condition_2_label": "Ambassador → Regional/Territory:",
+
+
+"page_ctv_maintenance_condition_2_text": "Cần ≥60tr trong 6 tháng gần nhất.",
+
+
+"page_ctv_maintenance_condition_3_enable": true,
+
+
+"page_ctv_maintenance_condition_3_label": "Regional/Territory :",
+
+
+"page_ctv_maintenance_condition_3_text": "Cần ≥70% doanh số và quản lý hiệu quả.",
+
+
+"page_ctv_maintenance_special_1_enable": true,
+
+
+"page_ctv_maintenance_special_1_label": "Fast track:",
+
+
+"page_ctv_maintenance_special_1_text": "Đạt doanh số cao trong 3 tháng → nâng hạng sớm.",
+
+
+"page_ctv_maintenance_special_2_enable": true,
+
+
+"page_ctv_maintenance_special_2_label": "Partnership bonus:",
+
+
+"page_ctv_maintenance_special_2_text": "Spa/gym ký hợp đồng dài hạn → thưởng nâng hạng.",
+
+
+"page_ctv_points_enable": true,
+
+
+"page_ctv_points_title": "Doanh số tạo hoa hồng, Gu Points mở thêm đặc quyền",
+
+
+"page_ctv_points_rate_value": "10%",
+
+
+"page_ctv_points_rate_label": "Doanh số bán hàng sẽ được chuyển thành Gu Points",
+
+
+"page_ctv_points_example_icon": "https://cdn.hstatic.net/files/200001149312/file/frame_1000010424.png",
+
+
+"page_ctv_points_example_label": "Ví dụ doanh số của KOC",
+
+
+"page_ctv_points_example_value": "50.000.000 đ",
+
+
+"page_ctv_points_arrow_icon": "https://cdn.hstatic.net/files/200001149312/file/polygon_9.png",
+
+
+"page_ctv_points_result_icon": "https://cdn.hstatic.net/files/200001149312/file/frame_1000010424__1_.png",
+
+
+"page_ctv_points_result_label": "Gu Points nhận được",
+
+
+"page_ctv_points_result_value": "5,000",
+
+
+"page_ctv_points_usage_title": "Cách dùng điểm",
+
+
+"page_ctv_points_usage_list": "Đào tạo nâng cao: 2,000 points\nChụp ảnh profile chuyên nghiệp: 1,500 points\nDu lịch wellness: 8,000 points\nSpa/gym makeover: 5,000 points\nSản phẩm độc quyền: 3,000 points",
+
+
+"page_ctv_final_cta_enable": true,
+
+
+"page_ctv_final_cta_image": "https://cdn.hstatic.net/files/200001149312/file/image__2__6c65ebb6ed0844f0bf5af3897ff23c24.png",
+
+
+"page_ctv_final_cta_title": "Từ đơn hàng đầu tiên đến hệ thống kinh \ndoanh wellness của riêng bạn",
+
+
+"page_ctv_final_cta_button_text": "Liên hệ hợp tác",
+
+
+"page_ctv_final_cta_button_link": "/",
+
+
+"page_ctv_popup_title": "Trở thành Cộng tác viên",
+
+
+"page_ctv_popup_submit_text": "ĐĂNG KÝ NGAY",
+
+
+"page_ctv_popup_form_action": "https://docs.google.com/forms/u/1/d/e/1FAIpQLSdU8-KCA4WOtt21sBWGvjiU1K8qlr70qr13cbnPkJXCqFVL5g/formResponse",
+
+
+"page_ctv_popup_entry_fullname": "entry.2126342226",
+
+
+"page_ctv_popup_entry_dob": "entry.962101700",
+
+
+"page_ctv_popup_entry_phone": "entry.377778943",
+
+
+"page_ctv_popup_entry_email": "entry.378091097",
+
+
+"page_ctv_popup_entry_facebook": "entry.1251713537",
+
+
+"page_ctv_popup_entry_tiktok": "entry.1085662670",
+
+
+"page_ctv_popup_entry_experience": "entry.217484706",
+
+
+"page_ctv_popup_entry_source": "entry.1095284148",
+
+
+"page_ctv_popup_entry_note": "entry.1646952239",
+
+
+"page_ctv_popup_success_title": "Gửi thông tin thành công",
+
+
+"page_ctv_popup_success_message": "Thông tin của bạn đã được gửi đi, chúng tôi sẽ liên hệ bạn trong thời gian sớm nhất!",
+
+
+"page_ctv_popup_success_close_text": "Đóng",
+
+
+"page_ctv_popup_entry_type": "entry.901773673",
+
+
+"page_ctv_partner_popup_title": "Trở thành đối tác",
+
+
+"page_ctv_partner_popup_submit_text": "gửi yêu cầu ngay",
+
+
+"page_ctv_partner_popup_form_action": "https://docs.google.com/forms/u/1/d/e/1FAIpQLSdU8-KCA4WOtt21sBWGvjiU1K8qlr70qr13cbnPkJXCqFVL5g/formResponse",
+
+
+"page_ctv_partner_popup_entry_type": "entry.901773673",
+
+
+"page_ctv_partner_popup_entry_fullname": "entry.2126342226",
+
+
+"page_ctv_partner_popup_entry_dob": "entry.962101700",
+
+
+"page_ctv_partner_popup_entry_phone": "entry.377778943",
+
+
+"page_ctv_partner_popup_entry_email": "entry.378091097",
+
+
+"page_ctv_partner_popup_entry_tiktok": "",
+
+
+"page_ctv_partner_popup_entry_experience": "entry.217484706",
+
+
+"page_ctv_partner_popup_entry_source": "",
+
+
+"page_ctv_partner_popup_entry_note": "entry.1646952239",
+
+
+"page_ctv_partner_popup_success_title": "Gửi thông tin thành công",
+
+
+"page_ctv_partner_popup_success_message": "Thông tin của bạn đã được gửi đi, chúng tôi sẽ liên hệ bạn trong thời gian sớm nhất!",
+
+
+"page_ctv_partner_popup_success_close_text": "Đóng",
+
+
+"page_ctv_partner_popup_entry_address": "entry.894715112",
+
+
+"page_ctv_partner_popup_entry_province": "entry.725681449",
+
+
+"page_ctv_partner_popup_entry_district": "entry.382078750",
+
+
+"page_ctv_partner_popup_entry_channel": "entry.1095284148",
+
+
+"page_ctv_partner_popup_entry_cooperation_type": "entry.917496645",
+
+
+"page_vnl_hero_enable": true,
+
+
+"page_vnl_hero_image": "https://cdn.hstatic.net/files/200001149312/file/image-placeholder__-_change_image_here_b17d810438e24977a344e09f24dfd93d.png",
+
+
+"page_vnl_hero_eyebrow": "Vùng nguyên liệu",
+
+
+"page_vnl_hero_title": "Từ đất Việt đến tâm hồn Việt",
+
+
+"page_vnl_hero_description": "Gu Wellness tự hào mang đến những \"siêu thực phẩm\" từ chính vùng đất quê hương. Hành trình bắt đầu từ những cánh đồng, vườn tược và kết thúc trong một sản phẩm wellness có gu trong tay bạn.",
+
+
+"page_vnl_source_enable": true,
+
+
+"page_vnl_source_cultivation_title": "Quy trình canh tác",
+
+
+"page_vnl_source_nutrition_title": "Giá trị dinh dưỡng",
+
+
+"page_vnl_source_heritage_label": "Đối tác / Di sản",
+
+
+"page_vnl_quality_enable": true,
+
+
+"page_vnl_quality_title": "Quality Standards",
+
+
+"page_vnl_quality_description": "Chứng nhận VietGAP. Residue test 0% thuốc trừ sâu. Truy xuất nguồn gốc 100%.",
+
+
+"page_vnl_process_enable": true,
+
+
+"page_vnl_process_eyebrow": "Quy trình chế biến hiện đại",
+
+
+"page_vnl_process_title": "Từ nguyên liệu thô đến sản phẩm",
+
+
+"page_vnl_standards_enable": true,
+
+
+"page_vnl_standards_eyebrow": "Chứng nhận & tiêu chuẩn",
+
+
+"page_vnl_standards_title": "Niềm tin được xây bằng tiêu chuẩn",
+
+
+"page_vnl_sustain_enable": true,
+
+
+"page_vnl_sustain_image": "https://cdn.hstatic.net/files/200001149312/file/image-placeholder__-_change_image_here__3_.png",
+
+
+"page_vnl_sustain_eyebrow": "Cam kết phát triển bền vững",
+
+
+"page_vnl_sustain_title": "Tốt cho người trồng, tốt cho môi trường, tốt cho cộng đồng",
+
+
+"page_vnl_future_enable": true,
+
+
+"page_vnl_future_image": "https://cdn.hstatic.net/files/200001149312/file/frame_1000010383.png",
+
+
+"page_vnl_future_eyebrow": "Tương lai vùng nguyên liệu",
+
+
+"page_vnl_future_title": "Vision 2030 Vietnamese Superfood Hub",
+
+
+"page_vnl_future_description": "Mục tiêu: 10,000 hecta nguyên liệu hữu cơ, 500+ hộ nông dân, xuất khẩu nguyên liệu thô sang 5 quốc gia, trở thành trung tâm nghiên cứu superfood Đông Nam Á.",
+
+
+"page_vnl_farmtour_enable": true,
+
+
+"page_vnl_farmtour_image": "https://cdn.hstatic.net/files/200001149312/file/image-placeholder__-_change_image_here__4_.png",
+
+
+"page_vnl_farmtour_title": "Farm tour, partnership\nvà lời mời từ đất Việt",
+
+
+"page_vnl_farmtour_button_text": "Đăng ký tour tham quan",
+
+
+"page_vnl_farmtour_button_link": "mailto:farmtour@guwellness.vn",
+
+
+"page_vnl_cta_enable": true,
+
+
+"page_vnl_cta_image": "https://cdn.hstatic.net/files/200001149312/file/image__4__958e65067c6045ef8685122aeb43865a.png",
+
+
+"page_vnl_cta_title": "Từ đất Việt, đến tay Việt,\nvì sức khỏe người Việt",
+
+
+"page_vnl_cta_button_text": "Liên hệ hợp tác",
+
+
+"page_vnl_cta_button_link": "mailto:partnership@guwellness.vn",
+
+
+"page_vnl_item_1_enable": true,
+
+
+"page_vnl_item_1_tab": "Atiso Đà Lạt",
+
+
+"page_vnl_item_1_map_image": "https://cdn.hstatic.net/files/200001149312/file/image-placeholder__-_change_image_here__1_.png",
+
+
+"page_vnl_item_1_photo": "https://cdn.hstatic.net/files/200001149312/file/image-placeholder__-_change_image_here__2_.png",
+
+
+"page_vnl_item_1_quote": "Khi độ cao kết hợp với khí hậu ôn đới, Atiso Đà Lạt tạo ra hàm lượng Cynarin và Silymarin vượt trội.",
+
+
+"page_vnl_item_1_title": "Atiso Đà Lạt - Vàng xanh cao nguyên",
+
+
+"page_vnl_item_1_intro": "Đà Lạt không chỉ nổi tiếng với hoa và khí hậu mát mẻ. Vùng đất này còn được thiên nhiên ưu đãi với thổ nhưỡng basalt đỏ giàu dinh dưỡng, nơi sinh ra những búp atiso có chất lượng sánh ngang Địa Trung Hải.",
+
+
+"page_vnl_item_1_metric_1_value": "Cynarin",
+
+
+"page_vnl_item_1_metric_1_label": "Hoạt chất chính",
+
+
+"page_vnl_item_1_metric_2_value": "< 4 giờ",
+
+
+"page_vnl_item_1_metric_2_label": "Từ vườn tới nhà máy",
+
+
+"page_vnl_item_1_metric_3_value": "120 hộ",
+
+
+"page_vnl_item_1_metric_3_label": "Đối tác HTX",
+
+
+"page_vnl_item_1_cultivation_1_title": "Tháng 1-3: Gieo trồng",
+
+
+"page_vnl_item_1_cultivation_1_text": "Giống atiso nhập khẩu từ Pháp, thích nghi với đất Việt qua 3 đời. Gieo trong nhà kính, kiểm soát nhiệt độ và độ ẩm.",
+
+
+"page_vnl_item_1_cultivation_2_title": "Tháng 4-8: Chăm sóc",
+
+
+"page_vnl_item_1_cultivation_2_text": "Tưới nhỏ giọt, bón phân hữu cơ từ phân chuồng ủ hoai, không sử dụng hóa chất trừ sâu.",
+
+
+"page_vnl_item_1_cultivation_3_title": "Tháng 9-12: Thu hoạch",
+
+
+"page_vnl_item_1_cultivation_3_text": "Thu hoạch búp non 8-12cm trong khung 5-7h sáng. Từ vườn đến nhà máy chế biến dưới 4 giờ.",
+
+
+"page_vnl_item_1_nutrition_1_value": "2.5-3%",
+
+
+"page_vnl_item_1_nutrition_1_label": "Cynarin",
+
+
+"page_vnl_item_1_nutrition_2_value": "1.8-2.2%",
+
+
+"page_vnl_item_1_nutrition_2_label": "Silymarin",
+
+
+"page_vnl_item_1_nutrition_3_value": "12-15mg/g",
+
+
+"page_vnl_item_1_nutrition_3_label": "Flavonoid",
+
+
+"page_vnl_item_1_nutrition_4_value": "15-20%",
+
+
+"page_vnl_item_1_nutrition_4_label": "Inulin",
+
+
+"page_vnl_item_1_partner_title": "HTX Atiso Đà Lạt Xanh",
+
+
+"page_vnl_item_1_partner_body": "HTX Atiso Đà Lạt Xanh. Thành lập 2018, 120 hộ, 450 hecta. HTX Atiso Đà Lạt Xanh. Thành lập 2018, 120 hộ, 450 hecta.",
+
+
+"page_vnl_item_1_partner_quote": "Quote nông dân về hợp tác, giá mua và cam kết bao tiêu",
+
+
+"page_vnl_item_1_partner_image": "https://cdn.hstatic.net/files/200001149312/file/image-placeholder__-_change_image_here__2_.png",
+
+
+"page_vnl_item_2_enable": true,
+
+
+"page_vnl_item_2_tab": "Nghệ Quảng Nam",
+
+
+"page_vnl_item_2_map_image": "",
+
+
+"page_vnl_item_2_photo": "https://cdn.hstatic.net/files/200001149312/file/image-placeholder__-_change_image_here__2_.png",
+
+
+"page_vnl_item_2_quote": "Nghệ Quảng Nam có hàm lượng gingerol cao và hương vị cay nồng đặc trưng không lẫn với loại nào.",
+
+
+"page_vnl_item_2_title": "Nghệ Quảng Nam - Vàng của đất Hội An",
+
+
+"page_vnl_item_2_intro": "Quảng Nam là vùng trồng nghệ truyền thống hơn 200 năm. Đất ven sông Thu Bồn được bồi đắp từ dãy Trường Sơn tạo nên củ nghệ màu vàng đậm và hàm lượng curcumin nổi bật.",
+
+
+"page_vnl_item_2_metric_1_value": "Curcumin",
+
+
+"page_vnl_item_2_metric_1_label": "Hoạt chất chính",
+
+
+"page_vnl_item_2_metric_2_value": "< 4 giờ",
+
+
+"page_vnl_item_2_metric_2_label": "Từ vườn tới nhà máy",
+
+
+"page_vnl_item_2_metric_3_value": "120 hộ",
+
+
+"page_vnl_item_2_metric_3_label": "Đối tác HTX",
+
+
+"page_vnl_item_2_cultivation_1_title": "Tháng 2-4: Trồng",
+
+
+"page_vnl_item_2_cultivation_1_text": "Giống nghệ địa phương, chọn củ to, chắc, không thối. Trồng trên luống cao thoát nước.",
+
+
+"page_vnl_item_2_cultivation_2_title": "Tháng 5-10: Chăm sóc",
+
+
+"page_vnl_item_2_cultivation_2_text": "Tưới theo lịch mùa vụ, làm cỏ, bón phân hữu cơ, hạn chế ứng dụng hóa chất đồng thời cải đất.",
+
+
+"page_vnl_item_2_cultivation_3_title": "Tháng 11-1: Thu hoạch",
+
+
+"page_vnl_item_2_cultivation_3_text": "Thu hoạch khi lá khô, rửa sạch, loại sơ chế, vận chuyển về nhà máy trong khung ngắn.",
+
+
+"page_vnl_item_2_nutrition_1_value": "5-8%",
+
+
+"page_vnl_item_2_nutrition_1_label": "Curcumin",
+
+
+"page_vnl_item_2_nutrition_2_value": "1-3%",
+
+
+"page_vnl_item_2_nutrition_2_label": "Demethoxy",
+
+
+"page_vnl_item_2_nutrition_3_value": "0.5-1%",
+
+
+"page_vnl_item_2_nutrition_3_label": "Bisdemethoxy",
+
+
+"page_vnl_item_2_nutrition_4_value": "3-7%",
+
+
+"page_vnl_item_2_nutrition_4_label": "Tinh dầu nghệ",
+
+
+"page_vnl_item_2_partner_title": "Làng nghề nghệ Ớt. Tuổi đời 200+ năm",
+
+
+"page_vnl_item_2_partner_body": "Làng nghề nghệ Ớt. Tuổi đời 200+ năm, 60+ thợ thủ công, sản lượng 500 tấn/năm. Làng nghề nghệ Ớt. Tuổi đời 200+ năm.",
+
+
+"page_vnl_item_2_partner_quote": "Câu chuyện gia đình làm nghệ 7 đời.",
+
+
+"page_vnl_item_2_partner_image": "https://cdn.hstatic.net/files/200001149312/file/image-placeholder__-_change_image_here__2_.png",
+
+
+"page_vnl_item_3_enable": true,
+
+
+"page_vnl_item_3_tab": "Gừng An Giang",
+
+
+"page_vnl_item_3_map_image": "",
+
+
+"page_vnl_item_3_photo": "https://cdn.hstatic.net/files/200001149312/file/image-placeholder__-_change_image_here__2_.png",
+
+
+"page_vnl_item_3_quote": "Gừng An Giang có hàm lượng gingerol cao và hương vị cay nồng đặc trưng không lẫn với loại nào.",
+
+
+"page_vnl_item_3_title": "Gừng An Giang - Tinh dầu vàng sông Mekong",
+
+
+"page_vnl_item_3_intro": "Đất phù sa sông Mekong được bồi đắp qua hàng nghìn năm tạo nên những củ gừng có tinh dầu cao. Khí hậu nhiệt đới ẩm với 2 mùa mưa khô giúp gừng tích lũy tối đa hoạt chất cay.",
+
+
+"page_vnl_item_3_metric_1_value": "Gingerol",
+
+
+"page_vnl_item_3_metric_1_label": "Hoạt chất chính",
+
+
+"page_vnl_item_3_metric_2_value": "< 4 giờ",
+
+
+"page_vnl_item_3_metric_2_label": "Từ vườn tới nhà máy",
+
+
+"page_vnl_item_3_metric_3_value": "120 hộ",
+
+
+"page_vnl_item_3_metric_3_label": "Đối tác HTX",
+
+
+"page_vnl_item_3_cultivation_1_title": "Tháng 2-3: Chuẩn bị giống",
+
+
+"page_vnl_item_3_cultivation_1_text": "Chọn củ gừng gốc to, chắc, ít mầm bệnh. Xử lý bằng nước ấm trước khi trồng.",
+
+
+"page_vnl_item_3_cultivation_2_title": "Tháng 4-9: Chăm sóc",
+
+
+"page_vnl_item_3_cultivation_2_text": "Làm đất cao, thoát nước tốt, bón phân hữu cơ và theo dõi sinh trưởng đều đặn.",
+
+
+"page_vnl_item_3_cultivation_3_title": "Tháng 10-12: Thu hoạch",
+
+
+"page_vnl_item_3_cultivation_3_text": "Đào củ khi vùng rễ già, phân loại trong 2-3 ngày, chọn củ đồng nhất.",
+
+
+"page_vnl_item_3_nutrition_1_value": "8-12mg/g",
+
+
+"page_vnl_item_3_nutrition_1_label": "Gingerol",
+
+
+"page_vnl_item_3_nutrition_2_value": "2-4mg/g",
+
+
+"page_vnl_item_3_nutrition_2_label": "Shogaol",
+
+
+"page_vnl_item_3_nutrition_3_value": "15-25%",
+
+
+"page_vnl_item_3_nutrition_3_label": "Zingiberene",
+
+
+"page_vnl_item_3_nutrition_4_value": "5-8mg",
+
+
+"page_vnl_item_3_nutrition_4_label": "Vitamin C",
+
+
+"page_vnl_item_3_partner_title": "Hợp tác xã Gừng Xanh Miền Tây",
+
+
+"page_vnl_item_3_partner_body": "Hợp tác xã Gừng Xanh Miền Tây. Thành lập 2020, 85 hộ, 320 hecta. Hợp tác xã Gừng Xanh Miền Tây. Thành lập 2020, 85 hộ, 320 hecta.",
+
+
+"page_vnl_item_3_partner_quote": "Quote về nâng giá trị nhờ sơ chế và sấy khô.",
+
+
+"page_vnl_item_3_partner_image": "https://cdn.hstatic.net/files/200001149312/file/image-placeholder__-_change_image_here__2_.png",
+
+
+"page_vnl_item_4_enable": true,
+
+
+"page_vnl_item_4_tab": "Bưởi Bến Tre",
+
+
+"page_vnl_item_4_map_image": "",
+
+
+"page_vnl_item_4_photo": "https://cdn.hstatic.net/files/200001149312/file/image-placeholder__-_change_image_here__2_.png",
+
+
+"page_vnl_item_4_quote": "Bưởi Bến Tre giàu vitamin C và naringin, phù hợp câu chuyện wellness tự nhiên từ vùng đất Việt.",
+
+
+"page_vnl_item_4_title": "Bưởi Bến Tre - Ngọt ngào đất Dừa",
+
+
+"page_vnl_item_4_intro": "Bến Tre không chỉ là xứ dừa, mà còn là vùng đất của bưởi da xanh ngọt thanh. Đất phù sa ven sông cùng khí hậu ổn định giúp trái bưởi mọng nước, thơm không gắt và giàu dưỡng chất.",
+
+
+"page_vnl_item_4_metric_1_value": "Vitamin C",
+
+
+"page_vnl_item_4_metric_1_label": "Hoạt chất chính",
+
+
+"page_vnl_item_4_metric_2_value": "< 4 giờ",
+
+
+"page_vnl_item_4_metric_2_label": "Từ vườn tới nhà máy",
+
+
+"page_vnl_item_4_metric_3_value": "120 hộ",
+
+
+"page_vnl_item_4_metric_3_label": "Đối tác HTX",
+
+
+"page_vnl_item_4_cultivation_1_title": "Tháng 2-3: Ghép cây",
+
+
+"page_vnl_item_4_cultivation_1_text": "Ghép giống bưởi da xanh lên gốc khỏe, chọn cành và cây mẹ 6-10 năm tuổi.",
+
+
+"page_vnl_item_4_cultivation_2_title": "Tháng 4-8: Chăm sóc",
+
+
+"page_vnl_item_4_cultivation_2_text": "Tưới nước sông Tiền, tôn dụng thủy triều, bón phân chuồng vi sinh định kỳ.",
+
+
+"page_vnl_item_4_cultivation_3_title": "Tháng 9-12: Thu hoạch",
+
+
+"page_vnl_item_4_cultivation_3_text": "Trái tươi 8-10 tháng tuổi, thu hái cẩn thận, sơ tuyển khi vỏ chuyển màu đúng độ già.",
+
+
+"page_vnl_item_4_nutrition_1_value": "120-150mg",
+
+
+"page_vnl_item_4_nutrition_1_label": "Vitamin C",
+
+
+"page_vnl_item_4_nutrition_2_value": "80-120mg",
+
+
+"page_vnl_item_4_nutrition_2_label": "Naringin",
+
+
+"page_vnl_item_4_nutrition_3_value": "2-3g",
+
+
+"page_vnl_item_4_nutrition_3_label": "Pectin",
+
+
+"page_vnl_item_4_nutrition_4_value": "15-25mg",
+
+
+"page_vnl_item_4_nutrition_4_label": "Flavonoid",
+
+
+"page_vnl_item_4_partner_title": "Vườn bưởi hữu cơ Bến Tre.",
+
+
+"page_vnl_item_4_partner_body": "Vườn bưởi hữu cơ Bến Tre. Thành lập 2019, 150 hecta, 8,000 cây. Vườn bưởi hữu cơ Bến Tre. Thành lập 2019, 150 hecta, 8,000 cây.",
+
+
+"page_vnl_item_4_partner_quote": "Chủ vườn về canh tác hữu cơ và bao tiêu.",
+
+
+"page_vnl_item_4_partner_image": "https://cdn.hstatic.net/files/200001149312/file/image-placeholder__-_change_image_here__2_.png",
+
+
+"page_vnl_quality_1_enable": true,
+
+
+"page_vnl_quality_1_image": "https://cdn.hstatic.net/files/200001149312/file/image__3__c962a18aa1174fcaa4c4c48cf84c6a29.png",
+
+
+"page_vnl_quality_1_text": "Chứng nhận 1",
+
+
+"page_vnl_quality_2_enable": true,
+
+
+"page_vnl_quality_2_image": "https://cdn.hstatic.net/files/200001149312/file/image__3__c962a18aa1174fcaa4c4c48cf84c6a29.png",
+
+
+"page_vnl_quality_2_text": "Chứng nhận 2",
+
+
+"page_vnl_quality_3_enable": true,
+
+
+"page_vnl_quality_3_image": "https://cdn.hstatic.net/files/200001149312/file/image__3__c962a18aa1174fcaa4c4c48cf84c6a29.png",
+
+
+"page_vnl_quality_3_text": "Chứng nhận 3",
+
+
+"page_vnl_quality_4_enable": true,
+
+
+"page_vnl_quality_4_image": "https://cdn.hstatic.net/files/200001149312/file/image__3__c962a18aa1174fcaa4c4c48cf84c6a29.png",
+
+
+"page_vnl_quality_4_text": "Chứng nhận 4",
+
+
+"page_vnl_process_1_enable": true,
+
+
+"page_vnl_process_1_number": "01",
+
+
+"page_vnl_process_1_title": "Thu mua & kiểm định",
+
+
+"page_vnl_process_1_description": "24h / truck refrigerated / kiểm HPLC / chỉ nhận nguyên liệu đạt 95%+ tiêu chuẩn",
+
+
+"page_vnl_process_2_enable": true,
+
+
+"page_vnl_process_2_number": "02",
+
+
+"page_vnl_process_2_title": "Sơ chế & tiền xử lý",
+
+
+"page_vnl_process_2_description": "48h / rửa nước RO / sấy 50°C / nghiền bột 200 mesh",
+
+
+"page_vnl_process_3_enable": true,
+
+
+"page_vnl_process_3_number": "03",
+
+
+"page_vnl_process_3_title": "Chiết xuất & tinh chế",
+
+
+"page_vnl_process_3_description": "72h / ultrasonic extraction / cô đặc chân không / chuẩn hóa hoạt chất",
+
+
+"page_vnl_process_4_enable": true,
+
+
+"page_vnl_process_4_number": "04",
+
+
+"page_vnl_process_4_title": "Sản xuất & đóng gói",
+
+
+"page_vnl_process_4_description": "24h / recipe riêng / GMP Class D / kiểm vi sinh, kim loại nặng, cảm quan",
+
+
+"page_vnl_process_5_enable": true,
+
+
+"page_vnl_process_5_number": "05",
+
+
+"page_vnl_process_5_title": "Bảo quản & phân phối",
+
+
+"page_vnl_process_5_description": "Kho 15-25°C / độ ẩm <60% / QR traceability / shelf life 18-24 tháng",
+
+
+"page_vnl_standards_1_enable": true,
+
+
+"page_vnl_standards_1_number": "01",
+
+
+"page_vnl_standards_1_title": "Chứng nhận quốc tế",
+
+
+"page_vnl_standards_1_description": "ISO 22000:2018\nHACCP\nGMP\nORGANIC",
+
+
+"page_vnl_standards_2_enable": true,
+
+
+"page_vnl_standards_2_number": "02",
+
+
+"page_vnl_standards_2_title": "Kiểm định Việt Nam",
+
+
+"page_vnl_standards_2_description": "Công bố sản phẩm với Bộ Y tế\nISO/IEC 17025\nVietGAP\nHalal Certificate",
+
+
+"page_vnl_standards_3_enable": true,
+
+
+"page_vnl_standards_3_number": "03",
+
+
+"page_vnl_standards_3_title": "Gu Wellness Quality Lab",
+
+
+"page_vnl_standards_3_description": "Diện tích 200m², 15 máy hiện đại, 8 kỹ thuật viên. HPLC, GC-MS, UV-Vis Spectrophotometer, Microbiological Safety Cabinet.",
+
+
+"page_vnl_sustain_1_enable": true,
+
+
+"page_vnl_sustain_1_number": "01",
+
+
+"page_vnl_sustain_1_title": "Với nông dân",
+
+
+"page_vnl_sustain_1_description": "Giá công bằng cao hơn thị trường 15-25%. Đào tạo miễn phí kỹ thuật hữu cơ. Hợp đồng dài hạn 3-5 năm. Bảo hiểm sức khỏe cho nông dân và gia đình.",
+
+
+"page_vnl_sustain_2_enable": true,
+
+
+"page_vnl_sustain_2_number": "02",
+
+
+"page_vnl_sustain_2_title": "Với môi trường",
+
+
+"page_vnl_sustain_2_description": "Giảm carbon footprint 30% vào 2028. Bao bì tái chế 80%. Logistics xanh. Công nghệ RO tái chế 70% nước thải.",
+
+
+"page_vnl_sustain_3_enable": true,
+
+
+"page_vnl_sustain_3_number": "03",
+
+
+"page_vnl_sustain_3_title": "Với cộng đồng",
+
+
+"page_vnl_sustain_3_description": "50 suất học bổng/năm. Hỗ trợ hạ tầng vùng nguyên liệu. Khám sức khỏe miễn phí. Đầu tư 2% doanh thu vào R&D giống cây mới.",
+
+
+"page_vnl_future_1_enable": true,
+
+
+"page_vnl_future_1_year": "2027",
+
+
+"page_vnl_future_1_title": "Gu Wellness Farm Hub",
+
+
+"page_vnl_future_1_description": "Trung tâm R&D tại Đà Lạt 50 hecta, facility tham quan, educational tour, farm-to-table restaurant.",
+
+
+"page_vnl_future_2_enable": true,
+
+
+"page_vnl_future_2_year": "2028",
+
+
+"page_vnl_future_2_title": "Blockchain truy xuất nguồn gốc",
+
+
+"page_vnl_future_2_description": "QR code kết nối blockchain, xem real-time từ gieo trồng đến thu hoạch, batch premium.",
+
+
+"page_vnl_future_3_enable": true,
+
+
+"page_vnl_future_3_year": "2029",
+
+
+"page_vnl_future_3_title": "AI-powered farming",
+
+
+"page_vnl_future_3_description": "IoT sensors theo dõi thời tiết, đất, cây. AI predict thời điểm thu hoạch. Drone spraying hữu cơ.",
+
+
+"page_vnl_farmtour_1_enable": true,
+
+
+"page_vnl_farmtour_1_title": "Gu Wellness Heritage Tour",
+
+
+"page_vnl_farmtour_1_description": "Thời gian: 3 ngày 2 đêm. Day 1: Đà Lạt - Atiso Farm. Day 2: Quảng Nam - Nghệ Village. Day 3: Bến Tre - Bưởi Garden. Đăng ký tour: 0866 913 911 / farmtour@guwellness.vn",
+
+
+"page_vnl_farmtour_2_enable": true,
+
+
+"page_vnl_farmtour_2_title": "Partnership Opportunities",
+
+
+"page_vnl_farmtour_2_description": "Dành cho nhà máy chế biến thực phẩm, hợp tác xã nông nghiệp, trường đại học, doanh nghiệp muốn CSR. Liên hệ: partnership@guwellness.vn",
+
+
+"page_vnl_source_map_image": "https://cdn.hstatic.net/files/200001149312/file/image-placeholder__-_change_image_here__1_.png",
+
+
+"page_vnl_item_1_pin_x": "62",
+
+
+"page_vnl_item_1_pin_y": "56",
+
+
+"page_vnl_item_2_pin_x": "48",
+
+
+"page_vnl_item_2_pin_y": "41",
+
+
+"page_vnl_item_3_pin_x": "43",
+
+
+"page_vnl_item_3_pin_y": "85",
+
+
+"page_vnl_item_4_pin_x": "60",
+
+
+"page_vnl_item_4_pin_y": "75",
+
+
+"page_vnl_item_1_partner_1_enable": true,
+
+
+"page_vnl_item_1_partner_1_title": "HTX Atiso Đà Lạt Xanh",
+
+
+"page_vnl_item_1_partner_1_body": "HTX Atiso Đà Lạt Xanh. Thành lập 2018, 120 hộ, 450 hecta. HTX Atiso Đà Lạt Xanh. Thành lập 2018, 120 hộ, 450 hecta. HTX Atiso Đà Lạt Xanh. Thành lập 2018, 120 hộ, 450 hecta. ",
+
+
+"page_vnl_item_1_partner_1_quote": "Quote nông dân về hợp tác, giá mua và cam kết bao tiêu",
+
+
+"page_vnl_item_1_partner_1_image": "https://cdn.hstatic.net/files/200001149312/file/image-placeholder__-_change_image_here__2_.png",
+
+
+"page_vnl_item_1_partner_2_enable": true,
+
+
+"page_vnl_item_1_partner_2_title": "HTX Atiso Đà Lạt Xanh 2",
+
+
+"page_vnl_item_1_partner_2_body": "HTX Atiso Đà Lạt Xanh. Thành lập 2018, 120 hộ, 450 hecta. HTX Atiso Đà Lạt Xanh. Thành lập 2018, 120 hộ, 450 hecta. HTX Atiso Đà Lạt Xanh. Thành lập 2018, 120 hộ, 450 hecta. 2",
+
+
+"page_vnl_item_1_partner_2_quote": "Quote nông dân về hợp tác, giá mua và cam kết bao tiêu 2",
+
+
+"page_vnl_item_1_partner_2_image": "https://cdn.hstatic.net/files/200001149312/file/image-placeholder__-_change_image_here__2_.png",
+
+
+"page_vnl_item_1_partner_3_enable": false,
+
+
+"page_vnl_item_1_partner_3_title": "",
+
+
+"page_vnl_item_1_partner_3_body": "",
+
+
+"page_vnl_item_1_partner_3_quote": "",
+
+
+"page_vnl_item_1_partner_3_image": "",
+
+
+"page_vnl_item_2_partner_1_enable": false,
+
+
+"page_vnl_item_2_partner_1_title": "",
+
+
+"page_vnl_item_2_partner_1_body": "",
+
+
+"page_vnl_item_2_partner_1_quote": "",
+
+
+"page_vnl_item_2_partner_1_image": "",
+
+
+"page_vnl_item_2_partner_2_enable": false,
+
+
+"page_vnl_item_2_partner_2_title": "",
+
+
+"page_vnl_item_2_partner_2_body": "",
+
+
+"page_vnl_item_2_partner_2_quote": "",
+
+
+"page_vnl_item_2_partner_2_image": "",
+
+
+"page_vnl_item_2_partner_3_enable": false,
+
+
+"page_vnl_item_2_partner_3_title": "",
+
+
+"page_vnl_item_2_partner_3_body": "",
+
+
+"page_vnl_item_2_partner_3_quote": "",
+
+
+"page_vnl_item_2_partner_3_image": "",
+
+
+"page_vnl_item_3_partner_1_enable": false,
+
+
+"page_vnl_item_3_partner_1_title": "",
+
+
+"page_vnl_item_3_partner_1_body": "",
+
+
+"page_vnl_item_3_partner_1_quote": "",
+
+
+"page_vnl_item_3_partner_1_image": "",
+
+
+"page_vnl_item_3_partner_2_enable": false,
+
+
+"page_vnl_item_3_partner_2_title": "",
+
+
+"page_vnl_item_3_partner_2_body": "",
+
+
+"page_vnl_item_3_partner_2_quote": "",
+
+
+"page_vnl_item_3_partner_2_image": "",
+
+
+"page_vnl_item_3_partner_3_enable": false,
+
+
+"page_vnl_item_3_partner_3_title": "",
+
+
+"page_vnl_item_3_partner_3_body": "",
+
+
+"page_vnl_item_3_partner_3_quote": "",
+
+
+"page_vnl_item_3_partner_3_image": "",
+
+
+"page_vnl_item_4_partner_1_enable": false,
+
+
+"page_vnl_item_4_partner_1_title": "",
+
+
+"page_vnl_item_4_partner_1_body": "",
+
+
+"page_vnl_item_4_partner_1_quote": "",
+
+
+"page_vnl_item_4_partner_1_image": "",
+
+
+"page_vnl_item_4_partner_2_enable": false,
+
+
+"page_vnl_item_4_partner_2_title": "",
+
+
+"page_vnl_item_4_partner_2_body": "",
+
+
+"page_vnl_item_4_partner_2_quote": "",
+
+
+"page_vnl_item_4_partner_2_image": "",
+
+
+"page_vnl_item_4_partner_3_enable": false,
+
+
+"page_vnl_item_4_partner_3_title": "",
+
+
+"page_vnl_item_4_partner_3_body": "",
+
+
+"page_vnl_item_4_partner_3_quote": "",
+
+
+"page_vnl_item_4_partner_3_image": "",
+
+
+"page_vnl_farmtour_popup_title": "Đăng ký Farm Tour",
+
+
+"page_vnl_farmtour_popup_submit_text": "ĐĂNG KÝ TOUR THAM QUAN",
+
+
+"page_vnl_farmtour_popup_form_action": "https://docs.google.com/forms/u/1/d/e/1FAIpQLSdU8-KCA4WOtt21sBWGvjiU1K8qlr70qr13cbnPkJXCqFVL5g/formResponse",
+
+
+"page_vnl_farmtour_popup_entry_type": "entry.901773673",
+
+
+"page_vnl_farmtour_popup_entry_fullname": "entry.2126342226",
+
+
+"page_vnl_farmtour_popup_entry_dob": "entry.962101700",
+
+
+"page_vnl_farmtour_popup_entry_phone": "entry.377778943",
+
+
+"page_vnl_farmtour_popup_entry_email": "entry.378091097",
+
+
+"page_vnl_farmtour_popup_entry_tour_date": "entry.911819025",
+
+
+"page_vnl_farmtour_popup_entry_guests": "entry.806737842",
+
+
+"page_vnl_farmtour_popup_entry_region": "",
+
+
+"page_vnl_farmtour_popup_entry_note": "entry.1646952239",
+
+
+"page_vnl_farmtour_popup_success_title": "Gửi thông tin thành công",
+
+
+"page_vnl_farmtour_popup_success_message": "Thông tin của bạn đã được gửi đi, chúng tôi sẽ liên hệ bạn trong thời gian sớm nhất!",
+
+
+"page_vnl_farmtour_popup_success_close_text": "Đóng",
+
+
+"page_vnl_farmtour_popup_entry_province": "entry.725681449",
+
+
+"page_vnl_farmtour_popup_entry_experience": "entry.217484706",
+
+
+"page_vnl_farmtour_popup_entry_purpose": "entry.917496645",
+
+
+"vendor_filter_values": "Gu Gummies,Bưởi Bến Tre,Nghệ Quảng Nam,Gừng An Giang",
+
+
+"type_filter_values": "Thạch dẻo,Kẹo dẻo,Kẹo Gum",
+
+
+"collection_banner": "https://cdn.hstatic.net/files/200001149312/file/image__1__4c022ba4a76940ea9afc3616d75b69d8.png",
+
+
+"product_authentic_show": true,
+
+
+"product_authentic_text": "Chính hãng",
+
+
+"product_sku_label": "SKU:",
+
+
+"product_license_show": true,
+
+
+"product_license_text": "Xem giấy phép sản phẩm",
+
+
+"product_license_url": "/",
+
+
+"product_price_note": "Giá bán đã bao gồm thuế giá trị gia tăng ( VAT ) . Phí vận chuyển và các chi phí khác ( nếu có ) sẽ được hiển thị tại trang thanh toán.",
+
+
+"product_add_to_cart_text": "Thêm vào giỏ",
+
+
+"product_buy_now_text": "Mua ngay",
+
+
+"product_gift_only_text": "Hàng tặng không bán",
+
+
+"product_sold_out_text": "Hết hàng",
+
+
+"product_unavailable_text": "Không có hàng",
+
+
+"product_inventory_alert_text": "Sản phẩm bạn vừa mua đã vượt quá tồn kho",
+
+
+"product_gift_heading": "Các sản phẩm được tặng kèm",
+
+
+"product_gift_description": "Chọn 1 trong các loại quà tặng",
+
+
+"product_param_variant": false,
+
+
+"productspg_related_products": true,
+
+
+"productspg_related_title": "Sản phẩm liên quan",
+
+
+"productspg_featured_quantity": "15",
+
+
+"product_deliverly_1_ico": "https://cdn.hstatic.net/files/200001149312/file/union.png",
+
+
+"product_deliverly_2_ico": "https://cdn.hstatic.net/files/200001149312/file/union__1_.png",
+
+
+"product_deliverly_3_ico": "https://cdn.hstatic.net/files/200001149312/file/vector.png",
+
+
+"product_description_show": true,
+
+
+"product_description_heading": "",
+
+
+"product_description_first_tab_text": "",
+
+
+"product_description_expand_text": "",
+
+
+"product_description_collapse_text": "",
+
+
+"contact_icons_enable": true,
+
+
+"contact_icons_launcher_color": "#c89208",
+
+
+"contact_icons_phone_show": true,
+
+
+"contact_icons_phone_icon": "",
+
+
+"contact_icons_phone_link": "",
+
+
+"contact_icons_facebook_show": true,
+
+
+"contact_icons_facebook_icon": "",
+
+
+"contact_icons_facebook_link": "",
+
+
+"contact_icons_zalo_show": true,
+
+
+"contact_icons_zalo_icon": "",
+
+
+"contact_icons_zalo_link": "",
+
+
+"contact_icons_messenger_show": true,
+
+
+"contact_icons_messenger_icon": "",
+
+
+"contact_icons_messenger_link": "",
+
+
+"cart_page_reward_show": true,
+
+
+"cart_page_reward_pending_text": "Mua thêm [amount] là được tặng ngay [reward]",
+
+
+"cart_page_reward_success_text": "Chúc mừng bạn đã đủ điều kiện nhận quà tặng!",
+
+
+"cart_page_reward_button_text": "MUA THÊM [amount]",
+
+
+"cart_page_reward_button_link": "/collections/all",
+
+
+"cart_page_reward_step_1_title": "Mua hàng",
+
+
+"cart_page_reward_step_1_description": "",
+
+
+"cart_page_reward_step_1_value": "0",
+
+
+"cart_page_reward_step_2_enable": true,
+
+
+"cart_page_reward_step_2_title": "Tặng ABC",
+
+
+"cart_page_reward_step_2_description": "Tặng ABC cho đơn từ 500k",
+
+
+"cart_page_reward_step_2_value": "500000",
+
+
+"cart_page_reward_step_3_enable": true,
+
+
+"cart_page_reward_step_3_title": "Tặng DEF",
+
+
+"cart_page_reward_step_3_description": "Tặng DEF cho đơn từ 1000k",
+
+
+"cart_page_reward_step_3_value": "1000000",
+
+
+"cart_page_reward_step_4_enable": true,
+
+
+"cart_page_reward_step_4_title": "Tặng GHI",
+
+
+"cart_page_reward_step_4_description": "Tặng GHI cho đơn từ 1500k",
+
+
+"cart_page_reward_step_4_value": "1500000",
+
+
+"cart_page_minimum_show": true,
+
+
+"cart_page_minimum_value": "0",
+
+
+"cart_page_summary_notes_show": true,
+
+
+"cart_page_summary_note_1": "Phí vận chuyển sẽ được tính ở trang thanh toán.",
+
+
+"cart_page_summary_note_2": "Bạn cũng có thể nhập mã giảm giá ở trang thanh toán.",
+
+
+"cart_page_empty_image_show": true,
+
+
+"cart_page_empty_image": "https://cdn.hstatic.net/files/200001149312/file/11329060.png",
+
+
+"cart_page_recommendations_collection": "hot-products",
+
+
+"cart_page_recommendations_title": "Gợi ý mua thêm",
+
+
+"gu_contact_show": false,
+
+
+"gu_contact_show1": false,
+
+
+"gu_contact_show2": false,
+
+
+"gu_contact_form_show": false
+
+},
+
+"presets": {}
+}

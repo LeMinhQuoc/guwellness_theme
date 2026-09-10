@@ -1,0 +1,29 @@
+{%- assign cart_recommendations_handle = settings.cart_page_recommendations_collection -%}
+{%- assign cart_recommendations_collection = collections[cart_recommendations_handle] -%}
+{%- assign cart_recommendations_count = cart_recommendations_collection.products_count | default: cart_recommendations_collection.all_products_count | default: 0 | times: 1 -%}
+{%- assign cart_recommendations_title = settings.cart_page_recommendations_title | default: 'Gợi ý mua thêm' -%}
+ 
+{%- if cart_recommendations_handle != blank and cart_recommendations_count > 0 -%}
+<section class="cart-page-recommendations" data-cart-recommendations>
+	<div class="cart-page-recommendations-header">
+		<h2 class="cart-page-recommendations-title">{{ cart_recommendations_title | escape }}</h2>
+		<div class="cart-page-recommendations-controls">
+			<button class="cart-page-recommendations-previous" type="button" aria-label="Sản phẩm trước">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M23 12H1M7 6L1 12L7 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+			</button>
+			<button class="cart-page-recommendations-next" type="button" aria-label="Sản phẩm tiếp theo">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M1 12H23M17 6L23 12L17 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+			</button>
+		</div>
+	</div>
+	<div class="cart-page-recommendations-slider swiper">
+		<div class="swiper-wrapper">
+			{%- for product in cart_recommendations_collection.products limit: 12 -%}
+			<div class="cart-page-recommendations-slide swiper-slide">
+				{%- include 'product-loop' -%}
+			</div>
+			{%- endfor -%}
+		</div>
+	</div>
+</section>
+{%- endif -%}

@@ -1,0 +1,157 @@
+{% comment %}haravan-audit:v2{% endcomment %}
+<link rel="stylesheet" href="{{ 'gu-utilities.css' | asset_url }}" as="style">
+<link rel="stylesheet" href="{{ 'template-collection.scss.css' | asset_url }}" as="style">
+<link rel="stylesheet" href="{{ 'gu-article.scss.css' | asset_url }}" as="style">
+<script fetchpriority="low" type="text/javascript" defer src="{{ 'product-related.js' | asset_url }}"></script>
+<script fetchpriority="low" type="text/javascript" defer src="{{ 'gu-article.js' | asset_url }}"></script>
+
+{%- assign related_collection = blank -%}
+{%- for tag in article.tags -%}
+	{%- if tag contains 'sp:' -%}
+		{%- assign tag_handle = tag | remove: 'sp:' -%}
+	{%- endif -%}
+	{%- if collections[tag_handle] != blank -%}
+		{%- assign col_count = collections[tag_handle].products_count | default: collections[tag_handle].all_products_count | default: 0 | times: 1 -%}
+		{%- if col_count > 0 -%}
+			{%- assign related_collection = collections[tag_handle] -%}
+			{%- break -%}
+		{%- endif -%}
+	{%- endif -%}
+{%- endfor -%}
+
+<div class="gu-article" id="article" data-filename="gu-article">
+	<div class="gu-article__top">
+		<div class="container-fluid">
+			<div class="gu-article__layout">
+				<article class="gu-article__main">
+					<nav class="gu-article__breadcrumb" aria-label="Breadcrumb">
+						<ol class="gu-article__breadcrumb-list" itemscope itemtype="http://schema.org/BreadcrumbList">
+							<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+								<a href="/" itemprop="item"><span itemprop="name">Trang chủ</span></a>
+								<meta itemprop="position" content="1" />
+							</li>
+							<li class="gu-article__breadcrumb-sep" aria-hidden="true">
+								<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M7.5 15L12.5 10L7.5 5" stroke="#0A0A0A" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+								</svg>
+							</li>
+							<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+								<a href="{{ blog.url }}" itemprop="item"><span itemprop="name">{{ blog.title }}</span></a>
+								<meta itemprop="position" content="2" />
+							</li>
+							<li class="gu-article__breadcrumb-sep" aria-hidden="true">
+								<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M7.5 15L12.5 10L7.5 5" stroke="#0A0A0A" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+								</svg>
+							</li>
+							<li class="is-active" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+								<span itemprop="item" content="{{ shop.url }}{{ article.url }}"><strong itemprop="name">{{ article.title }}</strong></span>
+								<meta itemprop="position" content="3" />
+							</li>
+						</ol>
+					</nav>
+
+					<div class="gu-article__meta">
+						<time class="gu-article__date" datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%d/%m/%Y' }}</time>
+						{%- unless article.author == blank -%}
+						<span class="gu-article__author">{{ article.author }}</span>
+						{%- endunless -%}
+					</div>
+
+					<h1 class="gu-article__title">{{ article.title }}</h1>
+
+					{%- if article.image -%}
+					<div class="gu-article__feature">
+						<img class="obj-cover" src="{{ article.image.src | product_img_url: 'grande' }}" alt="{{ article.title | escape }}" width="924" height="462" loading="eager">
+					</div>
+					{%- endif -%}
+
+					<div class="gu-article__toc" data-gu-toc hidden>
+						<button type="button" class="gu-article__toc-toggle" data-gu-toc-toggle aria-expanded="false">
+							<span class="gu-article__toc-label">Mục lục</span>
+							<span class="gu-article__toc-icon" aria-hidden="true">
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+								</svg>
+							</span>
+						</button>
+						<nav class="gu-article__toc-nav" data-gu-toc-nav aria-label="Mục lục"></nav>
+					</div>
+
+					<div class="gu-article__content article-body typeList-style" data-gu-article-content>
+						{{ article.content }}
+					</div>
+				</article>
+
+				{%- assign sidebar_source = blank -%}
+				{% include 'gu-article-sidebar' %}
+			</div>
+		</div>
+	</div>
+
+	{%- if settings.gu_article_products_show and related_collection != blank -%}
+	<section class="gu-article__products product-related-section layout-collections" data-product-related>
+		<div class=" container-fluid">
+			<div class="product-related-header">
+				<h2 class="product-related-title">{{ settings.gu_article_products_title }}</h2>
+				<div class="product-related-controls">
+					<button type="button" class="product-related-previous" aria-label="Sản phẩm trước">
+						{% include 'gu-icon-arrow-prev' %}
+					</button>
+					<button type="button" class="product-related-next" aria-label="Sản phẩm tiếp theo">
+						{% include 'gu-icon-arrow-next' %}
+					</button>
+				</div>
+			</div>
+			<div class="product-related-slider swiper">
+				<div class="swiper-wrapper">
+					{%- assign related_product_count = 0 -%}
+					{%- for product in related_collection.products -%}
+						{%- if related_product_count >= settings.gu_article_products_limit -%}{%- break -%}{%- endif -%}
+						<div class="product-related-slide swiper-slide">{% include 'product-loop' %}</div>
+						{%- assign related_product_count = related_product_count | plus: 1 -%}
+					{%- endfor -%}
+				</div>
+			</div>
+		</div>
+	</section>
+	{%- endif -%}
+
+	{%- if settings.gu_article_latest_show -%}
+	<section class="gu-article__latest" data-gu-article-latest>
+		<div class="container-fluid">
+			<div class="gu-article__latest-header">
+				<h2 class="gu-article__latest-title">{{ settings.gu_article_latest_title }}</h2>
+				<div class="gu-article__latest-controls">
+					<button type="button" class="gu-article__nav-prev" aria-label="Bài trước" data-gu-latest-prev>
+						{% include 'gu-icon-arrow-prev' %}
+					</button>
+					<button type="button" class="gu-article__nav-next" aria-label="Bài tiếp theo" data-gu-latest-next>
+						{% include 'gu-icon-arrow-next' %}
+					</button>
+				</div>
+			</div>
+			<div class="gu-article__latest-slider swiper" data-gu-latest-slider>
+				<div class="swiper-wrapper">
+					{%- for art in blogs[settings.gu_article_latest_handle].articles limit: settings.gu_article_latest_limit -%}
+					<div class="swiper-slide">
+						{%- assign article_card = art -%}
+						{% include 'gu-article-loop' %}
+					</div>
+					{%- endfor -%}
+				</div>
+			</div>
+			<div class="gu-article__latest-action">
+				<a class="gu-btn" href="{{ blogs[settings.gu_article_latest_handle].url }}">
+					<span class="gu-btn__icon" aria-hidden="true">
+						<svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M0 1.827L1.71 0H10V8.22L8.11 10V5.93C8.11 4.938 8.119 4.04 8.14 3.235L1.498 9.815L0.182 8.375L6.823 1.795C6.036 1.817 5.153 1.827 4.176 1.827H0Z" fill="currentColor"/>
+						</svg>
+					</span>
+					<span class="gu-btn__label">XEM THÊM</span>
+				</a>
+			</div>
+		</div>
+	</section>
+	{%- endif -%}
+</div>

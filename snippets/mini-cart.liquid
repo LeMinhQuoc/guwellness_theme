@@ -1,0 +1,166 @@
+<link rel="stylesheet" href="{{ 'header-minicart.scss.css' | asset_url }}" as="style">
+{%- unless template contains 'cart'-%}
+    {%- assign checkPriTotal = false -%}
+    {%- assign valuePriTotal =  cart.total_price | divided_by : 100 -%}
+    {%- assign valuePriMin = 0-%}
+    {%- if settings.cart_page_minimum_show and settings.cart_page_minimum_value != blank -%}
+    {%- assign valuePriMin = settings.cart_page_minimum_value | lstrip | rstrip | times: 1 -%}
+    {%- if valuePriMin > valuePriTotal -%} 
+    {%- assign checkPriTotal = true -%}
+    {%- endif -%}
+    {%- endif -%}
+    
+    {% if valuePriTotal == 0 %} {%- assign checkPriTotal = true -%} {% endif %}
+    <div class="hrv-sitenav-wrapper hrv-sitenav-right hrv-sitenav-cart {%if valuePriTotal == 0 %}hrv-cart-empty{%endif%}">
+        <div class="hrv-sitenav-inner">
+            <div class="hrv-sitenav-header">
+                <p class="hrv-sitenav-header__title">Giỏ hàng</p>
+                <a name="button-close" class="hrv-sitenav-header__btn hrv-btn-sitenav-close">
+                    <svg viewBox="0 0 19 19" role="presentation"><path d="M9.1923882 8.39339828l7.7781745-7.7781746 1.4142136 1.41421357-7.7781746 7.77817459 7.7781746 7.77817456L16.9705627 19l-7.7781745-7.7781746L1.41421356 19 0 17.5857864l7.7781746-7.77817456L0 2.02943725 1.41421356.61522369 9.1923882 8.39339828z" fill-rule="evenodd"></path></svg>
+                </a>
+            </div>
+            <div class="hrv-sitenav-content">
+                <div class="hrv-cart-view">
+                    <div class="hrv-cart-view-scroll">
+                        <div id="hrv-clone-item-cart" class="hrv-table-clone-cart">
+                            <div class="hrv-mini-cart__item d-none">
+                                <div class="hrv-mini-cart__left"><a class="hrv-mnc-link" href="#" title=""><img src="" alt="" /></a></div>
+                                <div class="hrv-mini-cart__right">
+                                    <p class="hrv-mini-cart__title">	
+                                        <a class="hrv-mnc-title hrv-mnc-link" href="#" title=""></a>
+                                        <span class="hrv-mnc-variant">	</span>	
+                                    </p>
+                                    <div class="hrv-mini-cart__quantity">
+                                        <button class="hrv-qty-btn hrv-mnc-minus">
+                                            <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"><polygon points="4.5 4.5 3.5 4.5 0 4.5 0 5.5 3.5 5.5 4.5 5.5 10 5.5 10 4.5"></polygon></svg>
+                                        </button>
+                                        <input class="hrv-qty-value" type="text" readonly="" name="mnc-quantity" value="{{item.quantity}}">
+                                        <button class="hrv-qty-btn hrv-mnc-plus">
+                                            <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"><polygon points="10 4.5 5.5 4.5 5.5 0 4.5 0 4.5 4.5 0 4.5 0 5.5 4.5 5.5 4.5 10 5.5 10 5.5 5.5 10 5.5"></polygon></svg>
+                                        </button>
+                                    </div>
+                                    <div class="hrv-mini-cart__price">
+                                        <span class="hrv-mnc-price">{{ item.price | money }}</span> 
+                                        <del class="hrv-mnc-ori-price"></del>
+                                    </div>
+                                    <div class="hrv-mini-cart__remove"></div>	
+                                </div>
+                            </div>   
+                        </div>
+                        <div id="hrv-cart-view">
+                            {%- if cart.item_count > 0 -%}
+                            {%- assign xHasyPrice = ''-%} 
+                            {%- for item in cart.items -%}
+                            {%-assign promtoionref = item.promotionref | append: ''-%}
+                            {%-if item.price == 0 and item.price_original > 0 and item.promotionref != 'null'-%}
+                            {%-if item.promotionby[0].variant_ids.size == 0-%}
+                            {%- assign xHasyPrice = xHasyPrice | append: ',' | append: item.promotionby[0].product_id-%}
+                            {%-else-%}
+                            {%-comment-%}<!-- Xử lý case theo biến thể -->{%-endcomment-%}
+                            {%-endif-%}
+                            {%-endif-%}
+                            {%-endfor-%}
+                            {%- assign xHasyPrice = xHasyPrice | remove_first: ',' | split: ','-%}
+    
+                            {%- for item in cart.items -%}
+                            {%-assign promtoionref = item.promotionref | append: ''-%}
+                            {%-assign signSpecial = ''-%}
+                            {%-if xHasyPrice != ''-%}
+                            {%-assign itemPrdId = item.product_id | append: ''-%}
+                            {%-assign itemVrtId = item.variant_id | append: ''-%}
+                            {%-if xHasyPrice contains itemPrdId or xHasyPrice contains itemVrtId-%}
+                            {%-assign signSpecial = ' xSpecial'-%}
+                            {%-endif-%}
+                            {%-endif-%}
+                            <div class="hrv-mini-cart__item {{signSpecial}}" data-vid="{{item.variant_id}}" data-pid="{{item.product_id}}">
+                                <div class="hrv-mini-cart__left">
+                                    <a class="hrv-mnc-link" href="{{ item.product.url }}">
+                                        <img loading="lazy" decoding="async" class="lazyload" width="150" height="100" src="{% if item.variant.image == empty %} {{ item | img_url: 'small' }} {% else%} {{ item.variant.image | product_img_url : 'small'}}  {% endif %}" alt="{{ item.title }}" />
+                                        {%- if settings.promotion_hrvapp_use and item.properties.BuyXGetY != nil -%}
+                                        <span class="hrv-mnc-gift"><img loading="lazy" decoding="async" class="lazyload" width="35" height="35" src="{{settings.combo_icon}}" alt="icon quà tặng"></span>
+                                        {%- endif -%}
+                                    </a>
+                                </div>
+                                <div class="hrv-mini-cart__right">
+                                    <p class="hrv-mini-cart__title">	
+                                        <a class="hrv-mnc-title mnc-link" href="{{ item.product.url }}" title="{{ item.title }}">{{ item.title }}</a>
+                                        <span class="hrv-mnc-variant">
+                                            {% unless item.variant.title contains 'Default Title' %}
+                                            {{ item.variant.title }}
+                                            {% endunless %}		
+                                        </span>	
+                                    </p>
+                                    <div class="hrv-mini-cart__quantity">
+                                        {%-assign show_btn_qty = true-%}
+    
+                                        {%-if settings.promotion_hrvapp_use -%}
+                                        {%-if item.price == 0 or item.properties.BuyXGetY != nil or item.properties.Combo != nil -%}
+                                        {%-assign show_btn_qty = false-%}
+                                        {%-endif-%}
+                                        {%-endif-%}
+    
+                                        {%-if show_btn_qty-%}
+                                        <button class="hrv-qty-btn hrv-mnc-minus">
+                                            <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"><polygon points="4.5 4.5 3.5 4.5 0 4.5 0 5.5 3.5 5.5 4.5 5.5 10 5.5 10 4.5"></polygon></svg>
+                                        </button>
+                                        {%-endif-%}
+                                        <!--<span class="hrv-mnc-value">{{ item.quantity }}</span>-->	
+                                        <input class="hrv-qty-value {%unless show_btn_qty %} qty-value-app {% endunless %} " type="text" readonly="" name="mnc-quantity" value="{{item.quantity}}" data-vid="{{item.variant_id}}">
+                                        {%-if show_btn_qty-%}
+                                        <button class="hrv-qty-btn hrv-mnc-plus">
+                                            <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"><polygon points="10 4.5 5.5 4.5 5.5 0 4.5 0 4.5 4.5 0 4.5 0 5.5 4.5 5.5 4.5 10 5.5 10 5.5 5.5 10 5.5"></polygon></svg>
+                                        </button>
+                                        {%-endif-%}
+                                    </div>
+                                    <div class="hrv-mini-cart__price">
+                                        <span class="hrv-mnc-price">{{ item.price | money }}</span> 
+                                        <del class="hrv-mnc-ori-price">{%-if item.price_original > item.price-%}{{item.price_original | money}}{%-endif-%}</del>
+                                    </div>
+                                    {%-unless settings.promotion_hrvapp_use and item.price == 0 -%}
+                                    <div class="hrv-mini-cart__remove">
+                                        <a href='javascript:void(0);' onclick='HRVTheme.General.deleteCart({{forloop.index}}, {{item.product.variants.first.id}})'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve"> <g><path d="M500,442.7L79.3,22.6C63.4,6.7,37.7,6.7,21.9,22.5C6.1,38.3,6.1,64,22,79.9L442.6,500L22,920.1C6,936,6.1,961.6,21.9,977.5c15.8,15.8,41.6,15.8,57.4-0.1L500,557.3l420.7,420.1c16,15.9,41.6,15.9,57.4,0.1c15.8-15.8,15.8-41.5-0.1-57.4L557.4,500L978,79.9c16-15.9,15.9-41.5,0.1-57.4c-15.8-15.8-41.6-15.8-57.4,0.1L500,442.7L500,442.7z"/></g> </svg>
+                                        </a>
+                                    </div>
+                                    {%-endunless-%}
+                                </div>
+                            </div>
+                            {% endfor %}
+                            {% else %}
+                            <div class="hrv-mini-cart__empty">
+                                <div class="hrv-svgico-mini-cart">
+                                    <img class="lazyload" loading="lazy" decoding="async" width="1400" height="450" src="{{ 'cart_banner_image.jpg' | asset_url }}" alt="Giỏ hàng của bạn đang trống"/>
+                                    <p>Chưa có sản phẩm trong giỏ hàng...</p>
+                                </div>					
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hrv-sitenav-footer">
+                <div class="hrv-cart-view-total">
+                    <div class="hrv-total-price">
+                        <div class="hrv-mnc-total text-left">TỔNG TIỀN:</div>
+                        <div class="hrv-mnc-total text-right" id="hrv-total-view-cart">{{cart.total_price | money}}</div>
+                    </div>
+                    <div class="hrv-total-actions">
+                        <div class="hrv-summary-alert hrv-alert hrv-alert-danger" {% if checkPriTotal %}style="display:block"{% endif %}>
+                            Giỏ hàng của bạn hiện chưa đạt mức tối thiểu để thanh toán.
+                        </div>
+                        <div class="hrv-action-btn"><a href="/checkout" class="hrv-linktocheckout main-button-text button button--primary {% if checkPriTotal %}disabled{% endif %}">Thanh toán</a></div>
+                        <div class="hrv-action-link">
+                            <a href="/cart" class="hrv-linktocart">Xem giỏ hàng</a>
+                            {%- if settings.coupon_title != blank -%}
+                            <a name="link-copuon" class="hrv-linkcoupon">{{settings.coupon_title}}</a>
+                            {%- else -%}
+                            <a name="link-copuon" class="hrv-linkcoupon">Khuyến mãi dành cho bạn</a>
+                            {%- endif -%}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hrv-sidebar-overlay"></div>
+    </div>
+    {%- endunless -%}

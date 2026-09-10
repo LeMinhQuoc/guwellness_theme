@@ -1,0 +1,44 @@
+(function () {
+	'use strict';
+
+	var root = document.getElementById('contact-icons');
+	if (!root) return;
+
+	var launcher = root.querySelector('.contact-icons-launcher');
+	var list = root.querySelector('.contact-icons-list');
+	var closeButton = root.querySelector('.contact-icons-close');
+	if (!launcher || !list || !closeButton) return;
+
+	function setOpen(isOpen, restoreFocus) {
+		root.classList.toggle('contact-icons-open', isOpen);
+		launcher.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+		list.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+
+		if (isOpen) {
+			window.setTimeout(function () {
+				var firstItem = list.querySelector('a[href], button');
+				if (firstItem) firstItem.focus();
+			}, 180);
+		} else if (restoreFocus) {
+			launcher.focus();
+		}
+	}
+
+	launcher.addEventListener('click', function () {
+		setOpen(true, false);
+	});
+
+	closeButton.addEventListener('click', function () {
+		setOpen(false, true);
+	});
+
+	document.addEventListener('click', function (event) {
+		if (!root.classList.contains('contact-icons-open') || root.contains(event.target)) return;
+		setOpen(false, false);
+	});
+
+	document.addEventListener('keydown', function (event) {
+		if (event.key !== 'Escape' || !root.classList.contains('contact-icons-open')) return;
+		setOpen(false, true);
+	});
+})();

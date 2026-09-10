@@ -1,0 +1,383 @@
+/* haravan-audit:v2 */
+/* [WARN] Dependencies cần có trước khi section này chạy:
+ * - promotionApp (Haravan Promotion App)
+ * - Haravan.* (Haravan SDK)
+ * Đảm bảo script phụ thuộc được load trước file này.
+ */
+
+//Delay action
+window.DentalHub = window.DentalHub || {};
+DentalHub.MiniCart = DentalHub.MiniCart || {
+	variantProducts: {},
+	init: function() {
+		var that = this;
+		that.DentalHub_showModalCoupon();
+		that.DentalHub_slideCouponModal();
+		that.DentalHub_copyCodeModalCoupon();
+		that.DentalHub_variantSelect();
+		that.DentalHub_loadVariantOptions(document);
+	},
+  	DentalHub_showModalCoupon: function(){
+		$(document).on('click', '.dentalhub-sitenav-cart .hrv-linkcoupon, .hrv-sitenav-cart .hrv-linkcoupon', function(e){ 
+			$('#dentalhub-modal-coupon').modal('show');
+		})
+	},
+	DentalHub_slideCouponModal: function(){
+		var swiper = new Swiper("#dentalhub-modalCoupon", {
+			slidesPerView: 1,
+			spaceBetween: 12,
+			grid: {
+				rows: 2,
+				fill: "row",
+			},
+			pagination: {
+				el: ".swiper-pagination",
+				clickable: true,
+			},
+		});
+	},
+ 	DentalHub_copyCodeModalCoupon: function(){
+		$(document).on('click', '.dentalhub-coupon-item .dentalhub-cp-btn', function(e){ 
+			e.preventDefault();	
+			$('.dentalhub-coupon-item .dentalhub-cp-btn').html('Sao chép mã').removeClass('disabled');
+			var copyText = $(this).attr('data-coupon');
+			var dummy = $('<input class="dentalhub-copy-coupon-text-hide">').val(copyText).appendTo('.dentalhub-coupon-initial').select();
+			dummy.focus();
+			document.execCommand('copy');
+			$('.dentalhub-copy-coupon-text-hide').remove();
+			$(this).html('Đã sao chép').addClass('disabled');
+		});
+	},
+	DentalHub_variantSelect: function(){
+		var that = this;
+		$(document)
+			.off('change.dentalhubMiniCartVariant', '.mini-cart-option-select')
+			.on('change.dentalhubMiniCartVariant', '.mini-cart-option-select', function(){
+				var $select = $(this);
+				var $item = $select.closest('.hrv-mini-cart__item');
+				var $variants = $select.closest('.mini-cart-variants');
+				var product = $variants.data('variant-product');
+				if(!product || $variants.data('changing')) return;
+
+				var currentVariant = String($variants.attr('data-current-variant') || '');
+				var selectedOptions = that.DentalHub_selectedOptions($variants);
+				var changedIndex = parseInt($select.attr('data-option-index'), 10);
+				var selectedVariant = that.DentalHub_findVariant(product, selectedOptions);
+				var line = parseInt($variants.attr('data-line'), 10);
+				var quantity = parseInt($item.find('.hrv-qty-value').val(), 10) || 1;
+
+				if(!selectedVariant || selectedVariant.available === false){
+					selectedVariant = that.DentalHub_findAvailableVariant(product, selectedOptions, changedIndex);
+				}
+
+				if(!selectedVariant){
+					that.DentalHub_selectVariantOptions($variants, product, currentVariant);
+					that.DentalHub_updateOptionAvailability($variants, product);
+					return;
+				}
+
+				that.DentalHub_selectVariantOptions($variants, product, selectedVariant.id);
+				that.DentalHub_updateOptionAvailability($variants, product);
+
+				if(String(selectedVariant.id) === currentVariant || !line) return;
+
+				$variants.data('changing', true).find('.mini-cart-option-select').prop('disabled', true);
+				$item.addClass('mini-cart-item-loading');
+
+				$.ajax({
+					type: 'POST',
+					url: '/cart/change.js',
+					data: { line: line, quantity: 0 },
+					dataType: 'json'
+				}).done(function(){
+					$.ajax({
+						type: 'POST',
+						url: '/cart/add.js',
+						data: { id: selectedVariant.id, quantity: quantity },
+						dataType: 'json'
+					}).done(function(){
+						that.DentalHub_refreshVariantCart($item);
+					}).fail(function(xhr, textStatus){
+						$.ajax({
+							type: 'POST',
+							url: '/cart/add.js',
+							data: { id: currentVariant, quantity: quantity },
+							dataType: 'json'
+						}).always(function(){
+							that.DentalHub_refreshVariantCart($item);
+							that.DentalHub_variantError(xhr, textStatus);
+						});
+					});
+				}).fail(function(xhr, textStatus){
+					$variants.data('changing', false);
+					$item.removeClass('mini-cart-item-loading');
+					that.DentalHub_selectVariantOptions($variants, product, currentVariant);
+					that.DentalHub_updateOptionAvailability($variants, product);
+					that.DentalHub_variantError(xhr, textStatus);
+				});
+			});
+	},
+	DentalHub_loadVariantOptions: function(scope){
+		var that = this;
+		var $scope = $(scope || document);
+		var $containers = $scope.filter('.mini-cart-variants[data-load-variants="true"]')
+			.add($scope.find('.mini-cart-variants[data-load-variants="true"]'));
+
+		$containers.each(function(){
+			var $container = $(this);
+			var productUrl = $container.attr('data-product-url');
+			var currentVariant = String($container.attr('data-current-variant') || '');
+
+			if(!productUrl) return;
+
+			var endpoint = productUrl.split('?')[0].replace(/\.js$/, '') + '.js';
+			if(!that.variantProducts[endpoint]){
+				that.variantProducts[endpoint] = $.getJSON(endpoint);
+			}
+
+			that.variantProducts[endpoint].done(function(response){
+				var product = response.product || response;
+				that.DentalHub_renderVariantOptions($container, product, currentVariant);
+			}).fail(function(){
+				delete that.variantProducts[endpoint];
+				$container.removeAttr('data-load-variants').find('.mini-cart-option-select').prop('disabled', true);
+			});
+		});
+	},
+	DentalHub_renderVariantOptions: function($container, product, currentVariant){
+		var that = this;
+		var variants = product.variants || [];
+		var optionNames = product.options || [];
+		$container.data('variant-product', product);
+		that.DentalHub_updateVariantComparePrice($container, product, currentVariant);
+
+		if(variants.length <= 1 || !optionNames.length){
+			$container.empty().removeAttr('data-load-variants').addClass('d-none');
+			return;
+		}
+
+		$container.empty().attr('data-option-count', optionNames.length);
+		$.each(optionNames, function(optionIndex, option){
+			var optionName = (typeof option === 'string' ? option : option.name) || ('Biến thể ' + (optionIndex + 1));
+			var values = [];
+
+			$.each(variants, function(index, variant){
+				var value = that.DentalHub_variantOptions(variant)[optionIndex];
+				if(value != null && $.inArray(value, values) === -1) values.push(value);
+			});
+
+			var $wrapper = $('<div/>', { 'class': 'mini-cart-variant' });
+			var $select = $('<select/>', {
+				'class': 'mini-cart-option-select',
+				'aria-label': optionName,
+				'data-option-index': optionIndex
+			});
+
+			$.each(values, function(index, value){
+				$select.append($('<option/>', { value: value, text: value }));
+			});
+
+			$wrapper.append($select);
+			$wrapper.append('<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+			$container.append($wrapper);
+		});
+
+		$container.removeAttr('data-load-variants').removeClass('d-none');
+		that.DentalHub_selectVariantOptions($container, product, currentVariant);
+		that.DentalHub_updateOptionAvailability($container, product);
+	},
+	DentalHub_updateVariantComparePrice: function($container, product, variantId){
+		var selectedVariant = null;
+		$.each(product.variants || [], function(index, variant){
+			if(String(variant.id) === String(variantId)){
+				selectedVariant = variant;
+				return false;
+			}
+		});
+
+		if(!selectedVariant) return;
+		var price = Number(selectedVariant.price) || 0;
+		var comparePrice = Number(selectedVariant.compare_at_price) || 0;
+		if(comparePrice <= price) return;
+
+		var moneyFormat = typeof formatMoney !== 'undefined' ? formatMoney : undefined;
+		$container.closest('.hrv-mini-cart__item').find('.hrv-mnc-ori-price').html(Haravan.formatMoney(comparePrice, moneyFormat));
+	},
+	DentalHub_variantOptions: function(variant){
+		if($.isArray(variant.options) && variant.options.length){
+			return $.map(variant.options, function(value){ return String(value); });
+		}
+
+		var values = [];
+		for(var index = 1; index <= 3; index++){
+			var value = variant['option' + index];
+			if(value != null) values.push(String(value));
+		}
+		return values;
+	},
+	DentalHub_selectedOptions: function($container){
+		var values = [];
+		$container.find('.mini-cart-option-select').each(function(){
+			values[parseInt($(this).attr('data-option-index'), 10)] = String($(this).val());
+		});
+		return values;
+	},
+	DentalHub_findVariant: function(product, selectedOptions){
+		var that = this;
+		var found = null;
+		$.each(product.variants || [], function(index, variant){
+			var variantOptions = that.DentalHub_variantOptions(variant);
+			var matches = variantOptions.length === selectedOptions.length;
+			for(var optionIndex = 0; matches && optionIndex < selectedOptions.length; optionIndex++){
+				if(variantOptions[optionIndex] !== selectedOptions[optionIndex]) matches = false;
+			}
+			if(matches){
+				found = variant;
+				return false;
+			}
+		});
+		return found;
+	},
+	DentalHub_findAvailableVariant: function(product, selectedOptions, changedIndex){
+		var that = this;
+		var found = null;
+		var bestScore = -1;
+
+		$.each(product.variants || [], function(index, variant){
+			if(variant.available === false) return;
+			var variantOptions = that.DentalHub_variantOptions(variant);
+			var prefixMatches = true;
+			for(var optionIndex = 0; optionIndex <= changedIndex; optionIndex++){
+				if(variantOptions[optionIndex] !== selectedOptions[optionIndex]){
+					prefixMatches = false;
+					break;
+				}
+			}
+			if(!prefixMatches) return;
+
+			var score = 0;
+			$.each(selectedOptions, function(optionIndex, value){
+				if(optionIndex <= changedIndex) return;
+				if(variantOptions[optionIndex] === value) score++;
+			});
+
+			if(score > bestScore){
+				bestScore = score;
+				found = variant;
+			}
+		});
+
+		return found;
+	},
+	DentalHub_selectVariantOptions: function($container, product, variantId){
+		var that = this;
+		var selectedVariant = null;
+		$.each(product.variants || [], function(index, variant){
+			if(String(variant.id) === String(variantId)){
+				selectedVariant = variant;
+				return false;
+			}
+		});
+
+		if(!selectedVariant) return;
+		var values = that.DentalHub_variantOptions(selectedVariant);
+		$container.find('.mini-cart-option-select').each(function(){
+			var optionIndex = parseInt($(this).attr('data-option-index'), 10);
+			$(this).val(values[optionIndex]);
+		});
+	},
+	DentalHub_updateOptionAvailability: function($container, product){
+		var that = this;
+		var selectedOptions = that.DentalHub_selectedOptions($container);
+
+		$container.find('.mini-cart-option-select').each(function(){
+			var $select = $(this);
+			var optionIndex = parseInt($select.attr('data-option-index'), 10);
+			$select.find('option').each(function(){
+				var value = String($(this).val());
+				var available = false;
+				$.each(product.variants || [], function(index, variant){
+					if(variant.available === false) return;
+					var variantOptions = that.DentalHub_variantOptions(variant);
+					if(variantOptions[optionIndex] !== value) return;
+
+					var prefixMatches = true;
+					for(var previousIndex = 0; previousIndex < optionIndex; previousIndex++){
+						if(variantOptions[previousIndex] !== selectedOptions[previousIndex]){
+							prefixMatches = false;
+							break;
+						}
+					}
+
+					if(prefixMatches){
+						available = true;
+						return false;
+					}
+				});
+				$(this).prop('disabled', !available);
+			});
+			$select.prop('disabled', false);
+		});
+	},
+	DentalHub_refreshVariantCart: function($item){
+		if($item && $item.hasClass('cart-page-item')){
+			if(window.DentalHub && DentalHub.CartPage && typeof DentalHub.CartPage.DentalHub_refresh === 'function'){
+				return DentalHub.CartPage.DentalHub_refresh($item);
+			}
+			$item.removeClass('mini-cart-item-loading');
+			$item.find('.mini-cart-option-select').prop('disabled', false);
+			this.DentalHub_variantError(null, 'refresh');
+			return;
+		}
+		$.getJSON('/cart.js').done(function(cart){
+			cartGet = cart;
+			HRVTheme.General.getCartModal(false, cart);
+		}).fail(function(){
+			HRVTheme.General.getCartModal(false);
+		});
+	},
+	DentalHub_variantError: function(xhr, textStatus){
+		if(window.Haravan && typeof Haravan.onError === 'function'){
+			Haravan.onError(xhr, textStatus);
+			return;
+		}
+		window.alert('Không thể đổi biến thể. Vui lòng thử lại.');
+	}
+};
+document.addEventListener('DOMContentLoaded', function() {
+  if (typeof DentalHub !== 'undefined' && typeof DentalHub.MiniCart !== 'undefined') {
+    DentalHub.MiniCart.init();
+  }
+});
+
+/* header-minicart-org-bridge: sync drawer khi getCartModal (org) */
+(function(){
+  var ns = "dentalhub";
+  function syncDrawerAfterOrgCart() {
+    if (typeof jQuery === "undefined") return;
+    var $cart = jQuery(".hrv-sitenav-cart, ." + ns + "-sitenav-cart");
+    if (!$cart.hasClass("hrv-cart-empty")) return;
+    jQuery(".hrv-sidebar-main, ." + ns + "-sidebar-main").removeClass("hrv-is-show-right " + ns + "-is-show-right " + ns + "-is-show-left");
+    jQuery(".hrv-sitenav-wrapper, ." + ns + "-sitenav-wrapper").removeClass("hrv-show " + ns + "-show");
+    $cart.removeClass("hrv-show " + ns + "-show");
+    jQuery("body").removeClass("locked-scroll " + ns + "-locked-scroll mainBody-mbcart " + ns + "-mainBody-mbcart hrv-body-showcart " + ns + "-body-showcart");
+    jQuery(".hrv-header-action_cart, ." + ns + "-header-action_cart").removeClass("js-action-show " + ns + "-js-action-show");
+  }
+  function patchGetCartModal() {
+    if (typeof HRVTheme === "undefined" || !HRVTheme.General || !HRVTheme.General.getCartModal) return false;
+    if (HRVTheme.General.getCartModal.__nsMiniCartBridged) return true;
+    var orig = HRVTheme.General.getCartModal;
+    HRVTheme.General.getCartModal = function() {
+      var r = orig.apply(this, arguments);
+      syncDrawerAfterOrgCart();
+      return r;
+    };
+    HRVTheme.General.getCartModal.__nsMiniCartBridged = true;
+    return true;
+  }
+  if (!patchGetCartModal()) {
+    document.addEventListener("DOMContentLoaded", function tryPatch() {
+      if (!patchGetCartModal()) setTimeout(tryPatch, 200);
+    });
+  }
+})();

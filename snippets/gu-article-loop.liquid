@@ -1,0 +1,18 @@
+{% comment %}haravan-audit:v2{% endcomment %}
+{%- assign article_card = article_card | default: article -%}
+<article class="gu-article__card">
+	<div class="gu-article__card-image">
+		<a href="{{ article_card.url }}" title="{{ article_card.title | escape }}">
+			{%- if article_card.image -%}
+			<img class="obj-cover" src="{{ article_card.image.src | product_img_url: 'grande' }}" alt="{{ article_card.title | escape }}" loading="lazy" width="288" height="230">
+			{%- else -%}
+			<img class="obj-cover" src="{{ 'no-image-blog.jpg' | asset_url }}" alt="{{ article_card.title | escape }}" loading="lazy" width="288" height="230">
+			{%- endif -%}
+		</a>
+	</div>
+	<div class="gu-article__card-body">
+		<h3 class="gu-article__card-title"><a href="{{ article_card.url }}" title="{{ article_card.title | escape }}">{{ article_card.title }}</a></h3>
+		<p class="gu-article__card-excerpt">{{ article_card.excerpt_or_content | strip_html | truncatewords: 20 }}</p>
+		<a href="{{ article_card.url }}" class="gu-article__card-more">Đọc tiếp</a>
+	</div>
+</article>

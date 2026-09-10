@@ -1,0 +1,95 @@
+{% comment %}haravan-audit:v2{% endcomment %}
+<link rel="stylesheet" href="{{ 'gu-utilities.css' | asset_url }}" as="style">
+<link rel="stylesheet" href="{{ 'gu-article.scss.css' | asset_url }}" as="style">
+<link rel="stylesheet" href="{{ 'page-tongquanblog.scss.css' | asset_url }}" as="style">
+<script fetchpriority="low" type="text/javascript" defer src="{{ 'page-tongquanblog.js' | asset_url }}"></script>
+
+<div class="page-tongquanblog" data-filename="page-tongquanblog">
+	<section class="page-tongquanblog__latest container-fluid" data-tongquan-latest>
+		<div class="page-tongquanblog__latest-head">
+			<div class="page-tongquanblog__latest-badge">
+				<h1 class="page-tongquanblog__latest-title">{{ settings.gu_tongquanblog_latest_title }}</h1>
+				<div class="page-tongquanblog__latest-controls">
+					<button type="button" class="page-tongquanblog__nav-prev" aria-label="Bài trước" data-tongquan-latest-prev>
+						{% include 'gu-icon-arrow-prev' %}
+					</button>
+					<button type="button" class="page-tongquanblog__nav-next" aria-label="Bài tiếp theo" data-tongquan-latest-next>
+						{% include 'gu-icon-arrow-next' %}
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="page-tongquanblog__latest-panel">
+			<div class="page-tongquanblog__latest-slider swiper" data-tongquan-latest-slider>
+				<div class="swiper-wrapper">
+					{%- for article in blogs.all.articles limit: settings.gu_tongquanblog_latest_limit -%}
+					<div class="swiper-slide">
+						<a class="page-tongquanblog__feature-card" href="{{ article.url }}" title="{{ article.title | escape }}">
+							<div class="page-tongquanblog__feature-media">
+								{%- if article.image -%}
+								<img class="obj-cover" src="{{ article.image.src | product_img_url: 'grande' }}" alt="{{ article.title | escape }}" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}" width="480" height="384">
+								{%- else -%}
+								<img class="obj-cover" src="{{ 'no-image-blog.jpg' | asset_url }}" alt="{{ article.title | escape }}" loading="lazy" width="480" height="384">
+								{%- endif -%}
+							</div>
+							<div class="page-tongquanblog__feature-content">
+								<time class="page-tongquanblog__feature-date" datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%d/%m/%Y' }}</time>
+								<h2 class="page-tongquanblog__feature-title">{{ article.title }}</h2>
+							</div>
+						</a>
+					</div>
+					{%- endfor -%}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{%- if linklists[settings.gu_tongquanblog_menu] != blank and linklists[settings.gu_tongquanblog_menu].links.size > 0 -%}
+	<div class="page-tongquanblog__groups">
+		{%- for link in linklists[settings.gu_tongquanblog_menu].links -%}
+			{%- assign blog_handle = blank -%}
+			{%- if link.object != blank and link.object.handle != blank -%}
+				{%- assign blog_handle = link.object.handle -%}
+			{%- else -%}
+				{%- assign blog_handle = link.handle -%}
+			{%- endif -%}
+			{%- assign group_blog = blogs[blog_handle] -%}
+			{%- if group_blog != blank and group_blog.articles.size > 0 -%}
+			<section class="page-tongquanblog__group container-fluid" data-tongquan-group>
+				<div class="gu-article__latest-header">
+					<h2 class="gu-article__latest-title">{{ link.title }}</h2>
+					<div class="gu-article__latest-controls">
+						<button type="button" class="gu-article__nav-prev" aria-label="Bài trước" data-tongquan-group-prev>
+							{% include 'gu-icon-arrow-prev' %}
+						</button>
+						<button type="button" class="gu-article__nav-next" aria-label="Bài tiếp theo" data-tongquan-group-next>
+							{% include 'gu-icon-arrow-next' %}
+						</button>
+					</div>
+				</div>
+				<div class="page-tongquanblog__group-slider swiper" data-tongquan-group-slider>
+					<div class="swiper-wrapper">
+						{%- for article in group_blog.articles limit: settings.gu_tongquanblog_group_limit -%}
+						<div class="swiper-slide">
+							{%- assign article_card = article -%}
+							{% include 'gu-article-loop' %}
+						</div>
+						{%- endfor -%}
+					</div>
+				</div>
+				<div class="gu-article__latest-action">
+					<a class="gu-btn" href="{{ group_blog.url }}">
+						<span class="gu-btn__icon" aria-hidden="true">
+							<svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M0 1.827L1.71 0H10V8.22L8.11 10V5.93C8.11 4.938 8.119 4.04 8.14 3.235L1.498 9.815L0.182 8.375L6.823 1.795C6.036 1.817 5.153 1.827 4.176 1.827H0Z" fill="currentColor"/>
+							</svg>
+						</span>
+						<span class="gu-btn__label">{{ settings.gu_tongquanblog_btn }}</span>
+					</a>
+				</div>
+			</section>
+			{%- endif -%}
+		{%- endfor -%}
+	</div>
+	{%- endif -%}
+</div>

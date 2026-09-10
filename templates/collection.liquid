@@ -1,0 +1,724 @@
+<link rel="preload stylesheet" href="{{ 'template-collection.scss.css' | asset_url }}" as="stylesheet">
+<script fetchpriority="low" type="text/javascript" defer src="{{ 'template-collection.js' | asset_url }}"></script>
+<script fetchpriority="low" type="text/javascript" defer src="{{ 'gu-collection.js' | asset_url }}"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libertinus+Sans:wght@400;600&amp;family=Mona+Sans:wght@400;600&amp;display=swap">
+{%- assign check_filer = false -%}
+{%- if settings.collection_filter_show -%}
+{%- assign check_filter = true -%}
+{%- endif -%}
+
+
+<div class="layout-collections" data-collection-url="{{ collection.url }}" data-collection-sort="{{ collection.sort_by | default: collection.default_sort_by }}">
+	{%- paginate collection.products by settings.collection_pagination_limit -%}
+	{%assign page = paginate.pages%}
+	{%- assign collection_banner_url = settings.collection_banner -%}
+	{%- if collection.image != blank -%}
+		{%- assign collection_banner_url = collection.image.src -%}
+	{%- endif -%}
+	<section class="collection-hero">
+		{%- if settings.collection_image_show and collection_banner_url != blank -%}
+		<div class="collection-hero-media">
+			<img class="collection-hero-image" src="{{ collection_banner_url }}" alt="{{ collection.title | escape }}" width="1520" height="651" loading="eager" fetchpriority="high">
+		</div>
+		{%- endif -%}
+		<div class="collection-hero-content">
+			<h1 class="collection-hero-title">{% if collection.handle == 'all' %}Tất cả sản phẩm{% else %}{{ collection.title | escape }}{% endif %}</h1>
+		</div>
+	</section>
+
+	<div class="wrapper-mainCollection" data-page="{{paginate.pages}}" id="btn-scroll">
+		<div class="collection-listproduct" id="collection-body">
+			<div class="wrapper-filter">
+				<div class="wrapper-filter-mb"></div>
+				<div class="overlay-filter"></div>
+			</div>
+			<div class="collection-content">
+				<div class="container">
+          <button class="filter-icon" type="button" aria-label="Mở bộ lọc" aria-expanded="false">
+            <span class="icon-filter">
+              <svg width="23" height="19" viewBox="0 0 20 20" stroke-width="1.25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="1" y1="6" x2="19" y2="6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></line>
+                <line x1="1" y1="14" x2="19" y2="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></line>
+                <circle cx="7" cy="6" r="3" fill="none" stroke="currentColor"></circle>
+                <circle cx="13" cy="14" r="3" fill="none" stroke="currentColor"></circle>
+              </svg>
+            </span>
+            <span class="title">{{settings.filter_title}}</span>
+            <span class="icon-right">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" class="icon feather feather-chevron-right" aria-hidden="true" focusable="false" role="presentation"><path d="m9 18 6-6-6-6"></path></svg>
+            </span>
+          </button>
+					<div class="row col-content">
+						<div class="col-lg-3 col-12 col-filter sidebar-sticky {% if settings.collection_sortby and collection.products_count > 0%}has-sortby{%endif%}">
+							<div class="aside-groupNav">
+								{%- include 'collection-filter' -%}
+							</div>
+						</div>
+						<div class="col-lg-9 col-12 col-pro width-full">
+							<div class="collection-heading">
+								<div class="container">
+									<div class="hrv-pmo-coupon" data-hrvpmo-layout="grids"></div>
+									<div class="hrv-pmo-discount" data-hrvpmo-layout="grids"></div>
+								</div>
+								<div class="collection-heading__content">
+									<div class="collection-filter-tags">
+										<div class="heading-box heading-box-mb">
+
+											<div class="filter-box noBorder heading-box-mb__count">	
+												{%comment%}<span class="col-title">{%if collection.handle == 'all'%}Tất cả sản phẩm{%else%}{{collection.title}}{%endif%}</span>
+												<span class="title-count">(<b>
+													{{collection.all_products_count}}
+													</b> sản phẩm)
+												</span>{%endcomment%}
+											</div>
+
+											<div class="heading-sortbyfilter heading-box-mb__sortby">
+												<div class="collection-sortbyfilter-container">
+													<div class="collection-sortby-filter">
+														{%- if settings.collection_sortby and collection.products_count > 0 -%}
+														<div class="collection-sortby">
+															<div class="layered_filter_title boxstyle-mb" data-layered-click="#layered_sortby_mobile">
+																<p class="title_filter">
+																	<span class="icon-filter"><i class="fa fa-sort-alpha-asc" aria-hidden="true"></i></span>
+																	<span class="icon-close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></span>										
+																	Sắp xếp
+																</p>
+															</div>
+														</div>
+														{%- endif -%}
+													</div>
+													<div class="collection-sortby-option layered_filter_mobileContent" id="layered_sortby_mobile" >
+														<ul class="sort-by sort-by-content">
+															{% unless collection.handle == 'all' %}	<li><span data-value="manual" data-filter="">Sản phẩm nổi bật</span></li>{% endunless %}
+															<li><span data-value="price-ascending" data-filter="(price:product=asc)">Giá: Tăng dần</span></li>
+															<li><span data-value="price-descending" data-filter="(price:product=desc)">Giá: Giảm dần</span></li>
+															<li><span data-value="title-ascending" data-filter="(title:product=asc)">Tên: A-Z</span></li>
+															<li><span data-value="title-descending" data-filter="(title:product=desc)">Tên: Z-A</span></li>
+															<li><span data-value="created-ascending" data-filter="(updated_at:product=asc)">Cũ nhất</span></li>
+															<li><span data-value="created-descending" data-filter="(updated_at:product=desc)">Mới nhất</span></li>
+															<li><span data-value="best-selling" data-filter="(sold_quantity:product=desc)">Bán chạy nhất</span></li>
+															<li><span data-value="quantity-descending" data-filter="(quantity:product=desc)">Tồn kho giảm dần</span></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="layered_filter_tags">
+											<div class="filter_tags"></div>
+											<div class="filter_tags"></div>
+											{% if settings.use_vendor_filter %}
+											<div class="filter_tags">			
+												{{settings.vendor_title}}: <b></b>		
+												<span class="filter_tags_remove">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 50 50" xml:space="preserve">
+														<path fill="#333" d="M9.016 40.837a1.001 1.001 0 0 0 1.415-.001l14.292-14.309 14.292 14.309a1 1 0 1 0 1.416-1.413L26.153 25.129 40.43 10.836a1 1 0 1 0-1.415-1.413L24.722 23.732 10.43 9.423a1 1 0 1 0-1.415 1.413l14.276 14.293L9.015 39.423a1 1 0 0 0 .001 1.414z" />
+													</svg>
+												</span>
+											</div>
+											{% endif %}
+                      {% if settings.use_type_filter %}
+											<div class="filter_tags">			
+												{{settings.type_title}}: <b></b>		
+												<span class="filter_tags_remove">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 50 50" xml:space="preserve">
+														<path fill="#333" d="M9.016 40.837a1.001 1.001 0 0 0 1.415-.001l14.292-14.309 14.292 14.309a1 1 0 1 0 1.416-1.413L26.153 25.129 40.43 10.836a1 1 0 1 0-1.415-1.413L24.722 23.732 10.43 9.423a1 1 0 1 0-1.415 1.413l14.276 14.293L9.015 39.423a1 1 0 0 0 .001 1.414z" />
+													</svg>
+												</span>
+											</div>
+											{% endif %}
+											{% if settings.use_tag_custom_2 %}
+											<div class="filter_tags">{{settings.tag_title_custom_2}}: <b></b>
+												<span class="filter_tags_remove">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 50 50" xml:space="preserve">
+														<path fill="#333" d="M9.016 40.837a1.001 1.001 0 0 0 1.415-.001l14.292-14.309 14.292 14.309a1 1 0 1 0 1.416-1.413L26.153 25.129 40.43 10.836a1 1 0 1 0-1.415-1.413L24.722 23.732 10.43 9.423a1 1 0 1 0-1.415 1.413l14.276 14.293L9.015 39.423a1 1 0 0 0 .001 1.414z" />
+													</svg>
+												</span>
+											</div>
+											{% endif %}	
+											{% if settings.use_price_filter %}	
+											<div class="filter_tags">{{settings.title_tag_3}}: <b></b>
+												<span class="filter_tags_remove">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 50 50" xml:space="preserve">
+														<path fill="#333" d="M9.016 40.837a1.001 1.001 0 0 0 1.415-.001l14.292-14.309 14.292 14.309a1 1 0 1 0 1.416-1.413L26.153 25.129 40.43 10.836a1 1 0 1 0-1.415-1.413L24.722 23.732 10.43 9.423a1 1 0 1 0-1.415 1.413l14.276 14.293L9.015 39.423a1 1 0 0 0 .001 1.414z" />
+													</svg>
+												</span>
+											</div>
+											{% endif %}	
+											{% if settings.use_color_filter %}
+											<div class="filter_tags">{{settings.color_title}}: <b></b>
+												<span class="filter_tags_remove">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 50 50" xml:space="preserve">
+														<path fill="#333" d="M9.016 40.837a1.001 1.001 0 0 0 1.415-.001l14.292-14.309 14.292 14.309a1 1 0 1 0 1.416-1.413L26.153 25.129 40.43 10.836a1 1 0 1 0-1.415-1.413L24.722 23.732 10.43 9.423a1 1 0 1 0-1.415 1.413l14.276 14.293L9.015 39.423a1 1 0 0 0 .001 1.414z" />
+													</svg>
+												</span>
+											</div>
+											{% endif %}	
+											{% if settings.use_tag_custom_3 %}
+											<div class="filter_tags">{{settings.tag_title_custom_3}}: <b></b>
+												<span class="filter_tags_remove">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 50 50" xml:space="preserve">
+														<path fill="#333" d="M9.016 40.837a1.001 1.001 0 0 0 1.415-.001l14.292-14.309 14.292 14.309a1 1 0 1 0 1.416-1.413L26.153 25.129 40.43 10.836a1 1 0 1 0-1.415-1.413L24.722 23.732 10.43 9.423a1 1 0 1 0-1.415 1.413l14.276 14.293L9.015 39.423a1 1 0 0 0 .001 1.414z" />
+													</svg>
+												</span>
+											</div>
+											{% endif %}	
+											<div class="filter_tags filter_tags_remove_all"><span>Xóa hết </span></div>
+										</div>
+										<div class="collection-active-filters" aria-live="polite"></div>
+									</div>
+								</div>
+							</div>
+							<div class="container-pd-parent">	
+								<div class="collection-wraper">
+									<div class="wraplist-collection">
+										<div class="row listProduct-row listProduct-filter">
+											{%- if collection.products.size == 0 -%}
+											<div class="col-md-12 product-noloop">
+												<div class="collection-alert-no"><p>Chưa có sản phẩm nào trong danh mục này</p></div>
+											</div>
+											{%- else -%}
+											{%- for product in collection.products limit: settings.collection_pagination_limit -%}
+											{%- include 'product-loop' with collection.handle, section:'collection' -%}
+											{%- endfor -%}	
+											{%- endif -%}		
+
+										</div>
+
+										<div class="collection-pagination">
+											{% include 'hrv-pagination' %}
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+					{%- if collection.description -%}
+					<div class="collection-description">
+						<div class="collection-description-inner">
+							<div class="content-description">
+								{{ collection.description }}
+							</div>
+						</div>
+					</div>
+					{%- endif -%}
+				</div>
+			</div>
+		</div>
+		{%- endpaginate -%}
+		<input type="text" class="d-none" id="coll-handle" value="{% if collection.handle == 'all' %}(collectionid:product>0){% else %}(collectionid:product={{collection.id}}){% endif %}" />
+	</div>
+</div>
+{% comment %}
+<script>
+	var hasChangeSort = false;
+	var activeFilter = {{settings.collection_filter_show}};
+	var activeSort = {{settings.collection_sortby}};
+	function sortby() {
+		var parent = this;
+		var collectionsort = "{{ collection.sort_by | default: collection.default_sort_by  }}";
+		Haravan.queryParams = {};
+		if (location.search.length) {
+			for (var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {
+				aKeyValue = aCouples[i].split('=');
+				if (aKeyValue.length > 1) {
+					Haravan.queryParams[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);
+				}
+			}
+		}
+		jQuery('.sort-by li').each(function(){
+			if($(this).find('span').data('value') == collectionsort){
+				$(this).addClass('active');
+			}
+		});
+	}
+	function closeFilterMobile() {
+		$('.collection-filter').find('.layered_filter_parent').removeClass('show-filter');	
+		setTimeout(function(){ 
+			$('.collection-filter').find('.layered_filter_parent').fadeOut();	
+			$(".layered_filter_parent .overlays-rgba").remove(); 
+		}, 100);
+	}
+</script>
+{% endcomment %}
+{% comment %}
+<script>
+	var query = "", total_page = 0, total_product = 0, cur_page = 1, str = "", sortByPicked = '';	
+	jQuery(document).ready(function(){
+		sortby();
+		jQuery('.sort-by li').click(function(){
+			hasChangeSort = true;
+			if($(this).hasClass('active')){}
+			else{
+				var defaultSort = $(this).find('span').data('value');
+				$('.sort-by li').removeClass('active');
+				$('.checkbox-sortby li').removeClass('active');
+				$(this).addClass('active');
+				$('.checkbox-sortby li span[data-value="'+ defaultSort +'"]').parent().addClass('active');
+				Stringfilter();			
+			}
+		})
+		jQuery('.checkbox-sortby li').click(function(){
+			if($(this).hasClass('active')){}
+			else{
+				$('.checkbox-sortby li').removeClass('active');
+				$(this).addClass('active');	
+			}
+			/*if ($(".layered_filter_sortby").length > 0) {
+				closeFilterMobile()
+			}*/
+		})
+		jQuery('body').on('change', '.checkbox-list li > input', function(){
+			jQuery(this).parent().toggleClass('active');	
+			Stringfilter();	
+			var indexTitle = jQuery(this).parents('.filter_group').index();
+			if (jQuery(this).parents('.filter_group').find('li.active').length > 0 ){
+				var textFilter = [];
+				jQuery(this).parents('.filter_group').find('li.active').each(function(){
+					var textVal = $(this).find('label').html();
+					textFilter.push(textVal);
+				});
+				//console.log(textFilter)
+				$('.filter_tags:eq('+indexTitle+') b').html(textFilter.join(',')).parent().addClass('opened');
+				if ($('.filter_tags:not(.filter_tags_remove_all).opened').length > 1 ){
+					$('.filter_tags_remove_all').addClass('opened');
+				}
+			}
+			else{
+				$('.filter_tags:eq('+indexTitle+') b').html('').parent().removeClass('opened');
+				$('.filter_tags_remove_all').removeClass('opened');
+			}
+
+			if($('.checkbox-list li.active').length == 0){
+				$('.btn-collection.btn_clear_filter').hide();
+			} else {
+				$('.btn-collection.btn_clear_filter').show();
+			}
+			//console.log($('.checkbox-list li.active').length)
+		});	
+		jQuery('.filter_tags_remove').click(function(){
+			$(this).parent().removeClass('opened').find('b').html();
+			var indexClick = $(this).parent().index();
+			$('.filter_group:eq('+indexClick+') li.active input').prop('checked', false);
+			$('.filter_group:eq('+indexClick+') li.active').removeClass('active');
+			if($('.filter_tags:not(.filter_tags_remove_all).opened').length == 1){
+				$('.filter_tags_remove_all').removeClass('opened');
+			}
+			if($('.checkbox-list li.active').length == 0){
+				LoadOrigin();
+				hasChangeSort = false;
+			}
+			else{
+				Stringfilter();
+			}
+		});
+		jQuery('.filter_tags_remove_all').click(function(){
+			$('.checkbox-list li.active input').prop('checked', false);
+			$('.checkbox-list li.active').removeClass('active');
+			$('.filter_tags b').html('').parent().removeClass('opened');
+			$('.filter_tags_remove_all').removeClass('opened');
+			hasChangeSort = false;
+			LoadOrigin();
+		});
+		jQuery('.btn_clear_filter').on("click",function(){
+			$('.checkbox-list li.active input').prop('checked', false);
+			$('.checkbox-list li.active').removeClass('active');
+			$('.filter_tags b').html('').parent().removeClass('opened');
+			$('.filter_tags_remove_all').removeClass('opened');
+			$('.btn-collection.btn_clear_filter').hide();
+			hasChangeSort = false;
+			LoadOrigin();	
+		});	
+		jQuery('#apply-btn-filter').on("click",function(){	
+			if($('.checkbox-list li.active').length == 0){
+				var dataSort = $('.checkbox-sortby li.active').find('span').data('value');
+				$('.sort-by li span[data-value="'+ dataSort +'"]').trigger('click');
+			}else{
+				Stringfilter();		
+			}
+			closeFilterMobile();	
+		});
+		jQuery('#clear-btn-filter').on("click",function(){
+			if($('.checkbox-list li.active').length == 0){
+				var originSort = $('.sort-by li.active').find('span').data('value');
+				$('.checkbox-sortby li').removeClass('active');
+				$('.checkbox-sortby li span[data-value="'+ originSort +'"]').parent().addClass('active');
+			}else{
+				$('.checkbox-list li.active input').prop('checked', false);
+				$('.checkbox-list li.active').removeClass('active');
+				$('.filter_tags b').html('').parent().removeClass('opened');
+				$('.filter_tags_remove_all').removeClass('opened');
+				hasChangeSort = false;
+				LoadOrigin();
+			}
+			closeFilterMobile();	
+		});	 
+		//var str = "";
+		var Stringfilter = function(){ 
+			var q="", gia="",vendor="",color="", size="", author="", sortBy = "";
+			var handle_coll = $('#coll-handle').val();
+
+			var pathName = window.location.pathname;
+			if(pathName.indexOf('vendors') > -1 ){
+				handle_coll = '(vendor:product contains '+paramUrl.q.replaceAll('-',' ')+')';
+				//console.log(handle_coll)
+			}
+			if(pathName.indexOf('types') > -1 ){
+				handle_coll = '(product_type:product='+paramUrl.q.replaceAll('-',' ')+')';
+			}
+			var str_url = 'filter=';
+			q = "("+handle_coll;
+
+			jQuery('.hrv-price ul.checkbox-list li.active').each(function(){
+				gia = gia + jQuery(this).find('input').data('price') + '||';
+			})
+			gia=gia.substring(0,gia.length -2);
+			if(gia != ""){
+				gia='('+gia+')';
+				q+='&&'+gia;
+			}
+
+			jQuery('.filter-brand ul.checkbox-list li.active').each(function(){
+				vendor = vendor + jQuery(this).find('input').data('vendor') + '||';
+			})
+			vendor=vendor.substring(0,vendor.length -2);
+			if(vendor != ""){
+				vendor='('+vendor+')';
+				q+='&&'+vendor;
+			}
+
+			jQuery('.filter-color ul.checkbox-list li.active').each(function(){
+				color = color + jQuery(this).find('input').data('color') + '||';
+				//size2 = size2 + jQuery(this).data('s') + '--';
+			})
+			color=color.substring(0,color.length -2);
+			if(color != ""){
+				color='('+color+')';
+				q+='&&'+color;
+			}
+			jQuery('.filter-size ul.checkbox-list li.active').each(function(){
+				size = size + jQuery(this).find('input').data('size') + '||';
+			})
+			size=size.substring(0,size.length -2);
+			if(size != ""){
+				size='('+size+')';
+				q+='&&'+size;
+			}
+			jQuery('.filter-author ul.checkbox-list li.active').each(function(){
+				author = author + jQuery(this).find('input').data('author') + '||';
+			})
+			author=author.substring(0,author.length -2);
+			if(author != ""){
+				author='('+author+')';
+				q+='&&'+author;
+			}
+			if ($('.sort-by').length > 0) {
+				$('.sort-by li').each(function(){
+					if($(this).hasClass('active')){
+						if ($(this).find('span').data('value') == 'manual') {
+							sortBy = '';
+						} else {
+							sortBy = '&sortby=' + $(this).find('span').data('filter');
+						}
+					}
+				});
+				sortByPicked = sortBy;
+			}
+			//console.log(str_url + q)
+			str_url += encodeURIComponent(q) + ")";
+			str = str_url;
+
+			jQuery.ajax({ // lấy tổng số trang của kết quả filter
+				url: "/search?q="+str_url+"&view=pagesize",	
+				async: false,
+				success:function(data){
+					data = JSON.parse(data);
+					total_page = parseInt(data.pages);
+					total_product = parseInt(data.products);
+				}
+			})
+			if(cur_page <= total_page){
+				//jQuery('.pagi').show();
+				jQuery.ajax({
+					url : "/search?q="+str_url+"&view=filter"+sortBy,
+					success: function(data){
+						setTimeout(function(){ 
+							$(".product-noloop").remove();
+							$(".listProduct-filter").html('');	
+							$(".listProduct-filter").html(data);	
+							$('.title-count b').html(total_product);
+							if(productReviewsApp &&  productReviewsProloop){ ProductReviews.init(); }
+							if(promotionApp){	
+								if (promotionApp_name == 'app_combo'){
+									comboApp.showGiftLabel();				
+								}
+								else{	
+									buyXgetY.showGiftLabel();	
+								}
+							}	
+							if($(window).width() > 1200){
+								$('[data-toggle="popover"]').popover({
+									container: 'body'
+								})
+							}
+							if(total_page > 1){
+								$('.wraplist-collection .collection-loadmore').addClass('loadmore-filter').show();
+								$('.wraplist-collection .collection-loadmore a').attr('data-page',cur_page+1);
+							}
+							else{
+								$('.wraplist-collection .listProduct-filter').siblings(':not(h3)').hide();
+							}	
+						},300);
+					}
+				});
+				/*jQuery.ajax({  // đoạn code 
+				url: "/search?q="+str_url+"&view=paginate",
+				async: false,
+				success:function(data){
+					//jQuery(".pagi-filter").html(data); // in phân trang
+					jQuery(".pagi").html(data); // in phân trang
+				}
+			})*/
+			} else {
+				jQuery(".listProduct-filter").html('');	
+				jQuery(".listProduct-filter").append('<div class="col-md-12 product-noloop"><div class="collection-alert-no"><p>Không tìm thấy kết quả. Vui lòng thử lại!</p></div></div>');
+				jQuery('.wraplist-collection .collection-loadmore').hide();
+				jQuery(".title-count b").html("0");
+				//jQuery('.pagi').hide();
+			}
+			/*jQuery('.pagi').on("click","a",function(){ // bắt sự kiện click các nút phân trang
+			var link = jQuery(this).attr("data-link");
+			if(link == 'm'){
+				link = cur_page - 1;
+			}
+			if(link == 'p'){
+				link = cur_page + 1;
+			}
+			link = parseInt(link);
+			jQuery.ajax({
+				url : "/search?q="+str+"&view=filter&page="+link, 
+				success: function(data){
+					jQuery(".listProduct-filter").html(data);
+					cur_page = link;
+				}
+			})
+			//console.log("/search?q="+str+"&view=paginate&page="+link);
+			jQuery.ajax({ 
+				url: "/search?q="+str+"&view=paginate&page="+link,	
+				success:function(data){
+					//jQuery(".pagi-filter").html(data); // in phân trang
+					jQuery(".pagi").html(data); // in phân trang
+				}
+			})
+		});*/
+		}
+		var LoadOrigin = function(){
+			var view = "?view=data", pageView = '?view=pagesize';			
+			cur_page = 1;	
+			var collectionHd = "{{collection.url}}";				
+			var urlQuery = collectionHd+view;
+
+			var pathName = window.location.pathname;
+			if(pathName.indexOf('vendors') > -1 || pathName.indexOf('types') > -1){
+				collectionHd = pathName + '?q='+paramUrl.q;
+				urlQuery = pathName + '?q='+paramUrl.q+view.replace('?','&');
+			}
+
+			if ($('.sort-by').length > 0) {
+				$('.sort-by li').each(function(){
+					if($(this).hasClass('active')){
+						if ($(this).find('span').data('value') == 'manual') {
+							sortBy = '';
+						} else {
+							sortBy = '&sort_by=' + $(this).find('span').data('value');
+						}
+					}
+				});
+				sortByPicked = sortBy;
+			}
+
+			$.ajax({
+				url: collectionHd + (collectionHd.indexOf('?') > -1?pageView.replace('?','&'):pageView),	
+				type: 'GET',
+				async: false,
+				success:function(data){					
+					data = JSON.parse(data);
+					total_page = parseInt(data.pages);
+					total_product = parseInt(data.products);
+				}
+			});
+
+			$.ajax({
+				url: urlQuery+'&page='+cur_page+sortByPicked,
+				type: 'GET',
+				async: false,
+				success:function(data){
+					$('.wraplist-collection .listProduct-filter').html('');
+					if(cur_page >= total_page && total_page > 1){ 
+						$('.wraplist-collection .listProduct-filter').siblings(':not(h3)').hide();
+					}
+					else{
+						setTimeout(function(){ 
+							$('.wraplist-collection .listProduct-filter').append(data).addClass('loaded');
+							$('.title-count b').html(total_product);
+							$('.collection-loadmore .btn-loadmore').attr('data-page',cur_page+1);
+							$('.collection-loadmore').find('.btn-loadmore').removeClass('btn-loading')
+							$('.collection-loadmore').show();
+							if(productReviewsApp &&  productReviewsProloop){ ProductReviews.init(); }
+							if(promotionApp){	
+								if (promotionApp_name == 'app_combo'){
+									comboApp.showGiftLabel();				
+								}
+								else{	
+									buyXgetY.showGiftLabel();	
+								}
+							}	
+							if($(window).width() > 1200){
+								$('[data-toggle="popover"]').popover({
+									container: 'body'
+								})
+							}
+						}, 400);
+					}
+				}
+			});
+
+		}
+		$(document).on("click","#collection-body .collection-loadmore .btn-loadmore:not(.btn-loading)", function(e){
+			e.preventDefault();
+			$(this).addClass('btn-loading');
+			var btn = $(this);
+			var view = "?view=data", pageView = '?view=pagesize';			
+			var link = parseInt($(this).attr("data-page"));		
+			var collectionHd = "{{collection.url}}";				
+			var urlQuery = collectionHd+view;
+			var pathName = window.location.pathname;
+
+			if(pathName.indexOf('vendors') > -1 || pathName.indexOf('types') > -1){
+				collectionHd = pathName + '?q='+paramUrl.q;
+				urlQuery = pathName + '?q='+paramUrl.q+view.replace('?','&');
+			}
+
+			if ($('.sort-by').length > 0) {			
+				if($('.sort-by li.active').length > 0){	
+					if ($('.sort-by li.active').find('span').data('value') == 'manual') {
+						sortBy = '';
+					} 
+					else {
+						if((hasChangeSort) || $('.checkbox-list li.active').length > 0){
+							sortBy = '&sortby=' + $('.sort-by li.active').find('span').data('filter');
+						}
+						else{
+							sortBy = '&sort_by=' + $('.sort-by li.active').find('span').data('value');
+						}
+					}
+				}
+				else{
+					sortBy = '';				
+				}
+				sortByPicked = sortBy;
+			}
+
+			if((activeFilter && $('.checkbox-list li.active').length == 0 && hasChangeSort == false) || (!activeFilter && activeSort && hasChangeSort == false)){
+				$.ajax({
+					url: collectionHd + (collectionHd.indexOf('?') > -1?pageView.replace('?','&'):pageView),	
+					type: 'GET',
+					async: false,
+					success:function(data){				
+						data = JSON.parse(data);
+						total_page = parseInt(data.pages);
+					}
+				});		
+
+				$.ajax({
+					url: urlQuery+'&page='+link+sortByPicked,					
+					type: 'GET',
+					async: false,
+					success:function(data){
+						setTimeout(function(){ 
+							$('.wraplist-collection .listProduct-filter').append(data).addClass('loaded');
+							$('.collection-loadmore').find('.btn-loadmore').removeClass('btn-loading');
+							if(productReviewsApp &&  productReviewsProloop){	ProductReviews.init();	}
+							if(promotionApp){	
+								if (promotionApp_name == 'app_combo'){
+									comboApp.showGiftLabel();				
+								}
+								else{	
+									buyXgetY.showGiftLabel();	
+								}
+							}	
+							if($(window).width() > 1200){
+								$('[data-toggle="popover"]').popover({
+									container: 'body'
+								})
+							}
+
+							if(link == 1){
+								$('.wraplist-collection .listProduct-filter').html('');
+							}
+							if(link >= total_page){ 
+								$('.wraplist-collection .listProduct-filter').siblings(':not(h3)').hide();
+							}
+						}, 400);
+					}
+				});
+				$(this).attr('data-page',link+1);
+			}
+			else{
+				jQuery.ajax({
+					url : "/search?q="+str+"&view=filter"+sortByPicked+'&page='+link,
+					success: function(data){
+						jQuery(".product-noloop").remove();					
+						setTimeout(function(){ 
+							$('.wraplist-collection .listProduct-filter').append(data).addClass('loaded');
+							$('.collection-loadmore').find('.btn-loadmore').removeClass('btn-loading');
+							if(productReviewsApp &&  productReviewsProloop){ ProductReviews.init(); }
+							if(promotionApp){	
+								if (promotionApp_name == 'app_combo'){
+									comboApp.showGiftLabel();				
+								}
+								else{	
+									buyXgetY.showGiftLabel();	
+								}
+							}	
+							if(link >= total_page && total_page > 1){
+								$('.wraplist-collection .listProduct-filter').siblings(':not(h3)').hide();
+							}
+							else{
+								btn.attr('data-page',link+1);
+							}
+							if($(window).width() > 1200){
+								$('[data-toggle="popover"]').popover({
+									container: 'body'
+								})
+							}
+						}, 400);
+					}
+				});
+			}
+		});
+		$(document).on('click', '.heading-box .title-filter', function(e){
+			e.preventDefault();
+			$(".layered_filter_parent").append('<div class="overlays-rgba"></div>'); 
+			$('.collection-filter').find('.layered_filter_parent').fadeIn(100);	
+			$('.collection-filter').find('.layered_filter_parent').addClass('show-filter');	
+		});	
+		$(document).on('click', '.layered_filter_parent .close_filter,.layered_filter_parent .overlays-rgba', function(e){
+			e.preventDefault();
+			if($('.checkbox-list li.active').length == 0){
+				var originSort = $('.sort-by li.active').find('span').data('value');
+				$('.checkbox-sortby li').removeClass('active');
+				$('.checkbox-sortby li span[data-value="'+ originSort +'"]').parent().addClass('active');
+			}
+			closeFilterMobile();
+		});	
+    $(document).on('click','.filter-icon', function(){
+      $(this).toggleClass('show');
+      $(this).parents('.collection-content').find('.col-filter').toggleClass('show');
+      $(this).parents('.collection-content').find('.col-pro').toggleClass('width-full');
+    })
+	});
+</script>
+{% endcomment %}

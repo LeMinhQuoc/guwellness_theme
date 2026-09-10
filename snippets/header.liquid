@@ -1,0 +1,139 @@
+{% comment %}haravan-audit:v2{% endcomment %}
+{%comment%}
+theme=dental_hub
+section=header
+module=header
+primary_file=header.liquid
+{%endcomment%}
+<link rel="stylesheet" href="{{ 'header.scss.css' | asset_url }}">
+<script fetchpriority="low" type="text/javascript" defer src="{{ 'header.js' | asset_url }}"></script>
+
+<link rel="stylesheet" href="{{ 'header-minicart.scss.css' | asset_url }}">
+<script fetchpriority="low" type="text/javascript" defer src="{{ 'header-minicart.js' | asset_url }}"></script>
+
+{%if settings.show_dentalhub_header_search%}
+<link rel="stylesheet" href="{{ 'header-search.scss.css' | asset_url }}">
+<script fetchpriority="low" type="text/javascript" defer src="{{ 'header-search.js' | asset_url }}"></script>
+{%endif%}
+
+{%- assign checkcarticon = false -%}
+{%- if settings.dentalhub_toolbar_bottom_selected == 'dentalhub_toolbar_style_1' and settings.dentalhub_sidebar_icon_cart_show -%}
+{%- assign checkcarticon = true -%}
+{%- endif -%}
+
+<div class="dentalhub-mainHeader--height hrv-mainHeader--height {% if template == 'index' %}header-fixed{% endif %}">
+	<header class="dentalhub-mainHeader hrv-mainHeader">
+    <div class="dentalhub-mainHeader-middle hrv-mainHeader-middle">
+			<div class="container-fluid">
+				<div class="dentalhub-flex-header hrv-flex-header">
+					<div class="dentalhub-header-left hrv-header-left">
+						<div class="dentalhub-header-wrap-iconav hrv-header-wrap-iconav dentalhub-header-wrap-action hrv-header-wrap-action d-sm-block d-lg-none">
+							<div class="dentalhub-header-action hrv-header-action">
+								<div class="dentalhub-header-action-item hrv-header-action-item dentalhub-header-action_menu hrv-header-action_menu dentalhub-activeMenuChecked hrv-activeMenuChecked">							
+									<div class="dentalhub-header-action_text hrv-header-action_text">
+										<a class="dentalhub-header-action__link hrv-header-action__link" name="icon-menu-mobile" href="javascript:void(0)" aria-label="Menu" title="Menu">
+											<span class="dentalhub-box-icon hrv-box-icon">								
+												<span class="dentalhub-hamburger-menu hrv-hamburger-menu"  aria-hidden="true">
+													<span class="dentalhub-bar hrv-bar"></span>
+												</span>
+												<span class="dentalhub-box-icon--close hrv-box-icon--close">
+													<svg  viewBox="0 0 19 19" role="presentation"><path d="M9.1923882 8.39339828l7.7781745-7.7781746 1.4142136 1.41421357-7.7781746 7.77817459 7.7781746 7.77817456L16.9705627 19l-7.7781745-7.7781746L1.41421356 19 0 17.5857864l7.7781746-7.77817456L0 2.02943725 1.41421356.61522369 9.1923882 8.39339828z"  fill-rule="evenodd"></path></svg>
+												</span>											
+											</span>	
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+            <div class="dentalhub-header-wrap-menu hrv-header-wrap-menu d-lg-block d-none">
+							{%- include 'header-menu' -%}
+						</div>
+					</div>
+						<div class="dentalhub-header-wrap-logo hrv-header-wrap-logo d-lg-none">
+							<div class="dentalhub-wrap-logo hrv-wrap-logo" itemscope="" itemtype="http://schema.org/Organization">
+								{% if settings.use_logo %}
+								{% if template == 'index' %}
+								<a href="{{shop.url}}"  itemprop="url">
+									<img itemprop="logo" src="{{ settings.logo_png }}" alt="{{ shop.name }}" class="img-responsive logoimg lazyload"/>
+								</a>			
+								<h1 style="display:none"><a href="{{shop.url}}" itemprop="url"><span class="notranslate">{{ shop.name }}</span></a></h1>
+								{% else %}
+								<a href="{{shop.url}}"  itemprop="url">
+									<img itemprop="logo" src="{{ settings.logo_png }}" alt="{{ shop.name }}" class="img-responsive logoimg lazyload"/>
+								</a>
+								{% endif %}
+								{% else %}
+								{% if template == 'index' %}	<h1><a href="{{shop.url}}" itemprop="url"><span class="notranslate">{{ shop.name }}</span></a></h1>
+								{% else %}	<a href="{{shop.url}}" itemprop="url"><span class="notranslate">{{ shop.name }}</span></a>{% endif %}
+								{% endif %}
+							</div>
+						</div>
+					<div class="dentalhub-header-right hrv-header-right">
+						<div class="dentalhub-header-wrap-action hrv-header-wrap-action">
+							<div class="dentalhub-header-action hrv-header-action">	
+								{%if settings.show_dentalhub_header_search%}
+								<div class="dentalhub-header-action-item hrv-header-action-item dentalhub-header-action_search hrv-header-action_search">							
+									<div class="dentalhub-header-action_text hrv-header-action_text">
+										<a class="dentalhub-header-action__link hrv-header-action__link dentalhub-header-action_clicked hrv-header-action_clicked"  href="#" id="site-search-handle"  aria-label="Tìm kiếm" title="Tìm kiếm">
+											<span class="dentalhub-box-icon hrv-box-icon">								
+												<svg class="dentalhub-svg-ico-search hrv-svg-ico-search" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M19 19L14.65 14.65M17 9C17 13.4183 13.4183 17 9 17C4.58172 17 1 13.4183 1 9C1 4.58172 4.58172 1 9 1C13.4183 1 17 4.58172 17 9Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+												<span class="dentalhub-box-icon--close hrv-box-icon--close">
+													<svg  viewBox="0 0 19 19" role="presentation"><path d="M9.1923882 8.39339828l7.7781745-7.7781746 1.4142136 1.41421357-7.7781746 7.77817459 7.7781746 7.77817456L16.9705627 19l-7.7781745-7.7781746L1.41421356 19 0 17.5857864l7.7781746-7.77817456L0 2.02943725 1.41421356.61522369 9.1923882 8.39339828z"  fill-rule="evenodd"></path></svg>
+												</span>											
+											</span>	
+										</a>
+										<span class="dentalhub-box-triangle hrv-box-triangle">
+											<svg viewBox="0 0 20 9" role="presentation">
+												<path d="M.47108938 9c.2694725-.26871321.57077721-.56867841.90388257-.89986354C3.12384116 6.36134886 5.74788116 3.76338565 9.2467995.30653888c.4145057-.4095171 1.0844277-.40860098 1.4977971.00205122L19.4935156 9H.47108938z"></path>
+											</svg>
+										</span>
+									</div>
+									<div class="dentalhub-header-action_dropdown hrv-header-action_dropdown">
+										<div class="dentalhub-header-dropdown_content hrv-header-dropdown_content">
+											<div class="dentalhub-sitenav-content hrv-sitenav-content dentalhub-sitenav-search hrv-sitenav-search">
+												<p class="dentalhub-boxtitle hrv-boxtitle">Tìm kiếm</p>											
+                        {% include 'header-search'%}
+											</div>
+										</div>
+									</div>
+								</div>
+								{%endif%}
+								{% if shop.customer_accounts_enabled and settings.show_dentalhub_header_account%}
+								<div class="dentalhub-header-action-item hrv-header-action-item dentalhub-header-action_account hrv-header-action_account">							
+									<div class="dentalhub-header-action_text hrv-header-action_text">
+										<a class="dentalhub-header-action__link hrv-header-action__link"  href="{%- if customer -%}/account{%else%}/account/login{%endif%}" aria-label="Tài khoản" title="Tài khoản">
+											<span class="dentalhub-box-icon hrv-box-icon">		
+												<svg class="dentalhub-svg-ico-account hrv-svg-ico-account" width="20" height="19" viewBox="0 0 20 19" fill="none" aria-hidden="true"><path d="M1 18C3.33579 15.5226 6.50702 14 10 14C13.493 14 16.6642 15.5226 19 18M14.5 5.5C14.5 7.98528 12.4853 10 10 10C7.51472 10 5.5 7.98528 5.5 5.5C5.5 3.01472 7.51472 1 10 1C12.4853 1 14.5 3.01472 14.5 5.5Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>					
+											</span>								
+										</a>
+									</div>
+								</div>
+								{%endif%}
+								<div class="dentalhub-header-action-item hrv-header-action-item dentalhub-header-action_cart hrv-header-action_cart {% unless template == 'cart'%}{%if settings.promotion_hrvapp_use == 'false'%}dentalhub-activeCartChecked hrv-activeCartChecked{%endif%}{%endunless%} {%unless checkcarticon %}dentalhub-show-mb hrv-show-mb{%endunless%}">							
+									<div class="dentalhub-header-action_text hrv-header-action_text">
+										<a class="dentalhub-header-action__link hrv-header-action__link {% unless template == 'cart'%} {%if settings.promotion_hrvapp_use == 'false'%}dentalhub-header-action_clicked hrv-header-action_clicked{%endif%} {% endunless %}"  href="{% if template == 'cart' or settings.promotion_hrvapp_use%}/cart{%else%}#{%endif%}" aria-label="Giỏ hàng" title="Giỏ hàng">				
+											<span class="dentalhub-box-icon hrv-box-icon">								
+												<svg width="21" height="20" viewBox="0 0 20.3957 20" fill="none" aria-hidden="true"><path d="M14.1978 6C14.1978 7.06087 13.7764 8.07828 13.0263 8.82843C12.2761 9.57857 11.2587 10 10.1978 10C9.13696 10 8.11955 9.57857 7.3694 8.82843C6.61926 8.07828 6.19783 7.06087 6.19783 6M1.83105 5.40138L1.13105 13.8014C0.980672 15.6059 0.905483 16.5082 1.21051 17.2042C1.47852 17.8157 1.94286 18.3204 2.53002 18.6382C3.1983 19 4.10369 19 5.91447 19H14.4812C16.292 19 17.1974 19 17.8656 18.6382C18.4528 18.3204 18.9171 17.8157 19.1851 17.2042C19.4902 16.5082 19.415 15.6059 19.2646 13.8014L18.5646 5.40138C18.4352 3.84875 18.3705 3.07243 18.0267 2.48486C17.7239 1.96744 17.2731 1.5526 16.7323 1.29385C16.1182 1 15.3392 1 13.7812 1L6.61447 1C5.05645 1 4.27745 1 3.66335 1.29385C3.12257 1.5526 2.67173 1.96744 2.36896 2.48486C2.02513 3.07243 1.96043 3.84875 1.83105 5.40138Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+												<span class="dentalhub-box-icon--close hrv-box-icon--close">
+													<svg  viewBox="0 0 19 19" role="presentation"><path d="M9.1923882 8.39339828l7.7781745-7.7781746 1.4142136 1.41421357-7.7781746 7.77817459 7.7781746 7.77817456L16.9705627 19l-7.7781745-7.7781746L1.41421356 19 0 17.5857864l7.7781746-7.77817456L0 2.02943725 1.41421356.61522369 9.1923882 8.39339828z"  fill-rule="evenodd"></path></svg>
+												</span>			
+												<span class="dentalhub-count-holder hrv-count-holder">
+													<span class="dentalhub-count hrv-count js-cart-count">{{ cart.item_count }}</span>
+												</span>		
+											</span>							
+										</a>
+										<span class="dentalhub-box-triangle hrv-box-triangle">
+											<svg viewBox="0 0 20 9" role="presentation">
+												<path d="M.47108938 9c.2694725-.26871321.57077721-.56867841.90388257-.89986354C3.12384116 6.36134886 5.74788116 3.76338565 9.2467995.30653888c.4145057-.4095171 1.0844277-.40860098 1.4977971.00205122L19.4935156 9H.47108938z" fill="#ffffff"></path>
+											</svg>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+    </div>
+	</header>
+</div>

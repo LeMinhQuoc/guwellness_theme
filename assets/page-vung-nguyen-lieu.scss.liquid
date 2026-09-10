@@ -1,0 +1,1147 @@
+.page-vung-nguyen-lieu *,
+.page-vung-nguyen-lieu *::before,
+.page-vung-nguyen-lieu *::after {
+  box-sizing: border-box;
+}
+
+.page-vung-nguyen-lieu {
+  margin: 0;
+  background: #fff;
+  overflow-x: clip;
+  color: #0a0a0a;
+}
+
+.page-vung-nguyen-lieu img {
+  display: block;
+  max-width: 100%;
+}
+
+.page-vung-nguyen-lieu a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page-vung-nguyen-lieu button {
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.page-vung-nguyen-lieu .container {
+  width: calc(100% - 80px);
+  max-width: 1520px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.page-vung-nguyen-lieu .section-pad-top {
+  padding-top: 90px;
+}
+
+.page-vung-nguyen-lieu h1,
+.page-vung-nguyen-lieu h2,
+.page-vung-nguyen-lieu h3,
+.page-vung-nguyen-lieu p {
+  margin: 0;
+  overflow-wrap: break-word;
+}
+
+.page-vung-nguyen-lieu h1 {
+  color: #55723a;
+}
+
+.page-vung-nguyen-lieu .eyebrow {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: -0.2px;
+}
+
+.page-vung-nguyen-lieu .gu-button {
+  position: relative;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0;
+  gap: 0;
+  color: #fff;
+  font-size: 18px;
+  line-height: 18px;
+  text-transform: uppercase;
+  letter-spacing: -0.2px;
+}
+
+.page-vung-nguyen-lieu .button-icon {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  border-radius: 100px;
+  background: #55723a;
+  color: #fff;
+}
+
+.page-vung-nguyen-lieu .button-icon svg,
+.page-vung-nguyen-lieu .button-icon img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  transform: translate(-50%, -50%);
+}
+
+.page-vung-nguyen-lieu .button-label {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  margin-left: -1px;
+  padding: 0 20px;
+  border-radius: 100px;
+  background: #55723a;
+}
+
+.page-vung-nguyen-lieu .ingredients-hero {
+  padding-bottom: 40px;
+}
+
+.page-vung-nguyen-lieu .ingredients-hero-media {
+  position: relative;
+  height: 855px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #f5f6ee;
+}
+
+.page-vung-nguyen-lieu .ingredients-hero-media img,
+.page-vung-nguyen-lieu .future-section > img,
+.page-vung-nguyen-lieu .sustainability-image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.page-vung-nguyen-lieu .ingredients-cta > img {
+  width: 100%;
+  height: auto;
+}
+.page-vung-nguyen-lieu .ingredients-hero-copy {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: end;
+  margin-top: 32px;
+}
+
+.page-vung-nguyen-lieu .ingredients-hero-copy > * {
+  min-width: 0;
+}
+
+.page-vung-nguyen-lieu .ingredients-hero-copy h1 {
+  margin-top: 12px;
+  white-space: normal;
+}
+
+.page-vung-nguyen-lieu .ingredients-hero-copy > p {
+  width: 100%;
+  max-width: 627px;
+  justify-self: center;
+  font-size: 20px;
+  line-height: 30px;
+  color: #0a0a0a;
+}
+
+.page-vung-nguyen-lieu .source-map {
+  padding: 80px 40px;
+  border: 1px solid #e5ebdb;
+  border-radius: 20px;
+  background: #f5f6ee;
+}
+
+.page-vung-nguyen-lieu .source-map-grid {
+  display: grid;
+  grid-template-columns: minmax(460px, 1fr) minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.page-vung-nguyen-lieu .map-panel {
+  position: sticky;
+  top: 110px;
+  overflow: visible;
+  border-radius: 20px;
+}
+
+.page-vung-nguyen-lieu .map-panel-inner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.page-vung-nguyen-lieu .map-panel img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.page-vung-nguyen-lieu .map-pins {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.page-vung-nguyen-lieu .map-pin {
+  position: absolute;
+  z-index: 2;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.page-vung-nguyen-lieu .map-pin-dot {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.25);
+  transition: transform 160ms ease, background 160ms ease;
+}
+.page-vung-nguyen-lieu .map-pin-dot::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
+  border-radius: 50%;
+  background: #E69D2B;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0px 8px #E69D2B;
+}
+/*.page-vung-nguyen-lieu .map-pin.is-active .map-pin-dot,
+.page-vung-nguyen-lieu .map-pin:hover .map-pin-dot {
+  background: #E69D2B;
+}*/
+
+.page-vung-nguyen-lieu .map-pin-tooltip {
+  position: absolute;
+  left: 50%;
+  border: 1px solid #CCDAB9;
+  bottom: calc(100% + 10px);
+  z-index: 3;
+  min-width: 0;
+  width: max-content;
+  padding: 16px 20px;
+  border-radius: 14px;
+  background: #fff;
+  color: #0A0A0A;
+  font-size: 22px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%) translateY(4px);
+  transition: opacity 160ms ease, transform 160ms ease, visibility 160ms ease;
+  box-shadow: 0 12px 16px -4px rgba(16, 24, 40, 0.08), 0 4px 6px -2px rgba(16, 24, 40, 0.03);
+  pointer-events: none;
+}
+
+.page-vung-nguyen-lieu .map-pin-tooltip::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-top-color: #fff;
+  transform: translateX(-50%);
+}
+
+.page-vung-nguyen-lieu .map-pin:hover .map-pin-tooltip,
+.page-vung-nguyen-lieu .map-pin.is-active .map-pin-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.page-vung-nguyen-lieu .source-detail {
+  display: grid;
+  gap: 12px;
+}
+
+.page-vung-nguyen-lieu .ingredient-tabs {
+  position: sticky;
+  top: 90px;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 20px 0;
+  background: linear-gradient(#f5f6ee 70%, rgba(245, 246, 238, 0));
+}
+
+.page-vung-nguyen-lieu .ingredient-tabs button {
+  min-height: 40px;
+  padding: 10px 24px;
+  border: 1px solid #ccdab9;
+  border-radius: 100px;
+  background: #fff;
+  color: #55723a;
+  font-size: 14px;
+  line-height: 18px;
+  white-space: nowrap;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.page-vung-nguyen-lieu .ingredient-tabs button.is-active {
+  border-color: #55723a;
+  background: #55723a;
+  color: #fff;
+}
+
+.page-vung-nguyen-lieu .ingredient-card {
+  display: grid;
+  gap: 32px;
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.page-vung-nguyen-lieu .ingredient-card.is-swapping {
+  opacity: 0.28;
+  transform: translateY(6px);
+}
+
+.page-vung-nguyen-lieu .ingredient-intro-card,
+.page-vung-nguyen-lieu .cultivation-panel,
+.page-vung-nguyen-lieu .nutrition-panel,
+.page-vung-nguyen-lieu .heritage-card {
+  border-radius: 20px;
+}
+
+.page-vung-nguyen-lieu .ingredient-intro-card {
+  display: grid;
+  gap: 24px;
+  padding: 24px;
+  border: 1px solid #e5ebdb;
+  background: #fff;
+}
+
+.page-vung-nguyen-lieu .ingredient-visual-stack {
+  display: grid;
+}
+
+.page-vung-nguyen-lieu .ingredient-photo {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: -86px;
+  border-radius: 20px;
+}
+
+.page-vung-nguyen-lieu .ingredient-photo img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.page-vung-nguyen-lieu .ingredient-quote,
+.page-vung-nguyen-lieu .partner-quote {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 26px 32px;
+  border: 1px solid #ccdab9;
+  border-radius: 20px;
+  background: #fff;
+  font-size: 24px;
+  line-height: 31px;
+  letter-spacing: -1.5px;
+}
+
+.page-vung-nguyen-lieu .ingredient-quote {
+  margin: 0 32px;
+}
+
+.page-vung-nguyen-lieu .ingredient-quote svg,
+.page-vung-nguyen-lieu .partner-quote svg {
+  width: 48px;
+  height: auto;
+  margin-bottom: -17px;
+}
+
+.page-vung-nguyen-lieu .partner-quote {
+  border: 0;
+  background: #e5f3f8;
+}
+
+.page-vung-nguyen-lieu .ingredient-copy {
+  display: grid;
+  gap: 10px;
+}
+
+.page-vung-nguyen-lieu .ingredient-copy h2 {
+  color: #55723a;
+}
+
+.page-vung-nguyen-lieu .ingredient-copy p,
+.page-vung-nguyen-lieu .process-list p,
+.page-vung-nguyen-lieu .standards-list p,
+.page-vung-nguyen-lieu .sustainability-pillars p,
+.page-vung-nguyen-lieu .future-cards p,
+.page-vung-nguyen-lieu .farmtour-cards p {
+  font-size: 16px;
+  line-height: 23px;
+  color: #404040;
+}
+
+.page-vung-nguyen-lieu .metric-row,
+.page-vung-nguyen-lieu .cultivation-grid,
+.page-vung-nguyen-lieu .nutrition-grid,
+.page-vung-nguyen-lieu .future-cards,
+.page-vung-nguyen-lieu .sustainability-pillars,
+.page-vung-nguyen-lieu .farmtour-cards {
+  display: grid;
+  gap: 10px;
+}
+
+.page-vung-nguyen-lieu .metric-row,
+.page-vung-nguyen-lieu .cultivation-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.page-vung-nguyen-lieu .nutrition-grid,
+.page-vung-nguyen-lieu .farmtour-cards {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.page-vung-nguyen-lieu .metric-card,
+.page-vung-nguyen-lieu .process-mini-card,
+.page-vung-nguyen-lieu .nutrition-card {
+  min-height: 94px;
+  padding: 16px 20px;
+  border: 1px solid #e5ebdb;
+  border-radius: 12px;
+  background: #f5f6ee;
+}
+
+.page-vung-nguyen-lieu .process-mini-card,
+.page-vung-nguyen-lieu .nutrition-card {
+  min-height: 130px;
+  padding: 24px;
+  background: #fff;
+}
+
+.page-vung-nguyen-lieu .nutrition-card:first-child {
+  background: #f5f6ee;
+}
+
+.page-vung-nguyen-lieu .metric-card strong,
+.page-vung-nguyen-lieu .process-mini-card strong,
+.page-vung-nguyen-lieu .nutrition-card strong,
+.page-vung-nguyen-lieu .future-cards span,
+.page-vung-nguyen-lieu .process-list span,
+.page-vung-nguyen-lieu .standards-list span {
+  display: block;
+  color: #55723a;
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 400;
+  letter-spacing: -1.7px;
+}
+
+.page-vung-nguyen-lieu .process-mini-card strong,
+.page-vung-nguyen-lieu .nutrition-card strong {
+  color: #0a0a0a;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: -0.2px;
+}
+
+.page-vung-nguyen-lieu .metric-card span,
+.page-vung-nguyen-lieu .process-mini-card span,
+.page-vung-nguyen-lieu .nutrition-card span {
+  display: block;
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #404040;
+}
+
+.page-vung-nguyen-lieu .mini-section {
+  display: grid;
+  gap: 16px;
+}
+
+.page-vung-nguyen-lieu .cultivation-panel,
+.page-vung-nguyen-lieu .nutrition-panel {
+  padding: 0;
+  background: transparent;
+}
+
+.page-vung-nguyen-lieu .heritage-card {
+  display: grid;
+  gap: 24px;
+  padding: 24px;
+  background: #fff;
+}
+
+.page-vung-nguyen-lieu .heritage-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.page-vung-nguyen-lieu .heritage-header p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.page-vung-nguyen-lieu .heritage-nav {
+  display: flex;
+  gap: 8px;
+}
+
+.page-vung-nguyen-lieu .heritage-nav-prev,
+.page-vung-nguyen-lieu .heritage-nav-next {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #e5ebdb;
+  color: #55723a;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.page-vung-nguyen-lieu .heritage-nav-next {
+  background: #55723a;
+  color: #fff;
+}
+
+.page-vung-nguyen-lieu .heritage-nav-prev:disabled,
+.page-vung-nguyen-lieu .heritage-nav-next:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.page-vung-nguyen-lieu .heritage-card.is-single-slide .heritage-nav {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.page-vung-nguyen-lieu .heritage-slider {
+  overflow: hidden;
+  width: 100%;
+}
+
+.page-vung-nguyen-lieu .heritage-track {
+  display: flex;
+  width: 100%;
+  transition: transform 0.35s ease;
+}
+
+.page-vung-nguyen-lieu .heritage-slide {
+  display: grid;
+  flex: 0 0 100%;
+  gap: 24px;
+  width: 100%;
+  min-width: 100%;
+}
+
+.page-vung-nguyen-lieu .heritage-slide h3 {
+  margin: 0;
+}
+
+.page-vung-nguyen-lieu .heritage-slide > p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 23px;
+}
+
+.page-vung-nguyen-lieu .heritage-slide > img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.page-vung-nguyen-lieu .quality-standards {
+  padding-top: 80px;
+  text-align: center;
+}
+
+.page-vung-nguyen-lieu .quality-standards .section-heading {
+  align-items: center;
+}
+
+.page-vung-nguyen-lieu .quality-standards .section-heading p {
+  margin-top: 12px;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.page-vung-nguyen-lieu .certificate-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+  text-align: left;
+}
+
+.page-vung-nguyen-lieu .certificate-grid img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.page-vung-nguyen-lieu .certificate-grid p {
+  margin-top: 16px;
+  font-size: 16px;
+  line-height: 23px;
+}
+
+.page-vung-nguyen-lieu .production-process,
+.page-vung-nguyen-lieu .standards-section {
+  padding: 80px 0;
+}
+
+.page-vung-nguyen-lieu .process-grid,
+.page-vung-nguyen-lieu .standards-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.page-vung-nguyen-lieu .production-process .process-heading,
+.page-vung-nguyen-lieu .standards-section .process-heading {
+  position: sticky;
+  top: 120px;
+}
+
+.page-vung-nguyen-lieu .process-heading .eyebrow {
+  color: #55723a;
+}
+
+.page-vung-nguyen-lieu .process-heading h2 {
+  margin-top: 12px;
+}
+
+.page-vung-nguyen-lieu .standards-list {
+  display: grid;
+  gap: 12px;
+}
+
+.page-vung-nguyen-lieu .process-list {
+  display: grid;
+  gap: 0;
+}
+
+.page-vung-nguyen-lieu .process-list article,
+.page-vung-nguyen-lieu .standards-list article,
+.page-vung-nguyen-lieu .sustainability-pillars article {
+  padding: 28px 24px;
+  border: 1px solid #e5ebdb;
+  border-radius: 20px;
+}
+
+.page-vung-nguyen-lieu .process-list article,
+.page-vung-nguyen-lieu .standards-list article {
+  display: grid;
+  gap: 12px;
+  background: #fff;
+}
+
+.page-vung-nguyen-lieu .process-list article:nth-of-type(even),
+.page-vung-nguyen-lieu .standards-list article:nth-child(2) {
+  background: #f5f6ee;
+}
+
+.page-vung-nguyen-lieu .process-arrow {
+  width: 21px;
+  height: 18px;
+  justify-self: center;
+  margin: -1px 0;
+  transform: rotate(0deg);
+  transform-origin: center center;
+}
+
+.page-vung-nguyen-lieu .process-list h3,
+.page-vung-nguyen-lieu .standards-list h3,
+.page-vung-nguyen-lieu .sustainability-pillars h3,
+.page-vung-nguyen-lieu .farmtour-cards h3,
+.page-vung-nguyen-lieu .future-cards h3 {
+  color: #42592f;
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 400;
+  letter-spacing: -1.7px;
+}
+
+.page-vung-nguyen-lieu .process-list p,
+.page-vung-nguyen-lieu .standards-list p {
+  margin-top: 0;
+}
+
+.page-vung-nguyen-lieu .sustainability-band {
+  display: grid;
+  gap: 20px;
+  padding: 24px;
+  border-radius: 20px;
+  background: #f5f6ee;
+}
+
+.page-vung-nguyen-lieu .sustainability-image {
+  position: relative;
+  height: 631px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.page-vung-nguyen-lieu .sustainability-image > img,
+.page-vung-nguyen-lieu .future-section > img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  min-width: 100%;
+  height: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  transform-origin: center center;
+}
+
+.page-vung-nguyen-lieu .sustainability-image > div {
+  position: absolute;
+  left: 32px;
+  right: 32px;
+  bottom: 32px;
+  width: calc(100% - 64px);
+  max-width: 650px;
+}
+
+.page-vung-nguyen-lieu .sustainability-image h2 {
+  margin-top: 12px;
+}
+
+.page-vung-nguyen-lieu .sustainability-pillars {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.page-vung-nguyen-lieu .sustainability-pillars article {
+  min-height: 251px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #fff;
+}
+
+.page-vung-nguyen-lieu .sustainability-pillars article:nth-child(2) {
+  background: #e5ebdb;
+}
+
+.page-vung-nguyen-lieu .sustainability-pillars span,
+.page-vung-nguyen-lieu .process-list span,
+.page-vung-nguyen-lieu .standards-list span {
+  display: block;
+  color: #55723a;
+  font-size: 16px;
+  line-height: 23px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+
+.page-vung-nguyen-lieu .sustainability-pillars h3 {
+  margin-top: 8px;
+}
+
+.page-vung-nguyen-lieu .sustainability-pillars p,
+.page-vung-nguyen-lieu .farmtour-cards p {
+  margin-top: 0;
+}
+
+.page-vung-nguyen-lieu .future-section {
+  position: relative;
+  height: 900px;
+  margin-top: 80px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.page-vung-nguyen-lieu .future-section > img {
+  z-index: 0;
+}
+
+.page-vung-nguyen-lieu .future-copy {
+  position: absolute;
+  z-index: 1;
+  top: 80px;
+  left: 50%;
+  width: calc(100% - 64px);
+  max-width: 980px;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.page-vung-nguyen-lieu .future-copy h2 {
+  margin-top: 12px;
+}
+
+.page-vung-nguyen-lieu .future-copy > p:last-child {
+  width: 100%;
+  max-width: 860px;
+  margin: 12px auto 0;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.page-vung-nguyen-lieu .future-cards {
+  position: absolute;
+  z-index: 1;
+  left: 32px;
+  right: 32px;
+  bottom: 32px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.page-vung-nguyen-lieu .future-cards article {
+  padding: 28px 24px;
+  border-radius: 12px;
+  background: rgba(66, 89, 47, 0.52);
+  color: #fff;
+  backdrop-filter: blur(10px);
+}
+
+.page-vung-nguyen-lieu .future-cards span,
+.page-vung-nguyen-lieu .future-cards h3,
+.page-vung-nguyen-lieu .future-cards p {
+  color: #fff;
+}
+
+.page-vung-nguyen-lieu .farmtour {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: center;
+  min-height: 750px;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #e5ebdb;
+  border-radius: 20px;
+  background: #f5f6ee;
+}
+
+.page-vung-nguyen-lieu .farmtour > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  align-self: center;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.page-vung-nguyen-lieu .farmtour-copy {
+  display: grid;
+  gap: 40px;
+  padding: 0 40px 0 20px;
+}
+
+.page-vung-nguyen-lieu .farmtour-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 0;
+}
+
+.page-vung-nguyen-lieu .farmtour-cards article {
+  min-height: 271px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 28px 24px;
+  border: 1px solid #e5ebdb;
+  border-radius: 20px;
+  background: #fff;
+}
+
+.page-vung-nguyen-lieu .farmtour-cards article:nth-child(2) {
+  background: #e5ebdb;
+}
+
+.page-vung-nguyen-lieu .farmtour .gu-button {
+  margin-top: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.page-vung-nguyen-lieu .ingredients-cta {
+  position: relative;
+  margin-top: 80px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.page-vung-nguyen-lieu .ingredients-cta > img {
+  display: block;
+}
+
+.page-vung-nguyen-lieu .ingredients-cta > div {
+  position: absolute;
+  left: 48px;
+  bottom: 48px;
+  z-index: 2;
+  width: calc(100% - 96px);
+  max-width: 620px;
+}
+
+.page-vung-nguyen-lieu .ingredients-cta .gu-button {
+  margin-top: 24px;
+}
+
+.page-vung-nguyen-lieu.motion-ready .ingredients-hero-media,
+.page-vung-nguyen-lieu.motion-ready .ingredients-hero-media img,
+.page-vung-nguyen-lieu.motion-ready .process-heading,
+.page-vung-nguyen-lieu.motion-ready .process-list article,
+.page-vung-nguyen-lieu.motion-ready .process-arrow,
+.page-vung-nguyen-lieu.motion-ready .standards-list article,
+.page-vung-nguyen-lieu.motion-ready .sustainability-image,
+.page-vung-nguyen-lieu.motion-ready .sustainability-pillars article,
+.page-vung-nguyen-lieu.motion-ready .future-section > img,
+.page-vung-nguyen-lieu.motion-ready .future-copy > *,
+.page-vung-nguyen-lieu.motion-ready .future-cards article,
+.page-vung-nguyen-lieu.motion-ready .farmtour > img,
+.page-vung-nguyen-lieu.motion-ready .farmtour-copy > *,
+.page-vung-nguyen-lieu.motion-ready .ingredients-cta > img,
+.page-vung-nguyen-lieu.motion-ready .ingredients-cta > div > * {
+  will-change: transform, opacity;
+}
+
+@media (max-width: 1180px) {
+  .page-vung-nguyen-lieu .ingredients-hero {
+    padding-bottom: 32px;
+  }
+
+  .page-vung-nguyen-lieu .container {
+    width: calc(100vw - 48px);
+    max-width: 1520px;
+  }
+
+  .page-vung-nguyen-lieu .ingredients-hero-media {
+    height: 62vw;
+    min-height: 420px;
+  }
+
+  .page-vung-nguyen-lieu .ingredients-hero-copy,
+  .page-vung-nguyen-lieu .source-map-grid,
+  .page-vung-nguyen-lieu .process-grid,
+  .page-vung-nguyen-lieu .standards-section,
+  .page-vung-nguyen-lieu .farmtour {
+    grid-template-columns: 1fr;
+  }
+
+  .page-vung-nguyen-lieu .map-panel,
+  .page-vung-nguyen-lieu .ingredient-tabs,
+  .page-vung-nguyen-lieu .production-process .process-heading,
+  .page-vung-nguyen-lieu .standards-section .process-heading {
+    position: static;
+  }
+
+  .page-vung-nguyen-lieu .map-panel {
+    max-width: 680px;
+    margin-inline: auto;
+  }
+
+  .page-vung-nguyen-lieu .sustainability-pillars,
+  .page-vung-nguyen-lieu .future-cards,
+  .page-vung-nguyen-lieu .certificate-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .page-vung-nguyen-lieu .farmtour {
+    padding: 20px;
+  }
+
+  .page-vung-nguyen-lieu .farmtour-copy {
+    padding: 0;
+  }
+
+  .page-vung-nguyen-lieu .ingredients-cta {
+    height: 560px;
+  }
+}
+
+@media (max-width: 720px) {
+  .page-vung-nguyen-lieu .ingredients-hero {
+    padding-bottom: 24px;
+  }
+
+  .page-vung-nguyen-lieu .container {
+    width: calc(100vw - 32px);
+    max-width: none;
+  }
+
+  .page-vung-nguyen-lieu .ingredients-hero-copy h1,
+  .page-vung-nguyen-lieu .ingredients-hero-copy > p {
+    width: 100%;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .page-vung-nguyen-lieu .ingredients-hero-media,
+  .page-vung-nguyen-lieu .ingredients-hero-copy {
+    width: calc(100vw - 32px);
+    max-width: calc(100vw - 32px);
+  }
+
+  .page-vung-nguyen-lieu .ingredients-hero-copy {
+    width: calc(100vw - 64px);
+    max-width: 280px;
+  }
+
+  .page-vung-nguyen-lieu .ingredients-hero-copy h1 {
+    font-size: 34px;
+    line-height: 40px;
+    letter-spacing: -1.4px;
+  }
+
+  .page-vung-nguyen-lieu .ingredients-hero-copy > p {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .page-vung-nguyen-lieu .source-map {
+    padding: 40px 16px;
+  }
+
+  .page-vung-nguyen-lieu .ingredients-hero-media,
+  .page-vung-nguyen-lieu .sustainability-image,
+  .page-vung-nguyen-lieu .future-section,
+  .page-vung-nguyen-lieu .ingredients-cta {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 4 / 5;
+  }
+
+  .page-vung-nguyen-lieu .ingredients-hero-copy,
+  .page-vung-nguyen-lieu .metric-row,
+  .page-vung-nguyen-lieu .cultivation-grid,
+  .page-vung-nguyen-lieu .nutrition-grid,
+  .page-vung-nguyen-lieu .sustainability-pillars,
+  .page-vung-nguyen-lieu .future-cards,
+  .page-vung-nguyen-lieu .farmtour-cards,
+  .page-vung-nguyen-lieu .process-list,
+  .page-vung-nguyen-lieu .standards-list,
+  .page-vung-nguyen-lieu .certificate-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-vung-nguyen-lieu .ingredient-quote,
+  .page-vung-nguyen-lieu .partner-quote {
+    border-radius: 16px;
+    font-size: 20px;
+    line-height: 28px;
+    padding: 22px 24px;
+  }
+
+  .page-vung-nguyen-lieu .ingredient-quote {
+    margin: 0 16px;
+  }
+
+  .page-vung-nguyen-lieu .ingredient-photo {
+    margin-bottom: -48px;
+    min-height: 0;
+  }
+
+  .page-vung-nguyen-lieu .ingredient-photo img {
+    height: 260px;
+  }
+
+  .page-vung-nguyen-lieu .future-copy,
+  .page-vung-nguyen-lieu .future-cards,
+  .page-vung-nguyen-lieu .ingredients-cta > div {
+    position: relative;
+    inset: auto;
+    width: auto;
+    transform: none;
+  }
+
+  .page-vung-nguyen-lieu .future-section,
+  .page-vung-nguyen-lieu .ingredients-cta {
+    display: grid;
+    gap: 20px;
+  }
+
+  .page-vung-nguyen-lieu .future-section > img {
+    position: relative;
+    inset: auto;
+  }
+
+  .page-vung-nguyen-lieu .sustainability-pillars article,
+  .page-vung-nguyen-lieu .farmtour-cards article {
+    min-height: auto;
+    gap: 40px;
+  }
+
+  .page-vung-nguyen-lieu .farmtour {
+    min-height: 0;
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
+
+  .page-vung-nguyen-lieu .future-copy,
+  .page-vung-nguyen-lieu .ingredients-cta > div {
+    padding: 0 20px 24px;
+    text-align: left;
+  }
+
+  .page-vung-nguyen-lieu .future-cards {
+    padding: 0 20px 20px;
+  }
+
+  .page-vung-nguyen-lieu .ingredients-cta {
+    margin-top: 48px;
+    aspect-ratio: 4 / 5;
+  }
+
+  .page-vung-nguyen-lieu .ingredients-cta > img {
+    position: relative;
+    inset: auto;
+  }
+
+  .page-vung-nguyen-lieu .ingredients-cta > div {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 24px;
+    width: auto;
+    max-width: none;
+    padding: 0;
+  }
+}

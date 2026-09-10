@@ -1,0 +1,40 @@
+{% comment %}haravan-audit:v2{% endcomment %}
+<link rel="stylesheet" href="{{ 'gu-utilities.css' | asset_url }}" as="style">
+<link rel="stylesheet" href="{{ 'template-collection.scss.css' | asset_url }}" as="style">
+<link rel="stylesheet" href="{{ 'gu-article.scss.css' | asset_url }}" as="style">
+
+<div class="gu-article gu-blog" data-filename="gu-blog">
+	<div class="gu-article__top">
+		<div class="container-fluid">
+			<div class="gu-article__layout">
+				<div class="gu-article__main">
+					{%- paginate blog.articles by settings.blogs_pagination_limit -%}
+					<h1 class="gu-article__title">{% if blog.handle == 'all' %}Tất cả bài viết{% else %}{{ blog.title }}{% endif %}</h1>
+
+					{%- if blog.articles.size == 0 -%}
+					<p class="gu-blog__empty">Chưa có bài viết nào trong mục này</p>
+					{%- else -%}
+					<div class="gu-blog__list">
+						{%- for article in blog.articles -%}
+						{%- assign article_card = article -%}
+						{% include 'gu-article-loop' %}
+						{%- endfor -%}
+					</div>
+					{%- endif -%}
+
+					{%- if paginate.pages > 1 -%}
+					<div class="gu-blog__pagination layout-collections">
+						<div class="collection-pagination">
+							{% include 'hrv-pagination' %}
+						</div>
+					</div>
+					{%- endif -%}
+					{%- endpaginate -%}
+				</div>
+
+				{%- assign sidebar_source = 'all' -%}
+				{% include 'gu-article-sidebar' %}
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,40 @@
+(function () {
+	'use strict';
+
+	function initializeProductRelated(section) {
+		var slider = section.querySelector('.product-related-slider');
+		if (!slider || typeof window.Swiper === 'undefined') return;
+
+		new window.Swiper(slider, {
+			slidesPerView: 1.35,
+			spaceBetween: 12,
+			speed: 450,
+			loop: false,
+			watchOverflow: true,
+			navigation: {
+				prevEl: section.querySelector('.product-related-previous'),
+				nextEl: section.querySelector('.product-related-next')
+			},
+			breakpoints: {
+				480: {
+					slidesPerView: 2,
+					spaceBetween: 12
+				},
+				768: {
+					slidesPerView: 3,
+					spaceBetween: 14
+				},
+				992: {
+					slidesPerView: 4,
+					spaceBetween: 16
+				},
+				1200: {
+					slidesPerView: 5,
+					spaceBetween: 16
+				}
+			}
+		});
+	}
+
+	Array.prototype.slice.call(document.querySelectorAll('[data-product-related]')).forEach(initializeProductRelated);
+})();

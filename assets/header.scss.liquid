@@ -39,7 +39,7 @@ $colorBtnHd: {{ settings.dentalhub_header_btn_color | default: '#333333' }};
   -webkit-backdrop-filter: blur(12px);
   z-index: 9;
   @media (min-width: 991px) {
-    padding: 22px 0;
+    padding: 10px 0;
   }
   .dentalhub-flex-header {
     display: -webkit-flex;
@@ -159,7 +159,7 @@ $colorBtnHd: {{ settings.dentalhub_header_btn_color | default: '#333333' }};
         }
         img {
           display: block;
-          max-height: 48px;
+          max-height: 40px;
           max-width: 210px;
           width: auto;
         }
@@ -1813,6 +1813,60 @@ li.dentalhub-has-submenu.dentalhub-level2 > ul.dentalhub-submenu-links li a {
     font-weight: 600;
     outline: none;
     background: $bgBtnHd;
+  }
+}
+
+.dentalhub-menu-mobile-account {
+  display: none;
+}
+
+@media (max-width: 991.98px) {
+  .dentalhub-mainHeader .hrv-header-action_account {
+    display: none;
+  }
+
+  .dentalhub-sitenav-menu .dentalhub-sitenav-content {
+    flex: 1 1 auto;
+    min-height: 0;
+    height: auto;
+  }
+
+  .dentalhub-menu-mobile-account {
+    display: flex;
+    justify-content: flex-start;
+    padding: 15px;
+    padding-bottom: calc(15px + env(safe-area-inset-bottom));
+    border-top: 1px solid rgba(42, 61, 30, 0.12);
+  }
+
+  .dentalhub-menu-mobile-account-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 14px;
+    color: var(--gu-green, #55723a);
+    border: 1px solid rgba(85, 114, 58, 0.18);
+    border-radius: 12px;
+    background: rgba(85, 114, 58, 0.08);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.2;
+    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .dentalhub-menu-mobile-account-link:hover,
+  .dentalhub-menu-mobile-account-link:focus {
+    color: var(--gu-green-dark, #2a3d1e);
+    border-color: rgba(85, 114, 58, 0.32);
+    background: rgba(85, 114, 58, 0.14);
+  }
+
+  .dentalhub-menu-mobile-account-link svg {
+    width: 20px;
+    height: 19px;
+    flex: 0 0 auto;
   }
 }
 

@@ -2466,7 +2466,7 @@
 "share_fb_home_png": "https://cdn.hstatic.net/files/200001149312/file/logo__7_.png",
 
 
-"logo_png": "https://cdn.hstatic.net/files/200001149312/file/thi_t_k__ch_a_c__t_n_-_2026-06-03t114048.549.png",
+"logo_png": "https://cdn.hstatic.net/files/200001149312/file/gu_wellness.png",
 
 
 "favicon_png": "https://cdn.hstatic.net/files/200001149312/file/ch_a_c__t_n__60_x_60_px___4_.png",
@@ -2514,7 +2514,7 @@
 "gu_index_banner_slide_1_image_url": "https://cdn.hstatic.net/files/200001149312/file/mobile-gif_3_.gif",
 
 
-"gu_index_banner_slide_1_image_mobile_url": "https://cdn.hstatic.net/files/200001149312/file/mobile_gif.gif",
+"gu_index_banner_slide_1_image_mobile_url": "https://cdn.hstatic.net/files/200001149312/file/mobile_gif_4___1_.gif",
 
 
 "gu_index_banner_slide_1_title": "",
@@ -2526,13 +2526,10 @@
 "gu_index_banner_slide_1_button_link": "/collections/all",
 
 
-"gu_index_banner_slide_1_duration": 5000,
+"gu_index_banner_slide_2_show": true,
 
 
-"gu_index_banner_slide_2_show": false,
-
-
-"gu_index_banner_slide_2_image_url": "https://cdn.hstatic.net/files/200001149312/file/banner_web_2_ae58885969884dc1a77c000254aa8946.png",
+"gu_index_banner_slide_2_image_url": "https://cdn.hstatic.net/files/200001149312/file/banner_web_2_52a016bb60fa4e818b7182afee4b6b79.png",
 
 
 "gu_index_banner_slide_2_image_mobile_url": "https://cdn.hstatic.net/files/200001149312/file/banner_mobile_2.png",
@@ -2547,13 +2544,10 @@
 "gu_index_banner_slide_2_button_link": "/collections/all",
 
 
-"gu_index_banner_slide_2_duration": 5000,
+"gu_index_banner_slide_3_show": true,
 
 
-"gu_index_banner_slide_3_show": false,
-
-
-"gu_index_banner_slide_3_image_url": "https://cdn.hstatic.net/files/200001149312/file/banner_web_3_88152b1ee3c24df397aa636e4d6ecbca.png",
+"gu_index_banner_slide_3_image_url": "https://cdn.hstatic.net/files/200001149312/file/banner_web_3_6c6ddba489464132b06b749f3d42e2c9.png",
 
 
 "gu_index_banner_slide_3_image_mobile_url": "https://cdn.hstatic.net/files/200001149312/file/banner_mobile_3.png",
@@ -2562,19 +2556,16 @@
 "gu_index_banner_slide_3_title": "",
 
 
-"gu_index_banner_slide_3_button": "",
+"gu_index_banner_slide_3_button": "Mua ngay",
 
 
-"gu_index_banner_slide_3_button_link": "",
+"gu_index_banner_slide_3_button_link": "/collections/all",
 
 
-"gu_index_banner_slide_3_duration": 5000,
+"gu_index_banner_slide_4_show": true,
 
 
-"gu_index_banner_slide_4_show": false,
-
-
-"gu_index_banner_slide_4_image_url": "https://cdn.hstatic.net/files/200001149312/file/banner_web_4_62b1d983369245aba9eb3cdc7249ac99.png",
+"gu_index_banner_slide_4_image_url": "https://cdn.hstatic.net/files/200001149312/file/banner_web_4_cec8fec2ee5d48eeb59bf0f72555b437.png",
 
 
 "gu_index_banner_slide_4_image_mobile_url": "https://cdn.hstatic.net/files/200001149312/file/banner_mobile_4.png",
@@ -2583,13 +2574,10 @@
 "gu_index_banner_slide_4_title": "",
 
 
-"gu_index_banner_slide_4_button": "",
+"gu_index_banner_slide_4_button": "Mua ngay",
 
 
-"gu_index_banner_slide_4_button_link": "",
-
-
-"gu_index_banner_slide_4_duration": 5000,
+"gu_index_banner_slide_4_button_link": "/collections/all",
 
 
 "gu_index_banner_slide_5_show": false,
@@ -2608,9 +2596,6 @@
 
 
 "gu_index_banner_slide_5_button_link": "",
-
-
-"gu_index_banner_slide_5_duration": 5000,
 
 
 "gu_index_banner_nav_show": false,
@@ -2637,16 +2622,16 @@
 "gu_index_about_button_text": "#ffffff",
 
 
-"gu_index_about_brand_image_url": "https://cdn.hstatic.net/files/200001149312/file/ae27e2ed4aa5989b3ffad7fab43952aa3e8fc907.png",
+"gu_index_about_brand_image_url": "https://cdn.hstatic.net/files/200001149312/file/brand_story.png",
 
 
-"gu_index_about_eyebrow": "BRAND STORY",
+"gu_index_about_eyebrow": "",
 
 
-"gu_index_about_quote": "\"Live Well. Live Your Gu\"",
+"gu_index_about_quote": "",
 
 
-"gu_index_about_button": "Đọc thêm",
+"gu_index_about_button": "Xem thêm",
 
 
 "gu_index_about_button_link": "/pages/about-us",
@@ -2658,7 +2643,7 @@
 "gu_index_about_item_1_title": "Nguyên liệu Việt",
 
 
-"gu_index_about_item_1_image_url": "https://cdn.hstatic.net/files/200001149312/file/image__1_.png",
+"gu_index_about_item_1_image_url": "https://cdn.hstatic.net/files/200001149312/file/nguyen_lieu_viet.png",
 
 
 "gu_index_about_item_2_show": true,
@@ -2667,7 +2652,7 @@
 "gu_index_about_item_2_title": "Tiện lợi mỗi ngày",
 
 
-"gu_index_about_item_2_image_url": "https://cdn.hstatic.net/files/200001149312/file/image.png",
+"gu_index_about_item_2_image_url": "https://cdn.hstatic.net/files/200001149312/file/tien_loi_moi_ngay.png",
 
 
 "gu_index_about_item_3_show": true,
@@ -2676,7 +2661,7 @@
 "gu_index_about_item_3_title": "Hàm lượng tối ưu",
 
 
-"gu_index_about_item_3_image_url": "https://cdn.hstatic.net/files/200001149312/file/image__2_.png",
+"gu_index_about_item_3_image_url": "https://cdn.hstatic.net/files/200001149312/file/khoa_hoc_hien_dai.png",
 
 
 "gu_index_about_item_4_show": true,
@@ -2685,19 +2670,19 @@
 "gu_index_about_item_4_title": "Có Gu sống khỏe",
 
 
-"gu_index_about_item_4_image_url": "https://cdn.hstatic.net/files/200001149312/file/ae27e2ed4aa5989b3ffad7fab43952aa3e8fc907.png",
+"gu_index_about_item_4_image_url": "https://cdn.hstatic.net/files/200001149312/file/brand_story.png",
 
 
 "gu_index_region_show": true,
 
 
-"gu_index_region_bg_image_url": "https://cdn.hstatic.net/files/200001149312/file/region-bg.png",
+"gu_index_region_bg_image_url": "https://cdn.hstatic.net/files/200001149312/file/vung_trong_95d037c1f29048bb830ab7c9da8de061.png",
 
 
-"gu_index_region_eyebrow": "TỪ VÙNG ĐẤT VIỆT",
+"gu_index_region_eyebrow": "Vùng nguyên liệu Việt",
 
 
-"gu_index_region_title": "Làm nên Gu sống khỏe Việt",
+"gu_index_region_title": "Làm nên Gu sống khoẻ Việt",
 
 
 "gu_index_region_button": "Khám phá",
@@ -2745,13 +2730,13 @@
 "gu_index_feature_product_show": true,
 
 
-"gu_index_feature_product_bg_image_url": "https://cdn.hstatic.net/files/200001149312/file/hero-lifestyle.png",
+"gu_index_feature_product_bg_image_url": "https://cdn.hstatic.net/files/200001149312/file/banner_trang_keo_deo_web.png",
 
 
-"gu_index_feature_product_subtitle": "Artichoke Jelly",
+"gu_index_feature_product_subtitle": "",
 
 
-"gu_index_feature_product_title": "Thạch dẻo Atiso thiên nhiên",
+"gu_index_feature_product_title": "",
 
 
 "gu_index_feature_product_button": "Mua ngay",
@@ -2781,19 +2766,19 @@
 "gu_index_testimonial_show": true,
 
 
-"gu_index_testimonial_image_1": "https://cdn.hstatic.net/files/200001149312/file/testimonial-01.png",
+"gu_index_testimonial_image_1": "https://cdn.hstatic.net/files/200001149312/file/untitled-1.png",
 
 
 "gu_index_testimonial_image_1_alt": "",
 
 
-"gu_index_testimonial_image_2": "https://cdn.hstatic.net/files/200001149312/file/testimonial-03.png",
+"gu_index_testimonial_image_2": "https://cdn.hstatic.net/files/200001149312/file/2.png",
 
 
 "gu_index_testimonial_image_2_alt": "",
 
 
-"gu_index_testimonial_image_3": "https://cdn.hstatic.net/files/200001149312/file/testimonial-03.png",
+"gu_index_testimonial_image_3": "https://cdn.hstatic.net/files/200001149312/file/3.png",
 
 
 "gu_index_testimonial_image_3_alt": "",
@@ -2832,7 +2817,7 @@
 "gu_index_partner_cta_link": "/collections/all",
 
 
-"gu_index_partner_cta_image": "https://cdn.hstatic.net/files/200001149312/file/image-placeholder__-_change_image_here.png",
+"gu_index_partner_cta_image": "https://cdn.hstatic.net/files/200001149312/file/hop_tac.png",
 
 
 "gu_index_partner_cta_image_alt": "",
@@ -2928,7 +2913,7 @@
 "page_about_hero_enable": true,
 
 
-"page_about_hero_image": "https://cdn.hstatic.net/files/200001149312/file/image-placeholder__-_change_image_here_cf14585107234a3186d08936c44ac4e3.png",
+"page_about_hero_image": "https://cdn.hstatic.net/files/200001149312/file/hero_banner_web_trang_gioi_thieu_dfde9b35417748cf9facc455969d72ce.png",
 
 
 "page_about_hero_eyebrow": "SỐNG KHỎE CÓ GU",
@@ -2952,7 +2937,7 @@
 "page_about_origin_1_image": "https://cdn.hstatic.net/files/200001149312/file/noun-allergy-to-medicine-3843731_1__1_.png",
 
 
-"page_about_origin_1_text": "\"Tại sao người Việt phải uống những viên thuốc bổ nhập khẩu không phù hợp cơ địa ?",
+"page_about_origin_1_text": "\"Tại sao người Việt phải uống những viên thuốc bổ nhập khẩu không phù hợp cơ địa?\"",
 
 
 "page_about_origin_2_enable": true,
@@ -2961,7 +2946,7 @@
 "page_about_origin_2_image": "https://cdn.hstatic.net/files/200001149312/file/noun-allergy-to-medicine-3843731_1.png",
 
 
-"page_about_origin_2_text": "Tại sao Wellness phải có cảm giác 'y tế' và cứng nhắc?",
+"page_about_origin_2_text": "\"Tại sao Wellness phải có cảm giác 'y tế' và cứng nhắc?\"",
 
 
 "page_about_origin_3_enable": true,
@@ -2970,16 +2955,16 @@
 "page_about_origin_3_image": "https://cdn.hstatic.net/files/200001149312/file/noun-allergy-to-medicine-3843731_1__2_.png",
 
 
-"page_about_origin_3_text": "Liệu có thể tạo ra những sản phẩm Wellness vừa tốt, vừa ngon, vừa đẹp — phù hợp với lifestyle của thế hệ trẻ Việt Nam?\"",
+"page_about_origin_3_text": "\"Liệu có thể tạo ra những sản phẩm Wellness vừa tốt, vừa ngon, vừa đẹp — phù hợp với lifestyle của thế hệ trẻ Việt Nam?\"",
 
 
 "page_about_ingredient_enable": true,
 
 
-"page_about_ingredient_title": "Từ câu hỏi ấy, chúng tôi bắt đầu cuộc\nhành trình khám phá khắp ba miền đất nước",
+"page_about_ingredient_title": "Từ câu hỏi đó, Gu bắt đầu tìm hiểu những vùng nguyên liệu trải dài khắp Việt Nam. Mục tiêu không chỉ là biết nguyên liệu đến từ đâu, mà còn là tạo nên giá trị riêng của từng vùng trồng. ",
 
 
-"page_about_ingredient_map_image": "https://cdn.hstatic.net/files/200001149312/file/frame_1000010326.png",
+"page_about_ingredient_map_image": "https://cdn.hstatic.net/files/200001149312/file/c297dd2c-2f34-49ef-b101-5a674ca90d05_20fd69f2db884091bcdbb068e9488f03.png",
 
 
 "page_about_ingredient_1_enable": true,
@@ -3033,13 +3018,13 @@
 "page_about_realization_enable": true,
 
 
-"page_about_realization_image": "https://cdn.hstatic.net/files/200001149312/file/image_f9d0372a9bd04eeaa24436634a82451b.png",
+"page_about_realization_image": "https://cdn.hstatic.net/files/200001149312/file/hop_tac.png",
 
 
-"page_about_realization_description": "Qua hành trình ấy, chúng tôi nhận ra rằng Việt Nam sở hữu những \"siêu thực phẩm\" có chất lượng không thua kém gì các nguyên liệu cao cấp từ châu Âu hay Mỹ.",
+"page_about_realization_description": "Độc quyền dành cho đối tác, miễn phí vận chuyển, giảm giá và quà tặng đặc biệt.",
 
 
-"page_about_realization_title": "Điều thiếu chỉ là cách chế biến hiện đại, bao bì đẹp mắt và câu chuyện thương hiệu phù hợp với thế hệ trẻ.",
+"page_about_realization_title": "\"Điều thiếu chỉ là cách chế biến hiện đại, bao bì đẹp mắt và câu chuyện thương hiệu phù hợp với thế hệ trẻ.\"",
 
 
 "page_about_philosophy_enable": true,
@@ -3444,7 +3429,7 @@
 "page_about_contact_2_button_link": "/pages/lien-he",
 
 
-"page_about_origin_description": "Năm 2024, giữa những ngày Hà Nội ô nhiễm không khí, stress công việc và áp lực cuộc sống, đội ngũ sáng lập Gu Wellness tự hỏi:",
+"page_about_origin_description": "Gu bắt đầu từ một niềm tin rất Việt: trên dải đất hình chữ S, mỗi vùng trồng đều lưu giữ một tinh hoa riêng. Mỗi nguyên liệu được nuôi dưỡng bởi thổ nhưỡng, khí hậu và kinh nghiệm của người trồng được bồi đắp qua nhiều thế hệ. ",
 
 
 "page_ctv_hero_enable": true,
@@ -5034,7 +5019,7 @@
 "type_filter_values": "Thạch dẻo,Kẹo dẻo,Kẹo Gum",
 
 
-"collection_banner": "https://cdn.hstatic.net/files/200001149312/file/image__1__4c022ba4a76940ea9afc3616d75b69d8.png",
+"collection_banner": "https://cdn.hstatic.net/files/200001149312/file/hero_banner.png",
 
 
 "product_authentic_show": true,
@@ -5256,7 +5241,64 @@
 "gu_contact_show2": false,
 
 
-"gu_contact_form_show": false
+"gu_contact_form_show": false,
+
+
+"gu_index_testimonial_video_1": "https://cdn.hstatic.net/files/200001149312/file/video_1.mp4",
+
+
+"gu_index_testimonial_video_2": "https://cdn.hstatic.net/files/200001149312/file/video_2.mp4",
+
+
+"gu_index_testimonial_video_3": "https://cdn.hstatic.net/files/200001149312/file/video_3.mp4",
+
+
+"gu_index_about_brand_image_mobile_url": "https://cdn.hstatic.net/files/200001149312/file/banner_brand_story_mobile_7e1c56c2effc42d58ac98b7a836e06e6.png",
+
+
+"gu_index_region_bg_image_mobile_url": "https://cdn.hstatic.net/files/200001149312/file/vung_trong_95d037c1f29048bb830ab7c9da8de061.png",
+
+
+"gu_index_feature_product_bg_image_mobile_url": "https://cdn.hstatic.net/files/200001149312/file/banner_trang_keo_deo_mobile_bf79efe5a9c845a584b244013456c69c.png",
+
+
+"page_about_hero_image_mobile": "https://cdn.hstatic.net/files/200001149312/file/image-placeholder__-_change_image_here_cf14585107234a3186d08936c44ac4e3.png",
+
+
+"page_ctv_hero_image_mobile": "https://cdn.hstatic.net/files/200001149312/file/image_034779d809cb49a78b7278bd141e045b.png",
+
+
+"page_ctv_final_cta_image_mobile": "https://cdn.hstatic.net/files/200001149312/file/image__2__6c65ebb6ed0844f0bf5af3897ff23c24.png",
+
+
+"page_vnl_hero_image_mobile": "https://cdn.hstatic.net/files/200001149312/file/image-placeholder__-_change_image_here_b17d810438e24977a344e09f24dfd93d.png",
+
+
+"page_vnl_sustain_image_mobile": "https://cdn.hstatic.net/files/200001149312/file/image-placeholder__-_change_image_here__3_.png",
+
+
+"page_vnl_cta_image_mobile": "https://cdn.hstatic.net/files/200001149312/file/image__4__958e65067c6045ef8685122aeb43865a.png",
+
+
+"page_about_core_5_enable": true,
+
+
+"page_about_core_5_title": "Thiết kế đẹp",
+
+
+"page_about_core_5_image": "https://cdn.hstatic.net/files/200001149312/file/component_56__3_.png",
+
+
+"page_about_realization_quote_title": "Trở thành đối tác của Gu Wellness",
+
+
+"page_about_realization_button_text": "ĐĂNG KÝ NGAY",
+
+
+"page_about_realization_button_link": "/",
+
+
+"page_about_realization_texta": "ELLE VIETNAM"
 
 },
 

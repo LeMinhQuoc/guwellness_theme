@@ -65,6 +65,13 @@
 .page-chinh-sach-ctv .ctv-hero-image {
   position: absolute;
   inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.page-chinh-sach-ctv .ctv-hero-image img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -520,7 +527,7 @@
 }
 
 .page-chinh-sach-ctv .toolkit-image img,
-.page-chinh-sach-ctv .ctv-final-cta > img {
+.page-chinh-sach-ctv .ctv-final-cta-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -738,7 +745,7 @@
 .page-chinh-sach-ctv.motion-ready .points-breakdown article,
 .page-chinh-sach-ctv.motion-ready .points-arrow,
 .page-chinh-sach-ctv.motion-ready .points-use,
-.page-chinh-sach-ctv.motion-ready .ctv-ending-cta > img,
+.page-chinh-sach-ctv.motion-ready .ctv-final-cta-image,
 .page-chinh-sach-ctv.motion-ready .ctv-ending-cta > div > * {
   will-change: transform, opacity;
 }
@@ -749,9 +756,10 @@
   overflow: hidden;
 }
 
-.page-chinh-sach-ctv .ctv-final-cta > img {
+.page-chinh-sach-ctv .ctv-final-cta-image {
   position: absolute;
   inset: 0;
+  display: block;
 }
 
 .page-chinh-sach-ctv .ctv-final-cta > div {
@@ -824,7 +832,7 @@
     overflow-x: hidden;
   }
 
-  .page-chinh-sach-ctv .ctv-hero-image {
+  .page-chinh-sach-ctv .ctv-hero-image img {
     object-position: 70% center;
   }
 

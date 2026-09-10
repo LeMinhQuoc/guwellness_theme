@@ -8,14 +8,35 @@
     <div class="container-fluid">
       <div class="d-flex flex-column flex-md-row g-48 align-items-center">
         <div class="testimonial__videos">
-          <div class="testimonial__video">
-            <img class="obj-cover ratio-video" src="{{ settings.gu_index_testimonial_image_1 }}" alt="{{ settings.gu_index_testimonial_image_1_alt | escape }}">
+          <div class="testimonial__video" data-testimonial-video>
+            <img class="testimonial__image obj-cover ratio-video" src="{{ settings.gu_index_testimonial_image_1 }}" alt="{{ settings.gu_index_testimonial_image_1_alt | escape }}">
+            {% if settings.gu_index_testimonial_video_1 != blank %}
+            <video id="gu-testimonial-video-1" class="testimonial__player obj-cover ratio-video" src="{{ settings.gu_index_testimonial_video_1 | escape }}" preload="metadata" muted playsinline></video>
+            <button class="testimonial__play" type="button" data-testimonial-play aria-controls="gu-testimonial-video-1" aria-label="Phát video đánh giá 1" aria-pressed="false">
+              <svg class="testimonial__play-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M6 3.5L16 10L6 16.5V3.5Z" fill="currentColor"/></svg>
+              <svg class="testimonial__pause-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 4H8V16H5V4ZM12 4H15V16H12V4Z" fill="currentColor"/></svg>
+            </button>
+            {% endif %}
           </div>
-          <div class="testimonial__video">
-            <img class="obj-cover ratio-video" src="{{ settings.gu_index_testimonial_image_2 }}" alt="{{ settings.gu_index_testimonial_image_2_alt | escape }}">
+          <div class="testimonial__video" data-testimonial-video>
+            <img class="testimonial__image obj-cover ratio-video" src="{{ settings.gu_index_testimonial_image_2 }}" alt="{{ settings.gu_index_testimonial_image_2_alt | escape }}">
+            {% if settings.gu_index_testimonial_video_2 != blank %}
+            <video id="gu-testimonial-video-2" class="testimonial__player obj-cover ratio-video" src="{{ settings.gu_index_testimonial_video_2 | escape }}" preload="metadata" muted playsinline></video>
+            <button class="testimonial__play" type="button" data-testimonial-play aria-controls="gu-testimonial-video-2" aria-label="Phát video đánh giá 2" aria-pressed="false">
+              <svg class="testimonial__play-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M6 3.5L16 10L6 16.5V3.5Z" fill="currentColor"/></svg>
+              <svg class="testimonial__pause-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 4H8V16H5V4ZM12 4H15V16H12V4Z" fill="currentColor"/></svg>
+            </button>
+            {% endif %}
           </div>
-          <div class="testimonial__video">
-            <img class="obj-cover ratio-video" src="{{ settings.gu_index_testimonial_image_3 }}" alt="{{ settings.gu_index_testimonial_image_3_alt | escape }}">
+          <div class="testimonial__video" data-testimonial-video>
+            <img class="testimonial__image obj-cover ratio-video" src="{{ settings.gu_index_testimonial_image_3 }}" alt="{{ settings.gu_index_testimonial_image_3_alt | escape }}">
+            {% if settings.gu_index_testimonial_video_3 != blank %}
+            <video id="gu-testimonial-video-3" class="testimonial__player obj-cover ratio-video" src="{{ settings.gu_index_testimonial_video_3 | escape }}" preload="metadata" muted playsinline></video>
+            <button class="testimonial__play" type="button" data-testimonial-play aria-controls="gu-testimonial-video-3" aria-label="Phát video đánh giá 3" aria-pressed="false">
+              <svg class="testimonial__play-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M6 3.5L16 10L6 16.5V3.5Z" fill="currentColor"/></svg>
+              <svg class="testimonial__pause-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 4H8V16H5V4ZM12 4H15V16H12V4Z" fill="currentColor"/></svg>
+            </button>
+            {% endif %}
           </div>
         </div>
         <div class="testimonial__content">

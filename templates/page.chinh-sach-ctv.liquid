@@ -3,7 +3,12 @@
   <div class="page-chinh-sach-ctv-content">
     {% if settings.page_ctv_hero_enable %}
       <section class="ctv-hero">
-        {% if settings.page_ctv_hero_image != blank %}<img class="ctv-hero-image" src="{{ settings.page_ctv_hero_image }}" alt="{{ settings.page_ctv_hero_title }}" />{% endif %}
+        {% if settings.page_ctv_hero_image != blank %}
+          <picture class="ctv-hero-image">
+            {% if settings.page_ctv_hero_image_mobile != blank %}<source media="(max-width: 768px)" srcset="{{ settings.page_ctv_hero_image_mobile }}" />{% endif %}
+            <img src="{{ settings.page_ctv_hero_image }}" alt="{{ settings.page_ctv_hero_title }}" />
+          </picture>
+        {% endif %}
         <div class="ctv-hero-shade" aria-hidden="true"></div>
         <div class="ctv-hero-content">
           <h1>{{ settings.page_ctv_hero_title | newline_to_br }}</h1>
@@ -258,7 +263,12 @@
 
     {% if settings.page_ctv_final_cta_enable %}
       <section id="contact" class="ctv-final-cta ctv-ending-cta">
-        {% if settings.page_ctv_final_cta_image != blank %}<img src="{{ settings.page_ctv_final_cta_image }}" alt="{{ settings.page_ctv_final_cta_title }}" />{% endif %}
+        {% if settings.page_ctv_final_cta_image != blank %}
+          <picture class="ctv-final-cta-image">
+            {% if settings.page_ctv_final_cta_image_mobile != blank %}<source media="(max-width: 768px)" srcset="{{ settings.page_ctv_final_cta_image_mobile }}" />{% endif %}
+            <img src="{{ settings.page_ctv_final_cta_image }}" alt="{{ settings.page_ctv_final_cta_title }}" />
+          </picture>
+        {% endif %}
         <div>
             <div class="container">
                 <h2>{{ settings.page_ctv_final_cta_title | newline_to_br }}</h2>

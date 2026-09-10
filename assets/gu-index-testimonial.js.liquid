@@ -62,5 +62,123 @@
     });
   }
 
-  document.addEventListener("DOMContentLoaded", setupReveal);
+  function setupVideos() {
+    var sections = Array.prototype.slice.call(document.querySelectorAll('[data-filename="gu-index-testimonial"]'));
+
+    sections.forEach(function (section) {
+      var cards = Array.prototype.slice.call(section.querySelectorAll("[data-testimonial-video]"));
+
+      function resetCard(card) {
+        var video = card.querySelector("video");
+        var button = card.querySelector("[data-testimonial-play]");
+
+        if (!video) return;
+
+        video.pause();
+        video.currentTime = 0;
+        card.classList.remove("is-playing");
+
+        if (button) {
+          button.setAttribute("aria-label", "Phát video đánh giá");
+          button.setAttribute("aria-pressed", "false");
+        }
+      }
+
+      function resetOtherCards(activeCard) {
+        cards.forEach(function (card) {
+          if (card !== activeCard) resetCard(card);
+        });
+      }
+
+      function pauseCard(card) {
+        var video = card.querySelector("video");
+
+        if (video) video.pause();
+      }
+
+      function pauseOtherCards(activeCard) {
+        cards.forEach(function (card) {
+          if (card !== activeCard) pauseCard(card);
+        });
+      }
+
+      function playCard(card, withSound) {
+        var video = card.querySelector("video");
+        var button = card.querySelector("[data-testimonial-play]");
+
+        if (!video) return;
+
+        if (withSound) {
+          resetOtherCards(card);
+        } else {
+          pauseOtherCards(card);
+        }
+        video.muted = !withSound;
+        card.classList.add("is-playing");
+
+        if (button) {
+          button.setAttribute("aria-label", "Tạm dừng video đánh giá");
+          button.setAttribute("aria-pressed", "true");
+        }
+
+        var playPromise = video.play();
+
+        if (playPromise && typeof playPromise.catch === "function") {
+          playPromise.catch(function () {
+            resetCard(card);
+          });
+        }
+      }
+
+      cards.forEach(function (card) {
+        var video = card.querySelector("video");
+        var button = card.querySelector("[data-testimonial-play]");
+
+        if (!video) return;
+
+        card.addEventListener("mouseenter", function () {
+          if (!isMobileLayout()) playCard(card, false);
+        });
+
+        card.addEventListener("mouseleave", function () {
+          if (!isMobileLayout()) pauseCard(card);
+        });
+
+        if (button) {
+          button.addEventListener("click", function () {
+            if (!isMobileLayout()) return;
+
+            if (video.paused) {
+              playCard(card, true);
+            } else {
+              resetCard(card);
+            }
+          });
+        }
+
+        video.addEventListener("ended", function () {
+          resetCard(card);
+        });
+      });
+
+      function resetAllCards() {
+        cards.forEach(resetCard);
+      }
+
+      if (typeof mobileMq.addEventListener === "function") {
+        mobileMq.addEventListener("change", resetAllCards);
+      } else if (typeof mobileMq.addListener === "function") {
+        mobileMq.addListener(resetAllCards);
+      }
+
+      document.addEventListener("visibilitychange", function () {
+        if (document.hidden) resetAllCards();
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    setupReveal();
+    setupVideos();
+  });
 })();

@@ -280,7 +280,7 @@ function createIngredientScroll() {
 }
 
 function createSectionMotion() {
-  if ($(".realization")) {
+  /*if ($(".realization")) {
     if ($(".quote-over-image p")) {
       gsap.fromTo(
         ".quote-over-image p",
@@ -311,7 +311,7 @@ function createSectionMotion() {
         scrollTrigger: { trigger: ".realization", start: "top bottom", end: "bottom top", scrub: 0.5 },
       });
     }
-  }
+  }*/
 
   if ($(".philosophy")) {
     const philosophyBackground = $(".philosophy-bg");
@@ -627,7 +627,7 @@ function initMotion() {
   mm.add("(prefers-reduced-motion: reduce)", reducedMotionFallback);
 
   mm.add("(min-width: 1200px) and (prefers-reduced-motion: no-preference)", () => {
-    createHeroScroll();
+    //createHeroScroll();
     createOriginScroll();
     createIngredientScroll();
     createSectionMotion();

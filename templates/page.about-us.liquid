@@ -4,11 +4,21 @@
     {% if settings.page_about_hero_enable %}
       <section class="hero section-pad-top">
         <div class="hero-fullscreen-stage" aria-hidden="true">
-          {% if settings.page_about_hero_image != blank %}<img src="{{ settings.page_about_hero_image }}" alt="" />{% endif %}
+          {% if settings.page_about_hero_image != blank %}
+            <picture>
+              {% if settings.page_about_hero_image_mobile != blank %}<source media="(max-width: 1199px)" srcset="{{ settings.page_about_hero_image_mobile }}" />{% endif %}
+              <img src="{{ settings.page_about_hero_image }}" alt="" />
+            </picture>
+          {% endif %}
         </div>
-        <div class="container-fluid">
+        <div class="container-fluid hero-image-wrap">
           <div class="hero-image">
-            {% if settings.page_about_hero_image != blank %}<img src="{{ settings.page_about_hero_image }}" alt="{{ settings.page_about_hero_title }}" />{% endif %}
+            {% if settings.page_about_hero_image != blank %}
+              <picture>
+                {% if settings.page_about_hero_image_mobile != blank %}<source media="(max-width: 1199px)" srcset="{{ settings.page_about_hero_image_mobile }}" />{% endif %}
+                <img src="{{ settings.page_about_hero_image }}" alt="{{ settings.page_about_hero_title }}" />
+              </picture>
+            {% endif %}
           </div>
         </div>
         <div class="container-fluid hero-copy">
@@ -71,12 +81,32 @@
     {% endif %}
 
     {% if settings.page_about_realization_enable %}
-      <section id="products" class="realization container-fluid">
-        <div class="quote-over-image">
-          {% if settings.page_about_realization_image != blank %}<img src="{{ settings.page_about_realization_image }}" alt="{{ settings.page_about_realization_title }}" />{% endif %}
-          <p>{{ settings.page_about_realization_description }}</p>
+      <section id="products" class="realization">
+        <div class="container-fluid">
+          <div class="quote-over-image">
+            <div class="realization__text">
+              {% if settings.page_about_realization_quote_title != blank %}
+                <h2 class="realization__content-title">{{ settings.page_about_realization_quote_title | newline_to_br }}</h2>
+              {% endif %}
+              <p class="realization__copy">{{ settings.page_about_realization_description }}</p>
+              {% if settings.page_about_realization_button_text != blank %}
+                <a class="gu-btn" href="{{ settings.page_about_realization_button_link | default: '#' }}">
+                  <span class="gu-btn__icon" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M0 1.827L1.71 0H10V8.22L8.11 10V5.93C8.11 4.938 8.119 4.04 8.14 3.235L1.498 9.815L0.182 8.375L6.823 1.795C6.036 1.817 5.153 1.827 4.176 1.827H0Z" fill="currentColor"/></svg></span>
+                  <span class="gu-btn__label">{{ settings.page_about_realization_button_text }}</span>
+                </a>
+              {% endif %}
+            </div>
+            {% if settings.page_about_realization_image != blank %}
+              <div class="realization__image">
+                <img src="{{ settings.page_about_realization_image }}" alt="{{ settings.page_about_realization_title }}" />
+              </div>
+            {% endif %}
+          </div>
         </div>
-        <h2>{{ settings.page_about_realization_title }}</h2>
+        <div class="quote-over-heading-wrapper">
+          <h2>{{ settings.page_about_realization_title }}</h2>
+          <strong>{{ settings.page_about_realization_texta }}</strong>
+        </div>
       </section>
     {% endif %}
 
@@ -122,6 +152,9 @@
     {% if settings.page_about_core_enable %}
       <section class="core-values">
         <div class="core-bg">{% if settings.page_about_core_image != blank %}<img src="{{ settings.page_about_core_image }}" alt="" />{% endif %}</div>
+        <div class="container-fluid">
+          <h2>{{ settings.page_about_core_title }}</h2>
+        </div>
         <div class="container-fluid core-layout">
           <div class="value-list">
             {% for i in (1..2) %}
@@ -131,7 +164,14 @@
               {% if settings[enable_key] %}<article><h3>{{ settings[title_key] }}</h3>{% if settings[image_key] != blank %}<img src="{{ settings[image_key] }}" alt="{{ settings[title_key] }}" />{% endif %}</article>{% endif %}
             {% endfor %}
           </div>
-          <h2>{{ settings.page_about_core_title }}</h2>
+          <div class="value-list">
+            {% for i in (5..5) %}
+              {% capture enable_key %}page_about_core_{{ i }}_enable{% endcapture %}
+              {% capture image_key %}page_about_core_{{ i }}_image{% endcapture %}
+              {% capture title_key %}page_about_core_{{ i }}_title{% endcapture %}
+              {% if settings[enable_key] %}<article><h3>{{ settings[title_key] }}</h3>{% if settings[image_key] != blank %}<img src="{{ settings[image_key] }}" alt="{{ settings[title_key] }}" />{% endif %}</article>{% endif %}
+            {% endfor %}
+          </div>
           <div class="value-list">
             {% for i in (3..4) %}
               {% capture enable_key %}page_about_core_{{ i }}_enable{% endcapture %}
@@ -172,31 +212,6 @@
       </section>
     {% endif %}
 
-    {% if settings.page_about_timeline_enable %}
-      <section class="timeline container-fluid">
-        <h2>{{ settings.page_about_timeline_title }}</h2>
-        <div class="timeline-list">
-          <span class="timeline-line" aria-hidden="true"></span>
-          {% for i in (1..3) %}
-            {% capture enable_key %}page_about_timeline_{{ i }}_enable{% endcapture %}
-            {% capture year_key %}page_about_timeline_{{ i }}_year{% endcapture %}
-            {% capture title_key %}page_about_timeline_{{ i }}_title{% endcapture %}
-            {% if settings[enable_key] %}
-              <article class="{% if i == 2 %}timeline-right{% else %}timeline-left{% endif %}">
-                <span>{{ settings[year_key] }}</span>
-                <h3>{{ settings[title_key] }}</h3>
-                <ul>
-                  {% for j in (1..3) %}
-                    {% capture text_key %}page_about_timeline_{{ i }}_text_{{ j }}{% endcapture %}
-                    <li>{{ settings[text_key] }}</li>
-                  {% endfor %}
-                </ul>
-              </article>
-            {% endif %}
-          {% endfor %}
-        </div>
-      </section>
-    {% endif %}
 
     {% if settings.page_about_sustainability_enable %}
       <section class="sustainability container-fluid">
@@ -221,6 +236,31 @@
                     {% endfor %}
                   </ul>
                 </div>
+              </article>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+    {% if settings.page_about_timeline_enable %}
+      <section class="timeline container-fluid">
+        <h2>{{ settings.page_about_timeline_title }}</h2>
+        <div class="timeline-list">
+          <span class="timeline-line" aria-hidden="true"></span>
+          {% for i in (1..3) %}
+            {% capture enable_key %}page_about_timeline_{{ i }}_enable{% endcapture %}
+            {% capture year_key %}page_about_timeline_{{ i }}_year{% endcapture %}
+            {% capture title_key %}page_about_timeline_{{ i }}_title{% endcapture %}
+            {% if settings[enable_key] %}
+              <article class="{% if i == 2 %}timeline-right{% else %}timeline-left{% endif %}">
+                <span>{{ settings[year_key] }}</span>
+                <h3>{{ settings[title_key] }}</h3>
+                <ul>
+                  {% for j in (1..3) %}
+                    {% capture text_key %}page_about_timeline_{{ i }}_text_{{ j }}{% endcapture %}
+                    <li>{{ settings[text_key] }}</li>
+                  {% endfor %}
+                </ul>
               </article>
             {% endif %}
           {% endfor %}

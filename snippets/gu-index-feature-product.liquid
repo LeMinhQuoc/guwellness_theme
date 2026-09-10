@@ -8,7 +8,12 @@
     <section class="feature-product section-inside">
       <div class="feature-product__bg" aria-hidden="true">
         {% unless settings.gu_index_feature_product_bg_image_url == blank %}
-        <img class="obj-cover" src="{{ settings.gu_index_feature_product_bg_image_url }}" alt="">
+        <picture>
+          {% unless settings.gu_index_feature_product_bg_image_mobile_url == blank %}
+          <source media="(max-width: 991.98px)" srcset="{{ settings.gu_index_feature_product_bg_image_mobile_url }}">
+          {% endunless %}
+          <img class="obj-cover" src="{{ settings.gu_index_feature_product_bg_image_url }}" alt="">
+        </picture>
         {% endunless %}
       </div>
       <div class="feature-product__inner container-gu-narrow">

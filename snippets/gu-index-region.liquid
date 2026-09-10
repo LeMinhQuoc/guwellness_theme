@@ -4,7 +4,7 @@
 <script fetchpriority="low" type="text/javascript" defer src="{{ 'gu-index-region.js' | asset_url }}"></script>
 
 <section class="region-scroll js-region-scroll" id="regions" data-filename="gu-index-region">
-  <div class="pin-frame region"{% unless settings.gu_index_region_bg_image_url == blank %} style="--region-bg-image: url('{{ settings.gu_index_region_bg_image_url }}');"{% endunless %}>
+  <div class="pin-frame region" style="{% unless settings.gu_index_region_bg_image_url == blank %}--region-bg-image: url('{{ settings.gu_index_region_bg_image_url }}');{% endunless %}{% unless settings.gu_index_region_bg_image_mobile_url == blank %}--region-bg-image-mobile: url('{{ settings.gu_index_region_bg_image_mobile_url }}');{% endunless %}">
     <div class="region__bg" aria-hidden="true">
       {% unless settings.gu_index_region_bg_image_url == blank %}
       <img class="obj-cover obj-center" src="{{ settings.gu_index_region_bg_image_url }}" alt="">

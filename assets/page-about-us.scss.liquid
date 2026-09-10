@@ -15,7 +15,6 @@
 }
 
 .page-about-us a {
-  color: inherit;
   text-decoration: none;
 }
 
@@ -71,7 +70,7 @@
 
 .page-about-us .hero {
   position: relative;
-  min-height: 100vh;
+  height: 100vh; 
   padding-bottom: 0;
   overflow: hidden;
 }
@@ -82,7 +81,7 @@
   left: 0;
   z-index: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
   pointer-events: none;
   transform-origin: top left;
@@ -93,10 +92,22 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 100%;
   max-width: none;
+  object-fit: cover;
   transform-origin: top left;
+}
+
+.page-about-us .hero-fullscreen-stage picture,
+.page-about-us .hero-image picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.page-about-us .hero-image-wrap {
+  display: none;
 }
 
 .page-about-us .hero-copy {
@@ -108,6 +119,7 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 80px;
+  height: 100%;
 }
 
 .page-about-us .hero-intro {
@@ -281,40 +293,82 @@
 }
 
 .page-about-us .realization {
-  padding-top: 80px;
-  padding-bottom: 80px;
-  text-align: center;
+  margin: 64px 0;
+  padding: 0;
+  text-align: left;
+}
+
+.page-about-us .realization > .container-fluid {
+  width: calc(100% - 32px);
+  max-width: 1600px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 .page-about-us .quote-over-image {
-  position: relative;
-  height: 651px;
-  overflow: hidden;
-  border-radius: 20px;
+  display: flex;
+  gap: 96px;
+  align-items: center;
+  margin: 0;
 }
 
-.page-about-us .quote-over-image img {
+.page-about-us .realization__text {
+  flex: 0 0 544px;
+}
+
+.page-about-us .realization__content-title {
+  max-width: none;
+  margin: 0;
+  color: inherit;
+  font-family: var(--gu-font-serif, var(--heading-font-family), Georgia, serif);
+  font-size: 56px;
+  line-height: 64px;
+  letter-spacing: -3px;
+  text-align: left;
+}
+
+.page-about-us .realization__copy {
+  max-width: 464px;
+  margin: 12px 0 40px;
+  color: inherit;
+  font-size: 24px;
+  line-height: 1.35;
+  letter-spacing: -0.5px;
+}
+
+.page-about-us .realization__image {
+  min-width: 0;
+  flex: 1 1 auto;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.page-about-us .realization__image img {
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
 }
 
-.page-about-us .quote-over-image p {
-  position: absolute;
-  top: 40px;
-  left: 50%;
-  width: 783px;
-  transform: translateX(-50%);
-  font-size: 20px;
-  line-height: 30px;
+
+.page-about-us .quote-over-heading-wrapper {
+  padding: 25px 0;
+  background: #F9F4EB;
+  margin-top: 20px;
 }
 
-.page-about-us .realization h2 {
+.page-about-us .quote-over-heading-wrapper h2 {
   max-width: 994px;
-  margin: 20px auto 0;
-  color: #55723a;
+  margin: 20px auto;
+  color: #ad8842;
+  text-align: center;
 }
 
+.page-about-us .quote-over-heading-wrapper strong {
+      text-align: center;
+    display: block;
+}
 .page-about-us .philosophy {
   position: relative;
   width: 100%;
@@ -423,8 +477,10 @@
   position: relative;
   min-height: 800px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   overflow: hidden;
+  padding: 50px 0 110px;
 }
 
 .page-about-us .core-bg {
@@ -444,15 +500,16 @@
   min-height: 640px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
+  gap: 50px;
   align-items: center;
 }
 .page-about-us .core-layout h3 {
   color: var(--shop-color-text);
 }
-.page-about-us .core-layout > h2 {
+.page-about-us h2 {
   color: #89351a;
   text-align: center;
+  position: relative;
 }
 
 .page-about-us .value-list {
@@ -624,23 +681,24 @@
 }
 
 .page-about-us .sustain-list {
-  width: 746px;
-  max-width: 100%;
+  max-width: 1024px;
+  width: 100%;
   margin: 32px auto 0;
   display: grid;
   gap: 20px;
+  grid-template-columns: 1fr 1fr;
 }
 
 .page-about-us .sustain-list article {
   display: grid;
-  grid-template-columns: 337px 1fr;
+  grid-template-columns: 1fr;
   gap: 20px;
   align-items: center;
 }
 
 .page-about-us .sustain-list img {
-  width: 337px;
-  height: 225px;
+  width: 100%;
+  height: auto;
   object-fit: cover;
   border-radius: 12px;
 }
@@ -736,6 +794,8 @@
 }
 
 .page-about-us .collab-copy h2 {
+      opacity: 1 !important;
+    visibility: visible !important;
   width: 665px;
   max-width: calc(100% - 40px);
   margin: 12px auto 0;
@@ -951,20 +1011,10 @@
 
   }
 
-  .page-about-us .quote-over-image {
-    height: 360px;
-  }
 
   .page-about-us .section-heading.narrow,
-.page-about-us .origin-copy,
-.page-about-us .quote-over-image p {
+.page-about-us .origin-copy {
     width: auto;
-  }
-
-  .page-about-us .quote-over-image p {
-    left: 24px;
-    right: 24px;
-    transform: none;
   }
 
   .page-about-us .question-grid,
@@ -1035,7 +1085,6 @@
   }
 
   .page-about-us .origin,
-  .page-about-us .realization,
   .page-about-us .mission-vision,
   .page-about-us .team {
     padding-top: 30px;
@@ -1046,6 +1095,10 @@
 @media (max-width: 1199px) {
   .page-about-us .hero-fullscreen-stage {
     display: none;
+  }
+
+  .page-about-us .hero-image-wrap {
+    display: block;
   }
 
   .page-about-us .container,
@@ -1104,9 +1157,6 @@
     max-width: 520px;
   }
 
-  .page-about-us .quote-over-image {
-    height: 500px;
-  }
 
   .page-about-us .philosophy {
     width: 100%;
@@ -1152,7 +1202,11 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
-
+  .page-about-us .value-list article:only-child {
+    grid-column: 1 / -1;
+    width: calc((100% - 16px) / 2);
+    justify-self: center;
+  }
   .page-about-us .value-list article {
     min-height: 190px;
     text-align: center;
@@ -1201,6 +1255,20 @@
   }
 }
 
+@media (max-width: 991.98px) {
+  .page-about-us .quote-over-image {
+    gap: 48px;
+  }
+
+  .page-about-us .realization__text {
+    flex-basis: auto;
+  }
+
+  .page-about-us .realization__image img {
+    max-height: none;
+  }
+}
+
 @media (max-width: 767px) {
   .page-about-us .container,
   .page-about-us .container-fluid {
@@ -1218,6 +1286,7 @@
     font-size: 32px;
     line-height: 38px;
     letter-spacing: -1.2px;
+    margin-bottom: 20px;
   }
 
   .page-about-us h3 {
@@ -1252,14 +1321,12 @@
   }
 
   .page-about-us .hero-intro,
-  .page-about-us .origin-intro,
-  .page-about-us .quote-over-image p {
+  .page-about-us .origin-intro {
     font-size: 16px;
     line-height: 24px;
   }
 
   .page-about-us .origin,
-  .page-about-us .realization,
   .page-about-us .mission-vision,
   .page-about-us .team {
     padding-top: 48px;
@@ -1320,17 +1387,12 @@
   }
 
   .page-about-us .quote-over-image {
-    height: 420px;
+    flex-direction: column;
   }
 
-  .page-about-us .quote-over-image p {
-    top: 20px;
-    left: 16px;
-    right: 16px;
-  }
-
-  .page-about-us .realization h2 {
-    margin-top: 24px;
+  .page-about-us .realization__text,
+  .page-about-us .realization__image {
+    width: 100%;
   }
 
   .page-about-us .philosophy {
@@ -1372,6 +1434,10 @@
 
   .page-about-us .value-list {
     gap: 12px;
+  }
+
+  .page-about-us .value-list article:only-child {
+    width: calc((100% - 12px) / 2);
   }
 
   .page-about-us .value-list article {
@@ -1520,5 +1586,17 @@
   .page-about-us .button-label {
     padding-right: 16px;
     padding-left: 16px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .page-about-us .realization > .container-fluid {
+    width: calc(100% - 24px);
+  }
+
+  .page-about-us .realization__content-title {
+    font-size: 36px;
+    line-height: 1.08;
+    letter-spacing: -1.6px;
   }
 }

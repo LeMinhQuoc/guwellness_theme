@@ -172,7 +172,7 @@
     ".future-cards article",
     ".farmtour > img",
     ".farmtour-copy > *",
-    ".ingredients-ending-cta > img",
+    ".ingredients-ending-cta .ingredients-cta-media",
     ".ingredients-ending-cta > div > *"
   ];
 
@@ -428,7 +428,7 @@
   function createEndingReveal() {
     const cta = $(".ingredients-ending-cta");
     if (!cta) return;
-    reveal(".ingredients-ending-cta > img, .ingredients-ending-cta > div > *", {
+    reveal(".ingredients-ending-cta .ingredients-cta-media, .ingredients-ending-cta > div > *", {
       trigger: cta,
       start: "top 78%",
       y: 48,
@@ -443,7 +443,7 @@
     createStepCardScroll(".standards-section", ".standards-list article");
     createPhilosophyLikeScroll(
       ".sustainability-band",
-      ".sustainability-image > img",
+      ".sustainability-image-media",
       ".sustainability-image .eyebrow, .sustainability-image h2",
       ".sustainability-pillars article",
       { end: "+=900", yPercent: -3, imageScale: 1.08, endScale: 1.04, cardsAt: 0.28 }

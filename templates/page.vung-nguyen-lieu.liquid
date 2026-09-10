@@ -5,7 +5,12 @@
       <section class="ingredients-hero section-pad-top">
         <div class="container">
           <div class="ingredients-hero-media">
-            {% if settings.page_vnl_hero_image != blank %}<img src="{{ settings.page_vnl_hero_image }}" alt="{{ settings.page_vnl_hero_title }}" />{% endif %}
+            {% if settings.page_vnl_hero_image != blank %}
+              <picture>
+                {% if settings.page_vnl_hero_image_mobile != blank %}<source media="(max-width: 720px)" srcset="{{ settings.page_vnl_hero_image_mobile }}" />{% endif %}
+                <img src="{{ settings.page_vnl_hero_image }}" alt="{{ settings.page_vnl_hero_title }}" />
+              </picture>
+            {% endif %}
           </div>
           <div class="ingredients-hero-copy">
             <div>
@@ -180,7 +185,12 @@
     {% if settings.page_vnl_sustain_enable %}
       <section class="sustainability-band container">
         <div class="sustainability-image">
-          {% if settings.page_vnl_sustain_image != blank %}<img src="{{ settings.page_vnl_sustain_image }}" alt="{{ settings.page_vnl_sustain_title }}" />{% endif %}
+          {% if settings.page_vnl_sustain_image != blank %}
+            <picture class="sustainability-image-media">
+              {% if settings.page_vnl_sustain_image_mobile != blank %}<source media="(max-width: 720px)" srcset="{{ settings.page_vnl_sustain_image_mobile }}" />{% endif %}
+              <img src="{{ settings.page_vnl_sustain_image }}" alt="{{ settings.page_vnl_sustain_title }}" />
+            </picture>
+          {% endif %}
           <div>
             <p class="eyebrow">{{ settings.page_vnl_sustain_eyebrow }}</p>
             <h2>{{ settings.page_vnl_sustain_title | newline_to_br }}</h2>
@@ -249,7 +259,12 @@
 
     {% if settings.page_vnl_cta_enable %}
       <section class="ingredients-cta ingredients-ending-cta">
-        {% if settings.page_vnl_cta_image != blank %}<img src="{{ settings.page_vnl_cta_image }}" alt="{{ settings.page_vnl_cta_title }}" />{% endif %}
+        {% if settings.page_vnl_cta_image != blank %}
+          <picture class="ingredients-cta-media">
+            {% if settings.page_vnl_cta_image_mobile != blank %}<source media="(max-width: 720px)" srcset="{{ settings.page_vnl_cta_image_mobile }}" />{% endif %}
+            <img src="{{ settings.page_vnl_cta_image }}" alt="{{ settings.page_vnl_cta_title }}" />
+          </picture>
+        {% endif %}
         <div>
           <h2>{{ settings.page_vnl_cta_title | newline_to_br }}</h2>
           <a class="gu-button" href="javascript:void(0);" data-partner-popup-open>

@@ -27,7 +27,7 @@
       ".points-breakdown article",
       ".points-arrow",
       ".points-use",
-      ".ctv-ending-cta > img",
+      ".ctv-final-cta-image",
       ".ctv-ending-cta > div > *"
     ];
   
@@ -317,7 +317,7 @@
       const cta = pageRoot.querySelector(".ctv-ending-cta");
       if (!cta) return;
   
-      const ctaImage = cta.querySelector(":scope > img");
+      const ctaImage = cta.querySelector(".ctv-final-cta-image");
       const ctaItems = toArray(":scope > div > *", cta);
   
       if (ctaImage) {
@@ -481,4 +481,3 @@
       initMotion();
     }
   })();
-  
